@@ -1,0 +1,756 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		140E24F71F0A675900298665 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E24F61F0A675900298665 /* BookmarkViewController.swift */; };
+		140E24FA1F0A73F200298665 /* SearchResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E24F81F0A73F200298665 /* SearchResultsCell.swift */; };
+		140E250C1F0A790F00298665 /* SearchResultsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 140E250E1F0A790F00298665 /* SearchResultsCell.xib */; };
+		140E25111F0A797E00298665 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 140E25081F0A78C900298665 /* Main.storyboard */; };
+		140E25121F0A798400298665 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 140E250F1F0A793100298665 /* LaunchScreen.storyboard */; };
+		140E25141F0AB67C00298665 /* ActionMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E25131F0AB67C00298665 /* ActionMenuViewController.swift */; };
+		140E25161F0AC19600298665 /* BookshelfCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E25151F0AC19600298665 /* BookshelfCell.swift */; };
+		140E251D1F0AF89D00298665 /* ThumbnailGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 140E251F1F0AF89D00298665 /* ThumbnailGridCell.xib */; };
+		14155C7E1F0A41B600A53380 /* AirForceBookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14155C7D1F0A41B600A53380 /* AirForceBookshelfViewController.swift */; };
+		14155C801F0A425F00A53380 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14155C7F1F0A425F00A53380 /* PDFViewController.swift */; };
+		14155C821F0A449F00A53380 /* ThumbnailGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14155C811F0A449F00A53380 /* ThumbnailGridViewController.swift */; };
+		14155C841F0A450E00A53380 /* ThumbnailGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14155C831F0A450E00A53380 /* ThumbnailGridCell.swift */; };
+		14155C861F0A459200A53380 /* OutlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14155C851F0A459200A53380 /* OutlineViewController.swift */; };
+		14155C881F0A45BE00A53380 /* OutlineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14155C871F0A45BE00A53380 /* OutlineCell.swift */; };
+		14155C8A1F0A45E300A53380 /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14155C891F0A45E300A53380 /* AppearanceViewController.swift */; };
+		14155C8C1F0A460E00A53380 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14155C8B1F0A460E00A53380 /* SearchViewController.swift */; };
+		1421EF151F0A411E00BEB695 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421EF141F0A411E00BEB695 /* AppDelegate.swift */; };
+		1421EF1C1F0A411E00BEB695 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1421EF1B1F0A411E00BEB695 /* Assets.xcassets */; };
+		6C28D47D20E6BB4200DEAC11 /* AirForceOtherAFIBookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C28D47C20E6BB4200DEAC11 /* AirForceOtherAFIBookshelfViewController.swift */; };
+		6C28D47F20E6C99000DEAC11 /* AirForceFSToolkitBookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C28D47E20E6C99000DEAC11 /* AirForceFSToolkitBookshelfViewController.swift */; };
+		6C28D48120E733C400DEAC11 /* AirForceRSVBookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C28D48020E733C400DEAC11 /* AirForceRSVBookshelfViewController.swift */; };
+		6C6923F520E6931A00D8DF34 /* USN ManMed Chapter 15 Physical Exams & Standards for Enlistment, Commission, & Special Duty (3 Feb 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923AB20E6931900D8DF34 /* USN ManMed Chapter 15 Physical Exams & Standards for Enlistment, Commission, & Special Duty (3 Feb 2017).pdf */; };
+		6C6923F620E6931A00D8DF34 /* Navy Aeromedical Reference & Waiver Guide (9 Apr 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923AC20E6931900D8DF34 /* Navy Aeromedical Reference & Waiver Guide (9 Apr 2018).pdf */; };
+		6C6923F720E6931A00D8DF34 /* AR 40-501 Standards of Medical Fitness (14 Jun 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923AE20E6931900D8DF34 /* AR 40-501 Standards of Medical Fitness (14 Jun 2017).pdf */; };
+		6C6923F820E6931A00D8DF34 /* Army FS Checklist (May 2015).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923AF20E6931900D8DF34 /* Army FS Checklist (May 2015).pdf */; };
+		6C6923F920E6931A00D8DF34 /* Army Physical Exam Table (12 Nov 2002).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923B020E6931900D8DF34 /* Army Physical Exam Table (12 Nov 2002).pdf */; };
+		6C6923FA20E6931A00D8DF34 /* AFI 10-203 Duty Limiting Conditions (20 Nov 2014).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923B220E6931900D8DF34 /* AFI 10-203 Duty Limiting Conditions (20 Nov 2014).pdf */; };
+		6C6923FB20E6931A00D8DF34 /* AF OTC Approved Med List (09 Jan 2014).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923B320E6931900D8DF34 /* AF OTC Approved Med List (09 Jan 2014).pdf */; };
+		6C6923FC20E6931A00D8DF34 /* AFI 48-123 Medical Examinations & Standards (28 Jan 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923B420E6931900D8DF34 /* AFI 48-123 Medical Examinations & Standards (28 Jan 2018).pdf */; };
+		6C6923FD20E6931A00D8DF34 /* AF Physical Examination Matrix (Jan 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923B520E6931900D8DF34 /* AF Physical Examination Matrix (Jan 2018).pdf */; };
+		6C6923FE20E6931A00D8DF34 /* AF Medical Standards Directory (24 May 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923B620E6931900D8DF34 /* AF Medical Standards Directory (24 May 2018).pdf */; };
+		6C6923FF20E6931A00D8DF34 /* AFPAM 48-133 Physical Examination Techniques (1 Jun 2000).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923B820E6931900D8DF34 /* AFPAM 48-133 Physical Examination Techniques (1 Jun 2000).pdf */; };
+		6C69240020E6931A00D8DF34 /* AFI 91-204 Safety Investigations & Reports (27 Apr 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923B920E6931900D8DF34 /* AFI 91-204 Safety Investigations & Reports (27 Apr 2018).pdf */; };
+		6C69240120E6931A00D8DF34 /* AFI 11-202V1 Aircrew Training (27 Jun 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923BA20E6931900D8DF34 /* AFI 11-202V1 Aircrew Training (27 Jun 2017).pdf */; };
+		6C69240220E6931A00D8DF34 /* AFI 11-301V4 Aircrew Laser Eye Program (17 Feb 2010).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923BB20E6931900D8DF34 /* AFI 11-301V4 Aircrew Laser Eye Program (17 Feb 2010).pdf */; };
+		6C69240320E6931A00D8DF34 /* AFI 11-301V2 Management & Configuration Req for AFE (6 Dec 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923BC20E6931900D8DF34 /* AFI 11-301V2 Management & Configuration Req for AFE (6 Dec 2017).pdf */; };
+		6C69240420E6931A00D8DF34 /* AFI 48-145 Occupational & Environmental Health Program (22 Jul 2014 + 27 Aug 2015 Updates).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923BD20E6931900D8DF34 /* AFI 48-145 Occupational & Environmental Health Program (22 Jul 2014 + 27 Aug 2015 Updates).pdf */; };
+		6C69240520E6931A00D8DF34 /* AFI 48-307v2 En Route Critical Care (10 Jan 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923BE20E6931900D8DF34 /* AFI 48-307v2 En Route Critical Care (10 Jan 2017).pdf */; };
+		6C69240620E6931A00D8DF34 /* AFI 11-202V2 Aircrew Standardization-Evaluation Program (13 Sep 2010).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923BF20E6931900D8DF34 /* AFI 11-202V2 Aircrew Standardization-Evaluation Program (13 Sep 2010).pdf */; };
+		6C69240720E6931A00D8DF34 /* AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923C020E6931900D8DF34 /* AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011).pdf */; };
+		6C69240820E6931A00D8DF34 /* AFI 11-401 Aviation Management (14 Feb 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923C120E6931900D8DF34 /* AFI 11-401 Aviation Management (14 Feb 2018).pdf */; };
+		6C69240920E6931A00D8DF34 /* AFI 48-307v1 En Route Care & Aeromedical Evacuation Medical Operations (9 Jan 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923C220E6931900D8DF34 /* AFI 48-307v1 En Route Care & Aeromedical Evacuation Medical Operations (9 Jan 2017).pdf */; };
+		6C69240A20E6931A00D8DF34 /* AF AETCI 48-103 Training Health & Human Performance Program (24 Apr 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923C320E6931900D8DF34 /* AF AETCI 48-103 Training Health & Human Performance Program (24 Apr 2018).pdf */; };
+		6C69240B20E6931A00D8DF34 /* AFI 11-301V1 Aircrew Flight Equipment Program (10 Oct 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923C420E6931900D8DF34 /* AFI 11-301V1 Aircrew Flight Equipment Program (10 Oct 2017).pdf */; };
+		6C69240C20E6931A00D8DF34 /* AFI 48-307v3 En Route Care Documentation (12 Apr 2016).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923C520E6931900D8DF34 /* AFI 48-307v3 En Route Care Documentation (12 Apr 2016).pdf */; };
+		6C69240D20E6931A00D8DF34 /* AFI 44-172 Mental Health (13 Nov 2015).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923C620E6931900D8DF34 /* AFI 44-172 Mental Health (13 Nov 2015).pdf */; };
+		6C69240E20E6931A00D8DF34 /* AFMAN 91-223 Aviation Safety Investigations & Reports (8 Jun 2016).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923C720E6931900D8DF34 /* AFMAN 91-223 Aviation Safety Investigations & Reports (8 Jun 2016).pdf */; };
+		6C69240F20E6931A00D8DF34 /* AFI 11-402 Aviation & Parachutist Service Aeronautical Ratings & Aviation Badges (28 Feb 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923C820E6931900D8DF34 /* AFI 11-402 Aviation & Parachutist Service Aeronautical Ratings & Aviation Badges (28 Feb 2018).pdf */; };
+		6C69241020E6931A00D8DF34 /* AFI 36-2101 Classifying Military Personnel (9 Mar 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923C920E6931900D8DF34 /* AFI 36-2101 Classifying Military Personnel (9 Mar 2017).pdf */; };
+		6C69241120E6931A00D8DF34 /* AFI 11-202V3 General Flight Rules (2 Oct 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923CA20E6931900D8DF34 /* AFI 11-202V3 General Flight Rules (2 Oct 2017).pdf */; };
+		6C69241220E6931A00D8DF34 /* AFI 44-171 Patient Centered Medical Home Operations (28 Nov 2014).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923CB20E6931900D8DF34 /* AFI 44-171 Patient Centered Medical Home Operations (28 Nov 2014).pdf */; };
+		6C69241320E6931A00D8DF34 /* AFECD (30 Apr 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923CC20E6931900D8DF34 /* AFECD (30 Apr 2018).pdf */; };
+		6C69241420E6931A00D8DF34 /* AFI 44-170 Preventive Health Assessment (19 Jan 2016).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923CD20E6931900D8DF34 /* AFI 44-170 Preventive Health Assessment (19 Jan 2016).pdf */; };
+		6C69241520E6931A00D8DF34 /* AFI 48-149 Flight & Operational Medicine Program (18 Dec 2015).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923CE20E6931900D8DF34 /* AFI 48-149 Flight & Operational Medicine Program (18 Dec 2015).pdf */; };
+		6C69241620E6931A00D8DF34 /* AFI 91-202 USAF Mishap Prevention Program (21 May 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923CF20E6931900D8DF34 /* AFI 91-202 USAF Mishap Prevention Program (21 May 2018).pdf */; };
+		6C69241720E6931A00D8DF34 /* AFI 10-203 Supplemental Guidance (17 Nov 2016).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923D020E6931900D8DF34 /* AFI 10-203 Supplemental Guidance (17 Nov 2016).pdf */; };
+		6C69241820E6931A00D8DF34 /* AFMAN 48-147_IP Tri-Service Food Code (30 Apr 2014).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923D120E6931900D8DF34 /* AFMAN 48-147_IP Tri-Service Food Code (30 Apr 2014).pdf */; };
+		6C69241920E6931A00D8DF34 /* AFOCD (30 Apr 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923D220E6931900D8DF34 /* AFOCD (30 Apr 2018).pdf */; };
+		6C69241A20E6931A00D8DF34 /* AFI 10-203 Supplemental Guidance Profile Timelines (Jun 2014).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923D320E6931900D8DF34 /* AFI 10-203 Supplemental Guidance Profile Timelines (Jun 2014).pdf */; };
+		6C69241B20E6931A00D8DF34 /* AF AETCI 48-102 Medical Management of UFT Students (05 Nov 2013).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923D420E6931900D8DF34 /* AF AETCI 48-102 Medical Management of UFT Students (05 Nov 2013).pdf */; };
+		6C69241C20E6931A00D8DF34 /* AFI 48-101 Aerospace Medicine Enterprise (08 Dec 2014).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923D520E6931900D8DF34 /* AFI 48-101 Aerospace Medicine Enterprise (08 Dec 2014).pdf */; };
+		6C69241D20E6931A00D8DF34 /* AFI 10-203 Supplemental Guidance Profile Templates (4 Dec 2014).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923D620E6931900D8DF34 /* AFI 10-203 Supplemental Guidance Profile Templates (4 Dec 2014).pdf */; };
+		6C69241E20E6931A00D8DF34 /* AFI 36-2905 Fitness Program (21 Oct 2013 + 27 Aug 2015 Updates).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923D720E6931900D8DF34 /* AFI 36-2905 Fitness Program (21 Oct 2013 + 27 Aug 2015 Updates).pdf */; };
+		6C69241F20E6931A00D8DF34 /* AFI 44-103 Air Force IDMT Program (06 Dec 2013).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923D820E6931900D8DF34 /* AFI 44-103 Air Force IDMT Program (06 Dec 2013).pdf */; };
+		6C69242020E6931A00D8DF34 /* AF Approved Med List (24 May 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923D920E6931900D8DF34 /* AF Approved Med List (24 May 2018).pdf */; };
+		6C69242120E6931A00D8DF34 /* AF Missile Operator Approved Med List (24 May 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923DA20E6931900D8DF34 /* AF Missile Operator Approved Med List (24 May 2018).pdf */; };
+		6C69242220E6931A00D8DF34 /* Physical Examination Matrix (6 Oct 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923DC20E6931A00D8DF34 /* Physical Examination Matrix (6 Oct 2017).pdf */; };
+		6C69242320E6931A00D8DF34 /* AF Flight Surgeon Flying Operations Guide (4 Oct 2013).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923DD20E6931A00D8DF34 /* AF Flight Surgeon Flying Operations Guide (4 Oct 2013).pdf */; };
+		6C69242420E6931A00D8DF34 /* Fly PHA Exam Requirements Matrix (4 Nov 2016).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923DE20E6931A00D8DF34 /* Fly PHA Exam Requirements Matrix (4 Nov 2016).pdf */; };
+		6C69242520E6931A00D8DF34 /* Sample METALS Table (26 Jun 2014).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923DF20E6931A00D8DF34 /* Sample METALS Table (26 Jun 2014).pdf */; };
+		6C69242620E6931A00D8DF34 /* Dietary Supplements.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923E020E6931A00D8DF34 /* Dietary Supplements.pdf */; };
+		6C69242720E6931A00D8DF34 /* RSV-5A Aeromedical Summaries.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923E220E6931A00D8DF34 /* RSV-5A Aeromedical Summaries.pdf */; };
+		6C69242820E6931A00D8DF34 /* RSV-1B4 Decompression Sickness and Hypoxia.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923E320E6931A00D8DF34 /* RSV-1B4 Decompression Sickness and Hypoxia.pdf */; };
+		6C69242920E6931A00D8DF34 /* RSV-4A Occupational Health Assessment.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923E420E6931A00D8DF34 /* RSV-4A Occupational Health Assessment.pdf */; };
+		6C69242A20E6931A00D8DF34 /* RSV-1B2 Spatial Disorientation.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923E520E6931A00D8DF34 /* RSV-1B2 Spatial Disorientation.pdf */; };
+		6C69242B20E6931A00D8DF34 /* RSV-1D Water and Food Vulnerability.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923E620E6931A00D8DF34 /* RSV-1D Water and Food Vulnerability.pdf */; };
+		6C69242C20E6931A00D8DF34 /* RSV-1E2 Thermal Stresses in Fighter Aviation.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923E720E6931A00D8DF34 /* RSV-1E2 Thermal Stresses in Fighter Aviation.pdf */; };
+		6C69242D20E6931A00D8DF34 /* RSV-1E1 Aeromedical Aspects of Night Operations.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923E820E6931A00D8DF34 /* RSV-1E1 Aeromedical Aspects of Night Operations.pdf */; };
+		6C69242E20E6931A00D8DF34 /* RSV-1A Mishap Investigation.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923E920E6931A00D8DF34 /* RSV-1A Mishap Investigation.pdf */; };
+		6C69242F20E6931A00D8DF34 /* RSV-2A Medical Clearance for Aeromedical Evacuation.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923EA20E6931A00D8DF34 /* RSV-2A Medical Clearance for Aeromedical Evacuation.pdf */; };
+		6C69243020E6931A00D8DF34 /* RSV-1C Travel Medicine.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923EB20E6931A00D8DF34 /* RSV-1C Travel Medicine.pdf */; };
+		6C69243120E6931A00D8DF34 /* RSV-1A Mishap Investigation (Slide Notes).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923EC20E6931A00D8DF34 /* RSV-1A Mishap Investigation (Slide Notes).pdf */; };
+		6C69243220E6931A00D8DF34 /* RSV-3A Human Performance Sustainment.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923ED20E6931A00D8DF34 /* RSV-3A Human Performance Sustainment.pdf */; };
+		6C69243320E6931A00D8DF34 /* RSV-1B3 Barotrauma.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923EE20E6931A00D8DF34 /* RSV-1B3 Barotrauma.pdf */; };
+		6C69243420E6931A00D8DF34 /* RSV-1B1 Aeromedical and Physiologic Aspects of Acceleration.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923EF20E6931A00D8DF34 /* RSV-1B1 Aeromedical and Physiologic Aspects of Acceleration.pdf */; };
+		6C69243520E6931A00D8DF34 /* RSV Overview.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923F020E6931A00D8DF34 /* RSV Overview.pdf */; };
+		6C69243620E6931A00D8DF34 /* SGP-earls (v10.15).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923F120E6931A00D8DF34 /* SGP-earls (v10.15).pdf */; };
+		6C69243720E6931A00D8DF34 /* AF Flight Surgeon Quick Reference (16 Feb 2016).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923F220E6931A00D8DF34 /* AF Flight Surgeon Quick Reference (16 Feb 2016).pdf */; };
+		6C69243820E6931A00D8DF34 /* Specialty Description 48XX (30 Apr 2015).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923F320E6931A00D8DF34 /* Specialty Description 48XX (30 Apr 2015).pdf */; };
+		6C69243920E6931A00D8DF34 /* AF Waiver Guide (4 Jan 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923F420E6931A00D8DF34 /* AF Waiver Guide (4 Jan 2018).pdf */; };
+		6CF26A3620E806C00049958A /* AirForceOxConvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF26A3520E806C00049958A /* AirForceOxConvViewController.swift */; };
+		6CF26A3820E818960049958A /* AirForceOxConvAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF26A3720E818960049958A /* AirForceOxConvAboutViewController.swift */; };
+		6CF26A3A20E833790049958A /* WebviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF26A3920E833790049958A /* WebviewViewController.swift */; };
+		6CF26A3C20E83D0F0049958A /* NavyBookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF26A3B20E83D0F0049958A /* NavyBookshelfViewController.swift */; };
+		6CF26A3E20E83D290049958A /* ArmyBookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF26A3D20E83D290049958A /* ArmyBookshelfViewController.swift */; };
+		6CF26A4020E92CCE0049958A /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF26A3F20E92CCE0049958A /* AboutViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		140E24F61F0A675900298665 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
+		140E24F81F0A73F200298665 /* SearchResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsCell.swift; sourceTree = "<group>"; };
+		140E25091F0A78C900298665 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		140E250D1F0A790F00298665 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SearchResultsCell.xib; sourceTree = "<group>"; };
+		140E25101F0A793100298665 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		140E25131F0AB67C00298665 /* ActionMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionMenuViewController.swift; sourceTree = "<group>"; };
+		140E25151F0AC19600298665 /* BookshelfCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookshelfCell.swift; sourceTree = "<group>"; };
+		140E251E1F0AF89D00298665 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ThumbnailGridCell.xib; sourceTree = "<group>"; };
+		14155C7D1F0A41B600A53380 /* AirForceBookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirForceBookshelfViewController.swift; sourceTree = "<group>"; };
+		14155C7F1F0A425F00A53380 /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
+		14155C811F0A449F00A53380 /* ThumbnailGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailGridViewController.swift; sourceTree = "<group>"; };
+		14155C831F0A450E00A53380 /* ThumbnailGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailGridCell.swift; sourceTree = "<group>"; };
+		14155C851F0A459200A53380 /* OutlineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineViewController.swift; sourceTree = "<group>"; };
+		14155C871F0A45BE00A53380 /* OutlineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineCell.swift; sourceTree = "<group>"; };
+		14155C891F0A45E300A53380 /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
+		14155C8B1F0A460E00A53380 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		1421EF111F0A411E00BEB695 /* Med Standards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Med Standards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1421EF141F0A411E00BEB695 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1421EF1B1F0A411E00BEB695 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1421EF201F0A411E00BEB695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C28D47C20E6BB4200DEAC11 /* AirForceOtherAFIBookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirForceOtherAFIBookshelfViewController.swift; sourceTree = "<group>"; };
+		6C28D47E20E6C99000DEAC11 /* AirForceFSToolkitBookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirForceFSToolkitBookshelfViewController.swift; sourceTree = "<group>"; };
+		6C28D48020E733C400DEAC11 /* AirForceRSVBookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirForceRSVBookshelfViewController.swift; sourceTree = "<group>"; };
+		6C6923AB20E6931900D8DF34 /* USN ManMed Chapter 15 Physical Exams & Standards for Enlistment, Commission, & Special Duty (3 Feb 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "USN ManMed Chapter 15 Physical Exams & Standards for Enlistment, Commission, & Special Duty (3 Feb 2017).pdf"; sourceTree = "<group>"; };
+		6C6923AC20E6931900D8DF34 /* Navy Aeromedical Reference & Waiver Guide (9 Apr 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Navy Aeromedical Reference & Waiver Guide (9 Apr 2018).pdf"; sourceTree = "<group>"; };
+		6C6923AE20E6931900D8DF34 /* AR 40-501 Standards of Medical Fitness (14 Jun 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AR 40-501 Standards of Medical Fitness (14 Jun 2017).pdf"; sourceTree = "<group>"; };
+		6C6923AF20E6931900D8DF34 /* Army FS Checklist (May 2015).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Army FS Checklist (May 2015).pdf"; sourceTree = "<group>"; };
+		6C6923B020E6931900D8DF34 /* Army Physical Exam Table (12 Nov 2002).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Army Physical Exam Table (12 Nov 2002).pdf"; sourceTree = "<group>"; };
+		6C6923B220E6931900D8DF34 /* AFI 10-203 Duty Limiting Conditions (20 Nov 2014).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 10-203 Duty Limiting Conditions (20 Nov 2014).pdf"; sourceTree = "<group>"; };
+		6C6923B320E6931900D8DF34 /* AF OTC Approved Med List (09 Jan 2014).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF OTC Approved Med List (09 Jan 2014).pdf"; sourceTree = "<group>"; };
+		6C6923B420E6931900D8DF34 /* AFI 48-123 Medical Examinations & Standards (28 Jan 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 48-123 Medical Examinations & Standards (28 Jan 2018).pdf"; sourceTree = "<group>"; };
+		6C6923B520E6931900D8DF34 /* AF Physical Examination Matrix (Jan 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF Physical Examination Matrix (Jan 2018).pdf"; sourceTree = "<group>"; };
+		6C6923B620E6931900D8DF34 /* AF Medical Standards Directory (24 May 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF Medical Standards Directory (24 May 2018).pdf"; sourceTree = "<group>"; };
+		6C6923B820E6931900D8DF34 /* AFPAM 48-133 Physical Examination Techniques (1 Jun 2000).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFPAM 48-133 Physical Examination Techniques (1 Jun 2000).pdf"; sourceTree = "<group>"; };
+		6C6923B920E6931900D8DF34 /* AFI 91-204 Safety Investigations & Reports (27 Apr 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 91-204 Safety Investigations & Reports (27 Apr 2018).pdf"; sourceTree = "<group>"; };
+		6C6923BA20E6931900D8DF34 /* AFI 11-202V1 Aircrew Training (27 Jun 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-202V1 Aircrew Training (27 Jun 2017).pdf"; sourceTree = "<group>"; };
+		6C6923BB20E6931900D8DF34 /* AFI 11-301V4 Aircrew Laser Eye Program (17 Feb 2010).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-301V4 Aircrew Laser Eye Program (17 Feb 2010).pdf"; sourceTree = "<group>"; };
+		6C6923BC20E6931900D8DF34 /* AFI 11-301V2 Management & Configuration Req for AFE (6 Dec 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-301V2 Management & Configuration Req for AFE (6 Dec 2017).pdf"; sourceTree = "<group>"; };
+		6C6923BD20E6931900D8DF34 /* AFI 48-145 Occupational & Environmental Health Program (22 Jul 2014 + 27 Aug 2015 Updates).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 48-145 Occupational & Environmental Health Program (22 Jul 2014 + 27 Aug 2015 Updates).pdf"; sourceTree = "<group>"; };
+		6C6923BE20E6931900D8DF34 /* AFI 48-307v2 En Route Critical Care (10 Jan 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 48-307v2 En Route Critical Care (10 Jan 2017).pdf"; sourceTree = "<group>"; };
+		6C6923BF20E6931900D8DF34 /* AFI 11-202V2 Aircrew Standardization-Evaluation Program (13 Sep 2010).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-202V2 Aircrew Standardization-Evaluation Program (13 Sep 2010).pdf"; sourceTree = "<group>"; };
+		6C6923C020E6931900D8DF34 /* AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011).pdf"; sourceTree = "<group>"; };
+		6C6923C120E6931900D8DF34 /* AFI 11-401 Aviation Management (14 Feb 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-401 Aviation Management (14 Feb 2018).pdf"; sourceTree = "<group>"; };
+		6C6923C220E6931900D8DF34 /* AFI 48-307v1 En Route Care & Aeromedical Evacuation Medical Operations (9 Jan 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 48-307v1 En Route Care & Aeromedical Evacuation Medical Operations (9 Jan 2017).pdf"; sourceTree = "<group>"; };
+		6C6923C320E6931900D8DF34 /* AF AETCI 48-103 Training Health & Human Performance Program (24 Apr 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF AETCI 48-103 Training Health & Human Performance Program (24 Apr 2018).pdf"; sourceTree = "<group>"; };
+		6C6923C420E6931900D8DF34 /* AFI 11-301V1 Aircrew Flight Equipment Program (10 Oct 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-301V1 Aircrew Flight Equipment Program (10 Oct 2017).pdf"; sourceTree = "<group>"; };
+		6C6923C520E6931900D8DF34 /* AFI 48-307v3 En Route Care Documentation (12 Apr 2016).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 48-307v3 En Route Care Documentation (12 Apr 2016).pdf"; sourceTree = "<group>"; };
+		6C6923C620E6931900D8DF34 /* AFI 44-172 Mental Health (13 Nov 2015).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 44-172 Mental Health (13 Nov 2015).pdf"; sourceTree = "<group>"; };
+		6C6923C720E6931900D8DF34 /* AFMAN 91-223 Aviation Safety Investigations & Reports (8 Jun 2016).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFMAN 91-223 Aviation Safety Investigations & Reports (8 Jun 2016).pdf"; sourceTree = "<group>"; };
+		6C6923C820E6931900D8DF34 /* AFI 11-402 Aviation & Parachutist Service Aeronautical Ratings & Aviation Badges (28 Feb 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-402 Aviation & Parachutist Service Aeronautical Ratings & Aviation Badges (28 Feb 2018).pdf"; sourceTree = "<group>"; };
+		6C6923C920E6931900D8DF34 /* AFI 36-2101 Classifying Military Personnel (9 Mar 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 36-2101 Classifying Military Personnel (9 Mar 2017).pdf"; sourceTree = "<group>"; };
+		6C6923CA20E6931900D8DF34 /* AFI 11-202V3 General Flight Rules (2 Oct 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-202V3 General Flight Rules (2 Oct 2017).pdf"; sourceTree = "<group>"; };
+		6C6923CB20E6931900D8DF34 /* AFI 44-171 Patient Centered Medical Home Operations (28 Nov 2014).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 44-171 Patient Centered Medical Home Operations (28 Nov 2014).pdf"; sourceTree = "<group>"; };
+		6C6923CC20E6931900D8DF34 /* AFECD (30 Apr 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFECD (30 Apr 2018).pdf"; sourceTree = "<group>"; };
+		6C6923CD20E6931900D8DF34 /* AFI 44-170 Preventive Health Assessment (19 Jan 2016).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 44-170 Preventive Health Assessment (19 Jan 2016).pdf"; sourceTree = "<group>"; };
+		6C6923CE20E6931900D8DF34 /* AFI 48-149 Flight & Operational Medicine Program (18 Dec 2015).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 48-149 Flight & Operational Medicine Program (18 Dec 2015).pdf"; sourceTree = "<group>"; };
+		6C6923CF20E6931900D8DF34 /* AFI 91-202 USAF Mishap Prevention Program (21 May 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 91-202 USAF Mishap Prevention Program (21 May 2018).pdf"; sourceTree = "<group>"; };
+		6C6923D020E6931900D8DF34 /* AFI 10-203 Supplemental Guidance (17 Nov 2016).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 10-203 Supplemental Guidance (17 Nov 2016).pdf"; sourceTree = "<group>"; };
+		6C6923D120E6931900D8DF34 /* AFMAN 48-147_IP Tri-Service Food Code (30 Apr 2014).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFMAN 48-147_IP Tri-Service Food Code (30 Apr 2014).pdf"; sourceTree = "<group>"; };
+		6C6923D220E6931900D8DF34 /* AFOCD (30 Apr 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFOCD (30 Apr 2018).pdf"; sourceTree = "<group>"; };
+		6C6923D320E6931900D8DF34 /* AFI 10-203 Supplemental Guidance Profile Timelines (Jun 2014).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 10-203 Supplemental Guidance Profile Timelines (Jun 2014).pdf"; sourceTree = "<group>"; };
+		6C6923D420E6931900D8DF34 /* AF AETCI 48-102 Medical Management of UFT Students (05 Nov 2013).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF AETCI 48-102 Medical Management of UFT Students (05 Nov 2013).pdf"; sourceTree = "<group>"; };
+		6C6923D520E6931900D8DF34 /* AFI 48-101 Aerospace Medicine Enterprise (08 Dec 2014).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 48-101 Aerospace Medicine Enterprise (08 Dec 2014).pdf"; sourceTree = "<group>"; };
+		6C6923D620E6931900D8DF34 /* AFI 10-203 Supplemental Guidance Profile Templates (4 Dec 2014).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 10-203 Supplemental Guidance Profile Templates (4 Dec 2014).pdf"; sourceTree = "<group>"; };
+		6C6923D720E6931900D8DF34 /* AFI 36-2905 Fitness Program (21 Oct 2013 + 27 Aug 2015 Updates).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 36-2905 Fitness Program (21 Oct 2013 + 27 Aug 2015 Updates).pdf"; sourceTree = "<group>"; };
+		6C6923D820E6931900D8DF34 /* AFI 44-103 Air Force IDMT Program (06 Dec 2013).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 44-103 Air Force IDMT Program (06 Dec 2013).pdf"; sourceTree = "<group>"; };
+		6C6923D920E6931900D8DF34 /* AF Approved Med List (24 May 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF Approved Med List (24 May 2018).pdf"; sourceTree = "<group>"; };
+		6C6923DA20E6931900D8DF34 /* AF Missile Operator Approved Med List (24 May 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF Missile Operator Approved Med List (24 May 2018).pdf"; sourceTree = "<group>"; };
+		6C6923DC20E6931A00D8DF34 /* Physical Examination Matrix (6 Oct 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Physical Examination Matrix (6 Oct 2017).pdf"; sourceTree = "<group>"; };
+		6C6923DD20E6931A00D8DF34 /* AF Flight Surgeon Flying Operations Guide (4 Oct 2013).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF Flight Surgeon Flying Operations Guide (4 Oct 2013).pdf"; sourceTree = "<group>"; };
+		6C6923DE20E6931A00D8DF34 /* Fly PHA Exam Requirements Matrix (4 Nov 2016).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Fly PHA Exam Requirements Matrix (4 Nov 2016).pdf"; sourceTree = "<group>"; };
+		6C6923DF20E6931A00D8DF34 /* Sample METALS Table (26 Jun 2014).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Sample METALS Table (26 Jun 2014).pdf"; sourceTree = "<group>"; };
+		6C6923E020E6931A00D8DF34 /* Dietary Supplements.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Dietary Supplements.pdf"; sourceTree = "<group>"; };
+		6C6923E220E6931A00D8DF34 /* RSV-5A Aeromedical Summaries.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "RSV-5A Aeromedical Summaries.pdf"; sourceTree = "<group>"; };
+		6C6923E320E6931A00D8DF34 /* RSV-1B4 Decompression Sickness and Hypoxia.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "RSV-1B4 Decompression Sickness and Hypoxia.pdf"; sourceTree = "<group>"; };
+		6C6923E420E6931A00D8DF34 /* RSV-4A Occupational Health Assessment.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "RSV-4A Occupational Health Assessment.pdf"; sourceTree = "<group>"; };
+		6C6923E520E6931A00D8DF34 /* RSV-1B2 Spatial Disorientation.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "RSV-1B2 Spatial Disorientation.pdf"; sourceTree = "<group>"; };
+		6C6923E620E6931A00D8DF34 /* RSV-1D Water and Food Vulnerability.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "RSV-1D Water and Food Vulnerability.pdf"; sourceTree = "<group>"; };
+		6C6923E720E6931A00D8DF34 /* RSV-1E2 Thermal Stresses in Fighter Aviation.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "RSV-1E2 Thermal Stresses in Fighter Aviation.pdf"; sourceTree = "<group>"; };
+		6C6923E820E6931A00D8DF34 /* RSV-1E1 Aeromedical Aspects of Night Operations.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "RSV-1E1 Aeromedical Aspects of Night Operations.pdf"; sourceTree = "<group>"; };
+		6C6923E920E6931A00D8DF34 /* RSV-1A Mishap Investigation.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "RSV-1A Mishap Investigation.pdf"; sourceTree = "<group>"; };
+		6C6923EA20E6931A00D8DF34 /* RSV-2A Medical Clearance for Aeromedical Evacuation.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "RSV-2A Medical Clearance for Aeromedical Evacuation.pdf"; sourceTree = "<group>"; };
+		6C6923EB20E6931A00D8DF34 /* RSV-1C Travel Medicine.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "RSV-1C Travel Medicine.pdf"; sourceTree = "<group>"; };
+		6C6923EC20E6931A00D8DF34 /* RSV-1A Mishap Investigation (Slide Notes).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "RSV-1A Mishap Investigation (Slide Notes).pdf"; sourceTree = "<group>"; };
+		6C6923ED20E6931A00D8DF34 /* RSV-3A Human Performance Sustainment.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "RSV-3A Human Performance Sustainment.pdf"; sourceTree = "<group>"; };
+		6C6923EE20E6931A00D8DF34 /* RSV-1B3 Barotrauma.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "RSV-1B3 Barotrauma.pdf"; sourceTree = "<group>"; };
+		6C6923EF20E6931A00D8DF34 /* RSV-1B1 Aeromedical and Physiologic Aspects of Acceleration.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "RSV-1B1 Aeromedical and Physiologic Aspects of Acceleration.pdf"; sourceTree = "<group>"; };
+		6C6923F020E6931A00D8DF34 /* RSV Overview.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "RSV Overview.pdf"; sourceTree = "<group>"; };
+		6C6923F120E6931A00D8DF34 /* SGP-earls (v10.15).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "SGP-earls (v10.15).pdf"; sourceTree = "<group>"; };
+		6C6923F220E6931A00D8DF34 /* AF Flight Surgeon Quick Reference (16 Feb 2016).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF Flight Surgeon Quick Reference (16 Feb 2016).pdf"; sourceTree = "<group>"; };
+		6C6923F320E6931A00D8DF34 /* Specialty Description 48XX (30 Apr 2015).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Specialty Description 48XX (30 Apr 2015).pdf"; sourceTree = "<group>"; };
+		6C6923F420E6931A00D8DF34 /* AF Waiver Guide (4 Jan 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF Waiver Guide (4 Jan 2018).pdf"; sourceTree = "<group>"; };
+		6CF26A3520E806C00049958A /* AirForceOxConvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirForceOxConvViewController.swift; sourceTree = "<group>"; };
+		6CF26A3720E818960049958A /* AirForceOxConvAboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirForceOxConvAboutViewController.swift; sourceTree = "<group>"; };
+		6CF26A3920E833790049958A /* WebviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewViewController.swift; sourceTree = "<group>"; };
+		6CF26A3B20E83D0F0049958A /* NavyBookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavyBookshelfViewController.swift; sourceTree = "<group>"; };
+		6CF26A3D20E83D290049958A /* ArmyBookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmyBookshelfViewController.swift; sourceTree = "<group>"; };
+		6CF26A3F20E92CCE0049958A /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1421EF0E1F0A411E00BEB695 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1421EF081F0A411E00BEB695 = {
+			isa = PBXGroup;
+			children = (
+				1421EF131F0A411E00BEB695 /* Med Standards */,
+				1421EF121F0A411E00BEB695 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1421EF121F0A411E00BEB695 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1421EF111F0A411E00BEB695 /* Med Standards.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1421EF131F0A411E00BEB695 /* Med Standards */ = {
+			isa = PBXGroup;
+			children = (
+				1421EF141F0A411E00BEB695 /* AppDelegate.swift */,
+				14155C7D1F0A41B600A53380 /* AirForceBookshelfViewController.swift */,
+				6C28D47C20E6BB4200DEAC11 /* AirForceOtherAFIBookshelfViewController.swift */,
+				6C28D47E20E6C99000DEAC11 /* AirForceFSToolkitBookshelfViewController.swift */,
+				6C28D48020E733C400DEAC11 /* AirForceRSVBookshelfViewController.swift */,
+				6CF26A3520E806C00049958A /* AirForceOxConvViewController.swift */,
+				6CF26A3720E818960049958A /* AirForceOxConvAboutViewController.swift */,
+				6CF26A3920E833790049958A /* WebviewViewController.swift */,
+				6CF26A3D20E83D290049958A /* ArmyBookshelfViewController.swift */,
+				6CF26A3B20E83D0F0049958A /* NavyBookshelfViewController.swift */,
+				6CF26A3F20E92CCE0049958A /* AboutViewController.swift */,
+				140E25151F0AC19600298665 /* BookshelfCell.swift */,
+				14155C7F1F0A425F00A53380 /* PDFViewController.swift */,
+				14155C811F0A449F00A53380 /* ThumbnailGridViewController.swift */,
+				14155C831F0A450E00A53380 /* ThumbnailGridCell.swift */,
+				14155C851F0A459200A53380 /* OutlineViewController.swift */,
+				14155C871F0A45BE00A53380 /* OutlineCell.swift */,
+				140E24F61F0A675900298665 /* BookmarkViewController.swift */,
+				14155C8B1F0A460E00A53380 /* SearchViewController.swift */,
+				140E24F81F0A73F200298665 /* SearchResultsCell.swift */,
+				14155C891F0A45E300A53380 /* AppearanceViewController.swift */,
+				140E25131F0AB67C00298665 /* ActionMenuViewController.swift */,
+				140E25081F0A78C900298665 /* Main.storyboard */,
+				140E251F1F0AF89D00298665 /* ThumbnailGridCell.xib */,
+				140E250E1F0A790F00298665 /* SearchResultsCell.xib */,
+				140E250F1F0A793100298665 /* LaunchScreen.storyboard */,
+				1421EF1B1F0A411E00BEB695 /* Assets.xcassets */,
+				6C6923B120E6931900D8DF34 /* PDFs_AirForce */,
+				6C6923AD20E6931900D8DF34 /* PDFs_Army */,
+				6C6923AA20E6931900D8DF34 /* PDFs_Navy */,
+				1421EF201F0A411E00BEB695 /* Info.plist */,
+			);
+			path = "Med Standards";
+			sourceTree = "<group>";
+		};
+		6C6923AA20E6931900D8DF34 /* PDFs_Navy */ = {
+			isa = PBXGroup;
+			children = (
+				6C6923AB20E6931900D8DF34 /* USN ManMed Chapter 15 Physical Exams & Standards for Enlistment, Commission, & Special Duty (3 Feb 2017).pdf */,
+				6C6923AC20E6931900D8DF34 /* Navy Aeromedical Reference & Waiver Guide (9 Apr 2018).pdf */,
+			);
+			path = PDFs_Navy;
+			sourceTree = SOURCE_ROOT;
+		};
+		6C6923AD20E6931900D8DF34 /* PDFs_Army */ = {
+			isa = PBXGroup;
+			children = (
+				6C6923AE20E6931900D8DF34 /* AR 40-501 Standards of Medical Fitness (14 Jun 2017).pdf */,
+				6C6923AF20E6931900D8DF34 /* Army FS Checklist (May 2015).pdf */,
+				6C6923B020E6931900D8DF34 /* Army Physical Exam Table (12 Nov 2002).pdf */,
+			);
+			path = PDFs_Army;
+			sourceTree = SOURCE_ROOT;
+		};
+		6C6923B120E6931900D8DF34 /* PDFs_AirForce */ = {
+			isa = PBXGroup;
+			children = (
+				6C6923B220E6931900D8DF34 /* AFI 10-203 Duty Limiting Conditions (20 Nov 2014).pdf */,
+				6C6923B320E6931900D8DF34 /* AF OTC Approved Med List (09 Jan 2014).pdf */,
+				6C6923B420E6931900D8DF34 /* AFI 48-123 Medical Examinations & Standards (28 Jan 2018).pdf */,
+				6C6923B520E6931900D8DF34 /* AF Physical Examination Matrix (Jan 2018).pdf */,
+				6C6923B620E6931900D8DF34 /* AF Medical Standards Directory (24 May 2018).pdf */,
+				6C6923B720E6931900D8DF34 /* Other_AFIs */,
+				6C6923D920E6931900D8DF34 /* AF Approved Med List (24 May 2018).pdf */,
+				6C6923DA20E6931900D8DF34 /* AF Missile Operator Approved Med List (24 May 2018).pdf */,
+				6C6923DB20E6931A00D8DF34 /* Toolkit */,
+				6C6923F420E6931A00D8DF34 /* AF Waiver Guide (4 Jan 2018).pdf */,
+			);
+			path = PDFs_AirForce;
+			sourceTree = SOURCE_ROOT;
+		};
+		6C6923B720E6931900D8DF34 /* Other_AFIs */ = {
+			isa = PBXGroup;
+			children = (
+				6C6923B820E6931900D8DF34 /* AFPAM 48-133 Physical Examination Techniques (1 Jun 2000).pdf */,
+				6C6923B920E6931900D8DF34 /* AFI 91-204 Safety Investigations & Reports (27 Apr 2018).pdf */,
+				6C6923BA20E6931900D8DF34 /* AFI 11-202V1 Aircrew Training (27 Jun 2017).pdf */,
+				6C6923BB20E6931900D8DF34 /* AFI 11-301V4 Aircrew Laser Eye Program (17 Feb 2010).pdf */,
+				6C6923BC20E6931900D8DF34 /* AFI 11-301V2 Management & Configuration Req for AFE (6 Dec 2017).pdf */,
+				6C6923BD20E6931900D8DF34 /* AFI 48-145 Occupational & Environmental Health Program (22 Jul 2014 + 27 Aug 2015 Updates).pdf */,
+				6C6923BE20E6931900D8DF34 /* AFI 48-307v2 En Route Critical Care (10 Jan 2017).pdf */,
+				6C6923BF20E6931900D8DF34 /* AFI 11-202V2 Aircrew Standardization-Evaluation Program (13 Sep 2010).pdf */,
+				6C6923C020E6931900D8DF34 /* AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011).pdf */,
+				6C6923C120E6931900D8DF34 /* AFI 11-401 Aviation Management (14 Feb 2018).pdf */,
+				6C6923C220E6931900D8DF34 /* AFI 48-307v1 En Route Care & Aeromedical Evacuation Medical Operations (9 Jan 2017).pdf */,
+				6C6923C320E6931900D8DF34 /* AF AETCI 48-103 Training Health & Human Performance Program (24 Apr 2018).pdf */,
+				6C6923C420E6931900D8DF34 /* AFI 11-301V1 Aircrew Flight Equipment Program (10 Oct 2017).pdf */,
+				6C6923C520E6931900D8DF34 /* AFI 48-307v3 En Route Care Documentation (12 Apr 2016).pdf */,
+				6C6923C620E6931900D8DF34 /* AFI 44-172 Mental Health (13 Nov 2015).pdf */,
+				6C6923C720E6931900D8DF34 /* AFMAN 91-223 Aviation Safety Investigations & Reports (8 Jun 2016).pdf */,
+				6C6923C820E6931900D8DF34 /* AFI 11-402 Aviation & Parachutist Service Aeronautical Ratings & Aviation Badges (28 Feb 2018).pdf */,
+				6C6923C920E6931900D8DF34 /* AFI 36-2101 Classifying Military Personnel (9 Mar 2017).pdf */,
+				6C6923CA20E6931900D8DF34 /* AFI 11-202V3 General Flight Rules (2 Oct 2017).pdf */,
+				6C6923CB20E6931900D8DF34 /* AFI 44-171 Patient Centered Medical Home Operations (28 Nov 2014).pdf */,
+				6C6923CC20E6931900D8DF34 /* AFECD (30 Apr 2018).pdf */,
+				6C6923CD20E6931900D8DF34 /* AFI 44-170 Preventive Health Assessment (19 Jan 2016).pdf */,
+				6C6923CE20E6931900D8DF34 /* AFI 48-149 Flight & Operational Medicine Program (18 Dec 2015).pdf */,
+				6C6923CF20E6931900D8DF34 /* AFI 91-202 USAF Mishap Prevention Program (21 May 2018).pdf */,
+				6C6923D020E6931900D8DF34 /* AFI 10-203 Supplemental Guidance (17 Nov 2016).pdf */,
+				6C6923D120E6931900D8DF34 /* AFMAN 48-147_IP Tri-Service Food Code (30 Apr 2014).pdf */,
+				6C6923D220E6931900D8DF34 /* AFOCD (30 Apr 2018).pdf */,
+				6C6923D320E6931900D8DF34 /* AFI 10-203 Supplemental Guidance Profile Timelines (Jun 2014).pdf */,
+				6C6923D420E6931900D8DF34 /* AF AETCI 48-102 Medical Management of UFT Students (05 Nov 2013).pdf */,
+				6C6923D520E6931900D8DF34 /* AFI 48-101 Aerospace Medicine Enterprise (08 Dec 2014).pdf */,
+				6C6923D620E6931900D8DF34 /* AFI 10-203 Supplemental Guidance Profile Templates (4 Dec 2014).pdf */,
+				6C6923D720E6931900D8DF34 /* AFI 36-2905 Fitness Program (21 Oct 2013 + 27 Aug 2015 Updates).pdf */,
+				6C6923D820E6931900D8DF34 /* AFI 44-103 Air Force IDMT Program (06 Dec 2013).pdf */,
+			);
+			path = Other_AFIs;
+			sourceTree = "<group>";
+		};
+		6C6923DB20E6931A00D8DF34 /* Toolkit */ = {
+			isa = PBXGroup;
+			children = (
+				6C6923DC20E6931A00D8DF34 /* Physical Examination Matrix (6 Oct 2017).pdf */,
+				6C6923DD20E6931A00D8DF34 /* AF Flight Surgeon Flying Operations Guide (4 Oct 2013).pdf */,
+				6C6923DE20E6931A00D8DF34 /* Fly PHA Exam Requirements Matrix (4 Nov 2016).pdf */,
+				6C6923DF20E6931A00D8DF34 /* Sample METALS Table (26 Jun 2014).pdf */,
+				6C6923E020E6931A00D8DF34 /* Dietary Supplements.pdf */,
+				6C6923E120E6931A00D8DF34 /* RSV */,
+				6C6923F120E6931A00D8DF34 /* SGP-earls (v10.15).pdf */,
+				6C6923F220E6931A00D8DF34 /* AF Flight Surgeon Quick Reference (16 Feb 2016).pdf */,
+				6C6923F320E6931A00D8DF34 /* Specialty Description 48XX (30 Apr 2015).pdf */,
+			);
+			path = Toolkit;
+			sourceTree = "<group>";
+		};
+		6C6923E120E6931A00D8DF34 /* RSV */ = {
+			isa = PBXGroup;
+			children = (
+				6C6923E220E6931A00D8DF34 /* RSV-5A Aeromedical Summaries.pdf */,
+				6C6923E320E6931A00D8DF34 /* RSV-1B4 Decompression Sickness and Hypoxia.pdf */,
+				6C6923E420E6931A00D8DF34 /* RSV-4A Occupational Health Assessment.pdf */,
+				6C6923E520E6931A00D8DF34 /* RSV-1B2 Spatial Disorientation.pdf */,
+				6C6923E620E6931A00D8DF34 /* RSV-1D Water and Food Vulnerability.pdf */,
+				6C6923E720E6931A00D8DF34 /* RSV-1E2 Thermal Stresses in Fighter Aviation.pdf */,
+				6C6923E820E6931A00D8DF34 /* RSV-1E1 Aeromedical Aspects of Night Operations.pdf */,
+				6C6923E920E6931A00D8DF34 /* RSV-1A Mishap Investigation.pdf */,
+				6C6923EA20E6931A00D8DF34 /* RSV-2A Medical Clearance for Aeromedical Evacuation.pdf */,
+				6C6923EB20E6931A00D8DF34 /* RSV-1C Travel Medicine.pdf */,
+				6C6923EC20E6931A00D8DF34 /* RSV-1A Mishap Investigation (Slide Notes).pdf */,
+				6C6923ED20E6931A00D8DF34 /* RSV-3A Human Performance Sustainment.pdf */,
+				6C6923EE20E6931A00D8DF34 /* RSV-1B3 Barotrauma.pdf */,
+				6C6923EF20E6931A00D8DF34 /* RSV-1B1 Aeromedical and Physiologic Aspects of Acceleration.pdf */,
+				6C6923F020E6931A00D8DF34 /* RSV Overview.pdf */,
+			);
+			path = RSV;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1421EF101F0A411E00BEB695 /* Med Standards */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1421EF231F0A411E00BEB695 /* Build configuration list for PBXNativeTarget "Med Standards" */;
+			buildPhases = (
+				1421EF0D1F0A411E00BEB695 /* Sources */,
+				1421EF0E1F0A411E00BEB695 /* Frameworks */,
+				1421EF0F1F0A411E00BEB695 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Med Standards";
+			productName = BookReader;
+			productReference = 1421EF111F0A411E00BEB695 /* Med Standards.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1421EF091F0A411E00BEB695 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Kishikawa Katsumi";
+				TargetAttributes = {
+					1421EF101F0A411E00BEB695 = {
+						CreatedOnToolsVersion = 9.0;
+					};
+				};
+			};
+			buildConfigurationList = 1421EF0C1F0A411E00BEB695 /* Build configuration list for PBXProject "Med Standards" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1421EF081F0A411E00BEB695;
+			productRefGroup = 1421EF121F0A411E00BEB695 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1421EF101F0A411E00BEB695 /* Med Standards */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1421EF0F1F0A411E00BEB695 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C69243620E6931A00D8DF34 /* SGP-earls (v10.15).pdf in Resources */,
+				6C69241720E6931A00D8DF34 /* AFI 10-203 Supplemental Guidance (17 Nov 2016).pdf in Resources */,
+				6C69242620E6931A00D8DF34 /* Dietary Supplements.pdf in Resources */,
+				6C69240B20E6931A00D8DF34 /* AFI 11-301V1 Aircrew Flight Equipment Program (10 Oct 2017).pdf in Resources */,
+				6C69243120E6931A00D8DF34 /* RSV-1A Mishap Investigation (Slide Notes).pdf in Resources */,
+				6C69240820E6931A00D8DF34 /* AFI 11-401 Aviation Management (14 Feb 2018).pdf in Resources */,
+				6C69242720E6931A00D8DF34 /* RSV-5A Aeromedical Summaries.pdf in Resources */,
+				6C69243820E6931A00D8DF34 /* Specialty Description 48XX (30 Apr 2015).pdf in Resources */,
+				6C69240F20E6931A00D8DF34 /* AFI 11-402 Aviation & Parachutist Service Aeronautical Ratings & Aviation Badges (28 Feb 2018).pdf in Resources */,
+				6C69242520E6931A00D8DF34 /* Sample METALS Table (26 Jun 2014).pdf in Resources */,
+				6C69241E20E6931A00D8DF34 /* AFI 36-2905 Fitness Program (21 Oct 2013 + 27 Aug 2015 Updates).pdf in Resources */,
+				6C6923FE20E6931A00D8DF34 /* AF Medical Standards Directory (24 May 2018).pdf in Resources */,
+				6C69241C20E6931A00D8DF34 /* AFI 48-101 Aerospace Medicine Enterprise (08 Dec 2014).pdf in Resources */,
+				6C69240720E6931A00D8DF34 /* AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011).pdf in Resources */,
+				6C69240A20E6931A00D8DF34 /* AF AETCI 48-103 Training Health & Human Performance Program (24 Apr 2018).pdf in Resources */,
+				6C6923FD20E6931A00D8DF34 /* AF Physical Examination Matrix (Jan 2018).pdf in Resources */,
+				6C6923F820E6931A00D8DF34 /* Army FS Checklist (May 2015).pdf in Resources */,
+				6C6923FF20E6931A00D8DF34 /* AFPAM 48-133 Physical Examination Techniques (1 Jun 2000).pdf in Resources */,
+				6C6923F520E6931A00D8DF34 /* USN ManMed Chapter 15 Physical Exams & Standards for Enlistment, Commission, & Special Duty (3 Feb 2017).pdf in Resources */,
+				6C69240520E6931A00D8DF34 /* AFI 48-307v2 En Route Critical Care (10 Jan 2017).pdf in Resources */,
+				6C69241320E6931A00D8DF34 /* AFECD (30 Apr 2018).pdf in Resources */,
+				6C69243920E6931A00D8DF34 /* AF Waiver Guide (4 Jan 2018).pdf in Resources */,
+				6C69243520E6931A00D8DF34 /* RSV Overview.pdf in Resources */,
+				6C69242D20E6931A00D8DF34 /* RSV-1E1 Aeromedical Aspects of Night Operations.pdf in Resources */,
+				6C69241820E6931A00D8DF34 /* AFMAN 48-147_IP Tri-Service Food Code (30 Apr 2014).pdf in Resources */,
+				6C6923FA20E6931A00D8DF34 /* AFI 10-203 Duty Limiting Conditions (20 Nov 2014).pdf in Resources */,
+				6C69241120E6931A00D8DF34 /* AFI 11-202V3 General Flight Rules (2 Oct 2017).pdf in Resources */,
+				140E25111F0A797E00298665 /* Main.storyboard in Resources */,
+				6C69242920E6931A00D8DF34 /* RSV-4A Occupational Health Assessment.pdf in Resources */,
+				6C69242820E6931A00D8DF34 /* RSV-1B4 Decompression Sickness and Hypoxia.pdf in Resources */,
+				6C69242B20E6931A00D8DF34 /* RSV-1D Water and Food Vulnerability.pdf in Resources */,
+				6C69241620E6931A00D8DF34 /* AFI 91-202 USAF Mishap Prevention Program (21 May 2018).pdf in Resources */,
+				6C69240020E6931A00D8DF34 /* AFI 91-204 Safety Investigations & Reports (27 Apr 2018).pdf in Resources */,
+				6C6923F920E6931A00D8DF34 /* Army Physical Exam Table (12 Nov 2002).pdf in Resources */,
+				6C69241420E6931A00D8DF34 /* AFI 44-170 Preventive Health Assessment (19 Jan 2016).pdf in Resources */,
+				6C69242020E6931A00D8DF34 /* AF Approved Med List (24 May 2018).pdf in Resources */,
+				6C6923FB20E6931A00D8DF34 /* AF OTC Approved Med List (09 Jan 2014).pdf in Resources */,
+				6C69241020E6931A00D8DF34 /* AFI 36-2101 Classifying Military Personnel (9 Mar 2017).pdf in Resources */,
+				6C69243220E6931A00D8DF34 /* RSV-3A Human Performance Sustainment.pdf in Resources */,
+				6C69242220E6931A00D8DF34 /* Physical Examination Matrix (6 Oct 2017).pdf in Resources */,
+				6C69240120E6931A00D8DF34 /* AFI 11-202V1 Aircrew Training (27 Jun 2017).pdf in Resources */,
+				140E25121F0A798400298665 /* LaunchScreen.storyboard in Resources */,
+				6C69242F20E6931A00D8DF34 /* RSV-2A Medical Clearance for Aeromedical Evacuation.pdf in Resources */,
+				6C69242120E6931A00D8DF34 /* AF Missile Operator Approved Med List (24 May 2018).pdf in Resources */,
+				6C69240E20E6931A00D8DF34 /* AFMAN 91-223 Aviation Safety Investigations & Reports (8 Jun 2016).pdf in Resources */,
+				6C69241A20E6931A00D8DF34 /* AFI 10-203 Supplemental Guidance Profile Timelines (Jun 2014).pdf in Resources */,
+				6C69242E20E6931A00D8DF34 /* RSV-1A Mishap Investigation.pdf in Resources */,
+				6C69242A20E6931A00D8DF34 /* RSV-1B2 Spatial Disorientation.pdf in Resources */,
+				6C69240620E6931A00D8DF34 /* AFI 11-202V2 Aircrew Standardization-Evaluation Program (13 Sep 2010).pdf in Resources */,
+				6C69241B20E6931A00D8DF34 /* AF AETCI 48-102 Medical Management of UFT Students (05 Nov 2013).pdf in Resources */,
+				1421EF1C1F0A411E00BEB695 /* Assets.xcassets in Resources */,
+				6C69241F20E6931A00D8DF34 /* AFI 44-103 Air Force IDMT Program (06 Dec 2013).pdf in Resources */,
+				6C6923FC20E6931A00D8DF34 /* AFI 48-123 Medical Examinations & Standards (28 Jan 2018).pdf in Resources */,
+				6C69242C20E6931A00D8DF34 /* RSV-1E2 Thermal Stresses in Fighter Aviation.pdf in Resources */,
+				140E250C1F0A790F00298665 /* SearchResultsCell.xib in Resources */,
+				6C69240D20E6931A00D8DF34 /* AFI 44-172 Mental Health (13 Nov 2015).pdf in Resources */,
+				140E251D1F0AF89D00298665 /* ThumbnailGridCell.xib in Resources */,
+				6C69242320E6931A00D8DF34 /* AF Flight Surgeon Flying Operations Guide (4 Oct 2013).pdf in Resources */,
+				6C69243020E6931A00D8DF34 /* RSV-1C Travel Medicine.pdf in Resources */,
+				6C6923F720E6931A00D8DF34 /* AR 40-501 Standards of Medical Fitness (14 Jun 2017).pdf in Resources */,
+				6C69242420E6931A00D8DF34 /* Fly PHA Exam Requirements Matrix (4 Nov 2016).pdf in Resources */,
+				6C69240220E6931A00D8DF34 /* AFI 11-301V4 Aircrew Laser Eye Program (17 Feb 2010).pdf in Resources */,
+				6C69241520E6931A00D8DF34 /* AFI 48-149 Flight & Operational Medicine Program (18 Dec 2015).pdf in Resources */,
+				6C69240320E6931A00D8DF34 /* AFI 11-301V2 Management & Configuration Req for AFE (6 Dec 2017).pdf in Resources */,
+				6C69241D20E6931A00D8DF34 /* AFI 10-203 Supplemental Guidance Profile Templates (4 Dec 2014).pdf in Resources */,
+				6C69243420E6931A00D8DF34 /* RSV-1B1 Aeromedical and Physiologic Aspects of Acceleration.pdf in Resources */,
+				6C69243320E6931A00D8DF34 /* RSV-1B3 Barotrauma.pdf in Resources */,
+				6C69241220E6931A00D8DF34 /* AFI 44-171 Patient Centered Medical Home Operations (28 Nov 2014).pdf in Resources */,
+				6C69241920E6931A00D8DF34 /* AFOCD (30 Apr 2018).pdf in Resources */,
+				6C6923F620E6931A00D8DF34 /* Navy Aeromedical Reference & Waiver Guide (9 Apr 2018).pdf in Resources */,
+				6C69240920E6931A00D8DF34 /* AFI 48-307v1 En Route Care & Aeromedical Evacuation Medical Operations (9 Jan 2017).pdf in Resources */,
+				6C69243720E6931A00D8DF34 /* AF Flight Surgeon Quick Reference (16 Feb 2016).pdf in Resources */,
+				6C69240420E6931A00D8DF34 /* AFI 48-145 Occupational & Environmental Health Program (22 Jul 2014 + 27 Aug 2015 Updates).pdf in Resources */,
+				6C69240C20E6931A00D8DF34 /* AFI 48-307v3 En Route Care Documentation (12 Apr 2016).pdf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1421EF0D1F0A411E00BEB695 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14155C8A1F0A45E300A53380 /* AppearanceViewController.swift in Sources */,
+				14155C841F0A450E00A53380 /* ThumbnailGridCell.swift in Sources */,
+				6CF26A4020E92CCE0049958A /* AboutViewController.swift in Sources */,
+				140E24FA1F0A73F200298665 /* SearchResultsCell.swift in Sources */,
+				140E25141F0AB67C00298665 /* ActionMenuViewController.swift in Sources */,
+				140E25161F0AC19600298665 /* BookshelfCell.swift in Sources */,
+				6C28D48120E733C400DEAC11 /* AirForceRSVBookshelfViewController.swift in Sources */,
+				6CF26A3C20E83D0F0049958A /* NavyBookshelfViewController.swift in Sources */,
+				14155C861F0A459200A53380 /* OutlineViewController.swift in Sources */,
+				14155C8C1F0A460E00A53380 /* SearchViewController.swift in Sources */,
+				140E24F71F0A675900298665 /* BookmarkViewController.swift in Sources */,
+				6CF26A3A20E833790049958A /* WebviewViewController.swift in Sources */,
+				6C28D47F20E6C99000DEAC11 /* AirForceFSToolkitBookshelfViewController.swift in Sources */,
+				6CF26A3820E818960049958A /* AirForceOxConvAboutViewController.swift in Sources */,
+				14155C801F0A425F00A53380 /* PDFViewController.swift in Sources */,
+				6C28D47D20E6BB4200DEAC11 /* AirForceOtherAFIBookshelfViewController.swift in Sources */,
+				14155C7E1F0A41B600A53380 /* AirForceBookshelfViewController.swift in Sources */,
+				6CF26A3E20E83D290049958A /* ArmyBookshelfViewController.swift in Sources */,
+				6CF26A3620E806C00049958A /* AirForceOxConvViewController.swift in Sources */,
+				1421EF151F0A411E00BEB695 /* AppDelegate.swift in Sources */,
+				14155C881F0A45BE00A53380 /* OutlineCell.swift in Sources */,
+				14155C821F0A449F00A53380 /* ThumbnailGridViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		140E25081F0A78C900298665 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				140E25091F0A78C900298665 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		140E250E1F0A790F00298665 /* SearchResultsCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				140E250D1F0A790F00298665 /* Base */,
+			);
+			name = SearchResultsCell.xib;
+			sourceTree = "<group>";
+		};
+		140E250F1F0A793100298665 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				140E25101F0A793100298665 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		140E251F1F0AF89D00298665 /* ThumbnailGridCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				140E251E1F0AF89D00298665 /* Base */,
+			);
+			name = ThumbnailGridCell.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1421EF211F0A411E00BEB695 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1421EF221F0A411E00BEB695 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1421EF241F0A411E00BEB695 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VMZ32M4SZF;
+				INFOPLIST_FILE = "Med Standards/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ColbyCo.Med-Standards";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1421EF251F0A411E00BEB695 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VMZ32M4SZF;
+				INFOPLIST_FILE = "Med Standards/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ColbyCo.Med-Standards";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1421EF0C1F0A411E00BEB695 /* Build configuration list for PBXProject "Med Standards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1421EF211F0A411E00BEB695 /* Debug */,
+				1421EF221F0A411E00BEB695 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1421EF231F0A411E00BEB695 /* Build configuration list for PBXNativeTarget "Med Standards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1421EF241F0A411E00BEB695 /* Debug */,
+				1421EF251F0A411E00BEB695 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1421EF091F0A411E00BEB695 /* Project object */;
+}
