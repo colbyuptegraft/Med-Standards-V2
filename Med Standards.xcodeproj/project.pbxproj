@@ -21,7 +21,6 @@
 		14155C841F0A450E00A53380 /* ThumbnailGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14155C831F0A450E00A53380 /* ThumbnailGridCell.swift */; };
 		14155C861F0A459200A53380 /* OutlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14155C851F0A459200A53380 /* OutlineViewController.swift */; };
 		14155C881F0A45BE00A53380 /* OutlineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14155C871F0A45BE00A53380 /* OutlineCell.swift */; };
-		14155C8A1F0A45E300A53380 /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14155C891F0A45E300A53380 /* AppearanceViewController.swift */; };
 		14155C8C1F0A460E00A53380 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14155C8B1F0A460E00A53380 /* SearchViewController.swift */; };
 		1421EF151F0A411E00BEB695 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1421EF141F0A411E00BEB695 /* AppDelegate.swift */; };
 		1421EF1C1F0A411E00BEB695 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1421EF1B1F0A411E00BEB695 /* Assets.xcassets */; };
@@ -43,7 +42,7 @@
 		6C69240120E6931A00D8DF34 /* AFI 11-202V1 Aircrew Training (27 Jun 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923BA20E6931900D8DF34 /* AFI 11-202V1 Aircrew Training (27 Jun 2017).pdf */; };
 		6C69240220E6931A00D8DF34 /* AFI 11-301V4 Aircrew Laser Eye Program (17 Feb 2010).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923BB20E6931900D8DF34 /* AFI 11-301V4 Aircrew Laser Eye Program (17 Feb 2010).pdf */; };
 		6C69240320E6931A00D8DF34 /* AFI 11-301V2 Management & Configuration Req for AFE (6 Dec 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923BC20E6931900D8DF34 /* AFI 11-301V2 Management & Configuration Req for AFE (6 Dec 2017).pdf */; };
-		6C69240420E6931A00D8DF34 /* AFI 48-145 Occupational & Environmental Health Program (22 Jul 2014 + 27 Aug 2015 Updates).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923BD20E6931900D8DF34 /* AFI 48-145 Occupational & Environmental Health Program (22 Jul 2014 + 27 Aug 2015 Updates).pdf */; };
+		6C69240420E6931A00D8DF34 /* AFI 48-145 Occupational & Environmental Health Program (27 Aug 2015).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923BD20E6931900D8DF34 /* AFI 48-145 Occupational & Environmental Health Program (27 Aug 2015).pdf */; };
 		6C69240520E6931A00D8DF34 /* AFI 48-307v2 En Route Critical Care (10 Jan 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923BE20E6931900D8DF34 /* AFI 48-307v2 En Route Critical Care (10 Jan 2017).pdf */; };
 		6C69240620E6931A00D8DF34 /* AFI 11-202V2 Aircrew Standardization-Evaluation Program (13 Sep 2010).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923BF20E6931900D8DF34 /* AFI 11-202V2 Aircrew Standardization-Evaluation Program (13 Sep 2010).pdf */; };
 		6C69240720E6931A00D8DF34 /* AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923C020E6931900D8DF34 /* AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011).pdf */; };
@@ -97,6 +96,7 @@
 		6C69243720E6931A00D8DF34 /* AF Flight Surgeon Quick Reference (16 Feb 2016).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923F220E6931A00D8DF34 /* AF Flight Surgeon Quick Reference (16 Feb 2016).pdf */; };
 		6C69243820E6931A00D8DF34 /* Specialty Description 48XX (30 Apr 2015).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923F320E6931A00D8DF34 /* Specialty Description 48XX (30 Apr 2015).pdf */; };
 		6C69243920E6931A00D8DF34 /* AF Waiver Guide (4 Jan 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923F420E6931A00D8DF34 /* AF Waiver Guide (4 Jan 2018).pdf */; };
+		6C8C255120E9650C004D3A8B /* MIT-License_2015-2018.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6C8C255020E9650C004D3A8B /* MIT-License_2015-2018.rtf */; };
 		6CF26A3620E806C00049958A /* AirForceOxConvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF26A3520E806C00049958A /* AirForceOxConvViewController.swift */; };
 		6CF26A3820E818960049958A /* AirForceOxConvAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF26A3720E818960049958A /* AirForceOxConvAboutViewController.swift */; };
 		6CF26A3A20E833790049958A /* WebviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF26A3920E833790049958A /* WebviewViewController.swift */; };
@@ -120,7 +120,6 @@
 		14155C831F0A450E00A53380 /* ThumbnailGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailGridCell.swift; sourceTree = "<group>"; };
 		14155C851F0A459200A53380 /* OutlineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineViewController.swift; sourceTree = "<group>"; };
 		14155C871F0A45BE00A53380 /* OutlineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineCell.swift; sourceTree = "<group>"; };
-		14155C891F0A45E300A53380 /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
 		14155C8B1F0A460E00A53380 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		1421EF111F0A411E00BEB695 /* Med Standards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Med Standards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1421EF141F0A411E00BEB695 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -144,7 +143,7 @@
 		6C6923BA20E6931900D8DF34 /* AFI 11-202V1 Aircrew Training (27 Jun 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-202V1 Aircrew Training (27 Jun 2017).pdf"; sourceTree = "<group>"; };
 		6C6923BB20E6931900D8DF34 /* AFI 11-301V4 Aircrew Laser Eye Program (17 Feb 2010).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-301V4 Aircrew Laser Eye Program (17 Feb 2010).pdf"; sourceTree = "<group>"; };
 		6C6923BC20E6931900D8DF34 /* AFI 11-301V2 Management & Configuration Req for AFE (6 Dec 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-301V2 Management & Configuration Req for AFE (6 Dec 2017).pdf"; sourceTree = "<group>"; };
-		6C6923BD20E6931900D8DF34 /* AFI 48-145 Occupational & Environmental Health Program (22 Jul 2014 + 27 Aug 2015 Updates).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 48-145 Occupational & Environmental Health Program (22 Jul 2014 + 27 Aug 2015 Updates).pdf"; sourceTree = "<group>"; };
+		6C6923BD20E6931900D8DF34 /* AFI 48-145 Occupational & Environmental Health Program (27 Aug 2015).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 48-145 Occupational & Environmental Health Program (27 Aug 2015).pdf"; sourceTree = "<group>"; };
 		6C6923BE20E6931900D8DF34 /* AFI 48-307v2 En Route Critical Care (10 Jan 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 48-307v2 En Route Critical Care (10 Jan 2017).pdf"; sourceTree = "<group>"; };
 		6C6923BF20E6931900D8DF34 /* AFI 11-202V2 Aircrew Standardization-Evaluation Program (13 Sep 2010).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-202V2 Aircrew Standardization-Evaluation Program (13 Sep 2010).pdf"; sourceTree = "<group>"; };
 		6C6923C020E6931900D8DF34 /* AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011).pdf"; sourceTree = "<group>"; };
@@ -198,6 +197,7 @@
 		6C6923F220E6931A00D8DF34 /* AF Flight Surgeon Quick Reference (16 Feb 2016).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF Flight Surgeon Quick Reference (16 Feb 2016).pdf"; sourceTree = "<group>"; };
 		6C6923F320E6931A00D8DF34 /* Specialty Description 48XX (30 Apr 2015).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Specialty Description 48XX (30 Apr 2015).pdf"; sourceTree = "<group>"; };
 		6C6923F420E6931A00D8DF34 /* AF Waiver Guide (4 Jan 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF Waiver Guide (4 Jan 2018).pdf"; sourceTree = "<group>"; };
+		6C8C255020E9650C004D3A8B /* MIT-License_2015-2018.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "MIT-License_2015-2018.rtf"; sourceTree = "<group>"; };
 		6CF26A3520E806C00049958A /* AirForceOxConvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirForceOxConvViewController.swift; sourceTree = "<group>"; };
 		6CF26A3720E818960049958A /* AirForceOxConvAboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirForceOxConvAboutViewController.swift; sourceTree = "<group>"; };
 		6CF26A3920E833790049958A /* WebviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebviewViewController.swift; sourceTree = "<group>"; };
@@ -256,7 +256,6 @@
 				140E24F61F0A675900298665 /* BookmarkViewController.swift */,
 				14155C8B1F0A460E00A53380 /* SearchViewController.swift */,
 				140E24F81F0A73F200298665 /* SearchResultsCell.swift */,
-				14155C891F0A45E300A53380 /* AppearanceViewController.swift */,
 				140E25131F0AB67C00298665 /* ActionMenuViewController.swift */,
 				140E25081F0A78C900298665 /* Main.storyboard */,
 				140E251F1F0AF89D00298665 /* ThumbnailGridCell.xib */,
@@ -267,6 +266,7 @@
 				6C6923AD20E6931900D8DF34 /* PDFs_Army */,
 				6C6923AA20E6931900D8DF34 /* PDFs_Navy */,
 				1421EF201F0A411E00BEB695 /* Info.plist */,
+				6C8C255020E9650C004D3A8B /* MIT-License_2015-2018.rtf */,
 			);
 			path = "Med Standards";
 			sourceTree = "<group>";
@@ -315,7 +315,7 @@
 				6C6923BA20E6931900D8DF34 /* AFI 11-202V1 Aircrew Training (27 Jun 2017).pdf */,
 				6C6923BB20E6931900D8DF34 /* AFI 11-301V4 Aircrew Laser Eye Program (17 Feb 2010).pdf */,
 				6C6923BC20E6931900D8DF34 /* AFI 11-301V2 Management & Configuration Req for AFE (6 Dec 2017).pdf */,
-				6C6923BD20E6931900D8DF34 /* AFI 48-145 Occupational & Environmental Health Program (22 Jul 2014 + 27 Aug 2015 Updates).pdf */,
+				6C6923BD20E6931900D8DF34 /* AFI 48-145 Occupational & Environmental Health Program (27 Aug 2015).pdf */,
 				6C6923BE20E6931900D8DF34 /* AFI 48-307v2 En Route Critical Care (10 Jan 2017).pdf */,
 				6C6923BF20E6931900D8DF34 /* AFI 11-202V2 Aircrew Standardization-Evaluation Program (13 Sep 2010).pdf */,
 				6C6923C020E6931900D8DF34 /* AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011).pdf */,
@@ -466,6 +466,7 @@
 				6C69241320E6931A00D8DF34 /* AFECD (30 Apr 2018).pdf in Resources */,
 				6C69243920E6931A00D8DF34 /* AF Waiver Guide (4 Jan 2018).pdf in Resources */,
 				6C69243520E6931A00D8DF34 /* RSV Overview.pdf in Resources */,
+				6C8C255120E9650C004D3A8B /* MIT-License_2015-2018.rtf in Resources */,
 				6C69242D20E6931A00D8DF34 /* RSV-1E1 Aeromedical Aspects of Night Operations.pdf in Resources */,
 				6C69241820E6931A00D8DF34 /* AFMAN 48-147_IP Tri-Service Food Code (30 Apr 2014).pdf in Resources */,
 				6C6923FA20E6931A00D8DF34 /* AFI 10-203 Duty Limiting Conditions (20 Nov 2014).pdf in Resources */,
@@ -515,7 +516,7 @@
 				6C6923F620E6931A00D8DF34 /* Navy Aeromedical Reference & Waiver Guide (9 Apr 2018).pdf in Resources */,
 				6C69240920E6931A00D8DF34 /* AFI 48-307v1 En Route Care & Aeromedical Evacuation Medical Operations (9 Jan 2017).pdf in Resources */,
 				6C69243720E6931A00D8DF34 /* AF Flight Surgeon Quick Reference (16 Feb 2016).pdf in Resources */,
-				6C69240420E6931A00D8DF34 /* AFI 48-145 Occupational & Environmental Health Program (22 Jul 2014 + 27 Aug 2015 Updates).pdf in Resources */,
+				6C69240420E6931A00D8DF34 /* AFI 48-145 Occupational & Environmental Health Program (27 Aug 2015).pdf in Resources */,
 				6C69240C20E6931A00D8DF34 /* AFI 48-307v3 En Route Care Documentation (12 Apr 2016).pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -527,7 +528,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14155C8A1F0A45E300A53380 /* AppearanceViewController.swift in Sources */,
 				14155C841F0A450E00A53380 /* ThumbnailGridCell.swift in Sources */,
 				6CF26A4020E92CCE0049958A /* AboutViewController.swift in Sources */,
 				140E24FA1F0A73F200298665 /* SearchResultsCell.swift in Sources */,

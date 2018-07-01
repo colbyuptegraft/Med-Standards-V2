@@ -53,13 +53,13 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWt-LM-MBv">
-                                            <rect key="frame" x="56" y="8" width="532" height="21"/>
+                                            <rect key="frame" x="56" y="8" width="307" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="He3-2s-nyI">
-                                            <rect key="frame" x="56" y="37" width="520" height="21"/>
+                                            <rect key="frame" x="56" y="37" width="299" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -123,13 +123,13 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knY-8D-TBL">
-                                            <rect key="frame" x="56" y="8" width="532" height="21"/>
+                                            <rect key="frame" x="56" y="8" width="307" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUB-kO-ZU2">
-                                            <rect key="frame" x="56" y="37" width="520" height="21"/>
+                                            <rect key="frame" x="56" y="37" width="299" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -328,35 +328,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xa8-j3-laD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3824.8000000000002" y="137.18140929535232"/>
-        </scene>
-        <!--Appearance View Controller-->
-        <scene sceneID="RWb-mW-VlX">
-            <objects>
-                <viewController storyboardIdentifier="AppearanceViewController" id="yAb-4U-zkt" customClass="AppearanceViewController" customModule="Med_Standards" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3Jf-r8-D1v">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="BrightnessMin" maximumValueImage="BrightnessMax" translatesAutoresizingMaskIntoConstraints="NO" id="sOa-RE-GtP">
-                                <rect key="frame" x="14" y="7" width="292" height="31"/>
-                            </slider>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="iza-bz-CZc" firstAttribute="trailing" secondItem="sOa-RE-GtP" secondAttribute="trailing" constant="16" id="HQc-y4-jSg"/>
-                            <constraint firstItem="sOa-RE-GtP" firstAttribute="leading" secondItem="iza-bz-CZc" secondAttribute="leading" constant="16" id="eaD-ta-0TJ"/>
-                            <constraint firstItem="sOa-RE-GtP" firstAttribute="centerY" secondItem="3Jf-r8-D1v" secondAttribute="centerY" id="xcf-bu-3yx"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="iza-bz-CZc"/>
-                    </view>
-                    <size key="freeformSize" width="320" height="44"/>
-                    <connections>
-                        <outlet property="brightnessSlider" destination="sOa-RE-GtP" id="3Nc-zm-059"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lq1-rv-3QR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2278" y="-469"/>
         </scene>
         <!--Action Menu View Controller-->
         <scene sceneID="X4q-Ib-6xQ">
@@ -564,13 +535,13 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mv4-rT-wdy">
-                                            <rect key="frame" x="56" y="8" width="532" height="21"/>
+                                            <rect key="frame" x="56" y="8" width="307" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1d-tj-PX6">
-                                            <rect key="frame" x="56" y="37" width="520" height="21"/>
+                                            <rect key="frame" x="56" y="37" width="299" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -873,13 +844,13 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Zu-3O-jkc">
-                                            <rect key="frame" x="56" y="8" width="532" height="21"/>
+                                            <rect key="frame" x="56" y="8" width="307" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4y-G8-EL8">
-                                            <rect key="frame" x="56" y="37" width="520" height="21"/>
+                                            <rect key="frame" x="56" y="37" width="299" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -1065,13 +1036,13 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbM-2L-n8Z">
-                                            <rect key="frame" x="56" y="8" width="532" height="21"/>
+                                            <rect key="frame" x="56" y="8" width="307" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWv-hg-rnz">
-                                            <rect key="frame" x="56" y="37" width="520" height="21"/>
+                                            <rect key="frame" x="56" y="37" width="299" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -1168,8 +1139,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BrightnessMax" width="18" height="18"/>
-        <image name="BrightnessMin" width="18" height="18"/>
         <image name="airplane" width="30" height="30"/>
         <image name="anchor" width="30" height="30"/>
         <image name="atmosphereConversion" width="203" height="61"/>

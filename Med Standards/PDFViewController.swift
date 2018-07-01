@@ -1,10 +1,17 @@
+//  PDFViewController.swift
+//  Med Standards
 //
-//  BookViewController.swift
-//  BookReader
+//  The MIT License
 //
-//  Created by Kishikawa Katsumi on 2017/07/03.
-//  Copyright © 2017 Kishikawa Katsumi. All rights reserved.
+//  Copyright (c) 2015 - 2018 Colby Uptegraft - https://www.colbycoapps.com
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+//
+//  The Software is provided “As Is”, without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement.  In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the Software or the use of there dealings in the Software.
+//
+//  This license does not extend to any of the Portable Document Format (PDF) files included with the Software.  These PDF files may not be used, copied, modified, published, distributed, sublicense, and/or sold without the express permission of the United States Department of Defense.
 
 import UIKit
 import PDFKit
@@ -13,8 +20,8 @@ import UIKit.UIGestureRecognizerSubclass
 
 class PDFViewController: UIViewController, UIPopoverPresentationControllerDelegate, PDFViewDelegate, ActionMenuViewControllerDelegate, SearchViewControllerDelegate, ThumbnailGridViewControllerDelegate, OutlineViewControllerDelegate, BookmarkViewControllerDelegate {
     var pdfDocument: PDFDocument?
-    
-    //var pdfDocument = global.pdfDocument
+    var docController: UIDocumentInteractionController?
+    let downloadIcon:UIImage = UIImage(named: "download.png")!
 
     @IBOutlet weak var pdfView: PDFView!
     @IBOutlet weak var pdfThumbnailViewContainer: UIView!
@@ -141,15 +148,16 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
     }
 
     private func resume() {
+        
+        let iBooksButton:UIBarButtonItem = UIBarButtonItem(image: downloadIcon, style: .plain, target: self, action: #selector(PDFViewController.iBooksLaunch))
+        
         let backButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Chevron"), style: .plain, target: self, action: #selector(back(_:)))
         let tableOfContentsButton = UIBarButtonItem(image: #imageLiteral(resourceName: "List"), style: .plain, target: self, action: #selector(showTableOfContents(_:)))
         let actionButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(showActionMenu(_:)))
         navigationItem.leftBarButtonItems = [backButton, tableOfContentsButton, actionButton]
-
-//        let brightnessButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Brightness"), style: .plain, target: self, action: #selector(showAppearanceMenu(_:)))
         let searchButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Search"), style: .plain, target: self, action: #selector(showSearchView(_:)))
         bookmarkButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Bookmark-N"), style: .plain, target: self, action: #selector(addOrRemoveBookmark(_:)))
-        navigationItem.rightBarButtonItems = [bookmarkButton, searchButton/*, brightnessButton*/]
+        navigationItem.rightBarButtonItems = [bookmarkButton, searchButton, iBooksButton]
 
         pdfThumbnailViewContainer.alpha = 1
 
@@ -163,6 +171,34 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
 
         updateBookmarkStatus()
         updatePageNumberLabel()
+    }
+    
+    
+    @objc func iBooksLaunch() {
+        
+        docController = UIDocumentInteractionController(url: global.url)
+        let url = URL(string:"items-books:");
+        if UIApplication.shared.canOpenURL(url!) {
+            docController!.presentOpenInMenu(from: CGRect.zero, in: self.view, animated: true)
+            print("iBooks is installed")
+        } else {
+            print("iBooks is not installed")
+            iBooksError()
+        }
+        
+    }
+    
+    func iBooksError() {
+        let title = NSLocalizedString("Error", comment: "")
+        let message = NSLocalizedString("iBooks is not installed.", comment: "")
+        let cancelButtonTitle = NSLocalizedString("OK", comment: "")
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { action in
+            NSLog("The simple alert's cancel action occured.")
+        }
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
 
     private func showTableOfContents() {
@@ -205,18 +241,7 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
             present(viewController, animated: true, completion: nil)
         }
     }
-/*
-    @objc func showAppearanceMenu(_ sender: UIBarButtonItem) {
-        if let viewController = storyboard?.instantiateViewController(withIdentifier: String(describing: AppearanceViewController.self)) as? AppearanceViewController {
-            viewController.modalPresentationStyle = .popover
-            viewController.preferredContentSize = CGSize(width: 300, height: 44)
-            viewController.popoverPresentationController?.barButtonItem = sender
-            viewController.popoverPresentationController?.permittedArrowDirections = .up
-            viewController.popoverPresentationController?.delegate = self
-            present(viewController, animated: true, completion: nil)
-        }
-    }
-*/
+
     @objc func showSearchView(_ sender: UIBarButtonItem) {
         if let searchNavigationController = self.searchNavigationController {
             present(searchNavigationController, animated: true, completion: nil)

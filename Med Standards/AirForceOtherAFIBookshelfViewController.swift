@@ -1,10 +1,17 @@
+//  AirForceOtherAFIBookshelfViewController.swift
+//  Med Standards
 //
-//  BookshelfViewController.swift
-//  BookReader
+//  The MIT License
 //
-//  Created by Kishikawa Katsumi on 2017/07/03.
-//  Copyright © 2017 Kishikawa Katsumi. All rights reserved.
+//  Copyright (c) 2015 - 2018 Colby Uptegraft - https://www.colbycoapps.com
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+//
+//  The Software is provided “As Is”, without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement.  In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the Software or the use of there dealings in the Software.
+//
+//  This license does not extend to any of the Portable Document Format (PDF) files included with the Software.  These PDF files may not be used, copied, modified, published, distributed, sublicense, and/or sold without the express permission of the United States Department of Defense.
 
 import UIKit
 import PDFKit
@@ -83,8 +90,8 @@ struct OtherAFI {
     static let afi48101PDF = "AFI 48-101 Aerospace Medicine Enterprise (08 Dec 2014)"
 
     static let afi48145Title = "AFI 48-145"
-    static let afi48145Detail = "Occupational & Environmental Health Program (22 Jul 2014 + 27 Aug 2015 Updates)"
-    static let afi48145PDF = "AFI 48-145 Occupational & Environmental Health Program (22 Jul 2014 + 27 Aug 2015 Updates)"
+    static let afi48145Detail = "Occupational & Environmental Health Program (27 Aug 2015)"
+    static let afi48145PDF = "AFI 48-145 Occupational & Environmental Health Program (27 Aug 2015)"
 
     static let afi48149Title = "AFI 48-149"
     static let afi48149Detail = "Flight & Operational Medicine Program (FOMP) (18 Dec 2015)"
@@ -191,7 +198,7 @@ class AirForceOtherAFIBookshelfViewController: UITableViewController {
         } else if global.selection == OtherAFI.afi48101Title {
             global.url = Bundle.main.url(forResource: "AFI 48-101 Aerospace Medicine Enterprise (08 Dec 2014)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi48145Title {
-            global.url = Bundle.main.url(forResource: "AFI 48-145 Occupational & Environmental Health Program (22 Jul 2014 + 27 Aug 2015 Updates)", withExtension: "pdf")
+            global.url = Bundle.main.url(forResource: "AFI 48-145 Occupational & Environmental Health Program (27 Aug 2015)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi48149Title {
             global.url = Bundle.main.url(forResource: "AFI 48-149 Flight & Operational Medicine Program (18 Dec 2015)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi91202Title {
