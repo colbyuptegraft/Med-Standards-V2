@@ -146,10 +146,10 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
         let actionButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(showActionMenu(_:)))
         navigationItem.leftBarButtonItems = [backButton, tableOfContentsButton, actionButton]
 
-        let brightnessButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Brightness"), style: .plain, target: self, action: #selector(showAppearanceMenu(_:)))
+//        let brightnessButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Brightness"), style: .plain, target: self, action: #selector(showAppearanceMenu(_:)))
         let searchButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Search"), style: .plain, target: self, action: #selector(showSearchView(_:)))
         bookmarkButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Bookmark-N"), style: .plain, target: self, action: #selector(addOrRemoveBookmark(_:)))
-        navigationItem.rightBarButtonItems = [bookmarkButton, searchButton, brightnessButton]
+        navigationItem.rightBarButtonItems = [bookmarkButton, searchButton/*, brightnessButton*/]
 
         pdfThumbnailViewContainer.alpha = 1
 
@@ -205,7 +205,7 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
             present(viewController, animated: true, completion: nil)
         }
     }
-
+/*
     @objc func showAppearanceMenu(_ sender: UIBarButtonItem) {
         if let viewController = storyboard?.instantiateViewController(withIdentifier: String(describing: AppearanceViewController.self)) as? AppearanceViewController {
             viewController.modalPresentationStyle = .popover
@@ -216,7 +216,7 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
             present(viewController, animated: true, completion: nil)
         }
     }
-
+*/
     @objc func showSearchView(_ sender: UIBarButtonItem) {
         if let searchNavigationController = self.searchNavigationController {
             present(searchNavigationController, animated: true, completion: nil)

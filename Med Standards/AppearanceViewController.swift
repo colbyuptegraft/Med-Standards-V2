@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+/*
 class AppearanceViewController: UIViewController {
     @IBOutlet weak var brightnessSlider: UISlider!
 
@@ -21,3 +21,4 @@ class AppearanceViewController: UIViewController {
         UIScreen.main.brightness = CGFloat(brightnessSlider.value)
     }
 }
+ */

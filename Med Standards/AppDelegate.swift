@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let fileManager = FileManager.default
         let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
 
-        let sampleFilename = "pdf_3.pdf"
+        let sampleFilename = ""
         if let sampleFile = Bundle.main.url(forResource: sampleFilename, withExtension: nil) {
             let destination = documentDirectory.appendingPathComponent(sampleFilename)
             if !fileManager.fileExists(atPath: destination.path) {

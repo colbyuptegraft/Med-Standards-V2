@@ -14,7 +14,7 @@ class BookshelfCell: UITableViewCell {
             thumbnailImageView.image = thumbnail
         }
     }
-    var title: String = "No title" {
+    var title: String = "" {
         didSet {
             titleLabel.text = title
         }
