@@ -28,7 +28,7 @@ struct OtherAFI {
     static let afi10203sgtmDetail = "Templates for DLCs (4 Dec 2016)"
 
     static let afi11202v1Title = "AFI 11-202 v1"
-    static let afi11202v1Detail = "Aircrew Training (27 Jun 2017)"
+    static let afi11202v1Detail = "Aircrew Training (14 Jun 2018)"
 
     static let afi11202v2Title = "AFI 11-202 v2"
     static let afi11202v2Detail = "Aircrew Standardization/Evaluation Program (13 Sep 2010)"
@@ -138,7 +138,7 @@ class AirForceOtherAFIBookshelfViewController: UITableViewController {
         } else if global.selection == OtherAFI.aetci48103Title {
             global.url = Bundle.main.url(forResource: "AF AETCI 48-103 Training Health & Human Performance Program (24 Apr 2018)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi11202v1Title {
-            global.url = Bundle.main.url(forResource: "AFI 11-202v1 Aircrew Training (27 Jun 2017)", withExtension: "pdf")
+            global.url = Bundle.main.url(forResource: "AFI 11-202v1 Aircrew Training (14 Jun 2018)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi11202v2Title {
             global.url = Bundle.main.url(forResource: "AFI 11-202v2 Aircrew Standardization-Evaluation Program (13 Sep 2010)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi11202v3Title {

@@ -19,6 +19,7 @@ import MessageUI
 import UIKit.UIGestureRecognizerSubclass
 
 class PDFViewController: UIViewController, UIPopoverPresentationControllerDelegate, PDFViewDelegate, ActionMenuViewControllerDelegate, SearchViewControllerDelegate, ThumbnailGridViewControllerDelegate, OutlineViewControllerDelegate, BookmarkViewControllerDelegate {
+    
     var pdfDocument: PDFDocument?
     var docController: UIDocumentInteractionController?
     let downloadIcon:UIImage = UIImage(named: "download.png")!
@@ -47,7 +48,7 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         NotificationCenter.default.addObserver(self, selector: #selector(pdfViewPageChanged(_:)), name: .PDFViewPageChanged, object: nil)
 
         barHideOnTapGestureRecognizer.addTarget(self, action: #selector(gestureRecognizedToggleVisibility(_:)))
@@ -106,30 +107,18 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
     }
-/*
-    func actionMenuViewControllerShareDocument(_ actionMenuViewController: ActionMenuViewController) {
-        let mailComposeViewController = MFMailComposeViewController()
-        if let lastPathComponent = pdfDocument?.documentURL?.lastPathComponent,
-            let documentAttributes = pdfDocument?.documentAttributes,
-            let attachmentData = pdfDocument?.dataRepresentation() {
-            if let title = documentAttributes["Title"] as? String {
-                mailComposeViewController.setSubject(title)
-            }
-            mailComposeViewController.addAttachmentData(attachmentData, mimeType: "application/pdf", fileName: lastPathComponent)
-        }
-    }
- 
- */
-    
+
     func actionMenuViewControllerShareDocument(_ actionMenuViewController: ActionMenuViewController) {
         docController = UIDocumentInteractionController(url: global.url)
         let url = URL(string:"itms-books:");
         if UIApplication.shared.canOpenURL(url!) {
             print("Able to share document")
+            self.dismiss(animated: true)
             docController!.presentOpenInMenu(from: CGRect.zero, in: self.view, animated: true)
         } else {
             print("Unable to share document")
-            iBooksError()
+            self.dismiss(animated: true)
+            shareError()
         }
     }
 
@@ -163,15 +152,13 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
 
     private func resume() {
         
-        let iBooksButton:UIBarButtonItem = UIBarButtonItem(image: downloadIcon, style: .plain, target: self, action: #selector(PDFViewController.iBooksLaunch))
-        
         let backButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Chevron"), style: .plain, target: self, action: #selector(back(_:)))
         let tableOfContentsButton = UIBarButtonItem(image: #imageLiteral(resourceName: "List"), style: .plain, target: self, action: #selector(showTableOfContents(_:)))
         let actionButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(showActionMenu(_:)))
         navigationItem.leftBarButtonItems = [backButton, tableOfContentsButton, actionButton]
         let searchButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Search"), style: .plain, target: self, action: #selector(showSearchView(_:)))
         bookmarkButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Bookmark-N"), style: .plain, target: self, action: #selector(addOrRemoveBookmark(_:)))
-        navigationItem.rightBarButtonItems = [bookmarkButton, searchButton, iBooksButton]
+        navigationItem.rightBarButtonItems = [bookmarkButton, searchButton]
 
         pdfThumbnailViewContainer.alpha = 1
 
@@ -187,22 +174,7 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
         updatePageNumberLabel()
     }
     
-    
-    @objc func iBooksLaunch() {
-        
-        docController = UIDocumentInteractionController(url: global.url)
-        let url = URL(string:"itms-books:");
-        if UIApplication.shared.canOpenURL(url!) {
-            docController!.presentOpenInMenu(from: CGRect.zero, in: self.view, animated: true)
-            print("Able to share document")
-        } else {
-            print("Unable to share document")
-            iBooksError()
-        }
-        
-    }
-    
-    func iBooksError() {
+    func shareError() {
         let title = NSLocalizedString("Error", comment: "")
         let message = NSLocalizedString("Unable to share document.", comment: "")
         let cancelButtonTitle = NSLocalizedString("OK", comment: "")

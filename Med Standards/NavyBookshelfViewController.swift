@@ -22,7 +22,7 @@ struct Navy {
     static let waiverGuideDetail = "U.S. Navy Aeromedical Reference & Waiver Guide (9 Apr 2018)"
     
     static let usnManmedTitle = "Navy ManMed Chapter 15"
-    static let usnManmedDetail = "Physical Exams & Standards (3 Feb 2017)"
+    static let usnManmedDetail = "Physical Exams & Standards (1 Jun 2018)"
 
 }
 
@@ -55,7 +55,7 @@ class NavyBookshelfViewController: UITableViewController {
         if global.selection == Navy.waiverGuideTitle {
             global.url = Bundle.main.url(forResource: "Navy Aeromedical Reference & Waiver Guide (9 Apr 2018)", withExtension: "pdf")
         } else if global.selection == Navy.usnManmedTitle {
-            global.url = Bundle.main.url(forResource: "USN ManMed Chapter 15 Physical Exams & Standards for Enlistment, Commission, & Special Duty (3 Feb 2017)", withExtension: "pdf")
+            global.url = Bundle.main.url(forResource: "USN ManMed Chapter 15 Physical Exams & Standards for Enlistment, Commission, & Special Duty (1 Jun 2018)", withExtension: "pdf")
         } else {
             docError()
         }
