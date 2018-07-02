@@ -144,7 +144,7 @@ class AirForceOtherAFIBookshelfViewController: UITableViewController {
         } else if global.selection == OtherAFI.afi11202v3Title {
             global.url = Bundle.main.url(forResource: "AFI 11-202v3 General Flight Rules (2 Oct 2017)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi11301v1Title {
-            global.url = Bundle.main.url(forResource: "AFI 11-301V1 Aircrew Flight Equipment Program (10 Oct 2017)", withExtension: "pdf")
+            global.url = Bundle.main.url(forResource: "AFI 11-301v1 Aircrew Flight Equipment Program (10 Oct 2017)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi11301v2Title {
             global.url = Bundle.main.url(forResource: "AFI 11-301v2 Management & Configuration Req for AFE (6 Dec 2017)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi11301v4Title {
@@ -172,7 +172,7 @@ class AirForceOtherAFIBookshelfViewController: UITableViewController {
         } else if global.selection == OtherAFI.afman48147Title {
             global.url = Bundle.main.url(forResource: "AFMAN 48-147_IP Tri-Service Food Code (30 Apr 2014)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afman91223Title {
-            global.url = Bundle.main.url(forResource: "AFMAN 91-223 Aviation Safety Investigations & Reports (8 Jun 2016)", withExtension: "pdf")
+            global.url = Bundle.main.url(forResource: "AFMAN 91-223 Aviation Safety Investigations & Reports (6 Jun 2018)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afpd481Title {
             global.url = Bundle.main.url(forResource: "AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afecdTitle {

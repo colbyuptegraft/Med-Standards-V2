@@ -37,7 +37,7 @@ struct AF {
     static let medsDetail = "Official Air Force Aerospace Medicine Approved Medications (24 May 2018)"
     
     static let otcMedsTitle = "OTC Approved Med List"
-    static let otcMedsDetail = "Over-the-Counter Medications Not Requiring Flight Surgeon Approval (09 Jan 2014)"
+    static let otcMedsDetail = "Over-the-Counter Medications Not Requiring Flight Surgeon Approval (9 Jan 2014)"
     
     static let modMedsTitle = "MOD Approved Med List"
     static let modMedsDetail = "Approved Missile Operator Medications (24 May 2018)"
