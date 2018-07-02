@@ -67,25 +67,16 @@ struct RSV {
 
 class AirForceRSVBookshelfViewController: UITableViewController {
     
-    let AFDocArray:NSArray = [RSV.OverviewTitle, RSV.r1aTitle, RSV.r1aNotesTitle, RSV.r1b1Title, RSV.r1b2Title, RSV.r1b3Title, RSV.r1b4Title, RSV.r1cTitle, RSV.r1dTitle, RSV.r1e1Title, RSV.r1e2Title, RSV.r2aTitle, RSV.r3aTitle, RSV.r4aTitle, RSV.r5aTitle]
-    let AFDocDetailArray:NSArray = [RSV.OverviewDetail, RSV.r1aDetail, RSV.r1aNotesDetail, RSV.r1b1Detail, RSV.r1b2Detail, RSV.r1b3Detail, RSV.r1b4Detail, RSV.r1cDetail, RSV.r1dDetail, RSV.r1e1Detail, RSV.r1e2Detail, RSV.r2aDetail, RSV.r3aDetail, RSV.r4aDetail, RSV.r5aDetail]
-    
-    var documents = [PDFDocument]()
-    
-    let thumbnailCache = NSCache<NSURL, UIImage>()
-    private let downloadQueue = DispatchQueue(label: "com.kishikawakatsumi.pdfviewer.thumbnail")
+    let DocArray:NSArray = [RSV.OverviewTitle, RSV.r1aTitle, RSV.r1aNotesTitle, RSV.r1b1Title, RSV.r1b2Title, RSV.r1b3Title, RSV.r1b4Title, RSV.r1cTitle, RSV.r1dTitle, RSV.r1e1Title, RSV.r1e2Title, RSV.r2aTitle, RSV.r3aTitle, RSV.r4aTitle, RSV.r5aTitle]
+    let DocDetailArray:NSArray = [RSV.OverviewDetail, RSV.r1aDetail, RSV.r1aNotesDetail, RSV.r1b1Detail, RSV.r1b2Detail, RSV.r1b3Detail, RSV.r1b4Detail, RSV.r1cDetail, RSV.r1dDetail, RSV.r1e1Detail, RSV.r1e2Detail, RSV.r2aDetail, RSV.r3aDetail, RSV.r4aDetail, RSV.r5aDetail]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //tableView.separatorInset.left = 56
-        // refreshData()
-        // NotificationCenter.default.addObserver(self, selector: #selector(documentDirectoryDidChange(_:)), name: .documentDirectoryDidChange, object: nil)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         global.selection = ""
-        global.selection = AFDocArray[(indexPath as NSIndexPath).row] as! String
+        global.selection = DocArray[(indexPath as NSIndexPath).row] as! String
         
         if global.selection == RSV.OverviewTitle {
             global.url = Bundle.main.url(forResource: "RSV Overview", withExtension: "pdf")
@@ -142,7 +133,7 @@ class AirForceRSVBookshelfViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AFDocArray.count
+        return DocArray.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -152,10 +143,10 @@ class AirForceRSVBookshelfViewController: UITableViewController {
         let titleFont:UIFont? = UIFont(name: "Helvetica", size: 14.0)
         let detailFont:UIFont? = UIFont(name: "Helvetica", size: 12.0)
         
-        let detailText:NSMutableAttributedString = NSMutableAttributedString(string: "\n" + (AFDocDetailArray[(indexPath as NSIndexPath).row] as! String), attributes: (NSDictionary(object: detailFont!, forKey: NSAttributedStringKey.font as NSCopying) as! [NSAttributedStringKey : Any]))
+        let detailText:NSMutableAttributedString = NSMutableAttributedString(string: "\n" + (DocDetailArray[(indexPath as NSIndexPath).row] as! String), attributes: (NSDictionary(object: detailFont!, forKey: NSAttributedStringKey.font as NSCopying) as! [NSAttributedStringKey : Any]))
         detailText.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.lightGray, range: NSMakeRange(0, detailText.length))
         
-        let title = NSMutableAttributedString(string: AFDocArray[(indexPath as NSIndexPath).row] as! String, attributes: (NSDictionary(object: titleFont!, forKey: NSAttributedStringKey.font as NSCopying) as! [NSAttributedStringKey : Any]))
+        let title = NSMutableAttributedString(string: DocArray[(indexPath as NSIndexPath).row] as! String, attributes: (NSDictionary(object: titleFont!, forKey: NSAttributedStringKey.font as NSCopying) as! [NSAttributedStringKey : Any]))
         
         title.append(detailText)
         

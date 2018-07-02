@@ -26,6 +26,8 @@ class OutlineViewController: UITableViewController {
 
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
+        
+        self.pdfDocument = global.pdfDocument
 
         if let root = pdfDocument?.outlineRoot {
             var stack = [root]

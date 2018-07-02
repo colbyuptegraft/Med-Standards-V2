@@ -34,17 +34,8 @@ class ArmyBookshelfViewController: UITableViewController {
     let DocArray:NSArray = [Army.ar40501Title, Army.fSChecklistTitle, Army.petableTitle]
     let DocDetailArray:NSArray = [Army.ar40501Detail, Army.fSChecklistDetail, Army.petableDetail]
     
-    var documents = [PDFDocument]()
-    
-    let thumbnailCache = NSCache<NSURL, UIImage>()
-    private let downloadQueue = DispatchQueue(label: "com.kishikawakatsumi.pdfviewer.thumbnail")
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //tableView.separatorInset.left = 56
-        // refreshData()
-        // NotificationCenter.default.addObserver(self, selector: #selector(documentDirectoryDidChange(_:)), name: .documentDirectoryDidChange, object: nil)
     }
     
     func docError() {
@@ -58,7 +49,6 @@ class ArmyBookshelfViewController: UITableViewController {
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
     }
-    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         global.selection = ""

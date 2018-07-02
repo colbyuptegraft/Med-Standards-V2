@@ -20,7 +20,7 @@ class AirForceOxConvAboutViewController: UIViewController, UIScrollViewDelegate 
     
     @IBOutlet var aboutLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
-    @IBOutlet var aboutLabelTwo: UILabel!
+    @IBOutlet var textView: UITextView!
     @IBOutlet var scrollView: UIScrollView!
     
     override func viewDidLoad() {
@@ -30,8 +30,7 @@ class AirForceOxConvAboutViewController: UIViewController, UIScrollViewDelegate 
         
         self.aboutLabel.text = "This application uses the equation:"
         
-        self.aboutLabelTwo.text = "to calculate the inspiratory oxygen needs of patients flown at various cabin altitudes for the purpose of aeromedical evacuations and provides a recommendation for the method of oxygen delivery.  The margin of error is +/- 1%.  \n\nThe calculated results are recommendations only.  The actual amount of oxygen and delivery method should be based on the clinical status of each individual patient."
-        
+        self.textView.text = "to calculate the inspiratory oxygen needs of patients flown at various cabin altitudes for the purpose of aeromedical evacuations and provides a recommendation for the method of oxygen delivery.  The margin of error is +/- 1%.  \n\nThe calculated results are recommendations only.  The actual amount of oxygen and delivery method should be based on the clinical status of each individual patient."
         
     }
     
@@ -45,8 +44,6 @@ class AirForceOxConvAboutViewController: UIViewController, UIScrollViewDelegate 
         self.scrollView.isUserInteractionEnabled = true
         self.scrollView.contentSize = CGSize(width: screenWidth, height: scrollHeight)
         self.scrollView.showsVerticalScrollIndicator = true
-        
-        
         
     }
 }

@@ -64,11 +64,6 @@ class AirForceBookshelfViewController: UITableViewController {
     let DocArray:NSArray = [AF.dlcTitle, AF.mesTitle, AF.medsTitle, AF.fsToolkitTitle, AF.otcMedsTitle, AF.modMedsTitle, AF.msdTitle, AF.physExMtxTitle, AF.wgTitle,  AF.otherTitle]
     let DocDetailArray:NSArray = [AF.dlcDetail, AF.mesDetail, AF.medsDetail, AF.fsToolkitDetail, AF.otcMedsDetail, AF.modMedsDetail, AF.msdDetail, AF.physExMtxDetail, AF.wgDetail, AF.otherDetail]
 
-    var documents = [PDFDocument]()
-
-    let thumbnailCache = NSCache<NSURL, UIImage>()
-    private let downloadQueue = DispatchQueue(label: "com.kishikawakatsumi.pdfviewer.thumbnail")
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -98,7 +93,7 @@ class AirForceBookshelfViewController: UITableViewController {
             } else if global.selection == AF.medsTitle {
                 global.url = Bundle.main.url(forResource: "AF Approved Med List (24 May 2018)", withExtension: "pdf")
             } else if global.selection == AF.otcMedsTitle {
-                global.url = Bundle.main.url(forResource: "AF OTC Approved Med List (09 Jan 2014)", withExtension: "pdf")
+                global.url = Bundle.main.url(forResource: "AF OTC Approved Med List (9 Jan 2014)", withExtension: "pdf")
             } else if global.selection == AF.modMedsTitle {
                 global.url = Bundle.main.url(forResource: "AF Missile Operator Approved Med List (24 May 2018)", withExtension: "pdf")
             } else if global.selection == AF.msdTitle {

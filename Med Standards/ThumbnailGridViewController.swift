@@ -43,6 +43,8 @@ class ThumbnailGridViewController: UICollectionViewController, UICollectionViewD
         let backgroundView = UIView()
         backgroundView.backgroundColor = .gray
         collectionView?.backgroundView = backgroundView
+        
+        self.pdfDocument = global.pdfDocument
 
         collectionView?.register(UINib(nibName: String(describing: ThumbnailGridCell.self), bundle: nil), forCellWithReuseIdentifier: "Cell")
     }

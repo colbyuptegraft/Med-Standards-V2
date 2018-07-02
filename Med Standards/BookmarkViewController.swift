@@ -41,6 +41,8 @@ class BookmarkViewController: UICollectionViewController, UICollectionViewDelega
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.pdfDocument = global.pdfDocument
 
         let backgroundView = UIView()
         backgroundView.backgroundColor = .gray

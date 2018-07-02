@@ -31,17 +31,8 @@ class NavyBookshelfViewController: UITableViewController {
     let DocArray:NSArray = [Navy.waiverGuideTitle, Navy.usnManmedTitle]
     let DocDetailArray:NSArray = [Navy.waiverGuideDetail, Navy.usnManmedDetail]
     
-    var documents = [PDFDocument]()
-    
-    let thumbnailCache = NSCache<NSURL, UIImage>()
-    private let downloadQueue = DispatchQueue(label: "com.kishikawakatsumi.pdfviewer.thumbnail")
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //tableView.separatorInset.left = 56
-        // refreshData()
-        // NotificationCenter.default.addObserver(self, selector: #selector(documentDirectoryDidChange(_:)), name: .documentDirectoryDidChange, object: nil)
     }
     
     func docError() {
