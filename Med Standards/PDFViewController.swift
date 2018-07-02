@@ -106,7 +106,7 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
     }
-
+/*
     func actionMenuViewControllerShareDocument(_ actionMenuViewController: ActionMenuViewController) {
         let mailComposeViewController = MFMailComposeViewController()
         if let lastPathComponent = pdfDocument?.documentURL?.lastPathComponent,
@@ -116,6 +116,20 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
                 mailComposeViewController.setSubject(title)
             }
             mailComposeViewController.addAttachmentData(attachmentData, mimeType: "application/pdf", fileName: lastPathComponent)
+        }
+    }
+ 
+ */
+    
+    func actionMenuViewControllerShareDocument(_ actionMenuViewController: ActionMenuViewController) {
+        docController = UIDocumentInteractionController(url: global.url)
+        let url = URL(string:"itms-books:");
+        if UIApplication.shared.canOpenURL(url!) {
+            print("Able to share document")
+            docController!.presentOpenInMenu(from: CGRect.zero, in: self.view, animated: true)
+        } else {
+            print("Unable to share document")
+            iBooksError()
         }
     }
 
@@ -177,12 +191,12 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
     @objc func iBooksLaunch() {
         
         docController = UIDocumentInteractionController(url: global.url)
-        let url = URL(string:"items-books:");
+        let url = URL(string:"itms-books:");
         if UIApplication.shared.canOpenURL(url!) {
             docController!.presentOpenInMenu(from: CGRect.zero, in: self.view, animated: true)
-            print("iBooks is installed")
+            print("Able to share document")
         } else {
-            print("iBooks is not installed")
+            print("Unable to share document")
             iBooksError()
         }
         
@@ -190,7 +204,7 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
     
     func iBooksError() {
         let title = NSLocalizedString("Error", comment: "")
-        let message = NSLocalizedString("iBooks is not installed.", comment: "")
+        let message = NSLocalizedString("Unable to share document.", comment: "")
         let cancelButtonTitle = NSLocalizedString("OK", comment: "")
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
