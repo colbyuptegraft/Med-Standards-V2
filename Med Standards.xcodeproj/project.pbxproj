@@ -27,6 +27,39 @@
 		6C28D47D20E6BB4200DEAC11 /* AirForceOtherAFIBookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C28D47C20E6BB4200DEAC11 /* AirForceOtherAFIBookshelfViewController.swift */; };
 		6C28D47F20E6C99000DEAC11 /* AirForceFSToolkitBookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C28D47E20E6C99000DEAC11 /* AirForceFSToolkitBookshelfViewController.swift */; };
 		6C28D48120E733C400DEAC11 /* AirForceRSVBookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C28D48020E733C400DEAC11 /* AirForceRSVBookshelfViewController.swift */; };
+		6C3D363020E9B33900040300 /* AFPAM 48-133 Physical Examination Techniques (1 Jun 2000).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D360F20E9B33900040300 /* AFPAM 48-133 Physical Examination Techniques (1 Jun 2000).pdf */; };
+		6C3D363120E9B33900040300 /* AFI 91-204 Safety Investigations & Reports (27 Apr 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D361020E9B33900040300 /* AFI 91-204 Safety Investigations & Reports (27 Apr 2018).pdf */; };
+		6C3D363220E9B33900040300 /* AFI 11-202v1 Aircrew Training (27 Jun 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D361120E9B33900040300 /* AFI 11-202v1 Aircrew Training (27 Jun 2017).pdf */; };
+		6C3D363320E9B33900040300 /* AFI 11-301v4 Aircrew Laser Eye Program (17 Feb 2010).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D361220E9B33900040300 /* AFI 11-301v4 Aircrew Laser Eye Program (17 Feb 2010).pdf */; };
+		6C3D363420E9B33900040300 /* AFI 11-301v2 Management & Configuration Req for AFE (6 Dec 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D361320E9B33900040300 /* AFI 11-301v2 Management & Configuration Req for AFE (6 Dec 2017).pdf */; };
+		6C3D363520E9B33900040300 /* AFI 48-307v2 En Route Critical Care (10 Jan 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D361420E9B33900040300 /* AFI 48-307v2 En Route Critical Care (10 Jan 2017).pdf */; };
+		6C3D363620E9B33900040300 /* AF AETCI 48-102 Medical Management of UFT Students (5 Nov 2013).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D361520E9B33900040300 /* AF AETCI 48-102 Medical Management of UFT Students (5 Nov 2013).pdf */; };
+		6C3D363720E9B33900040300 /* AFI 11-202v2 Aircrew Standardization-Evaluation Program (13 Sep 2010).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D361620E9B33900040300 /* AFI 11-202v2 Aircrew Standardization-Evaluation Program (13 Sep 2010).pdf */; };
+		6C3D363820E9B33900040300 /* AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D361720E9B33900040300 /* AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011).pdf */; };
+		6C3D363920E9B33900040300 /* AFI 11-401 Aviation Management (14 Feb 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D361820E9B33900040300 /* AFI 11-401 Aviation Management (14 Feb 2018).pdf */; };
+		6C3D363A20E9B33900040300 /* AFI 48-307v1 En Route Care & Aeromedical Evacuation Medical Operations (9 Jan 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D361920E9B33900040300 /* AFI 48-307v1 En Route Care & Aeromedical Evacuation Medical Operations (9 Jan 2017).pdf */; };
+		6C3D363B20E9B33900040300 /* AF AETCI 48-103 Training Health & Human Performance Program (24 Apr 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D361A20E9B33900040300 /* AF AETCI 48-103 Training Health & Human Performance Program (24 Apr 2018).pdf */; };
+		6C3D363C20E9B33900040300 /* AFI 11-301V1 Aircrew Flight Equipment Program (10 Oct 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D361B20E9B33900040300 /* AFI 11-301V1 Aircrew Flight Equipment Program (10 Oct 2017).pdf */; };
+		6C3D363D20E9B33900040300 /* AFI 48-307v3 En Route Care Documentation (12 Apr 2016).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D361C20E9B33900040300 /* AFI 48-307v3 En Route Care Documentation (12 Apr 2016).pdf */; };
+		6C3D363E20E9B33900040300 /* AFI 44-172 Mental Health (13 Nov 2015).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D361D20E9B33900040300 /* AFI 44-172 Mental Health (13 Nov 2015).pdf */; };
+		6C3D363F20E9B33900040300 /* AFMAN 91-223 Aviation Safety Investigations & Reports (8 Jun 2016).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D361E20E9B33900040300 /* AFMAN 91-223 Aviation Safety Investigations & Reports (8 Jun 2016).pdf */; };
+		6C3D364020E9B33900040300 /* AFI 11-402 Aviation & Parachutist Service Aeronautical Ratings & Aviation Badges (28 Feb 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D361F20E9B33900040300 /* AFI 11-402 Aviation & Parachutist Service Aeronautical Ratings & Aviation Badges (28 Feb 2018).pdf */; };
+		6C3D364120E9B33900040300 /* AFI 36-2101 Classifying Military Personnel (9 Mar 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D362020E9B33900040300 /* AFI 36-2101 Classifying Military Personnel (9 Mar 2017).pdf */; };
+		6C3D364220E9B33900040300 /* AFI 11-202v3 General Flight Rules (2 Oct 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D362120E9B33900040300 /* AFI 11-202v3 General Flight Rules (2 Oct 2017).pdf */; };
+		6C3D364320E9B33900040300 /* AFI 44-171 Patient Centered Medical Home Operations (28 Nov 2014).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D362220E9B33900040300 /* AFI 44-171 Patient Centered Medical Home Operations (28 Nov 2014).pdf */; };
+		6C3D364420E9B33900040300 /* AFECD (30 Apr 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D362320E9B33900040300 /* AFECD (30 Apr 2018).pdf */; };
+		6C3D364520E9B33900040300 /* AFI 44-170 Preventive Health Assessment (19 Jan 2016).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D362420E9B33900040300 /* AFI 44-170 Preventive Health Assessment (19 Jan 2016).pdf */; };
+		6C3D364620E9B33900040300 /* AFI 48-149 Flight & Operational Medicine Program (18 Dec 2015).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D362520E9B33900040300 /* AFI 48-149 Flight & Operational Medicine Program (18 Dec 2015).pdf */; };
+		6C3D364720E9B33900040300 /* AFI 44-103 Air Force IDMT Program (6 Dec 2013).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D362620E9B33900040300 /* AFI 44-103 Air Force IDMT Program (6 Dec 2013).pdf */; };
+		6C3D364820E9B33900040300 /* AFI 91-202 USAF Mishap Prevention Program (21 May 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D362720E9B33900040300 /* AFI 91-202 USAF Mishap Prevention Program (21 May 2018).pdf */; };
+		6C3D364920E9B33900040300 /* AFI 10-203 Supplemental Guidance (17 Nov 2016).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D362820E9B33900040300 /* AFI 10-203 Supplemental Guidance (17 Nov 2016).pdf */; };
+		6C3D364A20E9B33900040300 /* AFMAN 48-147_IP Tri-Service Food Code (30 Apr 2014).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D362920E9B33900040300 /* AFMAN 48-147_IP Tri-Service Food Code (30 Apr 2014).pdf */; };
+		6C3D364B20E9B33900040300 /* AFOCD (30 Apr 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D362A20E9B33900040300 /* AFOCD (30 Apr 2018).pdf */; };
+		6C3D364C20E9B33900040300 /* AFI 10-203 Supplemental Guidance Profile Timelines (Jun 2014).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D362B20E9B33900040300 /* AFI 10-203 Supplemental Guidance Profile Timelines (Jun 2014).pdf */; };
+		6C3D364D20E9B33900040300 /* AFI 48-145 Occupational & Environmental Health Program (27 Aug 2015).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D362C20E9B33900040300 /* AFI 48-145 Occupational & Environmental Health Program (27 Aug 2015).pdf */; };
+		6C3D364E20E9B33900040300 /* AFI 10-203 Supplemental Guidance Profile Templates (4 Dec 2014).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D362D20E9B33900040300 /* AFI 10-203 Supplemental Guidance Profile Templates (4 Dec 2014).pdf */; };
+		6C3D364F20E9B33900040300 /* AFI 36-2905 Fitness Program (27 Aug 2015).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D362E20E9B33900040300 /* AFI 36-2905 Fitness Program (27 Aug 2015).pdf */; };
+		6C3D365020E9B33900040300 /* AFI 48-101 Aerospace Medicine Enterprise (8 Dec 2014).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3D362F20E9B33900040300 /* AFI 48-101 Aerospace Medicine Enterprise (8 Dec 2014).pdf */; };
 		6C6923F520E6931A00D8DF34 /* USN ManMed Chapter 15 Physical Exams & Standards for Enlistment, Commission, & Special Duty (3 Feb 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923AB20E6931900D8DF34 /* USN ManMed Chapter 15 Physical Exams & Standards for Enlistment, Commission, & Special Duty (3 Feb 2017).pdf */; };
 		6C6923F620E6931A00D8DF34 /* Navy Aeromedical Reference & Waiver Guide (9 Apr 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923AC20E6931900D8DF34 /* Navy Aeromedical Reference & Waiver Guide (9 Apr 2018).pdf */; };
 		6C6923F720E6931A00D8DF34 /* AR 40-501 Standards of Medical Fitness (14 Jun 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923AE20E6931900D8DF34 /* AR 40-501 Standards of Medical Fitness (14 Jun 2017).pdf */; };
@@ -37,39 +70,6 @@
 		6C6923FC20E6931A00D8DF34 /* AFI 48-123 Medical Examinations & Standards (28 Jan 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923B420E6931900D8DF34 /* AFI 48-123 Medical Examinations & Standards (28 Jan 2018).pdf */; };
 		6C6923FD20E6931A00D8DF34 /* AF Physical Examination Matrix (Jan 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923B520E6931900D8DF34 /* AF Physical Examination Matrix (Jan 2018).pdf */; };
 		6C6923FE20E6931A00D8DF34 /* AF Medical Standards Directory (24 May 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923B620E6931900D8DF34 /* AF Medical Standards Directory (24 May 2018).pdf */; };
-		6C6923FF20E6931A00D8DF34 /* AFPAM 48-133 Physical Examination Techniques (1 Jun 2000).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923B820E6931900D8DF34 /* AFPAM 48-133 Physical Examination Techniques (1 Jun 2000).pdf */; };
-		6C69240020E6931A00D8DF34 /* AFI 91-204 Safety Investigations & Reports (27 Apr 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923B920E6931900D8DF34 /* AFI 91-204 Safety Investigations & Reports (27 Apr 2018).pdf */; };
-		6C69240120E6931A00D8DF34 /* AFI 11-202v1 Aircrew Training (27 Jun 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923BA20E6931900D8DF34 /* AFI 11-202v1 Aircrew Training (27 Jun 2017).pdf */; };
-		6C69240220E6931A00D8DF34 /* AFI 11-301v4 Aircrew Laser Eye Program (17 Feb 2010).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923BB20E6931900D8DF34 /* AFI 11-301v4 Aircrew Laser Eye Program (17 Feb 2010).pdf */; };
-		6C69240320E6931A00D8DF34 /* AFI 11-301v2 Management & Configuration Req for AFE (6 Dec 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923BC20E6931900D8DF34 /* AFI 11-301v2 Management & Configuration Req for AFE (6 Dec 2017).pdf */; };
-		6C69240420E6931A00D8DF34 /* AFI 48-145 Occupational & Environmental Health Program (27 Aug 2015).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923BD20E6931900D8DF34 /* AFI 48-145 Occupational & Environmental Health Program (27 Aug 2015).pdf */; };
-		6C69240520E6931A00D8DF34 /* AFI 48-307v2 En Route Critical Care (10 Jan 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923BE20E6931900D8DF34 /* AFI 48-307v2 En Route Critical Care (10 Jan 2017).pdf */; };
-		6C69240620E6931A00D8DF34 /* AFI 11-202v2 Aircrew Standardization-Evaluation Program (13 Sep 2010).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923BF20E6931900D8DF34 /* AFI 11-202v2 Aircrew Standardization-Evaluation Program (13 Sep 2010).pdf */; };
-		6C69240720E6931A00D8DF34 /* AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923C020E6931900D8DF34 /* AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011).pdf */; };
-		6C69240820E6931A00D8DF34 /* AFI 11-401 Aviation Management (14 Feb 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923C120E6931900D8DF34 /* AFI 11-401 Aviation Management (14 Feb 2018).pdf */; };
-		6C69240920E6931A00D8DF34 /* AFI 48-307v1 En Route Care & Aeromedical Evacuation Medical Operations (9 Jan 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923C220E6931900D8DF34 /* AFI 48-307v1 En Route Care & Aeromedical Evacuation Medical Operations (9 Jan 2017).pdf */; };
-		6C69240A20E6931A00D8DF34 /* AF AETCI 48-103 Training Health & Human Performance Program (24 Apr 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923C320E6931900D8DF34 /* AF AETCI 48-103 Training Health & Human Performance Program (24 Apr 2018).pdf */; };
-		6C69240B20E6931A00D8DF34 /* AFI 11-301V1 Aircrew Flight Equipment Program (10 Oct 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923C420E6931900D8DF34 /* AFI 11-301V1 Aircrew Flight Equipment Program (10 Oct 2017).pdf */; };
-		6C69240C20E6931A00D8DF34 /* AFI 48-307v3 En Route Care Documentation (12 Apr 2016).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923C520E6931900D8DF34 /* AFI 48-307v3 En Route Care Documentation (12 Apr 2016).pdf */; };
-		6C69240D20E6931A00D8DF34 /* AFI 44-172 Mental Health (13 Nov 2015).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923C620E6931900D8DF34 /* AFI 44-172 Mental Health (13 Nov 2015).pdf */; };
-		6C69240E20E6931A00D8DF34 /* AFMAN 91-223 Aviation Safety Investigations & Reports (8 Jun 2016).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923C720E6931900D8DF34 /* AFMAN 91-223 Aviation Safety Investigations & Reports (8 Jun 2016).pdf */; };
-		6C69240F20E6931A00D8DF34 /* AFI 11-402 Aviation & Parachutist Service Aeronautical Ratings & Aviation Badges (28 Feb 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923C820E6931900D8DF34 /* AFI 11-402 Aviation & Parachutist Service Aeronautical Ratings & Aviation Badges (28 Feb 2018).pdf */; };
-		6C69241020E6931A00D8DF34 /* AFI 36-2101 Classifying Military Personnel (9 Mar 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923C920E6931900D8DF34 /* AFI 36-2101 Classifying Military Personnel (9 Mar 2017).pdf */; };
-		6C69241120E6931A00D8DF34 /* AFI 11-202v3 General Flight Rules (2 Oct 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923CA20E6931900D8DF34 /* AFI 11-202v3 General Flight Rules (2 Oct 2017).pdf */; };
-		6C69241220E6931A00D8DF34 /* AFI 44-171 Patient Centered Medical Home Operations (28 Nov 2014).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923CB20E6931900D8DF34 /* AFI 44-171 Patient Centered Medical Home Operations (28 Nov 2014).pdf */; };
-		6C69241320E6931A00D8DF34 /* AFECD (30 Apr 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923CC20E6931900D8DF34 /* AFECD (30 Apr 2018).pdf */; };
-		6C69241420E6931A00D8DF34 /* AFI 44-170 Preventive Health Assessment (19 Jan 2016).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923CD20E6931900D8DF34 /* AFI 44-170 Preventive Health Assessment (19 Jan 2016).pdf */; };
-		6C69241520E6931A00D8DF34 /* AFI 48-149 Flight & Operational Medicine Program (18 Dec 2015).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923CE20E6931900D8DF34 /* AFI 48-149 Flight & Operational Medicine Program (18 Dec 2015).pdf */; };
-		6C69241620E6931A00D8DF34 /* AFI 91-202 USAF Mishap Prevention Program (21 May 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923CF20E6931900D8DF34 /* AFI 91-202 USAF Mishap Prevention Program (21 May 2018).pdf */; };
-		6C69241720E6931A00D8DF34 /* AFI 10-203 Supplemental Guidance (17 Nov 2016).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923D020E6931900D8DF34 /* AFI 10-203 Supplemental Guidance (17 Nov 2016).pdf */; };
-		6C69241820E6931A00D8DF34 /* AFMAN 48-147_IP Tri-Service Food Code (30 Apr 2014).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923D120E6931900D8DF34 /* AFMAN 48-147_IP Tri-Service Food Code (30 Apr 2014).pdf */; };
-		6C69241920E6931A00D8DF34 /* AFOCD (30 Apr 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923D220E6931900D8DF34 /* AFOCD (30 Apr 2018).pdf */; };
-		6C69241A20E6931A00D8DF34 /* AFI 10-203 Supplemental Guidance Profile Timelines (Jun 2014).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923D320E6931900D8DF34 /* AFI 10-203 Supplemental Guidance Profile Timelines (Jun 2014).pdf */; };
-		6C69241B20E6931A00D8DF34 /* AF AETCI 48-102 Medical Management of UFT Students (5 Nov 2013).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923D420E6931900D8DF34 /* AF AETCI 48-102 Medical Management of UFT Students (5 Nov 2013).pdf */; };
-		6C69241C20E6931A00D8DF34 /* AFI 48-101 Aerospace Medicine Enterprise (8 Dec 2014).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923D520E6931900D8DF34 /* AFI 48-101 Aerospace Medicine Enterprise (8 Dec 2014).pdf */; };
-		6C69241D20E6931A00D8DF34 /* AFI 10-203 Supplemental Guidance Profile Templates (4 Dec 2014).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923D620E6931900D8DF34 /* AFI 10-203 Supplemental Guidance Profile Templates (4 Dec 2014).pdf */; };
-		6C69241E20E6931A00D8DF34 /* AFI 36-2905 Fitness Program (27 Aug 2015).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923D720E6931900D8DF34 /* AFI 36-2905 Fitness Program (27 Aug 2015).pdf */; };
-		6C69241F20E6931A00D8DF34 /* AFI 44-103 Air Force IDMT Program (6 Dec 2013).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923D820E6931900D8DF34 /* AFI 44-103 Air Force IDMT Program (6 Dec 2013).pdf */; };
 		6C69242020E6931A00D8DF34 /* AF Approved Med List (24 May 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923D920E6931900D8DF34 /* AF Approved Med List (24 May 2018).pdf */; };
 		6C69242120E6931A00D8DF34 /* AF Missile Operator Approved Med List (24 May 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923DA20E6931900D8DF34 /* AF Missile Operator Approved Med List (24 May 2018).pdf */; };
 		6C69242220E6931A00D8DF34 /* Physical Examination Matrix (6 Oct 2017).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923DC20E6931A00D8DF34 /* Physical Examination Matrix (6 Oct 2017).pdf */; };
@@ -128,6 +128,39 @@
 		6C28D47C20E6BB4200DEAC11 /* AirForceOtherAFIBookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirForceOtherAFIBookshelfViewController.swift; sourceTree = "<group>"; };
 		6C28D47E20E6C99000DEAC11 /* AirForceFSToolkitBookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirForceFSToolkitBookshelfViewController.swift; sourceTree = "<group>"; };
 		6C28D48020E733C400DEAC11 /* AirForceRSVBookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirForceRSVBookshelfViewController.swift; sourceTree = "<group>"; };
+		6C3D360F20E9B33900040300 /* AFPAM 48-133 Physical Examination Techniques (1 Jun 2000).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFPAM 48-133 Physical Examination Techniques (1 Jun 2000).pdf"; sourceTree = "<group>"; };
+		6C3D361020E9B33900040300 /* AFI 91-204 Safety Investigations & Reports (27 Apr 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 91-204 Safety Investigations & Reports (27 Apr 2018).pdf"; sourceTree = "<group>"; };
+		6C3D361120E9B33900040300 /* AFI 11-202v1 Aircrew Training (27 Jun 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-202v1 Aircrew Training (27 Jun 2017).pdf"; sourceTree = "<group>"; };
+		6C3D361220E9B33900040300 /* AFI 11-301v4 Aircrew Laser Eye Program (17 Feb 2010).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-301v4 Aircrew Laser Eye Program (17 Feb 2010).pdf"; sourceTree = "<group>"; };
+		6C3D361320E9B33900040300 /* AFI 11-301v2 Management & Configuration Req for AFE (6 Dec 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-301v2 Management & Configuration Req for AFE (6 Dec 2017).pdf"; sourceTree = "<group>"; };
+		6C3D361420E9B33900040300 /* AFI 48-307v2 En Route Critical Care (10 Jan 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 48-307v2 En Route Critical Care (10 Jan 2017).pdf"; sourceTree = "<group>"; };
+		6C3D361520E9B33900040300 /* AF AETCI 48-102 Medical Management of UFT Students (5 Nov 2013).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF AETCI 48-102 Medical Management of UFT Students (5 Nov 2013).pdf"; sourceTree = "<group>"; };
+		6C3D361620E9B33900040300 /* AFI 11-202v2 Aircrew Standardization-Evaluation Program (13 Sep 2010).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-202v2 Aircrew Standardization-Evaluation Program (13 Sep 2010).pdf"; sourceTree = "<group>"; };
+		6C3D361720E9B33900040300 /* AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011).pdf"; sourceTree = "<group>"; };
+		6C3D361820E9B33900040300 /* AFI 11-401 Aviation Management (14 Feb 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-401 Aviation Management (14 Feb 2018).pdf"; sourceTree = "<group>"; };
+		6C3D361920E9B33900040300 /* AFI 48-307v1 En Route Care & Aeromedical Evacuation Medical Operations (9 Jan 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 48-307v1 En Route Care & Aeromedical Evacuation Medical Operations (9 Jan 2017).pdf"; sourceTree = "<group>"; };
+		6C3D361A20E9B33900040300 /* AF AETCI 48-103 Training Health & Human Performance Program (24 Apr 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF AETCI 48-103 Training Health & Human Performance Program (24 Apr 2018).pdf"; sourceTree = "<group>"; };
+		6C3D361B20E9B33900040300 /* AFI 11-301V1 Aircrew Flight Equipment Program (10 Oct 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-301V1 Aircrew Flight Equipment Program (10 Oct 2017).pdf"; sourceTree = "<group>"; };
+		6C3D361C20E9B33900040300 /* AFI 48-307v3 En Route Care Documentation (12 Apr 2016).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 48-307v3 En Route Care Documentation (12 Apr 2016).pdf"; sourceTree = "<group>"; };
+		6C3D361D20E9B33900040300 /* AFI 44-172 Mental Health (13 Nov 2015).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 44-172 Mental Health (13 Nov 2015).pdf"; sourceTree = "<group>"; };
+		6C3D361E20E9B33900040300 /* AFMAN 91-223 Aviation Safety Investigations & Reports (8 Jun 2016).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFMAN 91-223 Aviation Safety Investigations & Reports (8 Jun 2016).pdf"; sourceTree = "<group>"; };
+		6C3D361F20E9B33900040300 /* AFI 11-402 Aviation & Parachutist Service Aeronautical Ratings & Aviation Badges (28 Feb 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-402 Aviation & Parachutist Service Aeronautical Ratings & Aviation Badges (28 Feb 2018).pdf"; sourceTree = "<group>"; };
+		6C3D362020E9B33900040300 /* AFI 36-2101 Classifying Military Personnel (9 Mar 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 36-2101 Classifying Military Personnel (9 Mar 2017).pdf"; sourceTree = "<group>"; };
+		6C3D362120E9B33900040300 /* AFI 11-202v3 General Flight Rules (2 Oct 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-202v3 General Flight Rules (2 Oct 2017).pdf"; sourceTree = "<group>"; };
+		6C3D362220E9B33900040300 /* AFI 44-171 Patient Centered Medical Home Operations (28 Nov 2014).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 44-171 Patient Centered Medical Home Operations (28 Nov 2014).pdf"; sourceTree = "<group>"; };
+		6C3D362320E9B33900040300 /* AFECD (30 Apr 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFECD (30 Apr 2018).pdf"; sourceTree = "<group>"; };
+		6C3D362420E9B33900040300 /* AFI 44-170 Preventive Health Assessment (19 Jan 2016).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 44-170 Preventive Health Assessment (19 Jan 2016).pdf"; sourceTree = "<group>"; };
+		6C3D362520E9B33900040300 /* AFI 48-149 Flight & Operational Medicine Program (18 Dec 2015).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 48-149 Flight & Operational Medicine Program (18 Dec 2015).pdf"; sourceTree = "<group>"; };
+		6C3D362620E9B33900040300 /* AFI 44-103 Air Force IDMT Program (6 Dec 2013).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 44-103 Air Force IDMT Program (6 Dec 2013).pdf"; sourceTree = "<group>"; };
+		6C3D362720E9B33900040300 /* AFI 91-202 USAF Mishap Prevention Program (21 May 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 91-202 USAF Mishap Prevention Program (21 May 2018).pdf"; sourceTree = "<group>"; };
+		6C3D362820E9B33900040300 /* AFI 10-203 Supplemental Guidance (17 Nov 2016).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 10-203 Supplemental Guidance (17 Nov 2016).pdf"; sourceTree = "<group>"; };
+		6C3D362920E9B33900040300 /* AFMAN 48-147_IP Tri-Service Food Code (30 Apr 2014).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFMAN 48-147_IP Tri-Service Food Code (30 Apr 2014).pdf"; sourceTree = "<group>"; };
+		6C3D362A20E9B33900040300 /* AFOCD (30 Apr 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFOCD (30 Apr 2018).pdf"; sourceTree = "<group>"; };
+		6C3D362B20E9B33900040300 /* AFI 10-203 Supplemental Guidance Profile Timelines (Jun 2014).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 10-203 Supplemental Guidance Profile Timelines (Jun 2014).pdf"; sourceTree = "<group>"; };
+		6C3D362C20E9B33900040300 /* AFI 48-145 Occupational & Environmental Health Program (27 Aug 2015).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 48-145 Occupational & Environmental Health Program (27 Aug 2015).pdf"; sourceTree = "<group>"; };
+		6C3D362D20E9B33900040300 /* AFI 10-203 Supplemental Guidance Profile Templates (4 Dec 2014).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 10-203 Supplemental Guidance Profile Templates (4 Dec 2014).pdf"; sourceTree = "<group>"; };
+		6C3D362E20E9B33900040300 /* AFI 36-2905 Fitness Program (27 Aug 2015).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 36-2905 Fitness Program (27 Aug 2015).pdf"; sourceTree = "<group>"; };
+		6C3D362F20E9B33900040300 /* AFI 48-101 Aerospace Medicine Enterprise (8 Dec 2014).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 48-101 Aerospace Medicine Enterprise (8 Dec 2014).pdf"; sourceTree = "<group>"; };
 		6C6923AB20E6931900D8DF34 /* USN ManMed Chapter 15 Physical Exams & Standards for Enlistment, Commission, & Special Duty (3 Feb 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "USN ManMed Chapter 15 Physical Exams & Standards for Enlistment, Commission, & Special Duty (3 Feb 2017).pdf"; sourceTree = "<group>"; };
 		6C6923AC20E6931900D8DF34 /* Navy Aeromedical Reference & Waiver Guide (9 Apr 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Navy Aeromedical Reference & Waiver Guide (9 Apr 2018).pdf"; sourceTree = "<group>"; };
 		6C6923AE20E6931900D8DF34 /* AR 40-501 Standards of Medical Fitness (14 Jun 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AR 40-501 Standards of Medical Fitness (14 Jun 2017).pdf"; sourceTree = "<group>"; };
@@ -138,39 +171,6 @@
 		6C6923B420E6931900D8DF34 /* AFI 48-123 Medical Examinations & Standards (28 Jan 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 48-123 Medical Examinations & Standards (28 Jan 2018).pdf"; sourceTree = "<group>"; };
 		6C6923B520E6931900D8DF34 /* AF Physical Examination Matrix (Jan 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF Physical Examination Matrix (Jan 2018).pdf"; sourceTree = "<group>"; };
 		6C6923B620E6931900D8DF34 /* AF Medical Standards Directory (24 May 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF Medical Standards Directory (24 May 2018).pdf"; sourceTree = "<group>"; };
-		6C6923B820E6931900D8DF34 /* AFPAM 48-133 Physical Examination Techniques (1 Jun 2000).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFPAM 48-133 Physical Examination Techniques (1 Jun 2000).pdf"; sourceTree = "<group>"; };
-		6C6923B920E6931900D8DF34 /* AFI 91-204 Safety Investigations & Reports (27 Apr 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 91-204 Safety Investigations & Reports (27 Apr 2018).pdf"; sourceTree = "<group>"; };
-		6C6923BA20E6931900D8DF34 /* AFI 11-202v1 Aircrew Training (27 Jun 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-202v1 Aircrew Training (27 Jun 2017).pdf"; sourceTree = "<group>"; };
-		6C6923BB20E6931900D8DF34 /* AFI 11-301v4 Aircrew Laser Eye Program (17 Feb 2010).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-301v4 Aircrew Laser Eye Program (17 Feb 2010).pdf"; sourceTree = "<group>"; };
-		6C6923BC20E6931900D8DF34 /* AFI 11-301v2 Management & Configuration Req for AFE (6 Dec 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-301v2 Management & Configuration Req for AFE (6 Dec 2017).pdf"; sourceTree = "<group>"; };
-		6C6923BD20E6931900D8DF34 /* AFI 48-145 Occupational & Environmental Health Program (27 Aug 2015).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 48-145 Occupational & Environmental Health Program (27 Aug 2015).pdf"; sourceTree = "<group>"; };
-		6C6923BE20E6931900D8DF34 /* AFI 48-307v2 En Route Critical Care (10 Jan 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 48-307v2 En Route Critical Care (10 Jan 2017).pdf"; sourceTree = "<group>"; };
-		6C6923BF20E6931900D8DF34 /* AFI 11-202v2 Aircrew Standardization-Evaluation Program (13 Sep 2010).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-202v2 Aircrew Standardization-Evaluation Program (13 Sep 2010).pdf"; sourceTree = "<group>"; };
-		6C6923C020E6931900D8DF34 /* AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011).pdf"; sourceTree = "<group>"; };
-		6C6923C120E6931900D8DF34 /* AFI 11-401 Aviation Management (14 Feb 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-401 Aviation Management (14 Feb 2018).pdf"; sourceTree = "<group>"; };
-		6C6923C220E6931900D8DF34 /* AFI 48-307v1 En Route Care & Aeromedical Evacuation Medical Operations (9 Jan 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 48-307v1 En Route Care & Aeromedical Evacuation Medical Operations (9 Jan 2017).pdf"; sourceTree = "<group>"; };
-		6C6923C320E6931900D8DF34 /* AF AETCI 48-103 Training Health & Human Performance Program (24 Apr 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF AETCI 48-103 Training Health & Human Performance Program (24 Apr 2018).pdf"; sourceTree = "<group>"; };
-		6C6923C420E6931900D8DF34 /* AFI 11-301V1 Aircrew Flight Equipment Program (10 Oct 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-301V1 Aircrew Flight Equipment Program (10 Oct 2017).pdf"; sourceTree = "<group>"; };
-		6C6923C520E6931900D8DF34 /* AFI 48-307v3 En Route Care Documentation (12 Apr 2016).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 48-307v3 En Route Care Documentation (12 Apr 2016).pdf"; sourceTree = "<group>"; };
-		6C6923C620E6931900D8DF34 /* AFI 44-172 Mental Health (13 Nov 2015).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 44-172 Mental Health (13 Nov 2015).pdf"; sourceTree = "<group>"; };
-		6C6923C720E6931900D8DF34 /* AFMAN 91-223 Aviation Safety Investigations & Reports (8 Jun 2016).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFMAN 91-223 Aviation Safety Investigations & Reports (8 Jun 2016).pdf"; sourceTree = "<group>"; };
-		6C6923C820E6931900D8DF34 /* AFI 11-402 Aviation & Parachutist Service Aeronautical Ratings & Aviation Badges (28 Feb 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-402 Aviation & Parachutist Service Aeronautical Ratings & Aviation Badges (28 Feb 2018).pdf"; sourceTree = "<group>"; };
-		6C6923C920E6931900D8DF34 /* AFI 36-2101 Classifying Military Personnel (9 Mar 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 36-2101 Classifying Military Personnel (9 Mar 2017).pdf"; sourceTree = "<group>"; };
-		6C6923CA20E6931900D8DF34 /* AFI 11-202v3 General Flight Rules (2 Oct 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-202v3 General Flight Rules (2 Oct 2017).pdf"; sourceTree = "<group>"; };
-		6C6923CB20E6931900D8DF34 /* AFI 44-171 Patient Centered Medical Home Operations (28 Nov 2014).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 44-171 Patient Centered Medical Home Operations (28 Nov 2014).pdf"; sourceTree = "<group>"; };
-		6C6923CC20E6931900D8DF34 /* AFECD (30 Apr 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFECD (30 Apr 2018).pdf"; sourceTree = "<group>"; };
-		6C6923CD20E6931900D8DF34 /* AFI 44-170 Preventive Health Assessment (19 Jan 2016).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 44-170 Preventive Health Assessment (19 Jan 2016).pdf"; sourceTree = "<group>"; };
-		6C6923CE20E6931900D8DF34 /* AFI 48-149 Flight & Operational Medicine Program (18 Dec 2015).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 48-149 Flight & Operational Medicine Program (18 Dec 2015).pdf"; sourceTree = "<group>"; };
-		6C6923CF20E6931900D8DF34 /* AFI 91-202 USAF Mishap Prevention Program (21 May 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 91-202 USAF Mishap Prevention Program (21 May 2018).pdf"; sourceTree = "<group>"; };
-		6C6923D020E6931900D8DF34 /* AFI 10-203 Supplemental Guidance (17 Nov 2016).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 10-203 Supplemental Guidance (17 Nov 2016).pdf"; sourceTree = "<group>"; };
-		6C6923D120E6931900D8DF34 /* AFMAN 48-147_IP Tri-Service Food Code (30 Apr 2014).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFMAN 48-147_IP Tri-Service Food Code (30 Apr 2014).pdf"; sourceTree = "<group>"; };
-		6C6923D220E6931900D8DF34 /* AFOCD (30 Apr 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFOCD (30 Apr 2018).pdf"; sourceTree = "<group>"; };
-		6C6923D320E6931900D8DF34 /* AFI 10-203 Supplemental Guidance Profile Timelines (Jun 2014).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 10-203 Supplemental Guidance Profile Timelines (Jun 2014).pdf"; sourceTree = "<group>"; };
-		6C6923D420E6931900D8DF34 /* AF AETCI 48-102 Medical Management of UFT Students (5 Nov 2013).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF AETCI 48-102 Medical Management of UFT Students (5 Nov 2013).pdf"; sourceTree = "<group>"; };
-		6C6923D520E6931900D8DF34 /* AFI 48-101 Aerospace Medicine Enterprise (8 Dec 2014).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 48-101 Aerospace Medicine Enterprise (8 Dec 2014).pdf"; sourceTree = "<group>"; };
-		6C6923D620E6931900D8DF34 /* AFI 10-203 Supplemental Guidance Profile Templates (4 Dec 2014).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 10-203 Supplemental Guidance Profile Templates (4 Dec 2014).pdf"; sourceTree = "<group>"; };
-		6C6923D720E6931900D8DF34 /* AFI 36-2905 Fitness Program (27 Aug 2015).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 36-2905 Fitness Program (27 Aug 2015).pdf"; sourceTree = "<group>"; };
-		6C6923D820E6931900D8DF34 /* AFI 44-103 Air Force IDMT Program (6 Dec 2013).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 44-103 Air Force IDMT Program (6 Dec 2013).pdf"; sourceTree = "<group>"; };
 		6C6923D920E6931900D8DF34 /* AF Approved Med List (24 May 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF Approved Med List (24 May 2018).pdf"; sourceTree = "<group>"; };
 		6C6923DA20E6931900D8DF34 /* AF Missile Operator Approved Med List (24 May 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF Missile Operator Approved Med List (24 May 2018).pdf"; sourceTree = "<group>"; };
 		6C6923DC20E6931A00D8DF34 /* Physical Examination Matrix (6 Oct 2017).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Physical Examination Matrix (6 Oct 2017).pdf"; sourceTree = "<group>"; };
@@ -271,6 +271,46 @@
 			path = "Med Standards";
 			sourceTree = "<group>";
 		};
+		6C3D360E20E9B33900040300 /* Other_AFIs */ = {
+			isa = PBXGroup;
+			children = (
+				6C3D360F20E9B33900040300 /* AFPAM 48-133 Physical Examination Techniques (1 Jun 2000).pdf */,
+				6C3D361020E9B33900040300 /* AFI 91-204 Safety Investigations & Reports (27 Apr 2018).pdf */,
+				6C3D361120E9B33900040300 /* AFI 11-202v1 Aircrew Training (27 Jun 2017).pdf */,
+				6C3D361220E9B33900040300 /* AFI 11-301v4 Aircrew Laser Eye Program (17 Feb 2010).pdf */,
+				6C3D361320E9B33900040300 /* AFI 11-301v2 Management & Configuration Req for AFE (6 Dec 2017).pdf */,
+				6C3D361420E9B33900040300 /* AFI 48-307v2 En Route Critical Care (10 Jan 2017).pdf */,
+				6C3D361520E9B33900040300 /* AF AETCI 48-102 Medical Management of UFT Students (5 Nov 2013).pdf */,
+				6C3D361620E9B33900040300 /* AFI 11-202v2 Aircrew Standardization-Evaluation Program (13 Sep 2010).pdf */,
+				6C3D361720E9B33900040300 /* AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011).pdf */,
+				6C3D361820E9B33900040300 /* AFI 11-401 Aviation Management (14 Feb 2018).pdf */,
+				6C3D361920E9B33900040300 /* AFI 48-307v1 En Route Care & Aeromedical Evacuation Medical Operations (9 Jan 2017).pdf */,
+				6C3D361A20E9B33900040300 /* AF AETCI 48-103 Training Health & Human Performance Program (24 Apr 2018).pdf */,
+				6C3D361B20E9B33900040300 /* AFI 11-301V1 Aircrew Flight Equipment Program (10 Oct 2017).pdf */,
+				6C3D361C20E9B33900040300 /* AFI 48-307v3 En Route Care Documentation (12 Apr 2016).pdf */,
+				6C3D361D20E9B33900040300 /* AFI 44-172 Mental Health (13 Nov 2015).pdf */,
+				6C3D361E20E9B33900040300 /* AFMAN 91-223 Aviation Safety Investigations & Reports (8 Jun 2016).pdf */,
+				6C3D361F20E9B33900040300 /* AFI 11-402 Aviation & Parachutist Service Aeronautical Ratings & Aviation Badges (28 Feb 2018).pdf */,
+				6C3D362020E9B33900040300 /* AFI 36-2101 Classifying Military Personnel (9 Mar 2017).pdf */,
+				6C3D362120E9B33900040300 /* AFI 11-202v3 General Flight Rules (2 Oct 2017).pdf */,
+				6C3D362220E9B33900040300 /* AFI 44-171 Patient Centered Medical Home Operations (28 Nov 2014).pdf */,
+				6C3D362320E9B33900040300 /* AFECD (30 Apr 2018).pdf */,
+				6C3D362420E9B33900040300 /* AFI 44-170 Preventive Health Assessment (19 Jan 2016).pdf */,
+				6C3D362520E9B33900040300 /* AFI 48-149 Flight & Operational Medicine Program (18 Dec 2015).pdf */,
+				6C3D362620E9B33900040300 /* AFI 44-103 Air Force IDMT Program (6 Dec 2013).pdf */,
+				6C3D362720E9B33900040300 /* AFI 91-202 USAF Mishap Prevention Program (21 May 2018).pdf */,
+				6C3D362820E9B33900040300 /* AFI 10-203 Supplemental Guidance (17 Nov 2016).pdf */,
+				6C3D362920E9B33900040300 /* AFMAN 48-147_IP Tri-Service Food Code (30 Apr 2014).pdf */,
+				6C3D362A20E9B33900040300 /* AFOCD (30 Apr 2018).pdf */,
+				6C3D362B20E9B33900040300 /* AFI 10-203 Supplemental Guidance Profile Timelines (Jun 2014).pdf */,
+				6C3D362C20E9B33900040300 /* AFI 48-145 Occupational & Environmental Health Program (27 Aug 2015).pdf */,
+				6C3D362D20E9B33900040300 /* AFI 10-203 Supplemental Guidance Profile Templates (4 Dec 2014).pdf */,
+				6C3D362E20E9B33900040300 /* AFI 36-2905 Fitness Program (27 Aug 2015).pdf */,
+				6C3D362F20E9B33900040300 /* AFI 48-101 Aerospace Medicine Enterprise (8 Dec 2014).pdf */,
+			);
+			path = Other_AFIs;
+			sourceTree = "<group>";
+		};
 		6C6923AA20E6931900D8DF34 /* PDFs_Navy */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,54 +338,14 @@
 				6C6923B420E6931900D8DF34 /* AFI 48-123 Medical Examinations & Standards (28 Jan 2018).pdf */,
 				6C6923B520E6931900D8DF34 /* AF Physical Examination Matrix (Jan 2018).pdf */,
 				6C6923B620E6931900D8DF34 /* AF Medical Standards Directory (24 May 2018).pdf */,
-				6C6923B720E6931900D8DF34 /* Other_AFIs */,
 				6C6923D920E6931900D8DF34 /* AF Approved Med List (24 May 2018).pdf */,
 				6C6923DA20E6931900D8DF34 /* AF Missile Operator Approved Med List (24 May 2018).pdf */,
+				6C3D360E20E9B33900040300 /* Other_AFIs */,
 				6C6923DB20E6931A00D8DF34 /* Toolkit */,
 				6C6923F420E6931A00D8DF34 /* AF Waiver Guide (4 Jan 2018).pdf */,
 			);
 			path = PDFs_AirForce;
 			sourceTree = SOURCE_ROOT;
-		};
-		6C6923B720E6931900D8DF34 /* Other_AFIs */ = {
-			isa = PBXGroup;
-			children = (
-				6C6923B820E6931900D8DF34 /* AFPAM 48-133 Physical Examination Techniques (1 Jun 2000).pdf */,
-				6C6923B920E6931900D8DF34 /* AFI 91-204 Safety Investigations & Reports (27 Apr 2018).pdf */,
-				6C6923BA20E6931900D8DF34 /* AFI 11-202v1 Aircrew Training (27 Jun 2017).pdf */,
-				6C6923BB20E6931900D8DF34 /* AFI 11-301v4 Aircrew Laser Eye Program (17 Feb 2010).pdf */,
-				6C6923BC20E6931900D8DF34 /* AFI 11-301v2 Management & Configuration Req for AFE (6 Dec 2017).pdf */,
-				6C6923BD20E6931900D8DF34 /* AFI 48-145 Occupational & Environmental Health Program (27 Aug 2015).pdf */,
-				6C6923BE20E6931900D8DF34 /* AFI 48-307v2 En Route Critical Care (10 Jan 2017).pdf */,
-				6C6923BF20E6931900D8DF34 /* AFI 11-202v2 Aircrew Standardization-Evaluation Program (13 Sep 2010).pdf */,
-				6C6923C020E6931900D8DF34 /* AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011).pdf */,
-				6C6923C120E6931900D8DF34 /* AFI 11-401 Aviation Management (14 Feb 2018).pdf */,
-				6C6923C220E6931900D8DF34 /* AFI 48-307v1 En Route Care & Aeromedical Evacuation Medical Operations (9 Jan 2017).pdf */,
-				6C6923C320E6931900D8DF34 /* AF AETCI 48-103 Training Health & Human Performance Program (24 Apr 2018).pdf */,
-				6C6923C420E6931900D8DF34 /* AFI 11-301V1 Aircrew Flight Equipment Program (10 Oct 2017).pdf */,
-				6C6923C520E6931900D8DF34 /* AFI 48-307v3 En Route Care Documentation (12 Apr 2016).pdf */,
-				6C6923C620E6931900D8DF34 /* AFI 44-172 Mental Health (13 Nov 2015).pdf */,
-				6C6923C720E6931900D8DF34 /* AFMAN 91-223 Aviation Safety Investigations & Reports (8 Jun 2016).pdf */,
-				6C6923C820E6931900D8DF34 /* AFI 11-402 Aviation & Parachutist Service Aeronautical Ratings & Aviation Badges (28 Feb 2018).pdf */,
-				6C6923C920E6931900D8DF34 /* AFI 36-2101 Classifying Military Personnel (9 Mar 2017).pdf */,
-				6C6923CA20E6931900D8DF34 /* AFI 11-202v3 General Flight Rules (2 Oct 2017).pdf */,
-				6C6923CB20E6931900D8DF34 /* AFI 44-171 Patient Centered Medical Home Operations (28 Nov 2014).pdf */,
-				6C6923CC20E6931900D8DF34 /* AFECD (30 Apr 2018).pdf */,
-				6C6923CD20E6931900D8DF34 /* AFI 44-170 Preventive Health Assessment (19 Jan 2016).pdf */,
-				6C6923CE20E6931900D8DF34 /* AFI 48-149 Flight & Operational Medicine Program (18 Dec 2015).pdf */,
-				6C6923CF20E6931900D8DF34 /* AFI 91-202 USAF Mishap Prevention Program (21 May 2018).pdf */,
-				6C6923D020E6931900D8DF34 /* AFI 10-203 Supplemental Guidance (17 Nov 2016).pdf */,
-				6C6923D120E6931900D8DF34 /* AFMAN 48-147_IP Tri-Service Food Code (30 Apr 2014).pdf */,
-				6C6923D220E6931900D8DF34 /* AFOCD (30 Apr 2018).pdf */,
-				6C6923D320E6931900D8DF34 /* AFI 10-203 Supplemental Guidance Profile Timelines (Jun 2014).pdf */,
-				6C6923D420E6931900D8DF34 /* AF AETCI 48-102 Medical Management of UFT Students (5 Nov 2013).pdf */,
-				6C6923D520E6931900D8DF34 /* AFI 48-101 Aerospace Medicine Enterprise (8 Dec 2014).pdf */,
-				6C6923D620E6931900D8DF34 /* AFI 10-203 Supplemental Guidance Profile Templates (4 Dec 2014).pdf */,
-				6C6923D720E6931900D8DF34 /* AFI 36-2905 Fitness Program (27 Aug 2015).pdf */,
-				6C6923D820E6931900D8DF34 /* AFI 44-103 Air Force IDMT Program (6 Dec 2013).pdf */,
-			);
-			path = Other_AFIs;
-			sourceTree = "<group>";
 		};
 		6C6923DB20E6931A00D8DF34 /* Toolkit */ = {
 			isa = PBXGroup;
@@ -444,80 +444,80 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C69243620E6931A00D8DF34 /* SGP-earls (v10.15).pdf in Resources */,
-				6C69241720E6931A00D8DF34 /* AFI 10-203 Supplemental Guidance (17 Nov 2016).pdf in Resources */,
 				6C69242620E6931A00D8DF34 /* Dietary Supplements.pdf in Resources */,
-				6C69240B20E6931A00D8DF34 /* AFI 11-301V1 Aircrew Flight Equipment Program (10 Oct 2017).pdf in Resources */,
+				6C3D363220E9B33900040300 /* AFI 11-202v1 Aircrew Training (27 Jun 2017).pdf in Resources */,
+				6C3D363320E9B33900040300 /* AFI 11-301v4 Aircrew Laser Eye Program (17 Feb 2010).pdf in Resources */,
+				6C3D364820E9B33900040300 /* AFI 91-202 USAF Mishap Prevention Program (21 May 2018).pdf in Resources */,
 				6C69243120E6931A00D8DF34 /* RSV-1A Mishap Investigation (Slide Notes).pdf in Resources */,
-				6C69240820E6931A00D8DF34 /* AFI 11-401 Aviation Management (14 Feb 2018).pdf in Resources */,
 				6C69242720E6931A00D8DF34 /* RSV-5A Aeromedical Summaries.pdf in Resources */,
+				6C3D364220E9B33900040300 /* AFI 11-202v3 General Flight Rules (2 Oct 2017).pdf in Resources */,
+				6C3D364E20E9B33900040300 /* AFI 10-203 Supplemental Guidance Profile Templates (4 Dec 2014).pdf in Resources */,
 				6C69243820E6931A00D8DF34 /* Specialty Description 48XX (30 Apr 2015).pdf in Resources */,
-				6C69240F20E6931A00D8DF34 /* AFI 11-402 Aviation & Parachutist Service Aeronautical Ratings & Aviation Badges (28 Feb 2018).pdf in Resources */,
+				6C3D363F20E9B33900040300 /* AFMAN 91-223 Aviation Safety Investigations & Reports (8 Jun 2016).pdf in Resources */,
 				6C69242520E6931A00D8DF34 /* Sample METALS Table (26 Jun 2014).pdf in Resources */,
-				6C69241E20E6931A00D8DF34 /* AFI 36-2905 Fitness Program (27 Aug 2015).pdf in Resources */,
+				6C3D363A20E9B33900040300 /* AFI 48-307v1 En Route Care & Aeromedical Evacuation Medical Operations (9 Jan 2017).pdf in Resources */,
 				6C6923FE20E6931A00D8DF34 /* AF Medical Standards Directory (24 May 2018).pdf in Resources */,
-				6C69241C20E6931A00D8DF34 /* AFI 48-101 Aerospace Medicine Enterprise (8 Dec 2014).pdf in Resources */,
-				6C69240720E6931A00D8DF34 /* AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011).pdf in Resources */,
-				6C69240A20E6931A00D8DF34 /* AF AETCI 48-103 Training Health & Human Performance Program (24 Apr 2018).pdf in Resources */,
 				6C6923FD20E6931A00D8DF34 /* AF Physical Examination Matrix (Jan 2018).pdf in Resources */,
 				6C6923F820E6931A00D8DF34 /* Army FS Checklist (May 2015).pdf in Resources */,
-				6C6923FF20E6931A00D8DF34 /* AFPAM 48-133 Physical Examination Techniques (1 Jun 2000).pdf in Resources */,
+				6C3D363420E9B33900040300 /* AFI 11-301v2 Management & Configuration Req for AFE (6 Dec 2017).pdf in Resources */,
+				6C3D364120E9B33900040300 /* AFI 36-2101 Classifying Military Personnel (9 Mar 2017).pdf in Resources */,
+				6C3D363020E9B33900040300 /* AFPAM 48-133 Physical Examination Techniques (1 Jun 2000).pdf in Resources */,
+				6C3D364D20E9B33900040300 /* AFI 48-145 Occupational & Environmental Health Program (27 Aug 2015).pdf in Resources */,
 				6C6923F520E6931A00D8DF34 /* USN ManMed Chapter 15 Physical Exams & Standards for Enlistment, Commission, & Special Duty (3 Feb 2017).pdf in Resources */,
-				6C69240520E6931A00D8DF34 /* AFI 48-307v2 En Route Critical Care (10 Jan 2017).pdf in Resources */,
-				6C69241320E6931A00D8DF34 /* AFECD (30 Apr 2018).pdf in Resources */,
 				6C69243920E6931A00D8DF34 /* AF Waiver Guide (4 Jan 2018).pdf in Resources */,
+				6C3D364620E9B33900040300 /* AFI 48-149 Flight & Operational Medicine Program (18 Dec 2015).pdf in Resources */,
 				6C69243520E6931A00D8DF34 /* RSV Overview.pdf in Resources */,
 				6C8C255120E9650C004D3A8B /* MIT-License_2015-2018.rtf in Resources */,
 				6C69242D20E6931A00D8DF34 /* RSV-1E1 Aeromedical Aspects of Night Operations.pdf in Resources */,
-				6C69241820E6931A00D8DF34 /* AFMAN 48-147_IP Tri-Service Food Code (30 Apr 2014).pdf in Resources */,
+				6C3D363E20E9B33900040300 /* AFI 44-172 Mental Health (13 Nov 2015).pdf in Resources */,
+				6C3D364320E9B33900040300 /* AFI 44-171 Patient Centered Medical Home Operations (28 Nov 2014).pdf in Resources */,
 				6C6923FA20E6931A00D8DF34 /* AFI 10-203 Duty Limiting Conditions (20 Nov 2014).pdf in Resources */,
-				6C69241120E6931A00D8DF34 /* AFI 11-202v3 General Flight Rules (2 Oct 2017).pdf in Resources */,
 				140E25111F0A797E00298665 /* Main.storyboard in Resources */,
+				6C3D364A20E9B33900040300 /* AFMAN 48-147_IP Tri-Service Food Code (30 Apr 2014).pdf in Resources */,
+				6C3D363820E9B33900040300 /* AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011).pdf in Resources */,
 				6C69242920E6931A00D8DF34 /* RSV-4A Occupational Health Assessment.pdf in Resources */,
 				6C69242820E6931A00D8DF34 /* RSV-1B4 Decompression Sickness and Hypoxia.pdf in Resources */,
 				6C69242B20E6931A00D8DF34 /* RSV-1D Water and Food Vulnerability.pdf in Resources */,
-				6C69241620E6931A00D8DF34 /* AFI 91-202 USAF Mishap Prevention Program (21 May 2018).pdf in Resources */,
-				6C69240020E6931A00D8DF34 /* AFI 91-204 Safety Investigations & Reports (27 Apr 2018).pdf in Resources */,
 				6C6923F920E6931A00D8DF34 /* Army Physical Exam Table (12 Nov 2002).pdf in Resources */,
-				6C69241420E6931A00D8DF34 /* AFI 44-170 Preventive Health Assessment (19 Jan 2016).pdf in Resources */,
 				6C69242020E6931A00D8DF34 /* AF Approved Med List (24 May 2018).pdf in Resources */,
+				6C3D363920E9B33900040300 /* AFI 11-401 Aviation Management (14 Feb 2018).pdf in Resources */,
 				6C6923FB20E6931A00D8DF34 /* AF OTC Approved Med List (9 Jan 2014).pdf in Resources */,
-				6C69241020E6931A00D8DF34 /* AFI 36-2101 Classifying Military Personnel (9 Mar 2017).pdf in Resources */,
+				6C3D364C20E9B33900040300 /* AFI 10-203 Supplemental Guidance Profile Timelines (Jun 2014).pdf in Resources */,
 				6C69243220E6931A00D8DF34 /* RSV-3A Human Performance Sustainment.pdf in Resources */,
+				6C3D363720E9B33900040300 /* AFI 11-202v2 Aircrew Standardization-Evaluation Program (13 Sep 2010).pdf in Resources */,
 				6C69242220E6931A00D8DF34 /* Physical Examination Matrix (6 Oct 2017).pdf in Resources */,
-				6C69240120E6931A00D8DF34 /* AFI 11-202v1 Aircrew Training (27 Jun 2017).pdf in Resources */,
 				140E25121F0A798400298665 /* LaunchScreen.storyboard in Resources */,
 				6C69242F20E6931A00D8DF34 /* RSV-2A Medical Clearance for Aeromedical Evacuation.pdf in Resources */,
+				6C3D364B20E9B33900040300 /* AFOCD (30 Apr 2018).pdf in Resources */,
 				6C69242120E6931A00D8DF34 /* AF Missile Operator Approved Med List (24 May 2018).pdf in Resources */,
-				6C69240E20E6931A00D8DF34 /* AFMAN 91-223 Aviation Safety Investigations & Reports (8 Jun 2016).pdf in Resources */,
-				6C69241A20E6931A00D8DF34 /* AFI 10-203 Supplemental Guidance Profile Timelines (Jun 2014).pdf in Resources */,
+				6C3D364720E9B33900040300 /* AFI 44-103 Air Force IDMT Program (6 Dec 2013).pdf in Resources */,
 				6C69242E20E6931A00D8DF34 /* RSV-1A Mishap Investigation.pdf in Resources */,
 				6C69242A20E6931A00D8DF34 /* RSV-1B2 Spatial Disorientation.pdf in Resources */,
-				6C69240620E6931A00D8DF34 /* AFI 11-202v2 Aircrew Standardization-Evaluation Program (13 Sep 2010).pdf in Resources */,
-				6C69241B20E6931A00D8DF34 /* AF AETCI 48-102 Medical Management of UFT Students (5 Nov 2013).pdf in Resources */,
 				1421EF1C1F0A411E00BEB695 /* Assets.xcassets in Resources */,
-				6C69241F20E6931A00D8DF34 /* AFI 44-103 Air Force IDMT Program (6 Dec 2013).pdf in Resources */,
+				6C3D363620E9B33900040300 /* AF AETCI 48-102 Medical Management of UFT Students (5 Nov 2013).pdf in Resources */,
 				6C6923FC20E6931A00D8DF34 /* AFI 48-123 Medical Examinations & Standards (28 Jan 2018).pdf in Resources */,
+				6C3D364920E9B33900040300 /* AFI 10-203 Supplemental Guidance (17 Nov 2016).pdf in Resources */,
 				6C69242C20E6931A00D8DF34 /* RSV-1E2 Thermal Stresses in Fighter Aviation.pdf in Resources */,
+				6C3D364020E9B33900040300 /* AFI 11-402 Aviation & Parachutist Service Aeronautical Ratings & Aviation Badges (28 Feb 2018).pdf in Resources */,
+				6C3D364420E9B33900040300 /* AFECD (30 Apr 2018).pdf in Resources */,
+				6C3D363120E9B33900040300 /* AFI 91-204 Safety Investigations & Reports (27 Apr 2018).pdf in Resources */,
+				6C3D363520E9B33900040300 /* AFI 48-307v2 En Route Critical Care (10 Jan 2017).pdf in Resources */,
 				140E250C1F0A790F00298665 /* SearchResultsCell.xib in Resources */,
-				6C69240D20E6931A00D8DF34 /* AFI 44-172 Mental Health (13 Nov 2015).pdf in Resources */,
 				140E251D1F0AF89D00298665 /* ThumbnailGridCell.xib in Resources */,
+				6C3D363B20E9B33900040300 /* AF AETCI 48-103 Training Health & Human Performance Program (24 Apr 2018).pdf in Resources */,
+				6C3D364F20E9B33900040300 /* AFI 36-2905 Fitness Program (27 Aug 2015).pdf in Resources */,
 				6C69242320E6931A00D8DF34 /* AF Flight Surgeon Flying Operations Guide (4 Oct 2013).pdf in Resources */,
+				6C3D365020E9B33900040300 /* AFI 48-101 Aerospace Medicine Enterprise (8 Dec 2014).pdf in Resources */,
 				6C69243020E6931A00D8DF34 /* RSV-1C Travel Medicine.pdf in Resources */,
 				6C6923F720E6931A00D8DF34 /* AR 40-501 Standards of Medical Fitness (14 Jun 2017).pdf in Resources */,
 				6C69242420E6931A00D8DF34 /* Fly PHA Exam Requirements Matrix (4 Nov 2016).pdf in Resources */,
-				6C69240220E6931A00D8DF34 /* AFI 11-301v4 Aircrew Laser Eye Program (17 Feb 2010).pdf in Resources */,
-				6C69241520E6931A00D8DF34 /* AFI 48-149 Flight & Operational Medicine Program (18 Dec 2015).pdf in Resources */,
-				6C69240320E6931A00D8DF34 /* AFI 11-301v2 Management & Configuration Req for AFE (6 Dec 2017).pdf in Resources */,
-				6C69241D20E6931A00D8DF34 /* AFI 10-203 Supplemental Guidance Profile Templates (4 Dec 2014).pdf in Resources */,
 				6C69243420E6931A00D8DF34 /* RSV-1B1 Aeromedical and Physiologic Aspects of Acceleration.pdf in Resources */,
 				6C69243320E6931A00D8DF34 /* RSV-1B3 Barotrauma.pdf in Resources */,
-				6C69241220E6931A00D8DF34 /* AFI 44-171 Patient Centered Medical Home Operations (28 Nov 2014).pdf in Resources */,
-				6C69241920E6931A00D8DF34 /* AFOCD (30 Apr 2018).pdf in Resources */,
 				6C6923F620E6931A00D8DF34 /* Navy Aeromedical Reference & Waiver Guide (9 Apr 2018).pdf in Resources */,
-				6C69240920E6931A00D8DF34 /* AFI 48-307v1 En Route Care & Aeromedical Evacuation Medical Operations (9 Jan 2017).pdf in Resources */,
+				6C3D363D20E9B33900040300 /* AFI 48-307v3 En Route Care Documentation (12 Apr 2016).pdf in Resources */,
+				6C3D363C20E9B33900040300 /* AFI 11-301V1 Aircrew Flight Equipment Program (10 Oct 2017).pdf in Resources */,
 				6C69243720E6931A00D8DF34 /* AF Flight Surgeon Quick Reference (16 Feb 2016).pdf in Resources */,
-				6C69240420E6931A00D8DF34 /* AFI 48-145 Occupational & Environmental Health Program (27 Aug 2015).pdf in Resources */,
-				6C69240C20E6931A00D8DF34 /* AFI 48-307v3 En Route Care Documentation (12 Apr 2016).pdf in Resources */,
+				6C3D364520E9B33900040300 /* AFI 44-170 Preventive Health Assessment (19 Jan 2016).pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
