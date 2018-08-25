@@ -1032,7 +1032,7 @@
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES" shipmentTrackingNumber="YES" flightNumber="YES" lookupSuggestion="YES"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackGroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="WXJ-eB-G7C">
-                                <rect key="frame" x="67" y="308" width="240" height="217"/>
+                                <rect key="frame" x="67" y="333" width="240" height="217"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1040,10 +1040,10 @@
                             <constraint firstItem="WXJ-eB-G7C" firstAttribute="leading" secondItem="kKX-d7-NQO" secondAttribute="leading" constant="67" id="Jcg-Xh-1a2"/>
                             <constraint firstItem="WXJ-eB-G7C" firstAttribute="centerX" secondItem="ZCS-5s-wBv" secondAttribute="centerX" id="TGj-Ij-FDf"/>
                             <constraint firstItem="KLU-4a-7Zu" firstAttribute="leading" secondItem="kKX-d7-NQO" secondAttribute="leading" constant="8" id="Yu0-9l-sS5"/>
-                            <constraint firstItem="WXJ-eB-G7C" firstAttribute="top" secondItem="kKX-d7-NQO" secondAttribute="top" constant="244" id="d6C-ck-KTh"/>
+                            <constraint firstItem="WXJ-eB-G7C" firstAttribute="top" secondItem="kKX-d7-NQO" secondAttribute="top" constant="269" id="d6C-ck-KTh"/>
                             <constraint firstItem="KLU-4a-7Zu" firstAttribute="top" secondItem="kKX-d7-NQO" secondAttribute="top" id="jg1-8B-VsA"/>
                             <constraint firstItem="KLU-4a-7Zu" firstAttribute="bottom" secondItem="kKX-d7-NQO" secondAttribute="bottom" id="tV3-TA-eDd"/>
-                            <constraint firstItem="kKX-d7-NQO" firstAttribute="bottom" secondItem="WXJ-eB-G7C" secondAttribute="bottom" constant="93" id="vLg-tF-V0W"/>
+                            <constraint firstItem="kKX-d7-NQO" firstAttribute="bottom" secondItem="WXJ-eB-G7C" secondAttribute="bottom" constant="68" id="vLg-tF-V0W"/>
                             <constraint firstItem="KLU-4a-7Zu" firstAttribute="centerX" secondItem="WXJ-eB-G7C" secondAttribute="centerX" id="vnB-9r-4mH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kKX-d7-NQO"/>

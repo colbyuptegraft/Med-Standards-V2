@@ -74,7 +74,7 @@ struct OtherAFI {
     static let afi48101Detail = "Aerospace Medicine Enterprise (8 Dec 2014)"
 
     static let afi48145Title = "AFI 48-145"
-    static let afi48145Detail = "Occupational & Environmental Health Program (27 Aug 2015)"
+    static let afi48145Detail = "Occupational & Environmental Health Program (11 Jul 2018)"
 
     static let afi48149Title = "AFI 48-149"
     static let afi48149Detail = "Flight & Operational Medicine Program (FOMP) (18 Dec 2015)"
@@ -162,7 +162,7 @@ class AirForceOtherAFIBookshelfViewController: UITableViewController {
         } else if global.selection == OtherAFI.afi48101Title {
             global.url = Bundle.main.url(forResource: "AFI 48-101 Aerospace Medicine Enterprise (8 Dec 2014)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi48145Title {
-            global.url = Bundle.main.url(forResource: "AFI 48-145 Occupational & Environmental Health Program (27 Aug 2015)", withExtension: "pdf")
+            global.url = Bundle.main.url(forResource: "AFI 48-145 Occupational & Environmental Health Program (11 Jul 2018)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi48149Title {
             global.url = Bundle.main.url(forResource: "AFI 48-149 Flight & Operational Medicine Program (18 Dec 2015)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi91202Title {
