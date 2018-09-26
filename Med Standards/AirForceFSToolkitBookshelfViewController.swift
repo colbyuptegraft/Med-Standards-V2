@@ -48,8 +48,12 @@ struct FSTlkt {
     static let sgpTitle = "SGP-earls (v10.15)"
     static let sgpDetail = "Overview of the Chief of Aerospace Medicine (SGP) Roles & Responsibilities"
     
+    static let contactlensTitle = "Soft Contact Lens Program"
+    static let contactlensDetail = "Aircrew Soft Contact Lens Program (10 Jun 2014)"
+    
     static let specDescTitle = "Speciality Descriptions"
     static let specDescDetail = "48AX, 48GX, 48RX, & 48VX Specialty Descriptions (30 Apr 2015)"
+
 }
 
 class AirForceFSToolkitBookshelfViewController: UITableViewController {
@@ -80,7 +84,9 @@ class AirForceFSToolkitBookshelfViewController: UITableViewController {
                 global.url = Bundle.main.url(forResource: "SGP-earls (v10.15)", withExtension: "pdf")
             } else if global.selection == FSTlkt.fsqrTitle {
                 global.url = Bundle.main.url(forResource: "AF Flight Surgeon Quick Reference (16 Feb 2016)", withExtension: "pdf")
-            } else if global.selection == FSTlkt.specDescTitle {
+            } else if global.selection == FSTlkt.contactlensTitle {
+                global.url = Bundle.main.url(forResource: "AF Aircrew Soft Contact Lens Program (10 June 2014)", withExtension: "pdf")
+            }else if global.selection == FSTlkt.specDescTitle {
                 global.url = Bundle.main.url(forResource: "Specialty Description 48XX (30 Apr 2015)", withExtension: "pdf")
             } else {
                 docError()

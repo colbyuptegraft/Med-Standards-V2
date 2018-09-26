@@ -34,7 +34,7 @@ struct AF {
     static let mesDetail = "Medical Examinations & Standards (28 Jan 2018)"
     
     static let medsTitle = "Approved Med List"
-    static let medsDetail = "Official Air Force Aerospace Medicine Approved Medications (24 May 2018)"
+    static let medsDetail = "Official Air Force Aerospace Medicine Approved Medications (25 Sep 2018)"
     
     static let otcMedsTitle = "OTC Approved Med List"
     static let otcMedsDetail = "Over-the-Counter Medications Not Requiring Flight Surgeon Approval (9 Jan 2014)"
@@ -43,10 +43,10 @@ struct AF {
     static let modMedsDetail = "Approved Missile Operator Medications (24 May 2018)"
     
     static let msdTitle = "MSD"
-    static let msdDetail = "Medical Standards Directory (24 May 2018 v2)"
+    static let msdDetail = "Medical Standards Directory (25 Sep 2018)"
     
     static let wgTitle = "Waiver Guide"
-    static let wgDetail = "Air Force Waiver Guide (4 Jan 2018)"
+    static let wgDetail = "Air Force Waiver Guide (6 Sep 2018)"
     
     static let fsToolkitTitle = "Flight Surgeon Toolkit"
     static let fsToolkitDetail = "Useful Flight Medicine Resources"
@@ -91,17 +91,17 @@ class AirForceBookshelfViewController: UITableViewController {
             } else if global.selection == AF.mesTitle {
                 global.url = Bundle.main.url(forResource: "AFI 48-123 Medical Examinations & Standards (28 Jan 2018)", withExtension: "pdf")
             } else if global.selection == AF.medsTitle {
-                global.url = Bundle.main.url(forResource: "AF Approved Med List (24 May 2018)", withExtension: "pdf")
+                global.url = Bundle.main.url(forResource: "AF Approved Med List (25 Sep 2018)", withExtension: "pdf")
             } else if global.selection == AF.otcMedsTitle {
                 global.url = Bundle.main.url(forResource: "AF OTC Approved Med List (9 Jan 2014)", withExtension: "pdf")
             } else if global.selection == AF.modMedsTitle {
                 global.url = Bundle.main.url(forResource: "AF Missile Operator Approved Med List (24 May 2018)", withExtension: "pdf")
             } else if global.selection == AF.msdTitle {
-                global.url = Bundle.main.url(forResource: "AF Medical Standards Directory (24 May 2018 v2)", withExtension: "pdf")
+                global.url = Bundle.main.url(forResource: "AF Medical Standards Directory (25 Sep 2018)", withExtension: "pdf")
             } else if global.selection == AF.physExMtxTitle {
                 global.url = Bundle.main.url(forResource: "AF Physical Examination Matrix (Jan 2018)", withExtension: "pdf")
             } else if global.selection == AF.wgTitle {
-                global.url = Bundle.main.url(forResource: "AF Waiver Guide (4 Jan 2018)", withExtension: "pdf")
+                global.url = Bundle.main.url(forResource: "AF Waiver Guide (6 Sep 2018)", withExtension: "pdf")
             } else {
                 docError()
             }

@@ -19,7 +19,7 @@ import PDFKit
 struct Navy {
     
     static let waiverGuideTitle = "Navy Waiver Guide"
-    static let waiverGuideDetail = "U.S. Navy Aeromedical Reference & Waiver Guide (20 Jul 2018)"
+    static let waiverGuideDetail = "U.S. Navy Aeromedical Reference & Waiver Guide (10 Sep 2018)"
     
     static let usnManmedTitle = "Navy ManMed Chapter 15"
     static let usnManmedDetail = "Physical Exams & Standards (1 Jun 2018)"
@@ -53,7 +53,7 @@ class NavyBookshelfViewController: UITableViewController {
         global.selection = DocArray[(indexPath as NSIndexPath).row] as! String
         
         if global.selection == Navy.waiverGuideTitle {
-            global.url = Bundle.main.url(forResource: "Navy Aeromedical Reference & Waiver Guide (20 Jul 2018)", withExtension: "pdf")
+            global.url = Bundle.main.url(forResource: "Navy Aeromedical Reference & Waiver Guide (10 Sep 2018)", withExtension: "pdf")
         } else if global.selection == Navy.usnManmedTitle {
             global.url = Bundle.main.url(forResource: "USN ManMed Chapter 15 Physical Exams & Standards for Enlistment, Commission, & Special Duty (1 Jun 2018)", withExtension: "pdf")
         } else {
