@@ -59,7 +59,7 @@ class AirForceOxConvViewController: UIViewController, UITextFieldDelegate, UIScr
         self.initialFiOx.delegate = self
         self.startingElevation.delegate = self
         self.cabinAltitude.delegate = self
-        let _: UIScrollViewKeyboardDismissMode
+        let _: UIScrollView.KeyboardDismissMode
         self.scrollerView.keyboardDismissMode = .interactive
         
         let infoButton = UIBarButtonItem(image: infoIcon, style: .plain, target: self, action: #selector(AirForceOxConvViewController.segue))

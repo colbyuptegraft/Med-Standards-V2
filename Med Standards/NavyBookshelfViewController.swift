@@ -19,7 +19,7 @@ import PDFKit
 struct Navy {
     
     static let waiverGuideTitle = "Navy Waiver Guide"
-    static let waiverGuideDetail = "U.S. Navy Aeromedical Reference & Waiver Guide (10 Sep 2018)"
+    static let waiverGuideDetail = "U.S. Navy Aeromedical Reference & Waiver Guide (25 Oct 2018)"
     
     static let usnManmedTitle = "Navy ManMed Chapter 15"
     static let usnManmedDetail = "Physical Exams & Standards (1 Jun 2018)"
@@ -53,7 +53,7 @@ class NavyBookshelfViewController: UITableViewController {
         global.selection = DocArray[(indexPath as NSIndexPath).row] as! String
         
         if global.selection == Navy.waiverGuideTitle {
-            global.url = Bundle.main.url(forResource: "Navy Aeromedical Reference & Waiver Guide (10 Sep 2018)", withExtension: "pdf")
+            global.url = Bundle.main.url(forResource: "Navy Aeromedical Reference & Waiver Guide (25 Oct 2018)", withExtension: "pdf")
         } else if global.selection == Navy.usnManmedTitle {
             global.url = Bundle.main.url(forResource: "USN ManMed Chapter 15 Physical Exams & Standards for Enlistment, Commission, & Special Duty (1 Jun 2018)", withExtension: "pdf")
         } else {
@@ -78,15 +78,15 @@ class NavyBookshelfViewController: UITableViewController {
         let titleFont:UIFont? = UIFont(name: "Helvetica", size: 14.0)
         let detailFont:UIFont? = UIFont(name: "Helvetica", size: 12.0)
         
-        let detailText:NSMutableAttributedString = NSMutableAttributedString(string: "\n" + (DocDetailArray[(indexPath as NSIndexPath).row] as! String), attributes: (NSDictionary(object: detailFont!, forKey: NSAttributedStringKey.font as NSCopying) as! [NSAttributedStringKey : Any]))
-        detailText.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.lightGray, range: NSMakeRange(0, detailText.length))
+        let detailText:NSMutableAttributedString = NSMutableAttributedString(string: "\n" + (DocDetailArray[(indexPath as NSIndexPath).row] as! String), attributes: (NSDictionary(object: detailFont!, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
+        detailText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.lightGray, range: NSMakeRange(0, detailText.length))
         
-        let title = NSMutableAttributedString(string: DocArray[(indexPath as NSIndexPath).row] as! String, attributes: (NSDictionary(object: titleFont!, forKey: NSAttributedStringKey.font as NSCopying) as! [NSAttributedStringKey : Any]))
+        let title = NSMutableAttributedString(string: DocArray[(indexPath as NSIndexPath).row] as! String, attributes: (NSDictionary(object: titleFont!, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
         
         title.append(detailText)
         
         cell.textLabel?.attributedText = title
-        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         cell.textLabel?.numberOfLines = 0
         
         return cell

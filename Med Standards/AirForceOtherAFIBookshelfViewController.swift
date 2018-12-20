@@ -34,7 +34,7 @@ struct OtherAFI {
     static let afi11202v2Detail = "Aircrew Standardization/Evaluation Program (13 Sep 2010)"
 
     static let afi11202v3Title = "AFI 11-202 v3"
-    static let afi11202v3Detail = "General Flight Rules (2 Oct 2017)"
+    static let afi11202v3Detail = "General Flight Rules (2 Oct 2018)"
 
     static let afi11301v1Title = "AFI 11-301 v1"
     static let afi11301v1Detail = "Aircrew Flight Equipment (AFE) Program (10 Oct 2017)"
@@ -103,10 +103,10 @@ struct OtherAFI {
     static let aetci48103Detail = "Training Health & Human Performance (24 Apr 2018)"
 
     static let afecdTitle = "AFECD"
-    static let afecdDetail = "Air Force Enlisted Classification Directory (30 Apr 2018)"
+    static let afecdDetail = "Air Force Enlisted Classification Directory (31 Oct 2018)"
     
     static let afman48146Title = "AFMAN 48-146"
-    static let afman48146Detail = "Occupational & Environmental Health Program Management (5 Dec 2012)"
+    static let afman48146Detail = "Occupational & Environmental Health Program Management (15 Oct 2018)"
 
     static let afman48147Title = "AFMAN 48-147"
     static let afman48147Detail = "Tri-Service Food Code (30 Apr 2014)"
@@ -115,7 +115,7 @@ struct OtherAFI {
     static let afman91223Detail = "Aviation Safety Investigations & Reports (14 Sep 2018)"
 
     static let afocdTitle = "AFOCD"
-    static let afocdDetail = "Air Force Officer Classification Directory (30 Apr 2018)"
+    static let afocdDetail = "Air Force Officer Classification Directory (31 Oct 2018)"
 
     static let afpam48133Title = "AFPAM 48-133 (Rescinded)"
     static let afpam48133Detail = "Physical Examination Techniques (1 Jun 2000)"
@@ -147,7 +147,7 @@ class AirForceOtherAFIBookshelfViewController: UITableViewController {
         } else if global.selection == OtherAFI.afi11202v2Title {
             global.url = Bundle.main.url(forResource: "AFI 11-202v2 Aircrew Standardization-Evaluation Program (13 Sep 2010)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi11202v3Title {
-            global.url = Bundle.main.url(forResource: "AFI 11-202v3 General Flight Rules (2 Oct 2017)", withExtension: "pdf")
+            global.url = Bundle.main.url(forResource: "AFI 11-202v3 General Flight Rules (2 Oct 2018)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi11301v1Title {
             global.url = Bundle.main.url(forResource: "AFI 11-301v1 Aircrew Flight Equipment Program (10 Oct 2017)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi11301v2Title {
@@ -177,7 +177,7 @@ class AirForceOtherAFIBookshelfViewController: UITableViewController {
         } else if global.selection == OtherAFI.afi91204Title {
             global.url = Bundle.main.url(forResource: "AFI 91-204 Safety Investigations & Reports (27 Apr 2018)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afman48146Title {
-            global.url = Bundle.main.url(forResource: "AFMAN 48-146 Occupational & Environmental Health Program Management (5 Dec 2012)", withExtension: "pdf")
+            global.url = Bundle.main.url(forResource: "AFMAN 48-146 Occupational & Environmental Health Program Management (15 Oct 2018)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afman48147Title {
             global.url = Bundle.main.url(forResource: "AFMAN 48-147_IP Tri-Service Food Code (30 Apr 2014)", withExtension: "pdf")
         }else if global.selection == OtherAFI.afman91223Title {
@@ -185,9 +185,9 @@ class AirForceOtherAFIBookshelfViewController: UITableViewController {
         } else if global.selection == OtherAFI.afpd481Title {
             global.url = Bundle.main.url(forResource: "AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afecdTitle {
-            global.url = Bundle.main.url(forResource: "AFECD (30 Apr 2018)", withExtension: "pdf")
+            global.url = Bundle.main.url(forResource: "AFECD (31 Oct 2018)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afocdTitle {
-            global.url = Bundle.main.url(forResource: "AFOCD (30 Apr 2018)", withExtension: "pdf")
+            global.url = Bundle.main.url(forResource: "AFOCD (31 Oct 2018)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afpam48133Title {
             global.url = Bundle.main.url(forResource: "AFPAM 48-133 Physical Examination Techniques (1 Jun 2000)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi362101Title {
@@ -243,15 +243,15 @@ class AirForceOtherAFIBookshelfViewController: UITableViewController {
         let titleFont:UIFont? = UIFont(name: "Helvetica", size: 14.0)
         let detailFont:UIFont? = UIFont(name: "Helvetica", size: 12.0)
         
-        let detailText:NSMutableAttributedString = NSMutableAttributedString(string: "\n" + (DocDetailArray[(indexPath as NSIndexPath).row] as! String), attributes: (NSDictionary(object: detailFont!, forKey: NSAttributedStringKey.font as NSCopying) as! [NSAttributedStringKey : Any]))
-        detailText.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.lightGray, range: NSMakeRange(0, detailText.length))
+        let detailText:NSMutableAttributedString = NSMutableAttributedString(string: "\n" + (DocDetailArray[(indexPath as NSIndexPath).row] as! String), attributes: (NSDictionary(object: detailFont!, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
+        detailText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.lightGray, range: NSMakeRange(0, detailText.length))
         
-        let title = NSMutableAttributedString(string: DocArray[(indexPath as NSIndexPath).row] as! String, attributes: (NSDictionary(object: titleFont!, forKey: NSAttributedStringKey.font as NSCopying) as! [NSAttributedStringKey : Any]))
+        let title = NSMutableAttributedString(string: DocArray[(indexPath as NSIndexPath).row] as! String, attributes: (NSDictionary(object: titleFont!, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
         
         title.append(detailText)
         
         cell.textLabel?.attributedText = title
-        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         cell.textLabel?.numberOfLines = 0
         
         return cell
