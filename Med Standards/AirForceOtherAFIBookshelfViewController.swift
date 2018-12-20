@@ -31,7 +31,7 @@ struct OtherAFI {
     static let afi11202v1Detail = "Aircrew Training (14 Jun 2018)"
 
     static let afi11202v2Title = "AFI 11-202 v2"
-    static let afi11202v2Detail = "Aircrew Standardization/Evaluation Program (13 Sep 2010)"
+    static let afi11202v2Detail = "Aircrew Standardization and Evaluation Program (18 Dec 2018)"
 
     static let afi11202v3Title = "AFI 11-202 v3"
     static let afi11202v3Detail = "General Flight Rules (2 Oct 2018)"
@@ -50,6 +50,15 @@ struct OtherAFI {
 
     static let afi11402Title = "AFI 11-402"
     static let afi11402Detail = "Aviation & Parachutist Service, Aeronautical Ratings & Aviation Badges (28 Feb 2018)"
+    
+    static let afi11403Title = "AFI 11-403"
+    static let afi11403Detail = "Aerospace Physiological Training Program (25 Mar 2015)"
+    
+    static let afi11404Title = "AFI 11-404"
+    static let afi11404Detail = "Fighter Aircrew Acceleration Training Program (9 Jun 2017)"
+    
+    static let afi11409Title = "AFI 11-409"
+    static let afi11409Detail = "High Altitude Airdrop Mission Support Program (9 Sep 2015)"
 
     static let afi362101Title = "AFI 36-2101"
     static let afi362101Detail = "Classifying Military Personnel (9 Mar 2017)"
@@ -127,8 +136,8 @@ struct OtherAFI {
 
 class AirForceOtherAFIBookshelfViewController: UITableViewController {
     
-    let DocArray:NSArray = [OtherAFI.afi10203sgTitle, OtherAFI.afi10203sgtmTitle, OtherAFI.afi10203sgtTitle, OtherAFI.afi11202v1Title, OtherAFI.afi11202v2Title, OtherAFI.afi11202v3Title, OtherAFI.afi11301v1Title, OtherAFI.afi11301v2Title, OtherAFI.afi11301v4Title, OtherAFI.afi11401Title, OtherAFI.afi11402Title, OtherAFI.afi362101Title, OtherAFI.afi362905Title, OtherAFI.afi362910Title, OtherAFI.afi44103Title, OtherAFI.afi44170Title, OtherAFI.afi44171Title, OtherAFI.afi44172Title, OtherAFI.afi48101Title, OtherAFI.afi48145Title, OtherAFI.afi48149Title, OtherAFI.afi48307v1Title, OtherAFI.afi48307v2Title, OtherAFI.afi48307v3Title, OtherAFI.afi91202Title, OtherAFI.afi91204Title, OtherAFI.afecdTitle, OtherAFI.aetci48102Title, OtherAFI.aetci48103Title, OtherAFI.afman48146Title, OtherAFI.afman48147Title, OtherAFI.afman91223Title, OtherAFI.afocdTitle, OtherAFI.afpam48133Title, OtherAFI.afpd481Title]
-    let DocDetailArray:NSArray = [OtherAFI.afi10203sgDetail, OtherAFI.afi10203sgtmDetail, OtherAFI.afi10203sgtDetail, OtherAFI.afi11202v1Detail, OtherAFI.afi11202v2Detail, OtherAFI.afi11202v3Detail, OtherAFI.afi11301v1Detail, OtherAFI.afi11301v2Detail, OtherAFI.afi11301v4Detail, OtherAFI.afi11401Detail, OtherAFI.afi11402Detail, OtherAFI.afi362101Detail, OtherAFI.afi362905Detail, OtherAFI.afi362910Detail, OtherAFI.afi44103Detail, OtherAFI.afi44170Detail, OtherAFI.afi44171Detail, OtherAFI.afi44172Detail, OtherAFI.afi48101Detail, OtherAFI.afi48145Detail, OtherAFI.afi48149Detail, OtherAFI.afi48307v1Detail, OtherAFI.afi48307v2Detail, OtherAFI.afi48307v3Detail, OtherAFI.afi91202Detail, OtherAFI.afi91204Detail, OtherAFI.afecdDetail, OtherAFI.aetci48102Detail, OtherAFI.aetci48103Detail, OtherAFI.afman48146Detail, OtherAFI.afman48147Detail, OtherAFI.afman91223Detail, OtherAFI.afocdDetail, OtherAFI.afpam48133Detail, OtherAFI.afpd481Detail]
+    let DocArray:NSArray = [OtherAFI.afi10203sgTitle, OtherAFI.afi10203sgtmTitle, OtherAFI.afi10203sgtTitle, OtherAFI.afi11202v1Title, OtherAFI.afi11202v2Title, OtherAFI.afi11202v3Title, OtherAFI.afi11301v1Title, OtherAFI.afi11301v2Title, OtherAFI.afi11301v4Title, OtherAFI.afi11401Title, OtherAFI.afi11402Title, OtherAFI.afi11403Title, OtherAFI.afi11404Title, OtherAFI.afi11409Title, OtherAFI.afi362101Title, OtherAFI.afi362905Title, OtherAFI.afi362910Title, OtherAFI.afi44103Title, OtherAFI.afi44170Title, OtherAFI.afi44171Title, OtherAFI.afi44172Title, OtherAFI.afi48101Title, OtherAFI.afi48145Title, OtherAFI.afi48149Title, OtherAFI.afi48307v1Title, OtherAFI.afi48307v2Title, OtherAFI.afi48307v3Title, OtherAFI.afi91202Title, OtherAFI.afi91204Title, OtherAFI.afecdTitle, OtherAFI.aetci48102Title, OtherAFI.aetci48103Title, OtherAFI.afman48146Title, OtherAFI.afman48147Title, OtherAFI.afman91223Title, OtherAFI.afocdTitle, OtherAFI.afpam48133Title, OtherAFI.afpd481Title]
+    let DocDetailArray:NSArray = [OtherAFI.afi10203sgDetail, OtherAFI.afi10203sgtmDetail, OtherAFI.afi10203sgtDetail, OtherAFI.afi11202v1Detail, OtherAFI.afi11202v2Detail, OtherAFI.afi11202v3Detail, OtherAFI.afi11301v1Detail, OtherAFI.afi11301v2Detail, OtherAFI.afi11301v4Detail, OtherAFI.afi11401Detail, OtherAFI.afi11402Detail, OtherAFI.afi11403Detail, OtherAFI.afi11404Detail, OtherAFI.afi11409Detail, OtherAFI.afi362101Detail, OtherAFI.afi362905Detail, OtherAFI.afi362910Detail, OtherAFI.afi44103Detail, OtherAFI.afi44170Detail, OtherAFI.afi44171Detail, OtherAFI.afi44172Detail, OtherAFI.afi48101Detail, OtherAFI.afi48145Detail, OtherAFI.afi48149Detail, OtherAFI.afi48307v1Detail, OtherAFI.afi48307v2Detail, OtherAFI.afi48307v3Detail, OtherAFI.afi91202Detail, OtherAFI.afi91204Detail, OtherAFI.afecdDetail, OtherAFI.aetci48102Detail, OtherAFI.aetci48103Detail, OtherAFI.afman48146Detail, OtherAFI.afman48147Detail, OtherAFI.afman91223Detail, OtherAFI.afocdDetail, OtherAFI.afpam48133Detail, OtherAFI.afpd481Detail]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -145,7 +154,7 @@ class AirForceOtherAFIBookshelfViewController: UITableViewController {
         } else if global.selection == OtherAFI.afi11202v1Title {
             global.url = Bundle.main.url(forResource: "AFI 11-202v1 Aircrew Training (14 Jun 2018)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi11202v2Title {
-            global.url = Bundle.main.url(forResource: "AFI 11-202v2 Aircrew Standardization-Evaluation Program (13 Sep 2010)", withExtension: "pdf")
+            global.url = Bundle.main.url(forResource: "AFI 11-202v2 Aircrew Standardization-Evaluation Program (18 Dec 2018)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi11202v3Title {
             global.url = Bundle.main.url(forResource: "AFI 11-202v3 General Flight Rules (2 Oct 2018)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi11301v1Title {
@@ -158,6 +167,12 @@ class AirForceOtherAFIBookshelfViewController: UITableViewController {
             global.url = Bundle.main.url(forResource: "AFI 11-401 Aviation Management (30 Aug 2018)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi11402Title {
             global.url = Bundle.main.url(forResource: "AFI 11-402 Aviation & Parachutist Service Aeronautical Ratings & Aviation Badges (28 Feb 2018)", withExtension: "pdf")
+        } else if global.selection == OtherAFI.afi11403Title {
+            global.url = Bundle.main.url(forResource: "AFI 11-403 Aerospace Physiological Training Program (25 Mar 2015)", withExtension: "pdf")
+        } else if global.selection == OtherAFI.afi11404Title {
+            global.url = Bundle.main.url(forResource: "AFI 11-404 Fighter Aircrew Acceleration Training Program (9 Jun 2017)", withExtension: "pdf")
+        } else if global.selection == OtherAFI.afi11409Title {
+            global.url = Bundle.main.url(forResource: "AFI 11-409 High Altitude Airdrop Mission Support Program (9 Sep 2015)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi362905Title {
             global.url = Bundle.main.url(forResource: "AFI 36-2905 Fitness Program (27 Aug 2015)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi362910Title {
