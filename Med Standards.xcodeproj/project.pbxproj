@@ -62,7 +62,7 @@
 		6C69243620E6931A00D8DF34 /* SGP-earls (v10.15).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923F120E6931A00D8DF34 /* SGP-earls (v10.15).pdf */; };
 		6C69243720E6931A00D8DF34 /* AF Flight Surgeon Quick Reference (16 Feb 2016).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923F220E6931A00D8DF34 /* AF Flight Surgeon Quick Reference (16 Feb 2016).pdf */; };
 		6C69243820E6931A00D8DF34 /* Specialty Description 48XX (30 Apr 2015).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923F320E6931A00D8DF34 /* Specialty Description 48XX (30 Apr 2015).pdf */; };
-		6C8C255120E9650C004D3A8B /* MIT-License_2015-2018.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6C8C255020E9650C004D3A8B /* MIT-License_2015-2018.rtf */; };
+		6C8C255120E9650C004D3A8B /* MIT-License_2015-2019.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6C8C255020E9650C004D3A8B /* MIT-License_2015-2019.rtf */; };
 		6CB1DD46215BD69500104ECC /* AF Medical Standards Directory (25 Sep 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6CB1DD45215BD69500104ECC /* AF Medical Standards Directory (25 Sep 2018).pdf */; };
 		6CB1DD48215BD71400104ECC /* AF Approved Med List (25 Sep 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6CB1DD47215BD71400104ECC /* AF Approved Med List (25 Sep 2018).pdf */; };
 		6CB1DD4A215BD78300104ECC /* AF Waiver Guide (6 Sep 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6CB1DD49215BD78300104ECC /* AF Waiver Guide (6 Sep 2018).pdf */; };
@@ -169,7 +169,7 @@
 		6C6923F120E6931A00D8DF34 /* SGP-earls (v10.15).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "SGP-earls (v10.15).pdf"; sourceTree = "<group>"; };
 		6C6923F220E6931A00D8DF34 /* AF Flight Surgeon Quick Reference (16 Feb 2016).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF Flight Surgeon Quick Reference (16 Feb 2016).pdf"; sourceTree = "<group>"; };
 		6C6923F320E6931A00D8DF34 /* Specialty Description 48XX (30 Apr 2015).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Specialty Description 48XX (30 Apr 2015).pdf"; sourceTree = "<group>"; };
-		6C8C255020E9650C004D3A8B /* MIT-License_2015-2018.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "MIT-License_2015-2018.rtf"; sourceTree = "<group>"; };
+		6C8C255020E9650C004D3A8B /* MIT-License_2015-2019.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "MIT-License_2015-2019.rtf"; sourceTree = "<group>"; };
 		6CB1DD45215BD69500104ECC /* AF Medical Standards Directory (25 Sep 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF Medical Standards Directory (25 Sep 2018).pdf"; sourceTree = "<group>"; };
 		6CB1DD47215BD71400104ECC /* AF Approved Med List (25 Sep 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF Approved Med List (25 Sep 2018).pdf"; sourceTree = "<group>"; };
 		6CB1DD49215BD78300104ECC /* AF Waiver Guide (6 Sep 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF Waiver Guide (6 Sep 2018).pdf"; sourceTree = "<group>"; };
@@ -278,7 +278,7 @@
 				6C6923AD20E6931900D8DF34 /* PDFs_Army */,
 				6C6923AA20E6931900D8DF34 /* PDFs_Navy */,
 				1421EF201F0A411E00BEB695 /* Info.plist */,
-				6C8C255020E9650C004D3A8B /* MIT-License_2015-2018.rtf */,
+				6C8C255020E9650C004D3A8B /* MIT-License_2015-2019.rtf */,
 			);
 			path = "Med Standards";
 			sourceTree = "<group>";
@@ -431,7 +431,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0940;
-				ORGANIZATIONNAME = "Kishikawa Katsumi";
+				ORGANIZATIONNAME = ColbyCoApps;
 				TargetAttributes = {
 					1421EF101F0A411E00BEB695 = {
 						CreatedOnToolsVersion = 9.0;
@@ -488,7 +488,7 @@
 				6CEE242420E9B7360092B68F /* AFPAM 48-133 Physical Examination Techniques (1 Jun 2000).pdf in Resources */,
 				6CEE243A20E9B7360092B68F /* AFI 48-149 Flight & Operational Medicine Program (18 Dec 2015).pdf in Resources */,
 				6C69243520E6931A00D8DF34 /* RSV Overview.pdf in Resources */,
-				6C8C255120E9650C004D3A8B /* MIT-License_2015-2018.rtf in Resources */,
+				6C8C255120E9650C004D3A8B /* MIT-License_2015-2019.rtf in Resources */,
 				6C69242D20E6931A00D8DF34 /* RSV-1E1 Aeromedical Aspects of Night Operations.pdf in Resources */,
 				6CEE243220E9B7360092B68F /* AFI 44-172 Mental Health (13 Nov 2015).pdf in Resources */,
 				6CEE243720E9B7360092B68F /* AFI 44-171 Patient Centered Medical Home Operations (28 Nov 2014).pdf in Resources */,
