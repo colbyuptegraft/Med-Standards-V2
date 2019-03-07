@@ -45,7 +45,7 @@ struct FSTlkt {
     static let rsvTitle = "RSV Sample Briefings"
     static let rsvDetail = "Readiness Skills Verification (RSV) Briefings"
     
-    static let sgpTitle = "SGP-earls (v10.15)"
+    static let sgpTitle = "SGP-earls (v2.19)"
     static let sgpDetail = "Overview of the Chief of Aerospace Medicine (SGP) Roles & Responsibilities"
     
     static let contactlensTitle = "Soft Contact Lens Program"
@@ -81,7 +81,7 @@ class AirForceFSToolkitBookshelfViewController: UITableViewController {
             } else if global.selection == FSTlkt.nutSupTitle {
                 global.url = Bundle.main.url(forResource: "Dietary Supplements", withExtension: "pdf")
             } else if global.selection == FSTlkt.sgpTitle {
-                global.url = Bundle.main.url(forResource: "SGP-earls (v10.15)", withExtension: "pdf")
+                global.url = Bundle.main.url(forResource: "SGP-earls (v2.19)", withExtension: "pdf")
             } else if global.selection == FSTlkt.fsqrTitle {
                 global.url = Bundle.main.url(forResource: "AF Flight Surgeon Quick Reference (16 Feb 2016)", withExtension: "pdf")
             } else if global.selection == FSTlkt.contactlensTitle {
