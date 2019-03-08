@@ -62,13 +62,13 @@
 		6C69243720E6931A00D8DF34 /* AF Flight Surgeon Quick Reference (16 Feb 2016).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923F220E6931A00D8DF34 /* AF Flight Surgeon Quick Reference (16 Feb 2016).pdf */; };
 		6C69243820E6931A00D8DF34 /* Specialty Description 48XX (30 Apr 2015).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C6923F320E6931A00D8DF34 /* Specialty Description 48XX (30 Apr 2015).pdf */; };
 		6C8C255120E9650C004D3A8B /* MIT-License_2015-2019.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6C8C255020E9650C004D3A8B /* MIT-License_2015-2019.rtf */; };
+		6C9653E0223310A4007D244C /* AF Waiver Guide (6 Mar 2019).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6C9653DF223310A4007D244C /* AF Waiver Guide (6 Mar 2019).pdf */; };
 		6CB1DD48215BD71400104ECC /* AF Approved Med List (25 Sep 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6CB1DD47215BD71400104ECC /* AF Approved Med List (25 Sep 2018).pdf */; };
 		6CB1DD50215BD92A00104ECC /* AFMAN 91-223 Aviation Safety Investigations & Reports (14 Sep 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6CB1DD4F215BD92A00104ECC /* AFMAN 91-223 Aviation Safety Investigations & Reports (14 Sep 2018).pdf */; };
 		6CB1DD52215BD9B600104ECC /* AFI 44-103 Air Force IDMT Program (30 Aug 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6CB1DD51215BD9B500104ECC /* AFI 44-103 Air Force IDMT Program (30 Aug 2018).pdf */; };
 		6CB1DD54215BDB4000104ECC /* AFI 36-2910 LOD Determination, Medical Continuation, & Incapacitation Pay (8 Oct 2015).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6CB1DD53215BDB4000104ECC /* AFI 36-2910 LOD Determination, Medical Continuation, & Incapacitation Pay (8 Oct 2015).pdf */; };
 		6CB1DD56215BDD5300104ECC /* AF Aircrew Soft Contact Lens Program (10 June 2014).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6CB1DD55215BDD5300104ECC /* AF Aircrew Soft Contact Lens Program (10 June 2014).pdf */; };
 		6CCAD25020EA78B800E27E2C /* AFI 11-202v1 Aircrew Training (14 Jun 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6CCAD24F20EA78B700E27E2C /* AFI 11-202v1 Aircrew Training (14 Jun 2018).pdf */; };
-		6CECAA8622316F2E00AB4FF7 /* AF Waiver Guide (19 Feb 2019).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6CECAA8422316F2E00AB4FF7 /* AF Waiver Guide (19 Feb 2019).pdf */; };
 		6CECAA8722316F2E00AB4FF7 /* AF Medical Standards Directory (1 Mar 2019).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6CECAA8522316F2E00AB4FF7 /* AF Medical Standards Directory (1 Mar 2019).pdf */; };
 		6CECAA8922316F4D00AB4FF7 /* AFMAN 13-501 (DODM 5210.42) Nuclear Weapons PRP (19 Sep 2018).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6CECAA8822316F4D00AB4FF7 /* AFMAN 13-501 (DODM 5210.42) Nuclear Weapons PRP (19 Sep 2018).pdf */; };
 		6CECAA8B22316F5D00AB4FF7 /* USN ManMed Chapter 15 Physical Exams & Standards for Enlistment, Commission, & Special Duty (15 Feb 2019).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6CECAA8A22316F5D00AB4FF7 /* USN ManMed Chapter 15 Physical Exams & Standards for Enlistment, Commission, & Special Duty (15 Feb 2019).pdf */; };
@@ -169,13 +169,13 @@
 		6C6923F220E6931A00D8DF34 /* AF Flight Surgeon Quick Reference (16 Feb 2016).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF Flight Surgeon Quick Reference (16 Feb 2016).pdf"; sourceTree = "<group>"; };
 		6C6923F320E6931A00D8DF34 /* Specialty Description 48XX (30 Apr 2015).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Specialty Description 48XX (30 Apr 2015).pdf"; sourceTree = "<group>"; };
 		6C8C255020E9650C004D3A8B /* MIT-License_2015-2019.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "MIT-License_2015-2019.rtf"; sourceTree = "<group>"; };
+		6C9653DF223310A4007D244C /* AF Waiver Guide (6 Mar 2019).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF Waiver Guide (6 Mar 2019).pdf"; sourceTree = "<group>"; };
 		6CB1DD47215BD71400104ECC /* AF Approved Med List (25 Sep 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF Approved Med List (25 Sep 2018).pdf"; sourceTree = "<group>"; };
 		6CB1DD4F215BD92A00104ECC /* AFMAN 91-223 Aviation Safety Investigations & Reports (14 Sep 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFMAN 91-223 Aviation Safety Investigations & Reports (14 Sep 2018).pdf"; sourceTree = "<group>"; };
 		6CB1DD51215BD9B500104ECC /* AFI 44-103 Air Force IDMT Program (30 Aug 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 44-103 Air Force IDMT Program (30 Aug 2018).pdf"; sourceTree = "<group>"; };
 		6CB1DD53215BDB4000104ECC /* AFI 36-2910 LOD Determination, Medical Continuation, & Incapacitation Pay (8 Oct 2015).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 36-2910 LOD Determination, Medical Continuation, & Incapacitation Pay (8 Oct 2015).pdf"; sourceTree = "<group>"; };
 		6CB1DD55215BDD5300104ECC /* AF Aircrew Soft Contact Lens Program (10 June 2014).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF Aircrew Soft Contact Lens Program (10 June 2014).pdf"; sourceTree = "<group>"; };
 		6CCAD24F20EA78B700E27E2C /* AFI 11-202v1 Aircrew Training (14 Jun 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFI 11-202v1 Aircrew Training (14 Jun 2018).pdf"; sourceTree = "<group>"; };
-		6CECAA8422316F2E00AB4FF7 /* AF Waiver Guide (19 Feb 2019).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF Waiver Guide (19 Feb 2019).pdf"; sourceTree = "<group>"; };
 		6CECAA8522316F2E00AB4FF7 /* AF Medical Standards Directory (1 Mar 2019).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AF Medical Standards Directory (1 Mar 2019).pdf"; sourceTree = "<group>"; };
 		6CECAA8822316F4D00AB4FF7 /* AFMAN 13-501 (DODM 5210.42) Nuclear Weapons PRP (19 Sep 2018).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "AFMAN 13-501 (DODM 5210.42) Nuclear Weapons PRP (19 Sep 2018).pdf"; sourceTree = "<group>"; };
 		6CECAA8A22316F5D00AB4FF7 /* USN ManMed Chapter 15 Physical Exams & Standards for Enlistment, Commission, & Special Duty (15 Feb 2019).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "USN ManMed Chapter 15 Physical Exams & Standards for Enlistment, Commission, & Special Duty (15 Feb 2019).pdf"; sourceTree = "<group>"; };
@@ -308,7 +308,7 @@
 				6C6923B220E6931900D8DF34 /* AFI 10-203 Duty Limiting Conditions (20 Nov 2014).pdf */,
 				6C6923B320E6931900D8DF34 /* AF OTC Approved Med List (9 Jan 2014).pdf */,
 				6CECAA8522316F2E00AB4FF7 /* AF Medical Standards Directory (1 Mar 2019).pdf */,
-				6CECAA8422316F2E00AB4FF7 /* AF Waiver Guide (19 Feb 2019).pdf */,
+				6C9653DF223310A4007D244C /* AF Waiver Guide (6 Mar 2019).pdf */,
 				6C6923B420E6931900D8DF34 /* AFI 48-123 Medical Examinations & Standards (28 Jan 2018).pdf */,
 				6CF3B86B21CC1B3700545986 /* AF Physical Examination Matrix (Sep 2018).pdf */,
 				6CB1DD47215BD71400104ECC /* AF Approved Med List (25 Sep 2018).pdf */,
@@ -462,7 +462,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CECAA8622316F2E00AB4FF7 /* AF Waiver Guide (19 Feb 2019).pdf in Resources */,
 				6C01EF632197A0C1004918E5 /* AFMAN 48-146 Occupational & Environmental Health Program Management (15 Oct 2018).pdf in Resources */,
 				6C01EF5D21979FFF004918E5 /* AFECD (31 Oct 2018).pdf in Resources */,
 				6C69242620E6931A00D8DF34 /* Dietary Supplements.pdf in Resources */,
@@ -517,6 +516,7 @@
 				6C6923FC20E6931A00D8DF34 /* AFI 48-123 Medical Examinations & Standards (28 Jan 2018).pdf in Resources */,
 				6CF3B87421CC1ED600545986 /* AFI 11-403 Aerospace Physiological Training Program (25 Mar 2015).pdf in Resources */,
 				6CB1DD56215BDD5300104ECC /* AF Aircrew Soft Contact Lens Program (10 June 2014).pdf in Resources */,
+				6C9653E0223310A4007D244C /* AF Waiver Guide (6 Mar 2019).pdf in Resources */,
 				6CEE243D20E9B7360092B68F /* AFI 10-203 Supplemental Guidance (17 Nov 2016).pdf in Resources */,
 				6C69242C20E6931A00D8DF34 /* RSV-1E2 Thermal Stresses in Fighter Aviation.pdf in Resources */,
 				6CEE242520E9B7360092B68F /* AFI 91-204 Safety Investigations & Reports (27 Apr 2018).pdf in Resources */,

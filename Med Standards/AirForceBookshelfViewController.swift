@@ -46,7 +46,7 @@ struct AF {
     static let msdDetail = "Medical Standards Directory (1 Mar 2019)"
     
     static let wgTitle = "Waiver Guide"
-    static let wgDetail = "Air Force Waiver Guide (19 Feb 2019)"
+    static let wgDetail = "Air Force Waiver Guide (6 Mar 2019)"
     
     static let fsToolkitTitle = "Flight Surgeon Toolkit"
     static let fsToolkitDetail = "Useful Flight Medicine Resources"
@@ -101,7 +101,7 @@ class AirForceBookshelfViewController: UITableViewController {
             } else if global.selection == AF.physExMtxTitle {
                 global.url = Bundle.main.url(forResource: "AF Physical Examination Matrix (Sep 2018)", withExtension: "pdf")
             } else if global.selection == AF.wgTitle {
-                global.url = Bundle.main.url(forResource: "AF Waiver Guide (19 Feb 2019)", withExtension: "pdf")
+                global.url = Bundle.main.url(forResource: "AF Waiver Guide (6 Mar 2019)", withExtension: "pdf")
             } else {
                 docError()
             }
