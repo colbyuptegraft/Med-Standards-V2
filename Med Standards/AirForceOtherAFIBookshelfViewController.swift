@@ -46,7 +46,7 @@ struct OtherAFI {
     static let afi11301v4Detail = "Aircrew Laser Eye Protection (ALEP) (17 Feb 2010)"
 
     static let afi11401Title = "AFI 11-401"
-    static let afi11401Detail = "Aviation Management (29 Jan 2019)"
+    static let afi11401Detail = "Aviation Management (31 Jan 2019)"
 
     static let afi11403Title = "AFI 11-403"
     static let afi11403Detail = "Aerospace Physiological Training Program (25 Mar 2015)"
@@ -103,13 +103,13 @@ struct OtherAFI {
     static let afi91204Detail = "Safety Investigations & Reports (27 Apr 2018)"
 
     static let aetci48102Title = "AETCI 48-102"
-    static let aetci48102Detail = "Medical Management of Undergraduate Flying Students (5 Nov 2013)"
+    static let aetci48102Detail = "Medical Management of Undergraduate Flying Students (7 Mar 2019)"
 
     static let aetci48103Title = "AETCI 48-103"
     static let aetci48103Detail = "Training Health & Human Performance (24 Apr 2018)"
 
     static let afecdTitle = "AFECD"
-    static let afecdDetail = "Air Force Enlisted Classification Directory (31 Oct 2018)"
+    static let afecdDetail = "Air Force Enlisted Classification Directory (30 Apr 2019)"
     
     static let afman13501Title = "AFMAN 13-501 (DODM 5210.42)"
     static let afman13501Detail = "Nuclear Weapons Personnel Reliability Program (19 Sep 2018)"
@@ -124,7 +124,7 @@ struct OtherAFI {
     static let afman91223Detail = "Aviation Safety Investigations & Reports (14 Sep 2018)"
 
     static let afocdTitle = "AFOCD"
-    static let afocdDetail = "Air Force Officer Classification Directory (31 Oct 2018)"
+    static let afocdDetail = "Air Force Officer Classification Directory (30 Apr 2019)"
 
     static let afpam48133Title = "AFPAM 48-133 (Rescinded)"
     static let afpam48133Detail = "Physical Examination Techniques (1 Jun 2000)"
@@ -148,7 +148,7 @@ class AirForceOtherAFIBookshelfViewController: UITableViewController {
         global.selection = DocArray[(indexPath as NSIndexPath).row] as! String
         
         if global.selection == OtherAFI.aetci48102Title {
-            global.url = Bundle.main.url(forResource: "AF AETCI 48-102 Medical Management of UFT Students (5 Nov 2013)", withExtension: "pdf")
+            global.url = Bundle.main.url(forResource: "AF AETCI 48-102 Medical Management of UFT Students (7 Mar 2019)", withExtension: "pdf")
         } else if global.selection == OtherAFI.aetci48103Title {
             global.url = Bundle.main.url(forResource: "AF AETCI 48-103 Training Health & Human Performance Program (24 Apr 2018)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi11202v1Title {
@@ -164,7 +164,7 @@ class AirForceOtherAFIBookshelfViewController: UITableViewController {
         } else if global.selection == OtherAFI.afi11301v4Title {
             global.url = Bundle.main.url(forResource: "AFI 11-301v4 Aircrew Laser Eye Program (17 Feb 2010)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi11401Title {
-            global.url = Bundle.main.url(forResource: "AFI 11-401 Aviation Management (29 Jan 2019)", withExtension: "pdf")
+            global.url = Bundle.main.url(forResource: "AFI 11-401 Aviation Management (31 Jan 2019)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi11403Title {
             global.url = Bundle.main.url(forResource: "AFI 11-403 Aerospace Physiological Training Program (25 Mar 2015)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi11404Title {
@@ -200,9 +200,9 @@ class AirForceOtherAFIBookshelfViewController: UITableViewController {
         } else if global.selection == OtherAFI.afpd481Title {
             global.url = Bundle.main.url(forResource: "AFPD 48-1 Aerospace Medicine Enterprise (23 Aug 2011)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afecdTitle {
-            global.url = Bundle.main.url(forResource: "AFECD (31 Oct 2018)", withExtension: "pdf")
+            global.url = Bundle.main.url(forResource: "AFECD (30 Apr 2019)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afocdTitle {
-            global.url = Bundle.main.url(forResource: "AFOCD (31 Oct 2018)", withExtension: "pdf")
+            global.url = Bundle.main.url(forResource: "AFOCD (30 Apr 2019)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afpam48133Title {
             global.url = Bundle.main.url(forResource: "AFPAM 48-133 Physical Examination Techniques (1 Jun 2000)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi362101Title {
