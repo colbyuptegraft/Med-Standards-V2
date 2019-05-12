@@ -49,7 +49,7 @@ struct OtherAFI {
     static let afi11401Detail = "Aviation Management (31 Jan 2019)"
 
     static let afi11403Title = "AFI 11-403"
-    static let afi11403Detail = "Aerospace Physiological Training Program (25 Mar 2015)"
+    static let afi11403Detail = "Aerospace Physiological Training Program (17 Apr 2019)"
     
     static let afi11404Title = "AFI 11-404"
     static let afi11404Detail = "Fighter Aircrew Acceleration Training Program (9 Jun 2017)"
@@ -97,7 +97,7 @@ struct OtherAFI {
     static let afi48307v3Detail = "En Route Care Documentation (12 Apr 2016)"
 
     static let afi91202Title = "AFI 91-202"
-    static let afi91202Detail = "The US Air Force Mishap Prevention Program (21 May 2018)"
+    static let afi91202Detail = "The US Air Force Mishap Prevention Program (29 Apr 2019)"
 
     static let afi91204Title = "AFI 91-204"
     static let afi91204Detail = "Safety Investigations & Reports (27 Apr 2018)"
@@ -166,7 +166,7 @@ class AirForceOtherAFIBookshelfViewController: UITableViewController {
         } else if global.selection == OtherAFI.afi11401Title {
             global.url = Bundle.main.url(forResource: "AFI 11-401 Aviation Management (31 Jan 2019)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi11403Title {
-            global.url = Bundle.main.url(forResource: "AFI 11-403 Aerospace Physiological Training Program (25 Mar 2015)", withExtension: "pdf")
+            global.url = Bundle.main.url(forResource: "AFI 11-403 Aerospace Physiological Training Program (17 Apr 2019)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi11404Title {
             global.url = Bundle.main.url(forResource: "AFI 11-404 Fighter Aircrew Acceleration Training Program (9 Jun 2017)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi11409Title {
@@ -186,7 +186,7 @@ class AirForceOtherAFIBookshelfViewController: UITableViewController {
         } else if global.selection == OtherAFI.afi48149Title {
             global.url = Bundle.main.url(forResource: "AFI 48-149 Flight & Operational Medicine Program (18 Dec 2015)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi91202Title {
-            global.url = Bundle.main.url(forResource: "AFI 91-202 USAF Mishap Prevention Program (21 May 2018)", withExtension: "pdf")
+            global.url = Bundle.main.url(forResource: "AFI 91-202 USAF Mishap Prevention Program (29 Apr 2019)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afi91204Title {
             global.url = Bundle.main.url(forResource: "AFI 91-204 Safety Investigations & Reports (27 Apr 2018)", withExtension: "pdf")
         } else if global.selection == OtherAFI.afman13501Title {

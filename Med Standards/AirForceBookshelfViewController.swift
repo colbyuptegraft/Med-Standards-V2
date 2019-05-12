@@ -28,7 +28,7 @@ struct global {
 struct AF {
     
     static let dlcTitle = "AFI 10-203"
-    static let dlcDetail = "Duty Limiting Conditions (20 Nov 2014)"
+    static let dlcDetail = "Duty Limiting Conditions (7 May 2019)"
     
     static let mesTitle = "AFI 48-123"
     static let mesDetail = "Medical Examinations & Standards (28 Jan 2018)"
@@ -46,7 +46,7 @@ struct AF {
     static let msdDetail = "Medical Standards Directory (1 Mar 2019)"
     
     static let wgTitle = "Waiver Guide"
-    static let wgDetail = "Air Force Waiver Guide (27 Mar 2019)"
+    static let wgDetail = "Air Force Waiver Guide (17 Apr 2019)"
     
     static let fsToolkitTitle = "Flight Surgeon Toolkit"
     static let fsToolkitDetail = "Useful Flight Medicine Resources"
@@ -87,7 +87,7 @@ class AirForceBookshelfViewController: UITableViewController {
         
         if global.selection != AF.otherTitle && global.selection != AF.fsToolkitTitle {
             if global.selection == AF.dlcTitle {
-                global.url = Bundle.main.url(forResource: "AFI 10-203 Duty Limiting Conditions (20 Nov 2014)", withExtension: "pdf")
+                global.url = Bundle.main.url(forResource: "AFI 10-203 Duty Limiting Conditions (7 May 2019)", withExtension: "pdf")
             } else if global.selection == AF.mesTitle {
                 global.url = Bundle.main.url(forResource: "AFI 48-123 Medical Examinations & Standards (28 Jan 2018)", withExtension: "pdf")
             } else if global.selection == AF.medsTitle {
@@ -101,7 +101,7 @@ class AirForceBookshelfViewController: UITableViewController {
             } else if global.selection == AF.physExMtxTitle {
                 global.url = Bundle.main.url(forResource: "AF Physical Examination Matrix (Sep 2018)", withExtension: "pdf")
             } else if global.selection == AF.wgTitle {
-                global.url = Bundle.main.url(forResource: "AF Waiver Guide (27 Mar 2019)", withExtension: "pdf")
+                global.url = Bundle.main.url(forResource: "AF Waiver Guide (17 Apr 2019)", withExtension: "pdf")
             } else {
                 docError()
             }

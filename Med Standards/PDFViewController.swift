@@ -246,7 +246,7 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
             var bookmarks = UserDefaults.standard.array(forKey: documentURL) as? [Int] ?? [Int]()
             if let currentPage = pdfView.currentPage,
                 let pageIndex = pdfDocument?.index(for: currentPage) {
-                if let index = bookmarks.index(of: pageIndex) {
+                if let index = bookmarks.firstIndex(of: pageIndex) {
                     bookmarks.remove(at: index)
                     UserDefaults.standard.set(bookmarks, forKey: documentURL)
                     bookmarkButton.image = #imageLiteral(resourceName: "Bookmark-N")
