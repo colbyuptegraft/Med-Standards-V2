@@ -34,16 +34,16 @@ struct AF {
     static let mesDetail = "Medical Examinations & Standards (28 Jan 2018)"
     
     static let medsTitle = "Approved Med List"
-    static let medsDetail = "Official Air Force Aerospace Medicine Approved Medications (25 Sep 2018)"
+    static let medsDetail = "Official Air Force Aerospace Medicine Approved Medications (13 May 2019)"
     
     static let otcMedsTitle = "OTC Approved Med List"
-    static let otcMedsDetail = "Over-the-Counter Medications Not Requiring Flight Surgeon Approval (9 Jan 2014)"
+    static let otcMedsDetail = "Over-the-Counter Medications Not Requiring Flight Surgeon Approval (14 May 2019)"
     
     static let modMedsTitle = "MOD Approved Med List"
     static let modMedsDetail = "Approved Missile Operator Medications (24 May 2018)"
     
     static let msdTitle = "MSD"
-    static let msdDetail = "Medical Standards Directory (1 Mar 2019)"
+    static let msdDetail = "Medical Standards Directory (13 May 2019)"
     
     static let wgTitle = "Waiver Guide"
     static let wgDetail = "Air Force Waiver Guide (17 Apr 2019)"
@@ -91,13 +91,13 @@ class AirForceBookshelfViewController: UITableViewController {
             } else if global.selection == AF.mesTitle {
                 global.url = Bundle.main.url(forResource: "AFI 48-123 Medical Examinations & Standards (28 Jan 2018)", withExtension: "pdf")
             } else if global.selection == AF.medsTitle {
-                global.url = Bundle.main.url(forResource: "AF Approved Med List (25 Sep 2018)", withExtension: "pdf")
+                global.url = Bundle.main.url(forResource: "AF Approved Med List (13 May 2019)", withExtension: "pdf")
             } else if global.selection == AF.otcMedsTitle {
-                global.url = Bundle.main.url(forResource: "AF OTC Approved Med List (9 Jan 2014)", withExtension: "pdf")
+                global.url = Bundle.main.url(forResource: "AF OTC Approved Med List (14 May 2019)", withExtension: "pdf")
             } else if global.selection == AF.modMedsTitle {
                 global.url = Bundle.main.url(forResource: "AF Missile Operator Approved Med List (24 May 2018)", withExtension: "pdf")
             } else if global.selection == AF.msdTitle {
-                global.url = Bundle.main.url(forResource: "AF Medical Standards Directory (1 Mar 2019)", withExtension: "pdf")
+                global.url = Bundle.main.url(forResource: "AF Medical Standards Directory (13 May 2019)", withExtension: "pdf")
             } else if global.selection == AF.physExMtxTitle {
                 global.url = Bundle.main.url(forResource: "AF Physical Examination Matrix (Sep 2018)", withExtension: "pdf")
             } else if global.selection == AF.wgTitle {
