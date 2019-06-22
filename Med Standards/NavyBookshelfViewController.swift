@@ -23,13 +23,22 @@ struct Navy {
     
     static let usnManmedTitle = "Navy ManMed Chapter 15"
     static let usnManmedDetail = "Physical Exams & Standards (15 Feb 2019)"
+    
+    static let peFlowsheetTitle = "PE Flowsheet"
+    static let peFlowsheetDetail = "Notification of Possible Physiological Event Flowsheet (28 Sep 2018)"
+    
+    static let peOpGuideTitle = "PE Operating Guide"
+    static let peOpGuideDetail = "Physiological Event Investigations & Reporting Operating Guide (29 Mar 2019)"
+    
+    static let peRapidRespTitle = "PE Rapid Response Procedures"
+    static let peRapidRespDetail = "Physiological Event Rapid Response Team Operating Procedures (20 Dec 2017)"
 
 }
 
 class NavyBookshelfViewController: UITableViewController {
     
-    let DocArray:NSArray = [Navy.waiverGuideTitle, Navy.usnManmedTitle]
-    let DocDetailArray:NSArray = [Navy.waiverGuideDetail, Navy.usnManmedDetail]
+    let DocArray:NSArray = [Navy.waiverGuideTitle, Navy.usnManmedTitle, Navy.peFlowsheetTitle, Navy.peOpGuideTitle, Navy.peRapidRespTitle]
+    let DocDetailArray:NSArray = [Navy.waiverGuideDetail, Navy.usnManmedDetail, Navy.peFlowsheetDetail, Navy.peOpGuideDetail, Navy.peRapidRespDetail]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +65,12 @@ class NavyBookshelfViewController: UITableViewController {
             global.url = Bundle.main.url(forResource: "Navy Aeromedical Reference & Waiver Guide (27 Nov 2018)", withExtension: "pdf")
         } else if global.selection == Navy.usnManmedTitle {
             global.url = Bundle.main.url(forResource: "USN ManMed Chapter 15 Physical Exams & Standards for Enlistment, Commission, & Special Duty (15 Feb 2019)", withExtension: "pdf")
+        } else if global.selection == Navy.peFlowsheetTitle {
+            global.url = Bundle.main.url(forResource: "PE Flowsheet (28 Sep 2018)", withExtension: "pdf")
+        } else if global.selection == Navy.peOpGuideTitle {
+            global.url = Bundle.main.url(forResource: "PE Operating Guide (29 Mar 2019)", withExtension: "pdf")
+        } else if global.selection == Navy.peRapidRespTitle {
+            global.url = Bundle.main.url(forResource: "PE Rapid Response Procedures (20 Dec 2017)", withExtension: "pdf")
         } else {
             docError()
         }
