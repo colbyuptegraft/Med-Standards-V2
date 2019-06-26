@@ -43,7 +43,7 @@ struct AF {
     static let modMedsDetail = "Approved Missile Operator Medications (24 May 2018)"
     
     static let msdTitle = "MSD"
-    static let msdDetail = "Medical Standards Directory (13 May 2019)"
+    static let msdDetail = "Medical Standards Directory (11 Jun 2019)"
     
     static let wgTitle = "Waiver Guide"
     static let wgDetail = "Air Force Waiver Guide (4 Jun 2019)"
@@ -97,7 +97,7 @@ class AirForceBookshelfViewController: UITableViewController {
             } else if global.selection == AF.modMedsTitle {
                 global.url = Bundle.main.url(forResource: "AF Missile Operator Approved Med List (24 May 2018)", withExtension: "pdf")
             } else if global.selection == AF.msdTitle {
-                global.url = Bundle.main.url(forResource: "AF Medical Standards Directory (13 May 2019)", withExtension: "pdf")
+                global.url = Bundle.main.url(forResource: "AF Medical Standards Directory (11 Jun 2019)", withExtension: "pdf")
             } else if global.selection == AF.physExMtxTitle {
                 global.url = Bundle.main.url(forResource: "AF Physical Examination Matrix (Sep 2018)", withExtension: "pdf")
             } else if global.selection == AF.wgTitle {
