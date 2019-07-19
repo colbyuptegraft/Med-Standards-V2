@@ -52,7 +52,7 @@ struct AF {
     static let fsToolkitDetail = "Useful Flight Medicine Resources"
     
     static let physExMtxTitle = "Physical Examination Matrix"
-    static let physExMtxDetail = "Medical Standards & Medical Examination Requirements (Sep 2018)"
+    static let physExMtxDetail = "Medical Standards & Medical Examination Requirements (Jul 2019)"
     
     static let otherTitle = "Other AFIs"
     static let otherDetail = "Other Flight-Surgeon-Pertinent Air Force Instructions"
@@ -99,7 +99,7 @@ class AirForceBookshelfViewController: UITableViewController {
             } else if global.selection == AF.msdTitle {
                 global.url = Bundle.main.url(forResource: "AF Medical Standards Directory (11 Jun 2019)", withExtension: "pdf")
             } else if global.selection == AF.physExMtxTitle {
-                global.url = Bundle.main.url(forResource: "AF Physical Examination Matrix (Sep 2018)", withExtension: "pdf")
+                global.url = Bundle.main.url(forResource: "AF Physical Examination Matrix (Jul 2019)", withExtension: "pdf")
             } else if global.selection == AF.wgTitle {
                 global.url = Bundle.main.url(forResource: "AF Waiver Guide (4 Jun 2019)", withExtension: "pdf")
             } else {

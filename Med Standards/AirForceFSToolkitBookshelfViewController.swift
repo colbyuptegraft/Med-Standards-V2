@@ -30,14 +30,8 @@ struct FSTlkt {
     static let nutSupTitle = "Dietary Supplements"
     static let nutSupDetail = "Nutritional & Ergogenic Supplements: Guidance & Policy"
     
-    static let flyPhaMtxTitle = "Fly PHA Exam Matrix"
-    static let flyPhaMtxDetail = "Periodic Health Assessment Requirements for Flyers (4 Nov 2016)"
-    
     static let oxConTitle = "Altitude Oxygen Converter"
     static let oxConDetail = "Converts Ground-Level FiO2 to Cabin-Altitude Needs for Aeromedical Evacuations"
-    
-    static let phsExMtxTitle = "Physical Exam Matrix"
-    static let phsExMtxDetail = "Physical Examination Matrix for USAF Special Duty Exams (6 Oct 2017)"
     
     static let pracGuidTitle = "Practice Guidelines"
     static let pracGuidDetail = "American Society of Aerospace Medicine Specialists (ASAMS) Practice Guidelines"
@@ -58,8 +52,8 @@ struct FSTlkt {
 
 class AirForceFSToolkitBookshelfViewController: UITableViewController {
     
-    let DocArray:NSArray = [FSTlkt.oxConTitle, FSTlkt.nutSupTitle, FSTlkt.flyPhaMtxTitle, FSTlkt.fsfogTitle, FSTlkt.fsqrTitle, FSTlkt.phsExMtxTitle, FSTlkt.pracGuidTitle, FSTlkt.rsvTitle, FSTlkt.sgpTitle, FSTlkt.metalsTitle, FSTlkt.specDescTitle]
-    let DocDetailArray:NSArray = [FSTlkt.oxConDetail, FSTlkt.nutSupDetail, FSTlkt.flyPhaMtxDetail, FSTlkt.fsfogDetail, FSTlkt.fsqrDetail, FSTlkt.phsExMtxDetail, FSTlkt.pracGuidDetail, FSTlkt.rsvDetail, FSTlkt.sgpDetail, FSTlkt.metalsDetail, FSTlkt.specDescDetail]
+    let DocArray:NSArray = [FSTlkt.oxConTitle, FSTlkt.nutSupTitle, FSTlkt.fsfogTitle, FSTlkt.fsqrTitle, FSTlkt.pracGuidTitle, FSTlkt.rsvTitle, FSTlkt.sgpTitle, FSTlkt.metalsTitle, FSTlkt.specDescTitle]
+    let DocDetailArray:NSArray = [FSTlkt.oxConDetail, FSTlkt.nutSupDetail, FSTlkt.fsfogDetail, FSTlkt.fsqrDetail, FSTlkt.pracGuidDetail, FSTlkt.rsvDetail, FSTlkt.sgpDetail, FSTlkt.metalsDetail, FSTlkt.specDescDetail]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,12 +64,8 @@ class AirForceFSToolkitBookshelfViewController: UITableViewController {
         global.selection = DocArray[(indexPath as NSIndexPath).row] as! String
         
         if global.selection != FSTlkt.oxConTitle && global.selection != FSTlkt.pracGuidTitle && global.selection != FSTlkt.rsvTitle {
-            if global.selection == FSTlkt.phsExMtxTitle {
-                global.url = Bundle.main.url(forResource: "Physical Examination Matrix (6 Oct 2017)", withExtension: "pdf")
-            } else if global.selection == FSTlkt.fsfogTitle {
+            if global.selection == FSTlkt.fsfogTitle {
                 global.url = Bundle.main.url(forResource: "AF Flight Surgeon Flying Operations Guide (4 Oct 2013)", withExtension: "pdf")
-            } else if global.selection == FSTlkt.flyPhaMtxTitle {
-                global.url = Bundle.main.url(forResource: "Fly PHA Exam Requirements Matrix (4 Nov 2016)", withExtension: "pdf")
             } else if global.selection == FSTlkt.metalsTitle {
                 global.url = Bundle.main.url(forResource: "Sample METALS Table (26 Jun 2014)", withExtension: "pdf")
             } else if global.selection == FSTlkt.nutSupTitle {

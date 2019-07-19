@@ -19,7 +19,7 @@ import PDFKit
 struct Army {
     
     static let ar40501Title = "AR 40-501"
-    static let ar40501Detail = "Standards of Medical Fitness (14 Jun 2017)"
+    static let ar40501Detail = "Standards of Medical Fitness (27 Jun 2019)"
     
     static let fSChecklistTitle = "FS Checklist"
     static let fSChecklistDetail = "Aeromedical Policy Letters & Technical Bulletins (May 2015)"
@@ -55,7 +55,7 @@ class ArmyBookshelfViewController: UITableViewController {
         global.selection = DocArray[(indexPath as NSIndexPath).row] as! String
         
         if global.selection == Army.ar40501Title {
-            global.url = Bundle.main.url(forResource: "AR 40-501 Standards of Medical Fitness (14 Jun 2017)", withExtension: "pdf")
+            global.url = Bundle.main.url(forResource: "AR 40-501 Standards of Medical Fitness (27 Jun 2019)", withExtension: "pdf")
         } else if global.selection == Army.fSChecklistTitle {
             global.url = Bundle.main.url(forResource: "Army FS Checklist (May 2015)", withExtension: "pdf")
         } else if global.selection == Army.petableTitle {
