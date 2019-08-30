@@ -13,7 +13,6 @@
 //
 //  This license does not extend to any of the Portable Document Format (PDF) files included with the Software.  These PDF files may not be used, copied, modified, published, distributed, sublicense, and/or sold without the express permission of the United States Department of Defense.
 
-
 import UIKit
 
 extension Notification.Name {
@@ -27,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let fileManager = FileManager.default
         let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-
         let sampleFilename = ""
         if let sampleFile = Bundle.main.url(forResource: sampleFilename, withExtension: nil) {
             let destination = documentDirectory.appendingPathComponent(sampleFilename)

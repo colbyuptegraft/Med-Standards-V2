@@ -16,66 +16,14 @@
 import UIKit
 import PDFKit
 
-struct Navy {
-    
-    static let waiverGuideTitle = "Navy Waiver Guide"
-    static let waiverGuideDetail = "U.S. Navy Aeromedical Reference & Waiver Guide (27 Nov 2018)"
-    
-    static let usnManmedTitle = "Navy ManMed Chapter 15"
-    static let usnManmedDetail = "Physical Exams & Standards (15 Feb 2019)"
-    
-    static let peFlowsheetTitle = "PE Flowsheet"
-    static let peFlowsheetDetail = "Notification of Possible Physiological Event Flowsheet (28 Sep 2018)"
-    
-    static let peOpGuideTitle = "PE Operating Guide"
-    static let peOpGuideDetail = "Physiological Event Investigations & Reporting Operating Guide (29 Mar 2019)"
-    
-    static let peRapidRespTitle = "PE Rapid Response Procedures"
-    static let peRapidRespDetail = "Physiological Event Rapid Response Team Operating Procedures (20 Dec 2017)"
-
-}
-
 class NavyBookshelfViewController: UITableViewController {
     
-    let DocArray:NSArray = [Navy.waiverGuideTitle, Navy.usnManmedTitle, Navy.peFlowsheetTitle, Navy.peOpGuideTitle, Navy.peRapidRespTitle]
-    let DocDetailArray:NSArray = [Navy.waiverGuideDetail, Navy.usnManmedDetail, Navy.peFlowsheetDetail, Navy.peOpGuideDetail, Navy.peRapidRespDetail]
+    let docList = Utils.createArrayList(path: global.navyPath).doc
+    let titleList = Utils.createArrayList(path: global.navyPath).title
+    let detailList = Utils.createArrayList(path: global.navyPath).detail
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    func docError() {
-        let title = NSLocalizedString("Error", comment: "")
-        let message = NSLocalizedString("Document not found.  Please contact ColbyCoApps@gmail.com.", comment: "")
-        let cancelButtonTitle = NSLocalizedString("OK", comment: "")
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { action in
-            NSLog("The simple alert's cancel action occured.")
-        }
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
-    }
-    
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        global.selection = ""
-        global.selection = DocArray[(indexPath as NSIndexPath).row] as! String
-        
-        if global.selection == Navy.waiverGuideTitle {
-            global.url = Bundle.main.url(forResource: "Navy Aeromedical Reference & Waiver Guide (27 Nov 2018)", withExtension: "pdf")
-        } else if global.selection == Navy.usnManmedTitle {
-            global.url = Bundle.main.url(forResource: "USN ManMed Chapter 15 Physical Exams & Standards for Enlistment, Commission, & Special Duty (15 Feb 2019)", withExtension: "pdf")
-        } else if global.selection == Navy.peFlowsheetTitle {
-            global.url = Bundle.main.url(forResource: "PE Flowsheet (28 Sep 2018)", withExtension: "pdf")
-        } else if global.selection == Navy.peOpGuideTitle {
-            global.url = Bundle.main.url(forResource: "PE Operating Guide (29 Mar 2019)", withExtension: "pdf")
-        } else if global.selection == Navy.peRapidRespTitle {
-            global.url = Bundle.main.url(forResource: "PE Rapid Response Procedures (20 Dec 2017)", withExtension: "pdf")
-        } else {
-            docError()
-        }
-        global.pdfDocument = PDFDocument(url: global.url!)!
-        self.performSegue(withIdentifier: "FromNavyToPDFSegue", sender: Any?.self)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -83,28 +31,22 @@ class NavyBookshelfViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DocArray.count
+        return docList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BookshelfCell
-        
-        
-        let titleFont:UIFont? = UIFont(name: "Helvetica", size: 14.0)
-        let detailFont:UIFont? = UIFont(name: "Helvetica", size: 12.0)
-        
-        let detailText:NSMutableAttributedString = NSMutableAttributedString(string: "\n" + (DocDetailArray[(indexPath as NSIndexPath).row] as! String), attributes: (NSDictionary(object: detailFont!, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
-        detailText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.lightGray, range: NSMakeRange(0, detailText.length))
-        
-        let title = NSMutableAttributedString(string: DocArray[(indexPath as NSIndexPath).row] as! String, attributes: (NSDictionary(object: titleFont!, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
-        
-        title.append(detailText)
-        
-        cell.textLabel?.attributedText = title
+        var cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BookshelfCell
+        cell = Utils.setCellText(cell: cell, indexPath: indexPath, titleList: titleList, titleFont: global.cellTitleFont!, detailList: detailList, detailFont: global.cellDetailFont!)
         cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         cell.textLabel?.numberOfLines = 0
-        
         return cell
-        
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        global.selection = ""
+        global.selection = docList[(indexPath as NSIndexPath).row]
+        global.url = Bundle.main.url(forResource: global.navyPath + global.selection, withExtension: "pdf")
+        global.pdfDocument = PDFDocument(url: global.url!)!
+        self.performSegue(withIdentifier: "FromNavyToPDFSegue", sender: Any?.self)
     }
 }

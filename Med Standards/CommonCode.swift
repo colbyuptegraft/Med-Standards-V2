@@ -46,7 +46,6 @@ struct global {
     static let oxConvTitle = "Altitude Oxygen Converter"
     static let pracGuideTitle = "ASAMS Practice Guidelines"
     static let rsvTitle = "RSV Sample Briefings"
-    
 }
 
 public class Utils {
@@ -58,7 +57,6 @@ public class Utils {
         var docArray:Array<String> = []
         var titleArray:Array<String> = []
         var detailArray:Array<String> = []
-        
         do {
             content = try fileManager.contentsOfDirectory(atPath: path)
             content = content.sorted(by: <)
@@ -70,48 +68,28 @@ public class Utils {
         } catch {
             print("Contents at file path null")
         }
-        
         for i in docArray {
             var k = i.components(separatedBy: "#")
             titleArray.append(k[0])
             detailArray.append(k[1])
         }
-        
         return (docArray, titleArray, detailArray)
     }
     
     static func setCellText(cell: BookshelfCell, indexPath: IndexPath, titleList: Array<String>, titleFont: UIFont, detailList: Array<String>, detailFont: UIFont) -> BookshelfCell {
-        
         let detailText:NSMutableAttributedString = NSMutableAttributedString(string: "\n" + (detailList[(indexPath as NSIndexPath).row] ), attributes: (NSDictionary(object: detailFont, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
         detailText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.lightGray, range: NSMakeRange(0, detailText.length))
-        
         let title = NSMutableAttributedString(string: titleList[(indexPath as NSIndexPath).row] , attributes: (NSDictionary(object: titleFont, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
         title.append(detailText)
         cell.textLabel?.attributedText = title
-        
         return cell
     }
     
     static func setCellTitle(cell: BookshelfCell, indexPath: IndexPath, titleList: Array<String>, titleFont: UIFont) -> BookshelfCell {
-        
         let title = NSMutableAttributedString(string: titleList[(indexPath as NSIndexPath).row] , attributes: (NSDictionary(object: titleFont, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
         cell.textLabel?.attributedText = title
-        
         return cell
     }
-    /*
-    func docError() {
-        let title = NSLocalizedString("Error", comment: "")
-        let message = NSLocalizedString("Document not found. Please contact ColbyCoApps@gmail.com.", comment: "")
-        let cancelButtonTitle = NSLocalizedString("OK", comment: "")
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { action in
-            NSLog("The simple alert's cancel action occured.")
-        }
-        alertController.addAction(cancelAction)
-        self.present(alertController, animated: true, completion: nil)
-    }
-    */
 }
 
 
