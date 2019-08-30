@@ -45,43 +45,49 @@ struct global {
     
 }
 
-func createArrayList(path: String) -> (doc: Array<String>, title: Array<String>, detail: Array<String>) {
-    let fileManager = FileManager.default
-    let path = Bundle.main.resourcePath! + path
-    var content:Array<String> = []
-    var docArray:Array<String> = []
-    var titleArray:Array<String> = []
-    var detailArray:Array<String> = []
+public class Utils {
     
-    do {
-        content = try fileManager.contentsOfDirectory(atPath: path)
-        content = content.sorted(by: <)
-        for i in content {
-            var k = i
-            k = String(k.dropLast(4))
-            docArray.append(k)
+    static func createArrayList(path: String) -> (doc: Array<String>, title: Array<String>, detail: Array<String>) {
+        let fileManager = FileManager.default
+        let path = Bundle.main.resourcePath! + path
+        var content:Array<String> = []
+        var docArray:Array<String> = []
+        var titleArray:Array<String> = []
+        var detailArray:Array<String> = []
+        
+        do {
+            content = try fileManager.contentsOfDirectory(atPath: path)
+            content = content.sorted(by: <)
+            for i in content {
+                var k = i
+                k = String(k.dropLast(4))
+                docArray.append(k)
+            }
+        } catch {
+            print("Contents at file path null")
         }
-    } catch {
-        print("Contents at file path null")
+        
+        for i in docArray {
+            var k = i.components(separatedBy: "#")
+            titleArray.append(k[0])
+            detailArray.append(k[1])
+        }
+        
+        return (docArray, titleArray, detailArray)
     }
-    
-    for i in docArray {
-        var k = i.components(separatedBy: "#")
-        titleArray.append(k[0])
-        detailArray.append(k[1])
+    /*
+    static func docError() {
+        let title = NSLocalizedString("Error", comment: "")
+        let message = NSLocalizedString("Document not found. Please contact ColbyCoApps@gmail.com.", comment: "")
+        let cancelButtonTitle = NSLocalizedString("OK", comment: "")
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { action in
+            NSLog("The simple alert's cancel action occured.")
+        }
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
-    
-    return (docArray, titleArray, detailArray)
+    */
 }
 
-func docError() {
-    let title = NSLocalizedString("Error", comment: "")
-    let message = NSLocalizedString("Document not found. Please contact ColbyCoApps@gmail.com.", comment: "")
-    let cancelButtonTitle = NSLocalizedString("OK", comment: "")
-    let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { action in
-        NSLog("The simple alert's cancel action occured.")
-    }
-    alertController.addAction(cancelAction)
-    present(alertController, animated: true, completion: nil)
-}
+

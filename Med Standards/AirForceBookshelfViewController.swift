@@ -30,12 +30,12 @@ class AirForceBookshelfViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        docList = createArrayList(path: global.airForceMainPath).doc
+        docList = Utils.createArrayList(path: global.airForceMainPath).doc
         
-        titleList = createArrayList(path: global.airForceMainPath).title
+        titleList = Utils.createArrayList(path: global.airForceMainPath).title
         rowTitles = [0 : titleList, 1 : [global.fsToolkitTitle, global.otherAfisTitle]]
         
-        detailList = createArrayList(path: global.airForceMainPath).detail
+        detailList = Utils.createArrayList(path: global.airForceMainPath).detail
         rowDetails = [0 : detailList, 1 : ["", ""]]
     }
     
