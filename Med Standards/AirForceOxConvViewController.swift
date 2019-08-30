@@ -61,6 +61,12 @@ class AirForceOxConvViewController: UIViewController, UITextFieldDelegate, UIScr
         self.scrollerView.keyboardDismissMode = .interactive
         let infoButton = UIBarButtonItem(image: infoIcon, style: .plain, target: self, action: #selector(AirForceOxConvViewController.segue))
         self.navigationItem.setRightBarButton(infoButton, animated: false)
+        self.navigationController?.navigationBar.barTintColor = global.airForceColor
+        self.tabBarController?.tabBar.barTintColor = global.airForceColor
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.barTintColor = global.airForceColor
     }
     
     @objc func segue() {

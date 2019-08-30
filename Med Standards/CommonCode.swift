@@ -20,8 +20,27 @@ import UIKit
 struct global {
     
     //Fonts & Colors
+    static let airForceColor = UIColor(red: 8/255.0, green: 84/255.0, blue: 156/255.0, alpha: 100.0/100.0)
+    static let armyColor = UIColor(red: 23/255.0, green: 75/255.0, blue: 42/255.0, alpha: 100.0/100.0)
+    static let navyColor = UIColor(red: 0/255.0, green: 56/255.0, blue: 130/255.0, alpha: 100.0/100.0)
+    static let aboutColor = UIColor.black
+    
+    static let titleFont = UIFont(name: "Helvetica-Bold", size: 20.0)
+    static let titleFontColor = UIColor.white
+    static let navBarItemColor = UIColor.white
+    
+    static let tabBarUnselectedItemColor = UIColor.lightGray
+    static let tabBarSelectedItemColor = UIColor.white
+    
+    static let tableViewSectionFont = UIFont(name: "Helvetica-Bold", size: 17.0)
+    static let tableViewSectionFontColor = UIColor.white
+    static let tableViewSectionColor = UIColor.gray
+    
     static let cellTitleFont = UIFont(name: "Helvetica", size: 14.0)
+    static let cellTitleFontColor = UIColor.black
+    
     static let cellDetailFont = UIFont(name: "Helvetica", size: 12.0)
+    static let cellDetailFontColor = UIColor.gray
     
     //Variables used across classes that change
     static var pdfDocument = PDFDocument()
@@ -76,17 +95,19 @@ public class Utils {
         return (docArray, titleArray, detailArray)
     }
     
-    static func setCellText(cell: BookshelfCell, indexPath: IndexPath, titleList: Array<String>, titleFont: UIFont, detailList: Array<String>, detailFont: UIFont) -> BookshelfCell {
+    static func setCellText(cell: BookshelfCell, indexPath: IndexPath, titleList: Array<String>, titleFont: UIFont, titleFontColor: UIColor, detailList: Array<String>, detailFont: UIFont, detailFontColor: UIColor) -> BookshelfCell {
         let detailText:NSMutableAttributedString = NSMutableAttributedString(string: "\n" + (detailList[(indexPath as NSIndexPath).row] ), attributes: (NSDictionary(object: detailFont, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
-        detailText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.lightGray, range: NSMakeRange(0, detailText.length))
+        detailText.addAttribute(NSAttributedString.Key.foregroundColor, value: detailFontColor, range: NSMakeRange(0, detailText.length))
         let title = NSMutableAttributedString(string: titleList[(indexPath as NSIndexPath).row] , attributes: (NSDictionary(object: titleFont, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
+        title.addAttribute(NSAttributedString.Key.foregroundColor, value: titleFontColor, range: NSMakeRange(0, title.length))
         title.append(detailText)
         cell.textLabel?.attributedText = title
         return cell
     }
     
-    static func setCellTitle(cell: BookshelfCell, indexPath: IndexPath, titleList: Array<String>, titleFont: UIFont) -> BookshelfCell {
+    static func setCellTitle(cell: BookshelfCell, indexPath: IndexPath, titleList: Array<String>, titleFont: UIFont, titleFontColor: UIColor) -> BookshelfCell {
         let title = NSMutableAttributedString(string: titleList[(indexPath as NSIndexPath).row] , attributes: (NSDictionary(object: titleFont, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
+        title.addAttribute(NSAttributedString.Key.foregroundColor, value: titleFontColor, range: NSMakeRange(0, title.length))
         cell.textLabel?.attributedText = title
         return cell
     }

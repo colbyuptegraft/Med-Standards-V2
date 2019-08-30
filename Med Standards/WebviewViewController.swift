@@ -27,6 +27,8 @@ class WebviewViewController: UIViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.barTintColor = global.airForceColor
+        self.tabBarController?.tabBar.barTintColor = global.airForceColor
         let reloadButton = UIBarButtonItem(image: redoIcon, style: .plain, target: self, action: #selector(WebviewViewController.webViewLoad))
         let backButton = UIBarButtonItem(image: backArrow, style: .plain, target: self, action: #selector(WebviewViewController.goBack))
         let forwardButton = UIBarButtonItem(image: forwardArrow, style: .plain, target: self, action: #selector(WebviewViewController.goForward))
@@ -34,6 +36,10 @@ class WebviewViewController: UIViewController, UIWebViewDelegate {
         Webview.scalesPageToFit = true
         Webview.isMultipleTouchEnabled = true
         webViewLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.barTintColor = global.airForceColor
     }
     
     @objc func webViewLoad() {

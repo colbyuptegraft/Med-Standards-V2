@@ -26,6 +26,12 @@ class AirForceFSToolkitBookshelfViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.barTintColor = global.airForceColor
+        self.tabBarController?.tabBar.barTintColor = global.airForceColor
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.barTintColor = global.airForceColor
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -38,6 +44,13 @@ class AirForceFSToolkitBookshelfViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionTitles[section]
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.backgroundView?.backgroundColor = global.tableViewSectionColor
+        header.textLabel?.textColor = global.tableViewSectionFontColor
+        header.textLabel?.font = global.tableViewSectionFont
+    } 
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count:Int?
@@ -54,9 +67,9 @@ class AirForceFSToolkitBookshelfViewController: UITableViewController {
         switch (indexPath.section)
         {
         case 0:
-            cell = Utils.setCellText(cell: cell, indexPath: indexPath, titleList: titleList, titleFont: global.cellTitleFont!, detailList: detailList, detailFont: global.cellDetailFont!)
+            cell = Utils.setCellText(cell: cell, indexPath: indexPath, titleList: titleList, titleFont: global.cellTitleFont!, titleFontColor: global.cellTitleFontColor, detailList: detailList, detailFont: global.cellDetailFont!, detailFontColor: global.cellDetailFontColor)
         case 1:
-            cell = Utils.setCellTitle(cell: cell, indexPath: indexPath, titleList: otherMenu, titleFont: global.cellTitleFont!)
+            cell = Utils.setCellTitle(cell: cell, indexPath: indexPath, titleList: otherMenu, titleFont: global.cellTitleFont!, titleFontColor: global.cellTitleFontColor)
         default:
             cell.textLabel?.text = "Other"
         }

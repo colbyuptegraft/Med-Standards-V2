@@ -24,10 +24,15 @@ class AirForceOxConvAboutViewController: UIViewController, UIScrollViewDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.barTintColor = global.airForceColor
+        self.tabBarController?.tabBar.barTintColor = global.airForceColor
         self.title = "About"
         self.aboutLabel.text = "This application uses the equation:"
         self.textView.text = "to calculate the inspiratory oxygen needs of patients flown at various cabin altitudes for the purpose of aeromedical evacuations and provides a recommendation for the method of oxygen delivery.  The margin of error is +/- 1%.  \n\nThe calculated results are recommendations only.  The actual amount of oxygen and delivery method should be based on the clinical status of each individual patient."
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.barTintColor = global.airForceColor
     }
     
     override func viewWillLayoutSubviews() {
