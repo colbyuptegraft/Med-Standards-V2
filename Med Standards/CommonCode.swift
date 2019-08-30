@@ -19,6 +19,10 @@ import UIKit
 
 struct global {
     
+    //Fonts & Colors
+    static let cellTitleFont = UIFont(name: "Helvetica", size: 14.0)
+    static let cellDetailFont = UIFont(name: "Helvetica", size: 12.0)
+    
     //Variables used across classes that change
     static var pdfDocument = PDFDocument()
     static var url: URL!
@@ -75,8 +79,28 @@ public class Utils {
         
         return (docArray, titleArray, detailArray)
     }
+    
+    static func setCellText(cell: BookshelfCell, indexPath: IndexPath, titleList: Array<String>, titleFont: UIFont, detailList: Array<String>, detailFont: UIFont) -> BookshelfCell {
+        
+        let detailText:NSMutableAttributedString = NSMutableAttributedString(string: "\n" + (detailList[(indexPath as NSIndexPath).row] ), attributes: (NSDictionary(object: detailFont, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
+        detailText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.lightGray, range: NSMakeRange(0, detailText.length))
+        
+        let title = NSMutableAttributedString(string: titleList[(indexPath as NSIndexPath).row] , attributes: (NSDictionary(object: titleFont, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
+        title.append(detailText)
+        cell.textLabel?.attributedText = title
+        
+        return cell
+    }
+    
+    static func setCellTitle(cell: BookshelfCell, indexPath: IndexPath, titleList: Array<String>, titleFont: UIFont) -> BookshelfCell {
+        
+        let title = NSMutableAttributedString(string: titleList[(indexPath as NSIndexPath).row] , attributes: (NSDictionary(object: titleFont, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
+        cell.textLabel?.attributedText = title
+        
+        return cell
+    }
     /*
-    static func docError() {
+    func docError() {
         let title = NSLocalizedString("Error", comment: "")
         let message = NSLocalizedString("Document not found. Please contact ColbyCoApps@gmail.com.", comment: "")
         let cancelButtonTitle = NSLocalizedString("OK", comment: "")
@@ -85,7 +109,7 @@ public class Utils {
             NSLog("The simple alert's cancel action occured.")
         }
         alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
     */
 }

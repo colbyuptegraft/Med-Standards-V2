@@ -16,122 +16,74 @@
 import UIKit
 import PDFKit
 
-struct FSTlkt {
-    
-    static let fsfogTitle = "Flying Operations Guide"
-    static let fsfogDetail = "AF Flight Surgeon Flying Operations Guide (4 Oct 2013)"
-    
-    static let fsqrTitle = "Quick Reference Guide"
-    static let fsqrDetail = "AF Flight Surgeon Quick Reference Guide (16 Feb 2016)"
-    
-    static let metalsTitle = "Sample METALS Table"
-    static let metalsDetail = "Flight Surgeon Mission-Essential Tasks / Activities for Line Support Table (26 Jun 2014)"
-    
-    static let nutSupTitle = "Dietary Supplements"
-    static let nutSupDetail = "Nutritional & Ergogenic Supplements: Guidance & Policy"
-    
-    static let oxConTitle = "Altitude Oxygen Converter"
-    static let oxConDetail = "Converts Ground-Level FiO2 to Cabin-Altitude Needs for Aeromedical Evacuations"
-    
-    static let pracGuidTitle = "Practice Guidelines"
-    static let pracGuidDetail = "American Society of Aerospace Medicine Specialists (ASAMS) Practice Guidelines"
-    
-    static let rsvTitle = "RSV Sample Briefings"
-    static let rsvDetail = "Readiness Skills Verification (RSV) Briefings"
-    
-    static let sgpTitle = "SGP-earls (v2.19)"
-    static let sgpDetail = "Overview of the Chief of Aerospace Medicine (SGP) Roles & Responsibilities"
-    
-    static let contactlensTitle = "Soft Contact Lens Program"
-    static let contactlensDetail = "Aircrew Soft Contact Lens Program (10 Jun 2014)"
-    
-    static let specDescTitle = "Speciality Descriptions"
-    static let specDescDetail = "48AX, 48GX, 48RX, & 48VX Specialty Descriptions (30 Apr 2015)"
-
-}
-
 class AirForceFSToolkitBookshelfViewController: UITableViewController {
     
-    let DocArray:NSArray = [FSTlkt.oxConTitle, FSTlkt.nutSupTitle, FSTlkt.fsfogTitle, FSTlkt.fsqrTitle, FSTlkt.pracGuidTitle, FSTlkt.rsvTitle, FSTlkt.sgpTitle, FSTlkt.metalsTitle, FSTlkt.specDescTitle]
-    let DocDetailArray:NSArray = [FSTlkt.oxConDetail, FSTlkt.nutSupDetail, FSTlkt.fsfogDetail, FSTlkt.fsqrDetail, FSTlkt.pracGuidDetail, FSTlkt.rsvDetail, FSTlkt.sgpDetail, FSTlkt.metalsDetail, FSTlkt.specDescDetail]
+    let sectionTitles = [0 : "Toolkit Documents", 1 : "Other Menus & Tools"]
+    let otherMenu = [global.oxConvTitle, global.pracGuideTitle, global.rsvTitle]
+    let docList = Utils.createArrayList(path: global.airForceFsToolkitPath).doc
+    let titleList = Utils.createArrayList(path: global.airForceFsToolkitPath).title
+    let detailList = Utils.createArrayList(path: global.airForceFsToolkitPath).detail
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        global.selection = ""
-        global.selection = DocArray[(indexPath as NSIndexPath).row] as! String
-        
-        if global.selection != FSTlkt.oxConTitle && global.selection != FSTlkt.pracGuidTitle && global.selection != FSTlkt.rsvTitle {
-            if global.selection == FSTlkt.fsfogTitle {
-                global.url = Bundle.main.url(forResource: "AF Flight Surgeon Flying Operations Guide (4 Oct 2013)", withExtension: "pdf")
-            } else if global.selection == FSTlkt.metalsTitle {
-                global.url = Bundle.main.url(forResource: "Sample METALS Table (26 Jun 2014)", withExtension: "pdf")
-            } else if global.selection == FSTlkt.nutSupTitle {
-                global.url = Bundle.main.url(forResource: "Dietary Supplements", withExtension: "pdf")
-            } else if global.selection == FSTlkt.sgpTitle {
-                global.url = Bundle.main.url(forResource: "SGP-earls (v2.19)", withExtension: "pdf")
-            } else if global.selection == FSTlkt.fsqrTitle {
-                global.url = Bundle.main.url(forResource: "AF Flight Surgeon Quick Reference (16 Feb 2016)", withExtension: "pdf")
-            } else if global.selection == FSTlkt.contactlensTitle {
-                global.url = Bundle.main.url(forResource: "AF Aircrew Soft Contact Lens Program (10 June 2014)", withExtension: "pdf")
-            }else if global.selection == FSTlkt.specDescTitle {
-                global.url = Bundle.main.url(forResource: "Specialty Description 48XX (30 Apr 2015)", withExtension: "pdf")
-            } else {
-                docError()
-            }
-            global.pdfDocument = PDFDocument(url: global.url!)!
-            self.performSegue(withIdentifier: "FromFSToolkitToPDFSegue", sender: Any?.self)
-        } else if global.selection == FSTlkt.oxConTitle {
-            self.performSegue(withIdentifier: "FromFSToolkitToOxConvSegue", sender: Any?.self)
-        } else if global.selection == FSTlkt.pracGuidTitle {
-            self.performSegue(withIdentifier: "FromFSToolkitToWebview", sender: Any?.self)
-        } else if global.selection == FSTlkt.rsvTitle {
-            self.performSegue(withIdentifier: "FromFSToolkitToRSVSegue", sender: Any?.self)
-        } else {
-            docError()
-        }
-    }
-    
-    func docError() {
-        let title = NSLocalizedString("Error", comment: "")
-        let message = NSLocalizedString("Document not found.  Please contact ColbyCoApps@gmail.com.", comment: "")
-        let cancelButtonTitle = NSLocalizedString("OK", comment: "")
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { action in
-            NSLog("The simple alert's cancel action occured.")
-        }
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
-    }
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return sectionTitles.count
+    }
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionTitles[section]
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DocArray.count
+        var count:Int?
+        if section == 0 {
+            count = docList.count
+        } else {
+            count = otherMenu.count
+        }
+        return count!
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BookshelfCell
-        
-        
-        let titleFont:UIFont? = UIFont(name: "Helvetica", size: 14.0)
-        let detailFont:UIFont? = UIFont(name: "Helvetica", size: 12.0)
-        
-        let detailText:NSMutableAttributedString = NSMutableAttributedString(string: "\n" + (DocDetailArray[(indexPath as NSIndexPath).row] as! String), attributes: (NSDictionary(object: detailFont!, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
-        detailText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.lightGray, range: NSMakeRange(0, detailText.length))
-        
-        let title = NSMutableAttributedString(string: DocArray[(indexPath as NSIndexPath).row] as! String, attributes: (NSDictionary(object: titleFont!, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
-        
-        title.append(detailText)
-        
-        cell.textLabel?.attributedText = title
+        var cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BookshelfCell
+        switch (indexPath.section)
+        {
+        case 0:
+            cell = Utils.setCellText(cell: cell, indexPath: indexPath, titleList: titleList, titleFont: global.cellTitleFont!, detailList: detailList, detailFont: global.cellDetailFont!)
+        case 1:
+            cell = Utils.setCellTitle(cell: cell, indexPath: indexPath, titleList: otherMenu, titleFont: global.cellTitleFont!)
+        default:
+            cell.textLabel?.text = "Other"
+        }
         cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         cell.textLabel?.numberOfLines = 0
-        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        global.selection = ""
+        switch (indexPath.section) {
+        case 0:
+            global.selection = docList[(indexPath as NSIndexPath).row]
+            global.url = Bundle.main.url(forResource: global.airForceFsToolkitPath + global.selection, withExtension: "pdf")
+            global.pdfDocument = PDFDocument(url: global.url!)!
+            self.performSegue(withIdentifier: "FromFSToolkitToPDFSegue", sender: Any?.self)
+        case 1:
+            global.selection = otherMenu[(indexPath as NSIndexPath).row]
+            if global.selection == global.oxConvTitle {
+                self.performSegue(withIdentifier: "FromFSToolkitToOxConvSegue", sender: Any?.self)
+            } else if global.selection == global.pracGuideTitle {
+                self.performSegue(withIdentifier: "FromFSToolkitToWebview", sender: Any?.self)
+            } else {
+                self.performSegue(withIdentifier: "FromFSToolkitToRSVSegue", sender: Any?.self)
+            }
+        default:
+            self.performSegue(withIdentifier: "FromFSToolkitToPDFSegue", sender: Any?.self)
+        }
     }
 }

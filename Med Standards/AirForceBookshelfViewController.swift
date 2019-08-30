@@ -16,41 +16,58 @@
 import UIKit
 import PDFKit
 
-var docList:Array<String> = []
-var titleList:Array<String> = []
-var detailList:Array<String> = []
-
-var rowTitles = [Int: Array<String>]()
-var rowDetails = [Int: Array<String>]()
-
-let sectionTitles = [0 : "Main Documents", 1 : "Other Menus"]
-let otherMenu = [global.fsToolkitTitle, global.otherAfisTitle]
-
 class AirForceBookshelfViewController: UITableViewController {
+    
+    let sectionTitles = [0 : "Main Documents", 1 : "Other Menus"]
+    let otherMenu = [global.fsToolkitTitle, global.otherAfisTitle]
+    let docList = Utils.createArrayList(path: global.airForceMainPath).doc
+    let titleList = Utils.createArrayList(path: global.airForceMainPath).title
+    let detailList = Utils.createArrayList(path: global.airForceMainPath).detail
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        docList = Utils.createArrayList(path: global.airForceMainPath).doc
-        
-        titleList = Utils.createArrayList(path: global.airForceMainPath).title
-        rowTitles = [0 : titleList, 1 : [global.fsToolkitTitle, global.otherAfisTitle]]
-        
-        detailList = Utils.createArrayList(path: global.airForceMainPath).detail
-        rowDetails = [0 : detailList, 1 : ["", ""]]
     }
     
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return sectionTitles.count
+    }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50;
+        return 50
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionTitles[section]
     }
     
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var count:Int?
+        if section == 0 {
+            count = docList.count
+        } else {
+            count = otherMenu.count
+        }
+        return count!
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BookshelfCell
+        switch (indexPath.section)
+        {
+        case 0:
+            cell = Utils.setCellText(cell: cell, indexPath: indexPath, titleList: titleList, titleFont: global.cellTitleFont!, detailList: detailList, detailFont: global.cellDetailFont!)
+        case 1:
+            cell = Utils.setCellTitle(cell: cell, indexPath: indexPath, titleList: otherMenu, titleFont: global.cellTitleFont!)
+        default:
+            cell.textLabel?.text = "Other"
+        }
+        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+        cell.textLabel?.numberOfLines = 0
+        return cell
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         global.selection = ""
-        
         switch (indexPath.section) {
         case 0:
             global.selection = docList[(indexPath as NSIndexPath).row]
@@ -61,56 +78,13 @@ class AirForceBookshelfViewController: UITableViewController {
             global.selection = otherMenu[(indexPath as NSIndexPath).row]
             if global.selection == global.fsToolkitTitle {
                 self.performSegue(withIdentifier: "ToFSToolkitMenuSegue", sender: Any?.self)
-            } else {
+            } else if global.selection == global.otherAfisTitle {
                 self.performSegue(withIdentifier: "ToOtherAFIMenuSegue", sender: Any?.self)
+            } else {
+                
             }
         default:
             self.performSegue(withIdentifier: "FromMainAirForceToPDFSegue", sender: Any?.self)
         }
-    }
- 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionTitles.count
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        var count:Int?
-        if section == 0 {
-            count = docList.count
-        } else {
-            count = 2
-        }
-        
-        return count!
-        
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BookshelfCell
-        
-        let titleFont:UIFont? = UIFont(name: "Helvetica", size: 14.0)
-        let detailFont:UIFont? = UIFont(name: "Helvetica", size: 12.0)
-        
-        switch (indexPath.section)
-        {
-        case 0:
-            let detailText:NSMutableAttributedString = NSMutableAttributedString(string: "\n" + (detailList[(indexPath as NSIndexPath).row] ), attributes: (NSDictionary(object: detailFont!, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
-            detailText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.lightGray, range: NSMakeRange(0, detailText.length))
-            
-            let title = NSMutableAttributedString(string: titleList[(indexPath as NSIndexPath).row] , attributes: (NSDictionary(object: titleFont!, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
-            title.append(detailText)
-            cell.textLabel?.attributedText = title
-        case 1:
-            let title = NSMutableAttributedString(string: otherMenu[(indexPath as NSIndexPath).row] , attributes: (NSDictionary(object: titleFont!, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
-            cell.textLabel?.attributedText = title
-        default:
-            cell.textLabel?.text = "Other"
-        }
-        
-        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
-        cell.textLabel?.numberOfLines = 0
-        
-        return cell
     }
 }

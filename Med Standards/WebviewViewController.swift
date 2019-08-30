@@ -41,8 +41,8 @@ class WebviewViewController: UIViewController, UIWebViewDelegate {
     }
     
     @objc func webViewLoad() {
-        if global.selection == FSTlkt.pracGuidTitle {
-            self.title = FSTlkt.pracGuidTitle
+        if global.selection == global.pracGuideTitle {
+            self.title = global.pracGuideTitle
             let url = "http://www.asams.org/guidelines.htm"
             let requestUrl = URL(string: url)
             let request = URLRequest(url: requestUrl!)
