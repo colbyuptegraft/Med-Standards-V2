@@ -31,6 +31,7 @@ class AirForceBookshelfViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.barTintColor = global.airForceColor
         self.tabBarController?.tabBar.barTintColor = global.airForceColor
     }
     
@@ -47,11 +48,11 @@ class AirForceBookshelfViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = global.tableViewSectionColor
         let header = view as! UITableViewHeaderFooterView
-        header.backgroundView?.backgroundColor = global.tableViewSectionColor
         header.textLabel?.textColor = global.tableViewSectionFontColor
         header.textLabel?.font = global.tableViewSectionFont
-    } 
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count:Int?

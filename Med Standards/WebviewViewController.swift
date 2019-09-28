@@ -27,8 +27,15 @@ class WebviewViewController: UIViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.barTintColor = global.airForceColor
-        self.tabBarController?.tabBar.barTintColor = global.airForceColor
+        
+        if global.webUrl == global.pracGuideLink {
+            self.navigationController?.navigationBar.barTintColor = global.airForceColor
+            self.tabBarController?.tabBar.barTintColor = global.airForceColor
+        } else {
+            self.navigationController?.navigationBar.barTintColor = global.navyColor
+            self.tabBarController?.tabBar.barTintColor = global.navyColor
+        }
+        
         let reloadButton = UIBarButtonItem(image: redoIcon, style: .plain, target: self, action: #selector(WebviewViewController.webViewLoad))
         let backButton = UIBarButtonItem(image: backArrow, style: .plain, target: self, action: #selector(WebviewViewController.goBack))
         let forwardButton = UIBarButtonItem(image: forwardArrow, style: .plain, target: self, action: #selector(WebviewViewController.goForward))
@@ -39,12 +46,22 @@ class WebviewViewController: UIViewController, UIWebViewDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.tabBarController?.tabBar.barTintColor = global.airForceColor
+        if global.webUrl == global.pracGuideLink {
+            self.navigationController?.navigationBar.barTintColor = global.airForceColor
+            self.tabBarController?.tabBar.barTintColor = global.airForceColor
+        } else {
+            self.navigationController?.navigationBar.barTintColor = global.navyColor
+            self.tabBarController?.tabBar.barTintColor = global.navyColor
+        }
     }
     
     @objc func webViewLoad() {
-        self.title = global.pracGuideTitle
-        let url = "http://www.asams.org/guidelines.html"
+        if global.webUrl == global.pracGuideLink {
+            self.title = global.pracGuideTitle
+        } else {
+            self.title = global.navyWikiTitle
+        }
+        let url = global.webUrl
         let requestUrl = URL(string: url)
         let request = URLRequest(url: requestUrl!)
         Webview?.loadRequest(request)

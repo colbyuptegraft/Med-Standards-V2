@@ -44,7 +44,8 @@ struct global {
     
     //Variables used across classes that change
     static var pdfDocument = PDFDocument()
-    static var url: URL!
+    static var url:URL!
+    static var webUrl:String = ""
     static var selection:String = ""
     static var link:String = ""
     
@@ -64,7 +65,14 @@ struct global {
     //Extra menu options for FS Toolkit Menu
     static let oxConvTitle = "Altitude Oxygen Converter"
     static let pracGuideTitle = "ASAMS Practice Guidelines"
+    static let pracGuideLink = "http://www.asams.org/guidelines.html"
     static let rsvTitle = "RSV Sample Briefings"
+    
+    //Extra menu options for Navy Menu
+    static let navyWikiTitle = "Navy Flight Surgeon Wiki"
+    static let navyWikiLink = "https://knowyourchit.mywikis.net/wiki/Main_Page"
+    
+    
 }
 
 public class Utils {
@@ -88,7 +96,7 @@ public class Utils {
             print("Contents at file path null")
         }
         for i in docArray {
-            var k = i.components(separatedBy: "#")
+            let k = i.components(separatedBy: "#")
             titleArray.append(k[0])
             detailArray.append(k[1])
         }

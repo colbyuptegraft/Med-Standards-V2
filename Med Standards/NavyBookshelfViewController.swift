@@ -18,6 +18,8 @@ import PDFKit
 
 class NavyBookshelfViewController: UITableViewController {
     
+    let sectionTitles = [0 : "Main Documents", 1 : "Other Menus"]
+    let otherMenu = [global.navyWikiTitle]
     let docList = Utils.createArrayList(path: global.navyPath).doc
     let titleList = Utils.createArrayList(path: global.navyPath).title
     let detailList = Utils.createArrayList(path: global.navyPath).detail
@@ -29,20 +31,50 @@ class NavyBookshelfViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.barTintColor = global.navyColor
         self.tabBarController?.tabBar.barTintColor = global.navyColor
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return sectionTitles.count
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionTitles[section]
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = global.tableViewSectionColor
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = global.tableViewSectionFontColor
+        header.textLabel?.font = global.tableViewSectionFont
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return docList.count
+        var count:Int?
+        if section == 0 {
+            count = docList.count
+        } else {
+            count = otherMenu.count
+        }
+        return count!
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BookshelfCell
-        cell = Utils.setCellText(cell: cell, indexPath: indexPath, titleList: titleList, titleFont: global.cellTitleFont!, titleFontColor: global.cellTitleFontColor, detailList: detailList, detailFont: global.cellDetailFont!, detailFontColor: global.cellDetailFontColor)
+        switch (indexPath.section)
+        {
+        case 0:
+            cell = Utils.setCellText(cell: cell, indexPath: indexPath, titleList: titleList, titleFont: global.cellTitleFont!, titleFontColor: global.cellTitleFontColor, detailList: detailList, detailFont: global.cellDetailFont!, detailFontColor: global.cellDetailFontColor)
+        case 1:
+            cell = Utils.setCellTitle(cell: cell, indexPath: indexPath, titleList: otherMenu, titleFont: global.cellTitleFont!, titleFontColor: global.cellTitleFontColor)
+        default:
+            cell.textLabel?.text = "Other"
+        }
         cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         cell.textLabel?.numberOfLines = 0
         return cell
@@ -50,9 +82,18 @@ class NavyBookshelfViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         global.selection = ""
-        global.selection = docList[(indexPath as NSIndexPath).row]
-        global.url = Bundle.main.url(forResource: global.navyPath + global.selection, withExtension: "pdf")
-        global.pdfDocument = PDFDocument(url: global.url!)!
-        self.performSegue(withIdentifier: "FromNavyToPDFSegue", sender: Any?.self)
+        switch (indexPath.section) {
+        case 0:
+            global.selection = docList[(indexPath as NSIndexPath).row]
+            global.url = Bundle.main.url(forResource: global.airForceMainPath + global.selection, withExtension: "pdf")
+            global.pdfDocument = PDFDocument(url: global.url!)!
+            self.performSegue(withIdentifier: "FromNavyToPDFSegue", sender: Any?.self)
+        case 1:
+            global.selection = otherMenu[(indexPath as NSIndexPath).row]
+            global.webUrl = global.navyWikiLink
+            self.performSegue(withIdentifier: "FromNavyToWebview", sender: Any?.self)
+        default:
+            self.performSegue(withIdentifier: "FromMainAirForceToPDFSegue", sender: Any?.self)
+        }
     }
 }

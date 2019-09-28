@@ -31,6 +31,7 @@ class AirForceFSToolkitBookshelfViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.barTintColor = global.airForceColor
         self.tabBarController?.tabBar.barTintColor = global.airForceColor
     }
     
@@ -46,8 +47,8 @@ class AirForceFSToolkitBookshelfViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = global.tableViewSectionColor
         let header = view as! UITableViewHeaderFooterView
-        header.backgroundView?.backgroundColor = global.tableViewSectionColor
         header.textLabel?.textColor = global.tableViewSectionFontColor
         header.textLabel?.font = global.tableViewSectionFont
     } 
@@ -91,6 +92,7 @@ class AirForceFSToolkitBookshelfViewController: UITableViewController {
             if global.selection == global.oxConvTitle {
                 self.performSegue(withIdentifier: "FromFSToolkitToOxConvSegue", sender: Any?.self)
             } else if global.selection == global.pracGuideTitle {
+                global.webUrl = global.pracGuideLink
                 self.performSegue(withIdentifier: "FromFSToolkitToWebview", sender: Any?.self)
             } else {
                 self.performSegue(withIdentifier: "FromFSToolkitToRSVSegue", sender: Any?.self)

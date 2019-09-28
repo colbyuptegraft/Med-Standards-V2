@@ -29,6 +29,7 @@ class ArmyBookshelfViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.barTintColor = global.armyColor
         self.tabBarController?.tabBar.barTintColor = global.armyColor
     }
     

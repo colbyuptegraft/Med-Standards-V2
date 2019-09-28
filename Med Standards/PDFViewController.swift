@@ -76,6 +76,11 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
 
         resume()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.barTintColor = navigationController?.navigationBar.barTintColor
+    }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         adjustThumbnailViewHeight()
