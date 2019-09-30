@@ -85,7 +85,7 @@ class NavyBookshelfViewController: UITableViewController {
         switch (indexPath.section) {
         case 0:
             global.selection = docList[(indexPath as NSIndexPath).row]
-            global.url = Bundle.main.url(forResource: global.airForceMainPath + global.selection, withExtension: "pdf")
+            global.url = Bundle.main.url(forResource: global.navyPath + global.selection, withExtension: "pdf")
             global.pdfDocument = PDFDocument(url: global.url!)!
             self.performSegue(withIdentifier: "FromNavyToPDFSegue", sender: Any?.self)
         case 1:

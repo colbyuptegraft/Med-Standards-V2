@@ -40,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 NotificationCenter.default.post(name: .documentDirectoryDidChange, object: nil)
             }
         }
+        
         UINavigationBar.appearance().tintColor = global.navBarItemColor
         UITabBar.appearance().tintColor = global.tabBarSelectedItemColor
         UITabBar.appearance().unselectedItemTintColor = global.tabBarUnselectedItemColor
