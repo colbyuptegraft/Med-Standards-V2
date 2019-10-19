@@ -34,6 +34,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate, PDFDocum
         searchBar.delegate = self
         searchBar.showsCancelButton = true
         searchBar.searchBarStyle = .minimal
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): global.searchViewFontColor], for: .normal)
         navigationItem.titleView = searchBar
 
         tableView.rowHeight = 88

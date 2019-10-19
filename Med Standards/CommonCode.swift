@@ -34,6 +34,7 @@ struct global {
     
     static let tableViewSectionFont = UIFont(name: "Helvetica-Bold", size: 17.0)
     static let tableViewSectionFontColor = UIColor.white
+    static let searchViewFontColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 255/255.0, alpha: 100.0/100.0)
     static let tableViewSectionColor = UIColor.gray
     
     static let cellTitleFont = UIFont(name: "Helvetica", size: 14.0)
