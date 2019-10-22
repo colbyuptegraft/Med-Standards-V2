@@ -71,7 +71,7 @@ struct global {
     
     //Extra menu options for Navy Menu
     static let navyWikiTitle = "Navy Flight Surgeon Wiki"
-    static let navyWikiLink = "https://knowyourchit.mywikis.net/wiki/Main_Page"
+    static let navyWikiLink = "http://knowyourchit.mywikis.net/wiki/Main_Page"
     
     
 }
