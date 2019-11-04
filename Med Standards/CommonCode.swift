@@ -73,7 +73,6 @@ struct global {
     static let navyWikiTitle = "Navy Flight Surgeon Wiki"
     static let navyWikiLink = "http://knowyourchit.mywikis.net/wiki/Main_Page"
     
-    
 }
 
 public class Utils {
