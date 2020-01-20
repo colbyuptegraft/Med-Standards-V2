@@ -23,6 +23,7 @@ struct global {
     static let airForceColor = UIColor(red: 8/255.0, green: 84/255.0, blue: 156/255.0, alpha: 100.0/100.0)
     static let armyColor = UIColor(red: 23/255.0, green: 75/255.0, blue: 42/255.0, alpha: 100.0/100.0)
     static let navyColor = UIColor(red: 0/255.0, green: 56/255.0, blue: 130/255.0, alpha: 100.0/100.0)
+    static let dodColor = UIColor(red: 106/255.0, green: 13/255.0, blue: 173/255.0, alpha: 100.0/100.0)
     static let aboutColor = UIColor.black
     
     static let titleFont = UIFont(name: "Helvetica-Bold", size: 20.0)
@@ -58,6 +59,7 @@ struct global {
     
     static let armyPath = "/pdfs/army/"
     static let navyPath = "/pdfs/navy/"
+    static let dodPath = "/pdfs/dod/"
     
     //Extra menu options for Air Force main menu
     static let fsToolkitTitle = "Flight Surgeon Toolkit"

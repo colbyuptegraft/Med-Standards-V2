@@ -36,6 +36,7 @@
 		6CF26A3C20E83D0F0049958A /* NavyBookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF26A3B20E83D0F0049958A /* NavyBookshelfViewController.swift */; };
 		6CF26A3E20E83D290049958A /* ArmyBookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF26A3D20E83D290049958A /* ArmyBookshelfViewController.swift */; };
 		6CF26A4020E92CCE0049958A /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF26A3F20E92CCE0049958A /* AboutViewController.swift */; };
+		6CF87B0B23D5EF17003DA59F /* DodBookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF87B0A23D5EF17003DA59F /* DodBookshelfViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		6CF26A3B20E83D0F0049958A /* NavyBookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavyBookshelfViewController.swift; sourceTree = "<group>"; };
 		6CF26A3D20E83D290049958A /* ArmyBookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmyBookshelfViewController.swift; sourceTree = "<group>"; };
 		6CF26A3F20E92CCE0049958A /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		6CF87B0A23D5EF17003DA59F /* DodBookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DodBookshelfViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				6CF26A3920E833790049958A /* WebviewViewController.swift */,
 				6CF26A3D20E83D290049958A /* ArmyBookshelfViewController.swift */,
 				6CF26A3B20E83D0F0049958A /* NavyBookshelfViewController.swift */,
+				6CF87B0A23D5EF17003DA59F /* DodBookshelfViewController.swift */,
 				6CF26A3F20E92CCE0049958A /* AboutViewController.swift */,
 				140E25151F0AC19600298665 /* BookshelfCell.swift */,
 				14155C7F1F0A425F00A53380 /* PDFViewController.swift */,
@@ -233,6 +236,7 @@
 				6CF26A3620E806C00049958A /* AirForceOxConvViewController.swift in Sources */,
 				1421EF151F0A411E00BEB695 /* AppDelegate.swift in Sources */,
 				14155C881F0A45BE00A53380 /* OutlineCell.swift in Sources */,
+				6CF87B0B23D5EF17003DA59F /* DodBookshelfViewController.swift in Sources */,
 				14155C821F0A449F00A53380 /* ThumbnailGridViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,7 +397,7 @@
 				DEVELOPMENT_TEAM = VMZ32M4SZF;
 				INFOPLIST_FILE = "Med Standards/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.5.49;
+				MARKETING_VERSION = 2.6.50;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ColbyCo.Med-Standards";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -408,7 +412,7 @@
 				DEVELOPMENT_TEAM = VMZ32M4SZF;
 				INFOPLIST_FILE = "Med Standards/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.5.49;
+				MARKETING_VERSION = 2.6.50;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ColbyCo.Med-Standards";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
