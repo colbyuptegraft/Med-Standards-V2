@@ -14,10 +14,11 @@
 //  This license does not extend to any of the Portable Document Format (PDF) files included with the Software.  These PDF files may not be used, copied, modified, published, distributed, sublicense, and/or sold without the express permission of the United States Department of Defense.
 
 import UIKit
+import WebKit
 
-class WebviewViewController: UIViewController, UIWebViewDelegate {
+class WebviewViewController: UIViewController {
     
-    @IBOutlet var Webview: UIWebView!
+    @IBOutlet var Webview:WKWebView!
     
     var docController: UIDocumentInteractionController?
     let downloadIcon:UIImage = UIImage(named: "download.png")!
@@ -40,7 +41,12 @@ class WebviewViewController: UIViewController, UIWebViewDelegate {
         let backButton = UIBarButtonItem(image: backArrow, style: .plain, target: self, action: #selector(WebviewViewController.goBack))
         let forwardButton = UIBarButtonItem(image: forwardArrow, style: .plain, target: self, action: #selector(WebviewViewController.goForward))
         self.navigationItem.setRightBarButtonItems([forwardButton, backButton, reloadButton], animated: false)
-        Webview.scalesPageToFit = true
+        
+        if #available(iOS 13.0, *) {
+            Webview.scalesLargeContentImage = true
+        } else {
+            // Fallback on earlier versions
+        }
         Webview.isMultipleTouchEnabled = true
         webViewLoad()
     }
@@ -64,7 +70,7 @@ class WebviewViewController: UIViewController, UIWebViewDelegate {
         let url = global.webUrl
         let requestUrl = URL(string: url)
         let request = URLRequest(url: requestUrl!)
-        Webview?.loadRequest(request)
+        Webview?.load(request)
     }
     
     @objc func goBack() {
