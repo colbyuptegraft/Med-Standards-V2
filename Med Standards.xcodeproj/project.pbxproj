@@ -28,7 +28,7 @@
 		6C28D47D20E6BB4200DEAC11 /* AirForceOtherAFIBookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C28D47C20E6BB4200DEAC11 /* AirForceOtherAFIBookshelfViewController.swift */; };
 		6C28D47F20E6C99000DEAC11 /* AirForceFSToolkitBookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C28D47E20E6C99000DEAC11 /* AirForceFSToolkitBookshelfViewController.swift */; };
 		6C28D48120E733C400DEAC11 /* AirForceRSVBookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C28D48020E733C400DEAC11 /* AirForceRSVBookshelfViewController.swift */; };
-		6C8C255120E9650C004D3A8B /* MIT-License_2015-2019.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6C8C255020E9650C004D3A8B /* MIT-License_2015-2019.rtf */; };
+		6C8C255120E9650C004D3A8B /* MIT-License_2015-2020.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6C8C255020E9650C004D3A8B /* MIT-License_2015-2020.rtf */; };
 		6CEDCD4D2318C54100679913 /* CommonCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEDCD4C2318C54100679913 /* CommonCode.swift */; };
 		6CF26A3620E806C00049958A /* AirForceOxConvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF26A3520E806C00049958A /* AirForceOxConvViewController.swift */; };
 		6CF26A3820E818960049958A /* AirForceOxConvAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF26A3720E818960049958A /* AirForceOxConvAboutViewController.swift */; };
@@ -63,7 +63,7 @@
 		6C28D47C20E6BB4200DEAC11 /* AirForceOtherAFIBookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirForceOtherAFIBookshelfViewController.swift; sourceTree = "<group>"; };
 		6C28D47E20E6C99000DEAC11 /* AirForceFSToolkitBookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirForceFSToolkitBookshelfViewController.swift; sourceTree = "<group>"; };
 		6C28D48020E733C400DEAC11 /* AirForceRSVBookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirForceRSVBookshelfViewController.swift; sourceTree = "<group>"; };
-		6C8C255020E9650C004D3A8B /* MIT-License_2015-2019.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "MIT-License_2015-2019.rtf"; sourceTree = "<group>"; };
+		6C8C255020E9650C004D3A8B /* MIT-License_2015-2020.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "MIT-License_2015-2020.rtf"; sourceTree = "<group>"; };
 		6CC4DBCF24E89E9300D7C2D4 /* Med Standards.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Med Standards.entitlements"; sourceTree = "<group>"; };
 		6CEDCD4C2318C54100679913 /* CommonCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonCode.swift; sourceTree = "<group>"; };
 		6CF26A3520E806C00049958A /* AirForceOxConvViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirForceOxConvViewController.swift; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 				1421EF1B1F0A411E00BEB695 /* Assets.xcassets */,
 				6C0189CD2319C7260004B687 /* pdfs */,
 				1421EF201F0A411E00BEB695 /* Info.plist */,
-				6C8C255020E9650C004D3A8B /* MIT-License_2015-2019.rtf */,
+				6C8C255020E9650C004D3A8B /* MIT-License_2015-2020.rtf */,
 			);
 			path = "Med Standards";
 			sourceTree = "<group>";
@@ -200,7 +200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C8C255120E9650C004D3A8B /* MIT-License_2015-2019.rtf in Resources */,
+				6C8C255120E9650C004D3A8B /* MIT-License_2015-2020.rtf in Resources */,
 				140E25111F0A797E00298665 /* Main.storyboard in Resources */,
 				140E25121F0A798400298665 /* LaunchScreen.storyboard in Resources */,
 				1421EF1C1F0A411E00BEB695 /* Assets.xcassets in Resources */,
@@ -401,7 +401,7 @@
 				DEVELOPMENT_TEAM = VMZ32M4SZF;
 				INFOPLIST_FILE = "Med Standards/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.6.60;
+				MARKETING_VERSION = 2.6.61;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ColbyCo.Med-Standards";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
@@ -419,7 +419,7 @@
 				DEVELOPMENT_TEAM = VMZ32M4SZF;
 				INFOPLIST_FILE = "Med Standards/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.6.60;
+				MARKETING_VERSION = 2.6.61;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ColbyCo.Med-Standards";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
