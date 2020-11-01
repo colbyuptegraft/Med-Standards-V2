@@ -28,6 +28,7 @@
 		6C28D47D20E6BB4200DEAC11 /* AirForceOtherAFIBookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C28D47C20E6BB4200DEAC11 /* AirForceOtherAFIBookshelfViewController.swift */; };
 		6C28D47F20E6C99000DEAC11 /* AirForceFSToolkitBookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C28D47E20E6C99000DEAC11 /* AirForceFSToolkitBookshelfViewController.swift */; };
 		6C28D48120E733C400DEAC11 /* AirForceRSVBookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C28D48020E733C400DEAC11 /* AirForceRSVBookshelfViewController.swift */; };
+		6C331616254F6E6A00C93E28 /* AirForceBOMCBookshelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C331615254F6E6A00C93E28 /* AirForceBOMCBookshelfViewController.swift */; };
 		6C8C255120E9650C004D3A8B /* MIT-License_2015-2020.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6C8C255020E9650C004D3A8B /* MIT-License_2015-2020.rtf */; };
 		6CEDCD4D2318C54100679913 /* CommonCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEDCD4C2318C54100679913 /* CommonCode.swift */; };
 		6CF26A3620E806C00049958A /* AirForceOxConvViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF26A3520E806C00049958A /* AirForceOxConvViewController.swift */; };
@@ -63,6 +64,7 @@
 		6C28D47C20E6BB4200DEAC11 /* AirForceOtherAFIBookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirForceOtherAFIBookshelfViewController.swift; sourceTree = "<group>"; };
 		6C28D47E20E6C99000DEAC11 /* AirForceFSToolkitBookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirForceFSToolkitBookshelfViewController.swift; sourceTree = "<group>"; };
 		6C28D48020E733C400DEAC11 /* AirForceRSVBookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirForceRSVBookshelfViewController.swift; sourceTree = "<group>"; };
+		6C331615254F6E6A00C93E28 /* AirForceBOMCBookshelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirForceBOMCBookshelfViewController.swift; sourceTree = "<group>"; };
 		6C8C255020E9650C004D3A8B /* MIT-License_2015-2020.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "MIT-License_2015-2020.rtf"; sourceTree = "<group>"; };
 		6CC4DBCF24E89E9300D7C2D4 /* Med Standards.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Med Standards.entitlements"; sourceTree = "<group>"; };
 		6CEDCD4C2318C54100679913 /* CommonCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonCode.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				1421EF141F0A411E00BEB695 /* AppDelegate.swift */,
 				6CEDCD4C2318C54100679913 /* CommonCode.swift */,
 				14155C7D1F0A41B600A53380 /* AirForceBookshelfViewController.swift */,
+				6C331615254F6E6A00C93E28 /* AirForceBOMCBookshelfViewController.swift */,
 				6C28D47C20E6BB4200DEAC11 /* AirForceOtherAFIBookshelfViewController.swift */,
 				6C28D47E20E6C99000DEAC11 /* AirForceFSToolkitBookshelfViewController.swift */,
 				6C28D48020E733C400DEAC11 /* AirForceRSVBookshelfViewController.swift */,
@@ -168,7 +171,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = ColbyCoApps;
 				TargetAttributes = {
 					1421EF101F0A411E00BEB695 = {
@@ -237,6 +240,7 @@
 				6CF26A3E20E83D290049958A /* ArmyBookshelfViewController.swift in Sources */,
 				6CF26A3620E806C00049958A /* AirForceOxConvViewController.swift in Sources */,
 				1421EF151F0A411E00BEB695 /* AppDelegate.swift in Sources */,
+				6C331616254F6E6A00C93E28 /* AirForceBOMCBookshelfViewController.swift in Sources */,
 				14155C881F0A45BE00A53380 /* OutlineCell.swift in Sources */,
 				6CF87B0B23D5EF17003DA59F /* DodBookshelfViewController.swift in Sources */,
 				14155C821F0A449F00A53380 /* ThumbnailGridViewController.swift in Sources */,
@@ -306,6 +310,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -331,7 +336,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -365,6 +370,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -384,7 +390,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -401,7 +407,7 @@
 				DEVELOPMENT_TEAM = VMZ32M4SZF;
 				INFOPLIST_FILE = "Med Standards/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.6.61;
+				MARKETING_VERSION = 2.7.63;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ColbyCo.Med-Standards";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
@@ -419,7 +425,7 @@
 				DEVELOPMENT_TEAM = VMZ32M4SZF;
 				INFOPLIST_FILE = "Med Standards/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.6.61;
+				MARKETING_VERSION = 2.7.63;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ColbyCo.Med-Standards";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;

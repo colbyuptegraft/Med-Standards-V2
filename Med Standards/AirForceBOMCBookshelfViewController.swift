@@ -1,4 +1,4 @@
-//  AirForceRSVBookshelfViewController.swift
+//  AirForceBOMCBookshelfViewController.swift
 //  Med Standards
 //
 //  The MIT License
@@ -16,11 +16,11 @@
 import UIKit
 import PDFKit
 
-class AirForceRSVBookshelfViewController: UITableViewController {
+class AirForceBOMCBookshelfViewController: UITableViewController {
     
-    let docList = Utils.createArrayList(path: global.airForceRsvPath).doc
-    let titleList = Utils.createArrayList(path: global.airForceRsvPath).title
-    let detailList = Utils.createArrayList(path: global.airForceRsvPath).detail
+    let docList = Utils.createArrayList(path: global.airForceBomcPath).doc
+    let titleList = Utils.createArrayList(path: global.airForceBomcPath).title
+    let detailList = Utils.createArrayList(path: global.airForceBomcPath).detail
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +52,10 @@ class AirForceRSVBookshelfViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         global.selection = ""
         global.selection = docList[(indexPath as NSIndexPath).row]
-        global.url = Bundle.main.url(forResource: global.airForceRsvPath + global.selection, withExtension: "pdf")
+        global.url = Bundle.main.url(forResource: global.airForceBomcPath + global.selection, withExtension: "pdf")
         global.pdfDocument = PDFDocument(url: global.url!)!
-        self.performSegue(withIdentifier: "FromRSVToPDFSegue", sender: Any?.self)
+        self.performSegue(withIdentifier: "FromBOMCToPDFSegue", sender: Any?.self)
     }
 }
+
+
