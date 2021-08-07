@@ -113,6 +113,6 @@ class BookmarkViewController: UICollectionViewController, UICollectionViewDelega
     }
 }
 
-protocol BookmarkViewControllerDelegate: class {
+protocol BookmarkViewControllerDelegate: AnyObject {
     func bookmarkViewController(_ bookmarkViewController: BookmarkViewController, didSelectPage page: PDFPage)
 }
