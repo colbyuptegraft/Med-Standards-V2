@@ -24,13 +24,55 @@ class ArmyBookshelfViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.barTintColor = global.armyColor
-        self.tabBarController?.tabBar.barTintColor = global.armyColor
+        if #available(iOS 13.0, *) {
+            let navBarappearance = UINavigationBarAppearance()
+            navBarappearance.configureWithOpaqueBackground()
+            navBarappearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: global.navBarItemColor]
+            navBarappearance.backgroundColor = global.armyColor
+            
+            self.navigationController?.navigationBar.standardAppearance = navBarappearance
+            self.navigationController?.navigationBar.scrollEdgeAppearance = navBarappearance
+            
+            let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithOpaqueBackground()
+            tabBarAppearance.backgroundColor = global.armyColor
+        
+            self.tabBarController?.tabBar.standardAppearance = tabBarAppearance
+            if #available(iOS 15.0, *) {
+                self.tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
+            } else {
+                // Fallback on earlier versions
+            }
+        } else {
+            self.navigationController?.navigationBar.backgroundColor = global.armyColor
+            self.tabBarController?.tabBar.backgroundColor = global.armyColor
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.barTintColor = global.armyColor
-        self.tabBarController?.tabBar.barTintColor = global.armyColor
+        if #available(iOS 13.0, *) {
+            let navBarappearance = UINavigationBarAppearance()
+            navBarappearance.configureWithOpaqueBackground()
+            navBarappearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: global.navBarItemColor]
+            navBarappearance.backgroundColor = global.armyColor
+            
+            self.navigationController?.navigationBar.standardAppearance = navBarappearance
+            self.navigationController?.navigationBar.scrollEdgeAppearance = navBarappearance
+            
+            let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithOpaqueBackground()
+            tabBarAppearance.backgroundColor = global.armyColor
+        
+            self.tabBarController?.tabBar.standardAppearance = tabBarAppearance
+            if #available(iOS 15.0, *) {
+                self.tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
+            } else {
+                // Fallback on earlier versions
+            }
+        } else {
+            self.navigationController?.navigationBar.backgroundColor = global.armyColor
+            self.tabBarController?.tabBar.backgroundColor = global.armyColor
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

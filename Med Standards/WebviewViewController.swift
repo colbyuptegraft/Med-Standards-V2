@@ -30,11 +30,53 @@ class WebviewViewController: UIViewController {
         super.viewDidLoad()
         
         if global.webUrl == global.pracGuideLink {
-            self.navigationController?.navigationBar.barTintColor = global.airForceColor
-            self.tabBarController?.tabBar.barTintColor = global.airForceColor
+            if #available(iOS 13.0, *) {
+                let navBarappearance = UINavigationBarAppearance()
+                navBarappearance.configureWithOpaqueBackground()
+                navBarappearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: global.navBarItemColor]
+                navBarappearance.backgroundColor = global.airForceColor
+                
+                self.navigationController?.navigationBar.standardAppearance = navBarappearance
+                self.navigationController?.navigationBar.scrollEdgeAppearance = navBarappearance
+                
+                let tabBarAppearance = UITabBarAppearance()
+                tabBarAppearance.configureWithOpaqueBackground()
+                tabBarAppearance.backgroundColor = global.airForceColor
+            
+                self.tabBarController?.tabBar.standardAppearance = tabBarAppearance
+                if #available(iOS 15.0, *) {
+                    self.tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
+                } else {
+                    // Fallback on earlier versions
+                }
+            } else {
+                self.navigationController?.navigationBar.backgroundColor = global.airForceColor
+                self.tabBarController?.tabBar.backgroundColor = global.airForceColor
+            }
         } else {
-            self.navigationController?.navigationBar.barTintColor = global.navyColor
-            self.tabBarController?.tabBar.barTintColor = global.navyColor
+            if #available(iOS 13.0, *) {
+                let navBarappearance = UINavigationBarAppearance()
+                navBarappearance.configureWithOpaqueBackground()
+                navBarappearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: global.navBarItemColor]
+                navBarappearance.backgroundColor = global.navyColor
+                
+                self.navigationController?.navigationBar.standardAppearance = navBarappearance
+                self.navigationController?.navigationBar.scrollEdgeAppearance = navBarappearance
+                
+                let tabBarAppearance = UITabBarAppearance()
+                tabBarAppearance.configureWithOpaqueBackground()
+                tabBarAppearance.backgroundColor = global.navyColor
+            
+                self.tabBarController?.tabBar.standardAppearance = tabBarAppearance
+                if #available(iOS 15.0, *) {
+                    self.tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
+                } else {
+                    // Fallback on earlier versions
+                }
+            } else {
+                self.navigationController?.navigationBar.backgroundColor = global.navyColor
+                self.tabBarController?.tabBar.backgroundColor = global.navyColor
+            }
         }
         
         let reloadButton = UIBarButtonItem(image: redoIcon, style: .plain, target: self, action: #selector(WebviewViewController.webViewLoad))
@@ -53,11 +95,11 @@ class WebviewViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if global.webUrl == global.pracGuideLink {
-            self.navigationController?.navigationBar.barTintColor = global.airForceColor
-            self.tabBarController?.tabBar.barTintColor = global.airForceColor
+            self.navigationController?.navigationBar.backgroundColor = global.airForceColor
+            self.tabBarController?.tabBar.backgroundColor = global.airForceColor
         } else {
-            self.navigationController?.navigationBar.barTintColor = global.navyColor
-            self.tabBarController?.tabBar.barTintColor = global.navyColor
+            self.navigationController?.navigationBar.backgroundColor = global.navyColor
+            self.tabBarController?.tabBar.backgroundColor = global.navyColor
         }
     }
     

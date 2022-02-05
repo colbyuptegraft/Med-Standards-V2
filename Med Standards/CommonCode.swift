@@ -70,7 +70,7 @@ struct global {
     //Extra menu options for FS Toolkit Menu
     static let oxConvTitle = "Altitude Oxygen Converter"
     static let pracGuideTitle = "ASAMS Practice Guidelines"
-    static let pracGuideLink = "http://www.asams.org/guidelines.html"
+    static let pracGuideLink = "http://www.asams.org/practice-guidelines.htm"
     static let rsvTitle = "RSV Sample Briefings"
     
     //Extra menu options for Navy Menu
