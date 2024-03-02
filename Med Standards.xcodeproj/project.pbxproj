@@ -413,7 +413,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Med Standards";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.7.97;
+				MARKETING_VERSION = 2.7.98;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ColbyCo.Med-Standards";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -435,7 +435,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Med Standards";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.7.97;
+				MARKETING_VERSION = 2.7.98;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ColbyCo.Med-Standards";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
