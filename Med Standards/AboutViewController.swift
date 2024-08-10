@@ -22,7 +22,7 @@ class AboutViewContoller: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.TextView.text = "This application presents the medical standards for special duty personnel of the United States Air Force, Army, and Navy as well as other useful tools and information for Aerospace Medicine professionals. \n\nAll AFIs, ARs, and Navy documents were screened and approved for inclusion in this application by Air Force Public Affairs. \n\nUpdates with new document versions will occur once per month.  For questions, concerns, and/or suggestions, please email info@doc-apps.com."
+        self.TextView.text = "This application presents the medical standards for special duty personnel of the United States Air Force, Army, and Navy as well as other useful tools and information for Aerospace Medicine professionals. \n\nAll AFIs, ARs, and Navy documents were screened and approved for inclusion in this application by Air Force Public Affairs. \n\nUpdates with new document versions will occur once per month.  For questions, concerns, and/or suggestions, please email info@doc-apps.com.\n\nEffective 30 Jun 2025, marking 10 years of independently creating & maintaining this app, I will no longer be able to continue this service. If you have coding experience and are interested in taking ownership of Med Standards, please email the above address."
         TextView.isEditable = false
         TextView.dataDetectorTypes = UIDataDetectorTypes.all
         
