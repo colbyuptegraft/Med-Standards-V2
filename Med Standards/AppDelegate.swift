@@ -13,17 +13,31 @@
 //
 //  This license does not extend to any of the Portable Document Format (PDF) files included with the Software.  These PDF files may not be used, copied, modified, published, distributed, sublicense, and/or sold without the express permission of the United States Department of Defense.
 
+import FirebaseCore
 import UIKit
+import SwiftyStoreKit
 
-extension Notification.Name {
-    static let documentDirectoryDidChange = Notification.Name("documentDirectoryDidChange")
-}
+//extension Notification.Name {
+//    static let documentDirectoryDidChange = Notification.Name("documentDirectoryDidChange")
+//}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
+        
+        // SwiftyStoreKit
+        checkSubscription()
+        
+        // Check subscription rule open count
+        SubscriptionRulesManager().setupFreeOpensCount()
+        
+        // Firebase
+        FirebaseApp.configure()
+        
         let fileManager = FileManager.default
         let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let sampleFilename = ""
@@ -59,5 +73,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NotificationCenter.default.post(name: .documentDirectoryDidChange, object: nil)
         }
         return true
+    }
+}
+
+// MARK: - SwiftyStoreKit
+
+extension AppDelegate {
+    func checkSubscription() {
+        SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
+            for purchase in purchases {
+                switch purchase.transaction.transactionState {
+                case .purchased, .restored:
+                    if purchase.needsFinishTransaction {
+                        SwiftyStoreKit.finishTransaction(purchase.transaction)
+                    }
+                    // Unlock content
+                case .failed, .purchasing, .deferred:
+                    break // do nothing
+                @unknown default:
+                    break
+                }
+            }
+        }
+        
+        StoreKitService().verifySubscription()
+        StoreKitService().getSubscriptionInfoFromAppStore()
     }
 }

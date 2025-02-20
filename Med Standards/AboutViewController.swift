@@ -25,55 +25,5 @@ class AboutViewContoller: UIViewController, UIScrollViewDelegate {
         self.TextView.text = "This application presents the medical standards for special duty personnel of the United States Air Force, Army, and Navy as well as other useful tools and information for Aerospace Medicine professionals. \n\nAll AFIs, ARs, and Navy documents were screened and approved for inclusion in this application by Air Force Public Affairs. \n\nUpdates with new document versions will occur once per month.  For questions, concerns, and/or suggestions, please email info@doc-apps.com.\n\nEffective 30 Jun 2025, marking 10 years of independently creating & maintaining this app, I will no longer be able to continue this service. If you have coding experience and are interested in taking ownership of Med Standards, please email the above address."
         TextView.isEditable = false
         TextView.dataDetectorTypes = UIDataDetectorTypes.all
-        
-        if #available(iOS 13.0, *) {
-            let navBarappearance = UINavigationBarAppearance()
-            navBarappearance.configureWithOpaqueBackground()
-            navBarappearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: global.navBarItemColor]
-            navBarappearance.backgroundColor = global.aboutColor
-            
-            self.navigationController?.navigationBar.standardAppearance = navBarappearance
-            self.navigationController?.navigationBar.scrollEdgeAppearance = navBarappearance
-            
-            let tabBarAppearance = UITabBarAppearance()
-            tabBarAppearance.configureWithOpaqueBackground()
-            tabBarAppearance.backgroundColor = global.aboutColor
-        
-            self.tabBarController?.tabBar.standardAppearance = tabBarAppearance
-            if #available(iOS 15.0, *) {
-                self.tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
-            } else {
-                // Fallback on earlier versions
-            }
-        } else {
-            self.navigationController?.navigationBar.backgroundColor = global.aboutColor
-            self.tabBarController?.tabBar.backgroundColor = global.aboutColor
-        }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        if #available(iOS 13.0, *) {
-            let navBarappearance = UINavigationBarAppearance()
-            navBarappearance.configureWithOpaqueBackground()
-            navBarappearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: global.navBarItemColor]
-            navBarappearance.backgroundColor = global.aboutColor
-            
-            self.navigationController?.navigationBar.standardAppearance = navBarappearance
-            self.navigationController?.navigationBar.scrollEdgeAppearance = navBarappearance
-            
-            let tabBarAppearance = UITabBarAppearance()
-            tabBarAppearance.configureWithOpaqueBackground()
-            tabBarAppearance.backgroundColor = global.aboutColor
-        
-            self.tabBarController?.tabBar.standardAppearance = tabBarAppearance
-            if #available(iOS 15.0, *) {
-                self.tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
-            } else {
-                // Fallback on earlier versions
-            }
-        } else {
-            self.navigationController?.navigationBar.backgroundColor = global.aboutColor
-            self.tabBarController?.tabBar.backgroundColor = global.aboutColor
-        }
     }
 }

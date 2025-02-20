@@ -46,13 +46,13 @@ struct global {
     
     //Variables used across classes that change
     static var pdfDocument = PDFDocument()
-    static var url:URL!
-    static var webUrl:String = ""
-    static var selection:String = ""
-    static var link:String = ""
+    static var url: URL?
+    static var webUrl: String = ""
+    static var selection: String = ""
+    static var link: String = ""
     
     //Document Folder Paths
-    static let airForceMainPath =  "/pdfs/airForce/main/"
+    static let airForceMainPath = "/pdfs/airForce/main/"
     static let airForceBomcPath = "/pdfs/airForce/bomc/"
     static let airForceOtherAfisPath = "/pdfs/airForce/otherAfis/"
     static let airForceFsToolkitPath = "/pdfs/airForce/fsToolkit/"
@@ -81,48 +81,133 @@ struct global {
 
 public class Utils {
     
-    static func createArrayList(path: String) -> (doc: Array<String>, title: Array<String>, detail: Array<String>) {
+    static func createArrayList(path: String) -> [PDFFileModel] {
+        let pdfListStorage: PDFListStorage = LocalStorage.shared
+        let pdfListArray = pdfListStorage.getPDFArray(for: path)
+        guard pdfListArray.isEmpty else { return pdfListArray }
+        
         let fileManager = FileManager.default
-        let path = Bundle.main.resourcePath! + path
-        var content:Array<String> = []
-        var docArray:Array<String> = []
-        var titleArray:Array<String> = []
-        var detailArray:Array<String> = []
+        let resourcePath = Bundle.main.resourcePath! + path
+        var content: Array<String> = []
+        var pdfArray = [PDFFileModel]()
         do {
-            content = try fileManager.contentsOfDirectory(atPath: path)
+            content = try fileManager.contentsOfDirectory(atPath: resourcePath)
             content = content.sorted(by: <)
-            for i in content {
-                var k = i
-                k = String(k.dropLast(4))
-                docArray.append(k)
+            for file in content {
+                let fileName = String(file.dropLast(4))
+                let title = fileName.components(separatedBy: "#").first ?? ""
+                    let subtitle = fileName.components(separatedBy: "#").last ?? ""
+                    let lastUpdate = file.substringBetweenParentheses()
+                    
+                let pdfFileModel = PDFFileModel(title: title,
+                                                subtitle: subtitle,
+                                                fullName: file,
+                                                fileName: fileName,
+                                                lastUpdate: lastUpdate,
+                                                isUpdated: false)
+                
+                pdfArray.append(pdfFileModel)
             }
         } catch {
             print("Contents at file path null")
         }
-        for i in docArray {
-            let k = i.components(separatedBy: "#")
-            titleArray.append(k[0])
-            detailArray.append(k[1])
-        }
-        return (docArray, titleArray, detailArray)
+        pdfListStorage.setPDFArray(for: path, array: pdfArray)
+        return pdfArray
     }
     
-    static func setCellText(cell: BookshelfCell, indexPath: IndexPath, titleList: Array<String>, titleFont: UIFont, titleFontColor: UIColor, detailList: Array<String>, detailFont: UIFont, detailFontColor: UIColor) -> BookshelfCell {
-        let detailText:NSMutableAttributedString = NSMutableAttributedString(string: "\n" + (detailList[(indexPath as NSIndexPath).row] ), attributes: (NSDictionary(object: detailFont, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
-        detailText.addAttribute(NSAttributedString.Key.foregroundColor, value: detailFontColor, range: NSMakeRange(0, detailText.length))
-        let title = NSMutableAttributedString(string: titleList[(indexPath as NSIndexPath).row] , attributes: (NSDictionary(object: titleFont, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
-        title.addAttribute(NSAttributedString.Key.foregroundColor, value: titleFontColor, range: NSMakeRange(0, title.length))
+    static func setCellText(
+        cell: BookshelfCell,
+        title: String,
+        titleFont: UIFont,
+        titleFontColor: UIColor,
+        detail: String,
+        detailFont: UIFont,
+        detailFontColor: UIColor
+    ) -> BookshelfCell {
+        let detailText:NSMutableAttributedString = NSMutableAttributedString(
+            string: "\n" + detail,
+            attributes: (NSDictionary(object: detailFont,
+                                      forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any])
+        )
+        detailText.addAttribute(NSAttributedString.Key.foregroundColor,
+                                value: detailFontColor,
+                                range: NSMakeRange(0, detailText.length)
+        )
+        let title = NSMutableAttributedString(
+            string: title,
+            attributes: (NSDictionary(object: titleFont,
+                                      forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any])
+        )
+        title.addAttribute(NSAttributedString.Key.foregroundColor,
+                           value: titleFontColor,
+                           range: NSMakeRange(0, title.length)
+        )
         title.append(detailText)
         cell.textLabel?.attributedText = title
         return cell
     }
     
-    static func setCellTitle(cell: BookshelfCell, indexPath: IndexPath, titleList: Array<String>, titleFont: UIFont, titleFontColor: UIColor) -> BookshelfCell {
-        let title = NSMutableAttributedString(string: titleList[(indexPath as NSIndexPath).row] , attributes: (NSDictionary(object: titleFont, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
-        title.addAttribute(NSAttributedString.Key.foregroundColor, value: titleFontColor, range: NSMakeRange(0, title.length))
+    static func setCellTitle(
+        cell: BookshelfCell,
+        title: String,
+        titleFont: UIFont,
+        titleFontColor: UIColor
+    ) -> BookshelfCell {
+        let title = NSMutableAttributedString(
+            string: title,
+            attributes: (NSDictionary(object: titleFont,
+                                      forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any])
+        )
+        title.addAttribute(NSAttributedString.Key.foregroundColor,
+                           value: titleFontColor,
+                           range: NSMakeRange(0, title.length)
+        )
         cell.textLabel?.attributedText = title
         return cell
     }
+    
+//    static func createArrayList(path: String) -> (doc: Array<String>, title: Array<String>, detail: Array<String>) {
+//            let fileManager = FileManager.default
+//            let path = Bundle.main.resourcePath! + path
+//            var content:Array<String> = []
+//            var docArray:Array<String> = []
+//            var titleArray:Array<String> = []
+//            var detailArray:Array<String> = []
+//            do {
+//                content = try fileManager.contentsOfDirectory(atPath: path)
+//                content = content.sorted(by: <)
+//                for i in content {
+//                    var k = i
+//                    k = String(k.dropLast(4))
+//                    docArray.append(k)
+//                }
+//            } catch {
+//                print("Contents at file path null")
+//            }
+//            for i in docArray {
+//                let k = i.components(separatedBy: "#")
+//                titleArray.append(k[0])
+//                detailArray.append(k[1])
+//            }
+//            return (docArray, titleArray, detailArray)
+//        }
+//        
+//        static func setCellText(cell: BookshelfCell, indexPath: IndexPath, titleList: Array<String>, titleFont: UIFont, titleFontColor: UIColor, detailList: Array<String>, detailFont: UIFont, detailFontColor: UIColor) -> BookshelfCell {
+//            let detailText:NSMutableAttributedString = NSMutableAttributedString(string: "\n" + (detailList[(indexPath as NSIndexPath).row] ), attributes: (NSDictionary(object: detailFont, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
+//            detailText.addAttribute(NSAttributedString.Key.foregroundColor, value: detailFontColor, range: NSMakeRange(0, detailText.length))
+//            let title = NSMutableAttributedString(string: titleList[(indexPath as NSIndexPath).row] , attributes: (NSDictionary(object: titleFont, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
+//            title.addAttribute(NSAttributedString.Key.foregroundColor, value: titleFontColor, range: NSMakeRange(0, title.length))
+//            title.append(detailText)
+//            cell.textLabel?.attributedText = title
+//            return cell
+//        }
+//        
+//        static func setCellTitle(cell: BookshelfCell, indexPath: IndexPath, titleList: Array<String>, titleFont: UIFont, titleFontColor: UIColor) -> BookshelfCell {
+//            let title = NSMutableAttributedString(string: titleList[(indexPath as NSIndexPath).row] , attributes: (NSDictionary(object: titleFont, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
+//            title.addAttribute(NSAttributedString.Key.foregroundColor, value: titleFontColor, range: NSMakeRange(0, title.length))
+//            cell.textLabel?.attributedText = title
+//            return cell
+//        }
 }
 
 

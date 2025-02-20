@@ -16,11 +16,7 @@
 import UIKit
 import PDFKit
 
-class AirForceRSVBookshelfViewController: UITableViewController {
-    
-    let docList = Utils.createArrayList(path: global.airForceRsvPath).doc
-    let titleList = Utils.createArrayList(path: global.airForceRsvPath).title
-    let detailList = Utils.createArrayList(path: global.airForceRsvPath).detail
+class AirForceRSVBookshelfViewController: TableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +43,9 @@ class AirForceRSVBookshelfViewController: UITableViewController {
             self.navigationController?.navigationBar.backgroundColor = global.airForceColor
             self.tabBarController?.tabBar.backgroundColor = global.airForceColor
         }
+        
+        setupPDFListData()
+        getPDFListFromFirebase()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -75,27 +74,110 @@ class AirForceRSVBookshelfViewController: UITableViewController {
         }
     }
     
+    override func setupPDFListData() {
+        localPDFFiles = Utils.createArrayList(path: global.airForceRsvPath)
+    }
+    
+    override func getPDFListFromFirebase() {
+        let directoryPath = TabsDirectory.airForce.pathString + AirForceSectionType.RSVs.pathString
+        firebaseStorageManager.getFileList(from: directoryPath, completion: { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let success):
+                self.firebasePDFList = success
+            case .failure(let failure):
+                debugPrint(failure)
+            }
+        })
+    }
+    
+    override func comparePDFLists() {
+        firebasePDFList.forEach { firebaseModelPDF in
+            // If file not match we download new pdf file
+            guard let matchFile = localPDFFiles.first(where: { $0.title == firebaseModelPDF.title }) else {
+                saveNewFile(firebaseModelPDF: firebaseModelPDF)
+                return
+            }
+            
+            // Match file - continue check update date
+            if firebaseModelPDF.lastUpdateString != matchFile.lastUpdate {
+                // Download new updated file and replace old
+                firebaseStorageManager.saveUpdatedFile(
+                    firebasePDFModel: firebaseModelPDF,
+                    pathToList: global.airForceRsvPath
+                ) { [weak self] result in
+                    switch result {
+                    case .success(let isSuccess):
+                        if isSuccess {
+                            self?.setupPDFListData()
+                            self?.tableView.reloadData()
+                        }
+                    case .failure(let failure):
+                        debugPrint(failure.localizedDescription)
+                    }
+                }
+            }
+        }
+    }
+    
+    override func saveNewFile(firebaseModelPDF: FirebasePDFModel) {
+        firebaseStorageManager.saveNewFile(
+            firebasePDFModel: firebaseModelPDF,
+            pathToList: global.airForceRsvPath
+        ) { [weak self] result in
+            switch result {
+            case .success(_):
+                self?.setupPDFListData()
+                self?.tableView.reloadData()
+            case .failure(let error):
+                debugPrint("Failed to save new file: \(error)")
+            }
+        }
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return docList.count
+        return localPDFFiles.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BookshelfCell
-        cell = Utils.setCellText(cell: cell, indexPath: indexPath, titleList: titleList, titleFont: global.cellTitleFont!, titleFontColor: global.cellTitleFontColor, detailList: detailList, detailFont: global.cellDetailFont!, detailFontColor: global.cellDetailFontColor)
+        cell = Utils.setCellText(
+            cell: cell,
+            title: localPDFFiles[indexPath.row].title,
+            titleFont: global.cellTitleFont!,
+            titleFontColor: global.cellTitleFontColor,
+            detail: localPDFFiles[indexPath.row].subtitle,
+            detailFont: global.cellDetailFont!,
+            detailFontColor: global.cellDetailFontColor
+        )
         cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         cell.textLabel?.numberOfLines = 0
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        global.selection = ""
-        global.selection = docList[(indexPath as NSIndexPath).row]
-        global.url = Bundle.main.url(forResource: global.airForceRsvPath + global.selection, withExtension: "pdf")
-        global.pdfDocument = PDFDocument(url: global.url!)!
-        self.performSegue(withIdentifier: "FromRSVToPDFSegue", sender: Any?.self)
+        let selectedPDF = localPDFFiles[indexPath.row]
+        global.selection = selectedPDF.fileName
+        if selectedPDF.isUpdated,
+           let fileURL = FilesStorageManager().retrieveFileURL(forKey: selectedPDF.fullName) {
+            global.url = fileURL
+        } else {
+            global.url = Bundle.main.url(forResource: global.airForceRsvPath + global.selection, withExtension: "pdf")
+        }
+        // Check if URL valid and PDF document in on
+        guard let docURL = global.url,
+              let pdfDocument = PDFDocument(url: docURL)
+        else {
+            showAlert(alertText: "Can't open document.", alertMessage: "Please, try again later.")
+            return
+        }
+        global.url = docURL
+        global.pdfDocument = pdfDocument
+        goToSeque(with: "FromRSVToPDFSegue")
     }
 }
