@@ -16,13 +16,7 @@
 import UIKit
 import PDFKit
 
-class AirForceFSToolkitBookshelfViewController: UITableViewController {
-    
-    let sectionTitles = [0 : "Toolkit Documents", 1 : "Other Menus & Tools"]
-    let otherMenu = [global.oxConvTitle, global.pracGuideTitle, global.rsvTitle]
-    let docList = Utils.createArrayList(path: global.airForceFsToolkitPath).doc
-    let titleList = Utils.createArrayList(path: global.airForceFsToolkitPath).title
-    let detailList = Utils.createArrayList(path: global.airForceFsToolkitPath).detail
+class AirForceFSToolkitBookshelfViewController: TableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +43,9 @@ class AirForceFSToolkitBookshelfViewController: UITableViewController {
             self.navigationController?.navigationBar.backgroundColor = global.airForceColor
             self.tabBarController?.tabBar.backgroundColor = global.airForceColor
         }
+        
+        setupPDFListData()
+        getPDFListFromFirebase()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -77,6 +74,70 @@ class AirForceFSToolkitBookshelfViewController: UITableViewController {
         }
     }
     
+    override func setupPDFListData() {
+        sectionTitles = [0 : "Toolkit Documents", 1 : "Other Menus & Tools"]
+        otherMenu = [global.oxConvTitle, global.pracGuideTitle, global.rsvTitle]
+        localPDFFiles = Utils.createArrayList(path: global.airForceFsToolkitPath)
+    }
+    
+    override func getPDFListFromFirebase() {
+        let directoryPath = TabsDirectory.airForce.pathString + AirForceSectionType.fsToolkit.pathString
+        firebaseStorageManager.getFileList(from: directoryPath, completion: { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let success):
+                self.firebasePDFList = success
+            case .failure(let failure):
+                debugPrint(failure)
+            }
+        })
+    }
+    
+    override func comparePDFLists() {
+        firebasePDFList.forEach { firebaseModelPDF in
+            // If file not match we download new pdf file
+            guard let matchFile = localPDFFiles.first(where: { $0.title == firebaseModelPDF.title }) else {
+                saveNewFile(firebaseModelPDF: firebaseModelPDF)
+                return
+            }
+            
+            // Match file - continue check update date
+            if firebaseModelPDF.lastUpdateString != matchFile.lastUpdate {
+                // Download new updated file and replace old
+                firebaseStorageManager.saveUpdatedFile(
+                    firebasePDFModel: firebaseModelPDF,
+                    pathToList: global.airForceFsToolkitPath
+                ) { [weak self] result in
+                    switch result {
+                    case .success(let isSuccess):
+                        if isSuccess {
+                            self?.setupPDFListData()
+                            self?.tableView.reloadData()
+                        }
+                    case .failure(let failure):
+                        debugPrint(failure.localizedDescription)
+                    }
+                }
+            }
+        }
+    }
+    
+    override func saveNewFile(firebaseModelPDF: FirebasePDFModel) {
+        firebaseStorageManager.saveNewFile(
+            firebasePDFModel: firebaseModelPDF,
+            pathToList: global.airForceFsToolkitPath
+        ) { [weak self] result in
+            switch result {
+            case .success(_):
+                self?.setupPDFListData()
+                self?.tableView.reloadData()
+            case .failure(let error):
+                debugPrint("Failed to save new file: \(error)")
+            }
+        }
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return sectionTitles.count
     }
@@ -96,23 +157,29 @@ class AirForceFSToolkitBookshelfViewController: UITableViewController {
     } 
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var count:Int?
-        if section == 0 {
-            count = docList.count
-        } else {
-            count = otherMenu.count
-        }
-        return count!
+        return section == 0 ? localPDFFiles.count : otherMenu.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BookshelfCell
-        switch (indexPath.section)
-        {
+        switch indexPath.section {
         case 0:
-            cell = Utils.setCellText(cell: cell, indexPath: indexPath, titleList: titleList, titleFont: global.cellTitleFont!, titleFontColor: global.cellTitleFontColor, detailList: detailList, detailFont: global.cellDetailFont!, detailFontColor: global.cellDetailFontColor)
+            cell = Utils.setCellText(
+                cell: cell,
+                title: localPDFFiles[indexPath.row].title,
+                titleFont: global.cellTitleFont!,
+                titleFontColor: global.cellTitleFontColor,
+                detail: localPDFFiles[indexPath.row].subtitle,
+                detailFont: global.cellDetailFont!,
+                detailFontColor: global.cellDetailFontColor
+            )
         case 1:
-            cell = Utils.setCellTitle(cell: cell, indexPath: indexPath, titleList: otherMenu, titleFont: global.cellTitleFont!, titleFontColor: global.cellTitleFontColor)
+            cell = Utils.setCellTitle(
+                cell: cell,
+                title: otherMenu[indexPath.row],
+                titleFont: global.cellTitleFont!,
+                titleFontColor: global.cellTitleFontColor
+            )
         default:
             cell.textLabel?.text = "Other"
         }
@@ -123,12 +190,26 @@ class AirForceFSToolkitBookshelfViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         global.selection = ""
-        switch (indexPath.section) {
+        switch indexPath.section {
         case 0:
-            global.selection = docList[(indexPath as NSIndexPath).row]
-            global.url = Bundle.main.url(forResource: global.airForceFsToolkitPath + global.selection, withExtension: "pdf")
-            global.pdfDocument = PDFDocument(url: global.url!)!
-            self.performSegue(withIdentifier: "FromFSToolkitToPDFSegue", sender: Any?.self)
+            let selectedPDF = localPDFFiles[indexPath.row]
+            global.selection = selectedPDF.fileName
+            if selectedPDF.isUpdated,
+               let fileURL = FilesStorageManager().retrieveFileURL(forKey: selectedPDF.fullName) {
+                global.url = fileURL
+            } else {
+                global.url = Bundle.main.url(forResource: global.airForceFsToolkitPath + global.selection, withExtension: "pdf")
+            }
+            // Check if URL valid and PDF document in on
+            guard let docURL = global.url,
+                  let pdfDocument = PDFDocument(url: docURL)
+            else {
+                showAlert(alertText: "Can't open document.", alertMessage: "Please, try again later.")
+                return
+            }
+            global.url = docURL
+            global.pdfDocument = pdfDocument
+            goToSeque(with: "FromFSToolkitToPDFSegue")
         case 1:
             global.selection = otherMenu[(indexPath as NSIndexPath).row]
             if global.selection == global.oxConvTitle {

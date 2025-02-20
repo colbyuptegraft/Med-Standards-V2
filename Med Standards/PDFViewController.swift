@@ -18,11 +18,11 @@ import PDFKit
 import MessageUI
 import UIKit.UIGestureRecognizerSubclass
 
-class PDFViewController: UIViewController, UIPopoverPresentationControllerDelegate, PDFViewDelegate, ActionMenuViewControllerDelegate, SearchViewControllerDelegate, ThumbnailGridViewControllerDelegate, OutlineViewControllerDelegate, BookmarkViewControllerDelegate {
+class PDFViewController: UIViewController, UIPopoverPresentationControllerDelegate, PDFViewDelegate, ActionMenuViewControllerDelegate, ThumbnailGridViewControllerDelegate, OutlineViewControllerDelegate, BookmarkViewControllerDelegate {
     
     var pdfDocument: PDFDocument?
     var docController: UIDocumentInteractionController?
-    let downloadIcon:UIImage = UIImage(named: "download.png")!
+    let downloadIcon: UIImage = UIImage(named: "download.png")!
 
     @IBOutlet weak var pdfView: PDFView!
     @IBOutlet weak var pdfThumbnailViewContainer: UIView!
@@ -45,6 +45,7 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
 
     let barHideOnTapGestureRecognizer = UITapGestureRecognizer()
     let pdfViewGestureRecognizer = PDFViewGestureRecognizer()
+    private let storeKitStorage: StoreKitStorage = LocalStorage.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,7 +115,9 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
     }
 
     func actionMenuViewControllerShareDocument(_ actionMenuViewController: ActionMenuViewController) {
-        docController = UIDocumentInteractionController(url: global.url)
+        guard let docURL = global.url else { return }
+        
+        docController = UIDocumentInteractionController(url: docURL)
         let url = URL(string:"itms-books:");
         if UIApplication.shared.canOpenURL(url!) {
             print("Able to share document")
@@ -133,13 +136,6 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
         printInteractionController.present(animated: true, completionHandler: nil)
     }
 
-    func searchViewController(_ searchViewController: SearchViewController, didSelectSearchResult selection: PDFSelection) {
-        selection.color = .yellow
-        pdfView.currentSelection = selection
-        pdfView.go(to: selection)
-        showBars()
-    }
-
     func thumbnailGridViewController(_ thumbnailGridViewController: ThumbnailGridViewController, didSelectPage page: PDFPage) {
         resume()
         pdfView.go(to: page)
@@ -156,7 +152,6 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
     }
 
     private func resume() {
-        
         let backButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Chevron"), style: .plain, target: self, action: #selector(back(_:)))
         let tableOfContentsButton = UIBarButtonItem(image: #imageLiteral(resourceName: "List"), style: .plain, target: self, action: #selector(showTableOfContents(_:)))
         let actionButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(showActionMenu(_:)))
@@ -234,6 +229,14 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
     }
 
     @objc func showSearchView(_ sender: UIBarButtonItem) {
+        // Check active subscription
+        guard storeKitStorage.isBoughtSubscription else {
+            let subscriptionVC = SubscriptionViewController()
+            subscriptionVC.modalPresentationStyle = .fullScreen
+            present(subscriptionVC, animated: true)
+            return
+        }
+        
         if let searchNavigationController = self.searchNavigationController {
             present(searchNavigationController, animated: true, completion: nil)
         } else if let navigationController = storyboard?.instantiateViewController(withIdentifier: String(describing: SearchViewController.self)) as? UINavigationController,
@@ -337,6 +340,40 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
                 self.titleLabelContainer.alpha = 0
                 self.pageNumberLabelContainer.alpha = 0
             }
+        }
+    }
+}
+
+// MARK: - SearchViewControllerDelegate
+
+extension PDFViewController: SearchViewControllerDelegate {
+    func searchViewController(_ searchViewController: SearchViewController, didSelectSearchResult selection: PDFSelection) {
+        pdfView.go(to: selection)
+        
+        // Dismiss current highlights
+        removeAllAnnotations()
+        
+        // Create the highlight annotation
+        let highlight = PDFAnnotation(bounds: selection.bounds(for: pdfView.currentPage!),
+                                      forType: .highlight,
+                                      withProperties: nil)
+        highlight.color = .yellow // Set your desired color
+        highlight.page = pdfView.currentPage
+        
+        // Set the selection you want to highlight
+        highlight.contents = selection.string
+        pdfView.currentPage?.addAnnotation(highlight)
+        
+        showBars()
+    }
+    
+    func searchResultDidClear() {
+        removeAllAnnotations()
+    }
+    
+    private func removeAllAnnotations() {
+        pdfView.currentPage?.annotations.forEach { annotation in
+            pdfView.currentPage?.removeAnnotation(annotation)
         }
     }
 }
