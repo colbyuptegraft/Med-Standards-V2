@@ -48,7 +48,7 @@ final class SubscriptionView: UIView {
     
     private let backgroundMaskView: UIView = {
        let view = UIView()
-        view.backgroundColor = UIColor(hexString: "007AFF")
+        view.backgroundColor = .black
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -85,10 +85,10 @@ final class SubscriptionView: UIView {
         return label
     }()
 
-    private let planeImageView: UIImageView = {
+    private let logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "plane")
+        imageView.image = UIImage(named: "BackGroundImage")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -248,7 +248,7 @@ final class SubscriptionView: UIView {
         addSubview(topButtonsStackView)
         addSubview(topLabel)
         addSubview(topSeparatorView)
-        addSubview(planeImageView)
+        addSubview(logoImageView)
         
         basicContainerView.addSubview(basicLabel)
         addSubview(basicContainerView)
@@ -280,12 +280,12 @@ final class SubscriptionView: UIView {
             topSeparatorView.trailingAnchor.constraint(equalTo: trailingAnchor),
             topSeparatorView.heightAnchor.constraint(equalToConstant: 1),
             
-            planeImageView.topAnchor.constraint(equalTo: topSeparatorView.bottomAnchor, constant: 24),
-            planeImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            planeImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3),
-            planeImageView.heightAnchor.constraint(equalTo: planeImageView.widthAnchor, multiplier: 1),
+            logoImageView.topAnchor.constraint(equalTo: topSeparatorView.bottomAnchor, constant: 24),
+            logoImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            logoImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3),
+            logoImageView.heightAnchor.constraint(equalTo: logoImageView.widthAnchor, multiplier: 1),
             
-            basicContainerView.topAnchor.constraint(equalTo: planeImageView.bottomAnchor, constant: 20.fitH),
+            basicContainerView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 20.fitH),
             basicContainerView.widthAnchor.constraint(equalToConstant: 188.fitW),
             basicContainerView.heightAnchor.constraint(equalToConstant: 46.fitH),
             basicContainerView.centerXAnchor.constraint(equalTo: centerXAnchor),
