@@ -75,9 +75,10 @@ class AirForceFSToolkitBookshelfViewController: TableViewController {
     }
     
     override func setupPDFListData() {
+        pathToList = global.airForceFsToolkitPath
         sectionTitles = [0 : "Toolkit Documents", 1 : "Other Menus & Tools"]
         otherMenu = [global.oxConvTitle, global.pracGuideTitle, global.rsvTitle]
-        localPDFFiles = Utils.createArrayList(path: global.airForceFsToolkitPath)
+        localPDFFiles = Utils.createArrayList(path: pathToList)
     }
     
     override func getPDFListFromFirebase() {
@@ -92,50 +93,6 @@ class AirForceFSToolkitBookshelfViewController: TableViewController {
                 debugPrint(failure)
             }
         })
-    }
-    
-    override func comparePDFLists() {
-        firebasePDFList.forEach { firebaseModelPDF in
-            // If file not match we download new pdf file
-            guard let matchFile = localPDFFiles.first(where: { $0.title == firebaseModelPDF.title }) else {
-                saveNewFile(firebaseModelPDF: firebaseModelPDF)
-                return
-            }
-            
-            // Match file - continue check update date
-            if firebaseModelPDF.lastUpdateString != matchFile.lastUpdate {
-                // Download new updated file and replace old
-                firebaseStorageManager.saveUpdatedFile(
-                    firebasePDFModel: firebaseModelPDF,
-                    pathToList: global.airForceFsToolkitPath
-                ) { [weak self] result in
-                    switch result {
-                    case .success(let isSuccess):
-                        if isSuccess {
-                            self?.setupPDFListData()
-                            self?.tableView.reloadData()
-                        }
-                    case .failure(let failure):
-                        debugPrint(failure.localizedDescription)
-                    }
-                }
-            }
-        }
-    }
-    
-    override func saveNewFile(firebaseModelPDF: FirebasePDFModel) {
-        firebaseStorageManager.saveNewFile(
-            firebasePDFModel: firebaseModelPDF,
-            pathToList: global.airForceFsToolkitPath
-        ) { [weak self] result in
-            switch result {
-            case .success(_):
-                self?.setupPDFListData()
-                self?.tableView.reloadData()
-            case .failure(let error):
-                debugPrint("Failed to save new file: \(error)")
-            }
-        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -198,7 +155,7 @@ class AirForceFSToolkitBookshelfViewController: TableViewController {
                let fileURL = FilesStorageManager().retrieveFileURL(forKey: selectedPDF.fullName) {
                 global.url = fileURL
             } else {
-                global.url = Bundle.main.url(forResource: global.airForceFsToolkitPath + global.selection, withExtension: "pdf")
+                global.url = Bundle.main.url(forResource: pathToList + global.selection, withExtension: "pdf")
             }
             // Check if URL valid and PDF document in on
             guard let docURL = global.url,

@@ -13,12 +13,6 @@ final class FilesStorageManager {
     
     // MARK: - Public method
     
-    public func isFileExist(fileName: String) -> Bool {
-        guard let urlForSaveFile = filePath(forKey: fileName) else { return false }
-        
-        return FileManager.default.fileExists(atPath: urlForSaveFile.path)
-    }
-    
     // Delete file
     public func deleteOldFile(with title: String, completion: ((_ success: Bool) -> Void)? = nil) {
         do {
