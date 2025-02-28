@@ -14,11 +14,6 @@ final class FirebaseStorageManager {
     
     // MARK: - Private Properties
     
-//    private let PDFsDirectory = "PDFs"
-//    private let airForceDirectory = "/af"
-//    private let armyDirectory = "/army"
-//    private let dodDirectory = "/dod"
-//    private let navyDirectory = "/navy"
     private let storage = Storage.storage()
     private let filesStorageManager = FilesStorageManager()
     private let pdfListStorage: PDFListStorage = LocalStorage.shared
@@ -60,11 +55,6 @@ final class FirebaseStorageManager {
         pathToList: String,
         completion: @escaping (Result<Bool, Error>
         ) -> Void) {
-        guard !filesStorageManager.isFileExist(fileName: firebasePDFModel.fullName) else {
-            completion(.success(false))
-            return
-        }
-        
         // Remove outdated pdf file
         filesStorageManager.deleteOldFile(with: firebasePDFModel.title) { success in
             guard success else {
@@ -77,24 +67,24 @@ final class FirebaseStorageManager {
             let newFileURL = self.filesStorageManager.getDocumentsDirectory().appendingPathComponent(clearedFileName)
             firebasePDFModel.url.write(toFile: newFileURL) { result in
                 switch result {
-                case .success( _):
-                    var pdfFileArray = self.pdfListStorage.getPDFArray(for: pathToList)
-                    if let pdfFileIndex = pdfFileArray.firstIndex(where: { $0.title == firebasePDFModel.title }) {
-                        let pdfFileUpdated = PDFFileModel(
-                            title: firebasePDFModel.title,
-                            subtitle: firebasePDFModel.subtitle,
-                            fullName: firebasePDFModel.fullName,
-                            fileName: String(firebasePDFModel.fullName.dropLast(4)),
-                            lastUpdate: firebasePDFModel.lastUpdateString,
-                            isUpdated: true
-                        )
-                        pdfFileArray[pdfFileIndex] = pdfFileUpdated
-                        debugPrint("saveUpdatedFile: , \(pdfFileUpdated)")
-                        self.pdfListStorage.setPDFArray(for: pathToList, array: pdfFileArray.sorted(by: { $0.title < $1.title}))
-                    }
-                    completion(.success(true))
-                case .failure(let error):
-                    completion(.failure(error))
+                    case .success( _):
+                        var pdfFileArray = self.pdfListStorage.getPDFArray(for: pathToList)
+                        if let pdfFileIndex = pdfFileArray.firstIndex(where: { $0.title == firebasePDFModel.title }) {
+                            let pdfFileUpdated = PDFFileModel(
+                                title: firebasePDFModel.title,
+                                subtitle: firebasePDFModel.subtitle,
+                                fullName: firebasePDFModel.fullName,
+                                fileName: String(firebasePDFModel.fullName.dropLast(4)),
+                                lastUpdate: firebasePDFModel.lastUpdateString,
+                                isUpdated: true
+                            )
+                            pdfFileArray[pdfFileIndex] = pdfFileUpdated
+                            debugPrint("saveUpdatedFile: , \(pdfFileUpdated)")
+                            self.pdfListStorage.setPDFArray(for: pathToList, array: pdfFileArray.sorted(by: { $0.title < $1.title}))
+                        }
+                        completion(.success(true))
+                    case .failure(let error):
+                        completion(.failure(error))
                 }
             }
         }
@@ -111,22 +101,31 @@ final class FirebaseStorageManager {
                 guard let self = self else { return }
                 
                 switch result {
-                case .success( _):
-                    var pdfFileArray = self.pdfListStorage.getPDFArray(for: pathToList)
-                    let pdfFileModel = PDFFileModel(
-                        title: firebasePDFModel.title,
-                        subtitle: firebasePDFModel.subtitle,
-                        fullName: firebasePDFModel.fullName,
-                        fileName: String(firebasePDFModel.fullName.dropLast(4)),
-                        lastUpdate: firebasePDFModel.lastUpdateString,
-                        isUpdated: true
-                    )
-                    pdfFileArray.append(pdfFileModel)
-                    self.pdfListStorage.setPDFArray(for: pathToList, array: pdfFileArray.sorted(by: { $0.title < $1.title}))
-                    completion(.success(true))
-                case .failure(let error):
-                    completion(.failure(error))
+                    case .success( _):
+                        var pdfFileArray = self.pdfListStorage.getPDFArray(for: pathToList)
+                        let pdfFileModel = PDFFileModel(
+                            title: firebasePDFModel.title,
+                            subtitle: firebasePDFModel.subtitle,
+                            fullName: firebasePDFModel.fullName,
+                            fileName: String(firebasePDFModel.fullName.dropLast(4)),
+                            lastUpdate: firebasePDFModel.lastUpdateString,
+                            isUpdated: true
+                        )
+                        pdfFileArray.append(pdfFileModel)
+                        self.pdfListStorage.setPDFArray(for: pathToList, array: pdfFileArray.sorted(by: { $0.title < $1.title}))
+                        completion(.success(true))
+                    case .failure(let error):
+                        completion(.failure(error))
                 }
+            }
+        }
+    
+    func removeDeletedOldFile(
+        localPDFFileModel: PDFFileModel,
+        completion: @escaping (Result<Bool, Error>) -> Void) {
+            // Remove outdated pdf file
+            filesStorageManager.deleteOldFile(with: localPDFFileModel.fullName) { success in
+                completion(.success(success))
             }
         }
 }
@@ -141,14 +140,14 @@ enum TabsDirectory {
     
     var pathString: String {
         switch self {
-        case .airForce:
-            return "PDFs/af"
-        case .army:
-            return "PDFs/army"
-        case .navy:
-            return "PDFs/navy"
-        case .dod:
-            return "PDFs/dod"
+            case .airForce:
+                return "PDFs/af"
+            case .army:
+                return "PDFs/army"
+            case .navy:
+                return "PDFs/navy"
+            case .dod:
+                return "PDFs/dod"
         }
     }
 }
@@ -162,26 +161,19 @@ enum AirForceSectionType {
     
     var pathString: String {
         switch self {
-        case .AFIs:
-            return "/AFIs"
-        case .RSVs:
-            return "/RSVs"
-        case .bomc:
-            return "/bomc"
-        case .fsToolkit:
-            return "/fsToolkit"
-        case .main:
-            return "/main"
+            case .AFIs:
+                return "/AFIs"
+            case .RSVs:
+                return "/RSVs"
+            case .bomc:
+                return "/bomc"
+            case .fsToolkit:
+                return "/fsToolkit"
+            case .main:
+                return "/main"
         }
     }
 }
-
-//struct AirForceSectionModel {
-//    let sectionName: String
-//    let sectionType: AirForceSectionType
-//    let documents: [FirebasePDFModel]
-//    let otherMenuItems: [AirForceSectionType]
-//}
 
 struct FirebasePDFModel {
     let fullName: String
@@ -198,8 +190,8 @@ enum FirebaseError: Error {
     
     var errorDescription: String {
         switch self {
-        case .noPDFListFromFirebase:
-            return "No PDF files list from Firebase"
+            case .noPDFListFromFirebase:
+                return "No PDF files list from Firebase"
         }
     }
 }
