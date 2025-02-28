@@ -102,7 +102,7 @@ final class StoreKitService {
                 case .unknown:
                     debugPrint("Unknown error. Please contact support. \(error.userInfo.first?.value ?? "")")
                     viewController.showAlert(alertText: "❌",
-                                             alertMessage: "Unknown error. Please contact support. \(error.userInfo.first?.value ?? "")")
+                                             alertMessage: "Unknown error. Please contact support.")
                 case .clientInvalid:
                     debugPrint("Not allowed to make the payment")
                     viewController.showAlert(alertText: "❌",
@@ -138,12 +138,12 @@ final class StoreKitService {
                 default:
                     debugPrint((error as NSError).localizedDescription)
                     viewController.showAlert(alertText: "❌",
-                                             alertMessage: (error as NSError).localizedDescription)
+                                             alertMessage: "Oops! Something went wrong.")
                 }
-            case .deferred(purchase: let purchase):
+                case .deferred(purchase: _):
                 debugPrint("Purchase in statuses postponed")
                 viewController.showAlert(alertText: "❌",
-                                         alertMessage: "Purchase in statuses deferred: \(purchase.product.description)")
+                                         alertMessage: "Purchase in statuses deferred")
             }
         }
     }
@@ -155,7 +155,7 @@ final class StoreKitService {
         SwiftyStoreKit.restorePurchases(atomically: true) { results in
             if results.restoreFailedPurchases.count > 0 {
                 viewController.showAlert(alertText: "❌",
-                                         alertMessage: "Restore Failed: \(results.restoreFailedPurchases)")
+                                         alertMessage: "Restore Failed.")
             } else if results.restoredPurchases.count > 0 {
                 self.verifySubscriptionReceipt(viewController: viewController,
                                                stopAnimationCompletion: stopAnimationCompletion,
@@ -195,7 +195,7 @@ final class StoreKitService {
             case .error(let error):
                 debugPrint("Receipt verification failed: \(error)")
                 viewController.showAlert(alertText: "❌",
-                                         alertMessage: "Receipt verification failed: \(error.localizedDescription)")
+                                         alertMessage: "Receipt verification failed")
                 stopAnimationCompletion?()
             }
         }

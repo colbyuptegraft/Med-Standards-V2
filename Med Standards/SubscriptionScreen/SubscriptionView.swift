@@ -298,7 +298,7 @@ final class SubscriptionView: UIView {
             
             premiumFeaturesVerticalStackView.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 40.fitH),
             premiumFeaturesVerticalStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24.fitW),
-            premiumFeaturesVerticalStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 24.fitW),
+            premiumFeaturesVerticalStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24.fitW),
             
             selectButton.bottomAnchor.constraint(equalTo: closeButton.topAnchor, constant: -8.fitH),
             selectButton.leadingAnchor.constraint(equalTo: closeButton.leadingAnchor),
@@ -317,15 +317,13 @@ final class SubscriptionView: UIView {
         premiumFeaturesVerticalStackView.spacing = 16
         premiumFeaturesVerticalStackView.translatesAutoresizingMaskIntoConstraints = false
 
-        let firstFeature = createHStack(text: "One month free trial")
-        let secondFeature = createHStack(text: "Paid tier has unlimited document views")
-        let thirdFeature = createHStack(text: "Free tier document views are limited to \n5 documents per month")
-        let fourthFeature = createHStack(text: "Possibility of searching in PDF files")
+        let firstFeature = createHStack(text: "Enjoy full app functionality for the first 10 documents for free, including search capabilities")
+        let secondFeature = createHStack(text: "Paid tier provides unlimited document views and search access")
+        let thirdFeature = createHStack(text: "Ability to search within PDF files")
         
         premiumFeaturesVerticalStackView.addArrangedSubview(firstFeature)
         premiumFeaturesVerticalStackView.addArrangedSubview(secondFeature)
         premiumFeaturesVerticalStackView.addArrangedSubview(thirdFeature)
-        premiumFeaturesVerticalStackView.addArrangedSubview(fourthFeature)
     }
 
     private func createHStack(text: String) -> UIStackView {
@@ -340,7 +338,7 @@ final class SubscriptionView: UIView {
         label.text = text
         label.font = .systemFont(ofSize: 16)
         label.textColor = .white
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         
         let hStack = UIStackView()

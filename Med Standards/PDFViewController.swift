@@ -39,7 +39,7 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
     @IBOutlet weak var outlineViewConainer: UIView!
     @IBOutlet weak var bookmarkViewConainer: UIView!
 
-    var bookmarkButton: UIBarButtonItem!
+//    var bookmarkButton: UIBarButtonItem!
 
     var searchNavigationController: UINavigationController?
 
@@ -153,12 +153,12 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
 
     private func resume() {
         let backButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Chevron"), style: .plain, target: self, action: #selector(back(_:)))
-        let tableOfContentsButton = UIBarButtonItem(image: #imageLiteral(resourceName: "List"), style: .plain, target: self, action: #selector(showTableOfContents(_:)))
+//        let tableOfContentsButton = UIBarButtonItem(image: #imageLiteral(resourceName: "List"), style: .plain, target: self, action: #selector(showTableOfContents(_:)))
         let actionButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(showActionMenu(_:)))
-        navigationItem.leftBarButtonItems = [backButton, tableOfContentsButton, actionButton]
+        navigationItem.leftBarButtonItems = [backButton, actionButton]
         let searchButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Search"), style: .plain, target: self, action: #selector(showSearchView(_:)))
-        bookmarkButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Bookmark-N"), style: .plain, target: self, action: #selector(addOrRemoveBookmark(_:)))
-        navigationItem.rightBarButtonItems = [bookmarkButton, searchButton]
+//        bookmarkButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Bookmark-N"), style: .plain, target: self, action: #selector(addOrRemoveBookmark(_:)))
+        navigationItem.rightBarButtonItem = searchButton
 
         pdfThumbnailViewContainer.alpha = 1
 
@@ -170,7 +170,7 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
 
         barHideOnTapGestureRecognizer.isEnabled = true
 
-        updateBookmarkStatus()
+//        updateBookmarkStatus()
         updatePageNumberLabel()
     }
     
@@ -212,9 +212,9 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
         navigationController?.popViewController(animated: true)
     }
 
-    @objc func showTableOfContents(_ sender: UIBarButtonItem) {
-        showTableOfContents()
-    }
+//    @objc func showTableOfContents(_ sender: UIBarButtonItem) {
+//        showTableOfContents()
+//    }
 
     @objc func showActionMenu(_ sender: UIBarButtonItem) {
         if let viewController = storyboard?.instantiateViewController(withIdentifier: String(describing: ActionMenuViewController.self)) as? ActionMenuViewController {
@@ -229,14 +229,6 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
     }
 
     @objc func showSearchView(_ sender: UIBarButtonItem) {
-        // Check active subscription
-        guard storeKitStorage.isBoughtSubscription else {
-            let subscriptionVC = SubscriptionViewController()
-            subscriptionVC.modalPresentationStyle = .fullScreen
-            present(subscriptionVC, animated: true)
-            return
-        }
-        
         if let searchNavigationController = self.searchNavigationController {
             present(searchNavigationController, animated: true, completion: nil)
         } else if let navigationController = storyboard?.instantiateViewController(withIdentifier: String(describing: SearchViewController.self)) as? UINavigationController,
@@ -249,22 +241,22 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
         }
     }
 
-    @objc func addOrRemoveBookmark(_ sender: UIBarButtonItem) {
-        if let documentURL = pdfDocument?.documentURL?.absoluteString {
-            var bookmarks = UserDefaults.standard.array(forKey: documentURL) as? [Int] ?? [Int]()
-            if let currentPage = pdfView.currentPage,
-                let pageIndex = pdfDocument?.index(for: currentPage) {
-                if let index = bookmarks.firstIndex(of: pageIndex) {
-                    bookmarks.remove(at: index)
-                    UserDefaults.standard.set(bookmarks, forKey: documentURL)
-                    bookmarkButton.image = #imageLiteral(resourceName: "Bookmark-N")
-                } else {
-                    UserDefaults.standard.set((bookmarks + [pageIndex]).sorted(), forKey: documentURL)
-                    bookmarkButton.image = #imageLiteral(resourceName: "Bookmark-P")
-                }
-            }
-        }
-    }
+//    @objc func addOrRemoveBookmark(_ sender: UIBarButtonItem) {
+//        if let documentURL = pdfDocument?.documentURL?.absoluteString {
+//            var bookmarks = UserDefaults.standard.array(forKey: documentURL) as? [Int] ?? [Int]()
+//            if let currentPage = pdfView.currentPage,
+//                let pageIndex = pdfDocument?.index(for: currentPage) {
+//                if let index = bookmarks.firstIndex(of: pageIndex) {
+//                    bookmarks.remove(at: index)
+//                    UserDefaults.standard.set(bookmarks, forKey: documentURL)
+//                    bookmarkButton.image = #imageLiteral(resourceName: "Bookmark-N")
+//                } else {
+//                    UserDefaults.standard.set((bookmarks + [pageIndex]).sorted(), forKey: documentURL)
+//                    bookmarkButton.image = #imageLiteral(resourceName: "Bookmark-P")
+//                }
+//            }
+//        }
+//    }
 
     @objc func toggleTableOfContentsView(_ sender: UISegmentedControl) {
         pdfView.isHidden = true
@@ -290,7 +282,7 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
         if pdfViewGestureRecognizer.isTracking {
             hideBars()
         }
-        updateBookmarkStatus()
+//        updateBookmarkStatus()
         updatePageNumberLabel()
     }
 
@@ -304,14 +296,14 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
         }
     }
 
-    private func updateBookmarkStatus() {
-        if let documentURL = pdfDocument?.documentURL?.absoluteString,
-            let bookmarks = UserDefaults.standard.array(forKey: documentURL) as? [Int],
-            let currentPage = pdfView.currentPage,
-            let index = pdfDocument?.index(for: currentPage) {
-            bookmarkButton.image = bookmarks.contains(index) ? #imageLiteral(resourceName: "Bookmark-P") : #imageLiteral(resourceName: "Bookmark-N")
-        }
-    }
+//    private func updateBookmarkStatus() {
+//        if let documentURL = pdfDocument?.documentURL?.absoluteString,
+//            let bookmarks = UserDefaults.standard.array(forKey: documentURL) as? [Int],
+//            let currentPage = pdfView.currentPage,
+//            let index = pdfDocument?.index(for: currentPage) {
+//            bookmarkButton.image = bookmarks.contains(index) ? #imageLiteral(resourceName: "Bookmark-P") : #imageLiteral(resourceName: "Bookmark-N")
+//        }
+//    }
 
     private func updatePageNumberLabel() {
         if let currentPage = pdfView.currentPage, let index = pdfDocument?.index(for: currentPage), let pageCount = pdfDocument?.pageCount {
