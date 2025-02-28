@@ -21,29 +21,13 @@ final class SubscriptionRulesManager {
     // MARK: - Private properties
     
     private let storeKitStorage: StoreKitStorage = LocalStorage.shared
-    private let maxFreeOpensCount = 5
+    private let maxFreeOpensCount = 10
     private lazy var freeOpensCount = storeKitStorage.freeOpensCount
     
     // MARK: - Public methods
     
-    func setupFreeOpensCount() {
-        guard let lastOpenDate = storeKitStorage.lastOpenDocumentDate else { return }
-        
-        if !lastOpenDate.isInCurrentMonth() {
-            resetFreeOpensCount()
-        }
-    }
-    
     func incrementFreeOpensCount() {
         freeOpensCount += 1
-        storeKitStorage.freeOpensCount = freeOpensCount
-        storeKitStorage.lastOpenDocumentDate = Date()
-    }
-    
-    // MARK: - Private methods
-    
-    private func resetFreeOpensCount() {
-        freeOpensCount = 0
         storeKitStorage.freeOpensCount = freeOpensCount
     }
 }

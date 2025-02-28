@@ -32,9 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // SwiftyStoreKit
         checkSubscription()
         
-        // Check subscription rule open count
-        SubscriptionRulesManager().setupFreeOpensCount()
-        
         // Firebase
         FirebaseApp.configure()
         

@@ -14,7 +14,6 @@ protocol StoreKitStorage: AnyObject {
     var isBoughtSubscription: Bool { get set }
     // Subscription rules
     var freeOpensCount: Int { get set }
-    var lastOpenDocumentDate: Date? { get set }
 }
 
 extension LocalStorage: StoreKitStorage {
@@ -48,21 +47,11 @@ extension LocalStorage: StoreKitStorage {
         }
     }
     
-    var lastOpenDocumentDate: Date? {
-        get {
-            return userDefaults.object(forKey: Keys.lastOpenDocumentDate.rawValue) as? Date
-        }
-        set {
-            userDefaults.set(newValue, forKey: Keys.lastOpenDocumentDate.rawValue)
-        }
-    }
-    
     // MARK: - Private properties
     
     private enum Keys: String {
         case expiryDate
         case isBoughtSubscription
         case freeOpensCount
-        case lastOpenDocumentDate
     }
 }

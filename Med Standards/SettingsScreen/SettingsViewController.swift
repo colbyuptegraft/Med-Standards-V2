@@ -14,9 +14,10 @@ final class SettingsVC: UIViewController, SubscriptionScreen {
     
     // MARK: - Private properties
     
-    private let modelItems: [Setting]
+    private var modelItems: [Setting]
     private let listStackView: UIStackView = .init()
     private let appVersionLabel: UILabel = .init()
+    private let storeKitStorage: StoreKitStorage = LocalStorage.shared
     
     // MARK: - Initialisers
     
@@ -40,6 +41,7 @@ final class SettingsVC: UIViewController, SubscriptionScreen {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
+        checkIfUserSubscribed()
     }
 }
 
@@ -75,6 +77,7 @@ private extension SettingsVC {
     }
     
     func setupUI() {
+        view.backgroundColor = .white
         listStackView.axis = .vertical
         listStackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(listStackView)
@@ -198,6 +201,12 @@ private extension SettingsVC {
                 }
             }
         }
+    }
+    
+    func checkIfUserSubscribed() {
+        guard storeKitStorage.isBoughtSubscription else { return }
+        
+        listStackView.subviews.first?.isHidden = true
     }
 }
 
