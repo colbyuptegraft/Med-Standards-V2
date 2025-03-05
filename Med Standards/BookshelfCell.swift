@@ -32,10 +32,24 @@ class BookshelfCell: UITableViewCell {
         }
     }
     var url: NSURL?
+    
+    var fileStatus: String = "" {
+        didSet {
+            statusLabel.text = fileStatus
+        }
+    }
 
     @IBOutlet private weak var thumbnailImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var authorLabel: UILabel!
+    private lazy var statusLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .right
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .preferredFont(forTextStyle: .caption2)
+        label.textColor = .lightGray
+        return label
+    }()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,9 +59,23 @@ class BookshelfCell: UITableViewCell {
 
         titleLabel.text = title
         authorLabel.text = author
+        setConstraints()
     }
 
     override func prepareForReuse() {
         thumbnailImageView.image = nil
+    }
+}
+
+private extension BookshelfCell {
+    func setConstraints() {
+        contentView.addSubview(statusLabel)
+        
+        NSLayoutConstraint.activate([
+//            statusLabel.topAnchor.constraint(equalTo: centerYAnchor, constant: 3),
+            statusLabel.leadingAnchor.constraint(equalTo: centerXAnchor),
+            statusLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            statusLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -3)
+        ])
     }
 }

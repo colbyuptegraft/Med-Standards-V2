@@ -127,10 +127,9 @@ class AirForceBookshelfViewController: TableViewController {
         case 0:
             cell = Utils.setCellText(
                 cell: cell,
-                title: localPDFFiles[indexPath.row].title,
+                pdfFileModel: localPDFFiles[indexPath.row],
                 titleFont: global.cellTitleFont!,
                 titleFontColor: global.cellTitleFontColor,
-                detail: localPDFFiles[indexPath.row].subtitle,
                 detailFont: global.cellDetailFont!,
                 detailFontColor: global.cellDetailFontColor
             )
@@ -170,7 +169,7 @@ class AirForceBookshelfViewController: TableViewController {
             }
             global.url = docURL
             global.pdfDocument = pdfDocument
-            goToSeque(with: "FromMainAirForceToPDFSegue")
+            goToSeque(with: "FromMainAirForceToPDFSegue", selectedIndexPath: indexPath)
         case 1:
             global.selection = otherMenu[(indexPath as NSIndexPath).row]
             if global.selection == global.bomcTitle {

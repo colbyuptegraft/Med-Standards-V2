@@ -31,11 +31,12 @@ class TableViewController: UITableViewController {
     
     // MARK: - Public methods
     
-    func goToSeque(with identifier: String) {
+    func goToSeque(with identifier: String, selectedIndexPath: IndexPath) {
         // Check active subscription or free opens count for month
         let subRulesManager = SubscriptionRulesManager()
         if storeKitStorage.isBoughtSubscription {
             self.performSegue(withIdentifier: identifier, sender: Any?.self)
+            updatePDFList(with: selectedIndexPath)
         } else if subRulesManager.isMaxFreeOpensCountReached {
             let subscriptionVC = SubscriptionViewController()
             subscriptionVC.modalPresentationStyle = .fullScreen
@@ -43,6 +44,7 @@ class TableViewController: UITableViewController {
         } else {
             subRulesManager.incrementFreeOpensCount()
             self.performSegue(withIdentifier: identifier, sender: Any?.self)
+            updatePDFList(with: selectedIndexPath)
         }
     }
     
@@ -127,5 +129,12 @@ private extension TableViewController {
                 debugPrint("Failed to save new file: \(error)")
             }
         }
+    }
+    
+    func updatePDFList(with indexPath: IndexPath) {
+        localPDFFiles[indexPath.row].isNeedShowStatusRecentlyAdded = false
+        localPDFFiles[indexPath.row].isNeedShowStatusRecentlyUpdated = false
+        pdfListStorage.setPDFArray(for: pathToList, array: localPDFFiles.sorted(by: { $0.title < $1.title }))
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
 }

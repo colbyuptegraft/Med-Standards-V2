@@ -105,10 +105,9 @@ class DodBookshelfViewController: TableViewController {
         var cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BookshelfCell
         cell = Utils.setCellText(
             cell: cell,
-            title: localPDFFiles[indexPath.row].title,
+            pdfFileModel: localPDFFiles[indexPath.row],
             titleFont: global.cellTitleFont!,
             titleFontColor: global.cellTitleFontColor,
-            detail: localPDFFiles[indexPath.row].subtitle,
             detailFont: global.cellDetailFont!,
             detailFontColor: global.cellDetailFontColor
         )
@@ -135,6 +134,6 @@ class DodBookshelfViewController: TableViewController {
         }
         global.url = docURL
         global.pdfDocument = pdfDocument
-        goToSeque(with: "FromDodToPDFSegue")
+        goToSeque(with: "FromDodToPDFSegue", selectedIndexPath: indexPath)
     }
 }

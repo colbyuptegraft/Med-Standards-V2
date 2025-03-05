@@ -125,10 +125,9 @@ class NavyBookshelfViewController: TableViewController {
         case 0:
             cell = Utils.setCellText(
                 cell: cell,
-                title: localPDFFiles[indexPath.row].title,
+                pdfFileModel: localPDFFiles[indexPath.row],
                 titleFont: global.cellTitleFont!,
                 titleFontColor: global.cellTitleFontColor,
-                detail: localPDFFiles[indexPath.row].subtitle,
                 detailFont: global.cellDetailFont!,
                 detailFontColor: global.cellDetailFontColor
             )
@@ -168,7 +167,7 @@ class NavyBookshelfViewController: TableViewController {
             }
             global.url = docURL
             global.pdfDocument = pdfDocument
-            goToSeque(with: "FromNavyToPDFSegue")
+            goToSeque(with: "FromNavyToPDFSegue", selectedIndexPath: indexPath)
         case 1:
             global.selection = otherMenu[indexPath.row]
             global.webUrl = global.navyWikiLink
