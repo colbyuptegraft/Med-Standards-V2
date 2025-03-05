@@ -32,7 +32,7 @@ extension LocalStorage: PDFListStorage {
     }
 }
 
-// MARK: - Models
+// MARK: - Model
 
 struct PDFFileModel: Codable {
     let title: String
@@ -40,5 +40,9 @@ struct PDFFileModel: Codable {
     let fullName: String
     let fileName: String
     let lastUpdate: String
+    /// If updated then file downloaded to document directory
     let isUpdated: Bool
+    // Properties for display status in tableView: "updated" & "new file"
+    var isNeedShowStatusRecentlyUpdated: Bool
+    var isNeedShowStatusRecentlyAdded: Bool
 }

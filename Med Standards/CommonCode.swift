@@ -104,7 +104,9 @@ public class Utils {
                                                 fullName: file,
                                                 fileName: fileName,
                                                 lastUpdate: lastUpdate,
-                                                isUpdated: false)
+                                                isUpdated: false,
+                                                isNeedShowStatusRecentlyUpdated: false,
+                                                isNeedShowStatusRecentlyAdded: false)
                 
                 pdfArray.append(pdfFileModel)
             }
@@ -117,15 +119,14 @@ public class Utils {
     
     static func setCellText(
         cell: BookshelfCell,
-        title: String,
+        pdfFileModel: PDFFileModel,
         titleFont: UIFont,
         titleFontColor: UIColor,
-        detail: String,
         detailFont: UIFont,
         detailFontColor: UIColor
     ) -> BookshelfCell {
-        let detailText:NSMutableAttributedString = NSMutableAttributedString(
-            string: "\n" + detail,
+        let detailText: NSMutableAttributedString = NSMutableAttributedString(
+            string: "\n" + pdfFileModel.subtitle,
             attributes: (NSDictionary(object: detailFont,
                                       forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any])
         )
@@ -134,7 +135,7 @@ public class Utils {
                                 range: NSMakeRange(0, detailText.length)
         )
         let title = NSMutableAttributedString(
-            string: title,
+            string: pdfFileModel.title,
             attributes: (NSDictionary(object: titleFont,
                                       forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any])
         )
@@ -144,6 +145,13 @@ public class Utils {
         )
         title.append(detailText)
         cell.textLabel?.attributedText = title
+        if pdfFileModel.isNeedShowStatusRecentlyAdded {
+            cell.fileStatus = "Recently Added"
+        } else if pdfFileModel.isNeedShowStatusRecentlyUpdated {
+            cell.fileStatus = "Recently Updated"
+        } else {
+            cell.fileStatus = ""
+        }
         return cell
     }
     
@@ -165,49 +173,4 @@ public class Utils {
         cell.textLabel?.attributedText = title
         return cell
     }
-    
-//    static func createArrayList(path: String) -> (doc: Array<String>, title: Array<String>, detail: Array<String>) {
-//            let fileManager = FileManager.default
-//            let path = Bundle.main.resourcePath! + path
-//            var content:Array<String> = []
-//            var docArray:Array<String> = []
-//            var titleArray:Array<String> = []
-//            var detailArray:Array<String> = []
-//            do {
-//                content = try fileManager.contentsOfDirectory(atPath: path)
-//                content = content.sorted(by: <)
-//                for i in content {
-//                    var k = i
-//                    k = String(k.dropLast(4))
-//                    docArray.append(k)
-//                }
-//            } catch {
-//                print("Contents at file path null")
-//            }
-//            for i in docArray {
-//                let k = i.components(separatedBy: "#")
-//                titleArray.append(k[0])
-//                detailArray.append(k[1])
-//            }
-//            return (docArray, titleArray, detailArray)
-//        }
-//        
-//        static func setCellText(cell: BookshelfCell, indexPath: IndexPath, titleList: Array<String>, titleFont: UIFont, titleFontColor: UIColor, detailList: Array<String>, detailFont: UIFont, detailFontColor: UIColor) -> BookshelfCell {
-//            let detailText:NSMutableAttributedString = NSMutableAttributedString(string: "\n" + (detailList[(indexPath as NSIndexPath).row] ), attributes: (NSDictionary(object: detailFont, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
-//            detailText.addAttribute(NSAttributedString.Key.foregroundColor, value: detailFontColor, range: NSMakeRange(0, detailText.length))
-//            let title = NSMutableAttributedString(string: titleList[(indexPath as NSIndexPath).row] , attributes: (NSDictionary(object: titleFont, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
-//            title.addAttribute(NSAttributedString.Key.foregroundColor, value: titleFontColor, range: NSMakeRange(0, title.length))
-//            title.append(detailText)
-//            cell.textLabel?.attributedText = title
-//            return cell
-//        }
-//        
-//        static func setCellTitle(cell: BookshelfCell, indexPath: IndexPath, titleList: Array<String>, titleFont: UIFont, titleFontColor: UIColor) -> BookshelfCell {
-//            let title = NSMutableAttributedString(string: titleList[(indexPath as NSIndexPath).row] , attributes: (NSDictionary(object: titleFont, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
-//            title.addAttribute(NSAttributedString.Key.foregroundColor, value: titleFontColor, range: NSMakeRange(0, title.length))
-//            cell.textLabel?.attributedText = title
-//            return cell
-//        }
 }
-
-

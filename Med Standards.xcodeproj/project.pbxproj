@@ -10,6 +10,10 @@
 		112F04B72D6396B4007C9872 /* SwiftyStoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = 112F04B62D6396B4007C9872 /* SwiftyStoreKit */; };
 		1137872B2D639494004B78D7 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 1137872A2D639494004B78D7 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		1137872D2D639494004B78D7 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1137872C2D639494004B78D7 /* FirebaseStorage */; };
+		1141BE272D760131001B4C18 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 1141BE262D760131001B4C18 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		1141BE292D760131001B4C18 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 1141BE282D760131001B4C18 /* FirebaseCore */; };
+		1141BE2B2D760131001B4C18 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 1141BE2A2D760131001B4C18 /* FirebaseMessaging */; };
+		1141BE2D2D760131001B4C18 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1141BE2C2D760131001B4C18 /* FirebaseStorage */; };
 		1164FA372D6397AD009E9136 /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = 1164FA362D6397AD009E9136 /* NVActivityIndicatorViewExtended */; };
 		1164FA3A2D6398B7009E9136 /* SettingsItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1164FA392D6398B6009E9136 /* SettingsItems.swift */; };
 		1164FA3C2D6398E0009E9136 /* SettingsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1164FA3B2D6398DF009E9136 /* SettingsItemView.swift */; };
@@ -39,6 +43,7 @@
 		1164FA782D660D35009E9136 /* FilesStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1164FA772D660D33009E9136 /* FilesStorageManager.swift */; };
 		1164FA7A2D674332009E9136 /* StoreKitStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1164FA792D67432D009E9136 /* StoreKitStorage.swift */; };
 		1164FA7C2D6743E6009E9136 /* PDFListStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1164FA7B2D6743E1009E9136 /* PDFListStorage.swift */; };
+		11CBD0E52D75F641007B6D62 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11CBD0E42D75F641007B6D62 /* StoreKit.framework */; };
 		140E24F71F0A675900298665 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E24F61F0A675900298665 /* BookmarkViewController.swift */; };
 		140E24FA1F0A73F200298665 /* SearchResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140E24F81F0A73F200298665 /* SearchResultsCell.swift */; };
 		140E250C1F0A790F00298665 /* SearchResultsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 140E250E1F0A790F00298665 /* SearchResultsCell.xib */; };
@@ -101,6 +106,7 @@
 		1164FA772D660D33009E9136 /* FilesStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesStorageManager.swift; sourceTree = "<group>"; };
 		1164FA792D67432D009E9136 /* StoreKitStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitStorage.swift; sourceTree = "<group>"; };
 		1164FA7B2D6743E1009E9136 /* PDFListStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFListStorage.swift; sourceTree = "<group>"; };
+		11CBD0E42D75F641007B6D62 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		140E24F61F0A675900298665 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		140E24F81F0A73F200298665 /* SearchResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsCell.swift; sourceTree = "<group>"; };
 		140E25091F0A78C900298665 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -142,8 +148,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1141BE2B2D760131001B4C18 /* FirebaseMessaging in Frameworks */,
 				112F04B72D6396B4007C9872 /* SwiftyStoreKit in Frameworks */,
+				1141BE2D2D760131001B4C18 /* FirebaseStorage in Frameworks */,
+				1141BE272D760131001B4C18 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				1164FA372D6397AD009E9136 /* NVActivityIndicatorViewExtended in Frameworks */,
+				11CBD0E52D75F641007B6D62 /* StoreKit.framework in Frameworks */,
+				1141BE292D760131001B4C18 /* FirebaseCore in Frameworks */,
 				1137872B2D639494004B78D7 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				1137872D2D639494004B78D7 /* FirebaseStorage in Frameworks */,
 			);
@@ -277,10 +288,19 @@
 			path = FilesStorageManager;
 			sourceTree = "<group>";
 		};
+		11CBD0E32D75F641007B6D62 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				11CBD0E42D75F641007B6D62 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1421EF081F0A411E00BEB695 = {
 			isa = PBXGroup;
 			children = (
 				1421EF131F0A411E00BEB695 /* Med Standards */,
+				11CBD0E32D75F641007B6D62 /* Frameworks */,
 				1421EF121F0A411E00BEB695 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -637,7 +657,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Med Standards/Med Standards.entitlements";
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = VMZ32M4SZF;
 				INFOPLIST_FILE = "Med Standards/Info.plist";
@@ -664,7 +684,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Med Standards/Med Standards.entitlements";
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = VMZ32M4SZF;
 				INFOPLIST_FILE = "Med Standards/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Med Standards";
@@ -747,6 +767,26 @@
 			productName = FirebaseAnalyticsWithoutAdIdSupport;
 		};
 		1137872C2D639494004B78D7 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 113787292D639494004B78D7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		1141BE262D760131001B4C18 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 113787292D639494004B78D7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		1141BE282D760131001B4C18 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 113787292D639494004B78D7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		1141BE2A2D760131001B4C18 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 113787292D639494004B78D7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		1141BE2C2D760131001B4C18 /* FirebaseStorage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 113787292D639494004B78D7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;

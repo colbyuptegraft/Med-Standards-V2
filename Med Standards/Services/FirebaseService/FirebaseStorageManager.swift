@@ -76,7 +76,9 @@ final class FirebaseStorageManager {
                                 fullName: firebasePDFModel.fullName,
                                 fileName: String(firebasePDFModel.fullName.dropLast(4)),
                                 lastUpdate: firebasePDFModel.lastUpdateString,
-                                isUpdated: true
+                                isUpdated: true,
+                                isNeedShowStatusRecentlyUpdated: true,
+                                isNeedShowStatusRecentlyAdded: false
                             )
                             pdfFileArray[pdfFileIndex] = pdfFileUpdated
                             debugPrint("saveUpdatedFile: , \(pdfFileUpdated)")
@@ -93,41 +95,45 @@ final class FirebaseStorageManager {
     func saveNewFile(
         firebasePDFModel: FirebasePDFModel,
         pathToList: String,
-        completion: @escaping (Result<Bool, Error>) -> Void) {
-            // Write file to app directory
-            let clearedFileName = firebasePDFModel.fullName.replacingOccurrences(of: "%20 ", with: " ")
-            let newFileURL = self.filesStorageManager.getDocumentsDirectory().appendingPathComponent(clearedFileName)
-            firebasePDFModel.url.write(toFile: newFileURL) { [weak self] result in
-                guard let self = self else { return }
-                
-                switch result {
-                    case .success( _):
-                        var pdfFileArray = self.pdfListStorage.getPDFArray(for: pathToList)
-                        let pdfFileModel = PDFFileModel(
-                            title: firebasePDFModel.title,
-                            subtitle: firebasePDFModel.subtitle,
-                            fullName: firebasePDFModel.fullName,
-                            fileName: String(firebasePDFModel.fullName.dropLast(4)),
-                            lastUpdate: firebasePDFModel.lastUpdateString,
-                            isUpdated: true
-                        )
-                        pdfFileArray.append(pdfFileModel)
-                        self.pdfListStorage.setPDFArray(for: pathToList, array: pdfFileArray.sorted(by: { $0.title < $1.title}))
-                        completion(.success(true))
-                    case .failure(let error):
-                        completion(.failure(error))
-                }
+        completion: @escaping (Result<Bool, Error>) -> Void
+    ) {
+        // Write file to app directory
+        let clearedFileName = firebasePDFModel.fullName.replacingOccurrences(of: "%20 ", with: " ")
+        let newFileURL = self.filesStorageManager.getDocumentsDirectory().appendingPathComponent(clearedFileName)
+        firebasePDFModel.url.write(toFile: newFileURL) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+                case .success( _):
+                    var pdfFileArray = self.pdfListStorage.getPDFArray(for: pathToList)
+                    let pdfFileModel = PDFFileModel(
+                        title: firebasePDFModel.title,
+                        subtitle: firebasePDFModel.subtitle,
+                        fullName: firebasePDFModel.fullName,
+                        fileName: String(firebasePDFModel.fullName.dropLast(4)),
+                        lastUpdate: firebasePDFModel.lastUpdateString,
+                        isUpdated: true,
+                        isNeedShowStatusRecentlyUpdated: false,
+                        isNeedShowStatusRecentlyAdded: true
+                    )
+                    pdfFileArray.append(pdfFileModel)
+                    self.pdfListStorage.setPDFArray(for: pathToList, array: pdfFileArray.sorted(by: { $0.title < $1.title}))
+                    completion(.success(true))
+                case .failure(let error):
+                    completion(.failure(error))
             }
         }
+    }
     
     func removeDeletedOldFile(
         localPDFFileModel: PDFFileModel,
-        completion: @escaping (Result<Bool, Error>) -> Void) {
-            // Remove outdated pdf file
-            filesStorageManager.deleteOldFile(with: localPDFFileModel.fullName) { success in
-                completion(.success(success))
-            }
+        completion: @escaping (Result<Bool, Error>
+        ) -> Void) {
+        // Remove outdated pdf file
+        filesStorageManager.deleteOldFile(with: localPDFFileModel.fullName) { success in
+            completion(.success(success))
         }
+    }
 }
 
 // MARK: - Firebase models
