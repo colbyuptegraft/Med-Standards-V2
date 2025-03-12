@@ -16,17 +16,28 @@
 import UIKit
 import PDFKit
 
-class SearchViewController: UITableViewController, UISearchBarDelegate, PDFDocumentDelegate {
-    var pdfDocument: PDFDocument?
+protocol SearchViewControllerDelegate: AnyObject {
+    func searchViewController(_ searchViewController: SearchViewController, didSelectSearchResult selection: PDFSelection)
+    func searchResultDidClear()
+}
+
+class SearchViewController: UITableViewController {
+    
+    // MARK: - Public properties
+    
     weak var delegate: SearchViewControllerDelegate?
-
-    var searchBar = UISearchBar()
-    var searchResults = [PDFSelection]()
-
-    deinit {
-        pdfDocument?.cancelFindString()
-        pdfDocument?.delegate = nil
+    var pdfDocument: PDFDocument? {
+        didSet {
+            pdfDocument?.delegate = self
+        }
     }
+
+    // MARK: - Private properties
+    
+    private var searchBar = UISearchBar()
+    private(set) var searchResults = [PDFSelection]()
+    
+    // MARK: - Life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,43 +45,30 @@ class SearchViewController: UITableViewController, UISearchBarDelegate, PDFDocum
         searchBar.delegate = self
         searchBar.showsCancelButton = true
         searchBar.searchBarStyle = .minimal
-        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue): global.searchViewFontColor], for: .normal)
         navigationItem.titleView = searchBar
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self])
+            .setTitleTextAttributes(
+                [NSAttributedString.Key(
+                    rawValue: NSAttributedString.Key.foregroundColor.rawValue): global.searchViewFontColor],
+                for: .normal
+            )
 
         tableView.rowHeight = 88
-        tableView.register(UINib(nibName: String(describing: SearchResultsCell.self), bundle: nil), forCellReuseIdentifier: "Cell")
+        tableView.register(UINib(nibName: String(describing: SearchResultsCell.self),
+                                 bundle: nil), forCellReuseIdentifier: "Cell")
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         searchBar.becomeFirstResponder()
     }
-
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-    }
-
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        dismiss(animated: true, completion: nil)
-    }
-
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        pdfDocument?.delegate = nil
+    
+    deinit {
         pdfDocument?.cancelFindString()
-
-        let searchText = searchBar.text!.trimmingCharacters(in: CharacterSet.whitespaces)
-        if searchText.count >= 3 {
-            searchResults.removeAll()
-            tableView.reloadData()
-            pdfDocument?.delegate = self
-            pdfDocument?.beginFindString(searchText, withOptions: .caseInsensitive)
-        }
+        pdfDocument?.delegate = nil
     }
-
-    func didMatchString(_ instance: PDFSelection) {
-        searchResults.append(instance)
-        tableView.reloadData()
-    }
+    
+    // MARK: - TableView DataSource
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -90,19 +88,22 @@ class SearchViewController: UITableViewController, UISearchBarDelegate, PDFDocum
         let selection = searchResults[indexPath.row]
 
         let extendedSelection = selection.copy() as! PDFSelection
-        extendedSelection.extendForLineBoundaries()
+        extendedSelection.extend(atStart: 20)
+        extendedSelection.extend(atEnd: 20)
 
         let outline = pdfDocument?.outlineItem(for: selection)
         cell.section = outline?.label
 
-        let page = selection.pages[0]
-        cell.page = page.label
+        let page = selection.pages.first
+        cell.page = page?.label
 
         cell.resultText = extendedSelection.string
         cell.searchText = selection.string
 
         return cell
     }
+    
+    // MARK: - TableView Delegate
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selection = searchResults[indexPath.row]
@@ -113,6 +114,43 @@ class SearchViewController: UITableViewController, UISearchBarDelegate, PDFDocum
     }
 }
 
-protocol SearchViewControllerDelegate: AnyObject {
-    func searchViewController(_ searchViewController: SearchViewController, didSelectSearchResult selection: PDFSelection)
+// MARK: - UISearchBarDelegate
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        pdfDocument?.cancelFindString()
+        
+        guard let text = searchBar.text else { return }
+        
+        let searchText = text.trimmingCharacters(in: .whitespaces)
+        if searchText.count >= 3 {
+            clearResultsOnScreen()
+            pdfDocument?.beginFindString(searchText, withOptions: .caseInsensitive)
+        } else {
+            clearResultsOnScreen()
+            delegate?.searchResultDidClear()
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    private func clearResultsOnScreen() {
+        searchResults.removeAll()
+        tableView.reloadData()
+    }
+}
+
+// MARK: - UISearchBarDelegate
+
+extension SearchViewController: PDFDocumentDelegate {
+    func didMatchString(_ instance: PDFSelection) {
+        searchResults.append(instance)
+        tableView.reloadData()
+    }
 }

@@ -16,11 +16,7 @@
 import UIKit
 import PDFKit
 
-class ArmyBookshelfViewController: UITableViewController {
-    
-    let docList = Utils.createArrayList(path: global.armyPath).doc
-    let titleList = Utils.createArrayList(path: global.armyPath).title
-    let detailList = Utils.createArrayList(path: global.armyPath).detail
+class ArmyBookshelfViewController: TableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +43,9 @@ class ArmyBookshelfViewController: UITableViewController {
             self.navigationController?.navigationBar.backgroundColor = global.armyColor
             self.tabBarController?.tabBar.backgroundColor = global.armyColor
         }
+        
+        setupPDFListData()
+        getPDFListFromFirebase()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -75,27 +74,66 @@ class ArmyBookshelfViewController: UITableViewController {
         }
     }
     
+    override func setupPDFListData() {
+        pathToList = global.armyPath
+        localPDFFiles = Utils.createArrayList(path: pathToList)
+    }
+    
+    override func getPDFListFromFirebase() {
+        let directoryPath = TabsDirectory.army.pathString
+        firebaseStorageManager.getFileList(from: directoryPath, completion: { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let success):
+                self.firebasePDFList = success
+            case .failure(let failure):
+                debugPrint(failure)
+            }
+        })
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return docList.count
+        return localPDFFiles.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BookshelfCell
-       cell = Utils.setCellText(cell: cell, indexPath: indexPath, titleList: titleList, titleFont: global.cellTitleFont!, titleFontColor: global.cellTitleFontColor, detailList: detailList, detailFont: global.cellDetailFont!, detailFontColor: global.cellDetailFontColor)
+        cell = Utils.setCellText(
+            cell: cell,
+            pdfFileModel: localPDFFiles[indexPath.row],
+            titleFont: global.cellTitleFont!,
+            titleFontColor: global.cellTitleFontColor,
+            detailFont: global.cellDetailFont!,
+            detailFontColor: global.cellDetailFontColor
+        )
         cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         cell.textLabel?.numberOfLines = 0
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        global.selection = ""
-        global.selection = docList[(indexPath as NSIndexPath).row]
-        global.url = Bundle.main.url(forResource: global.armyPath + global.selection, withExtension: "pdf")
-        global.pdfDocument = PDFDocument(url: global.url!)!
-        self.performSegue(withIdentifier: "FromArmyToPDFSegue", sender: Any?.self)
+        let selectedPDF = localPDFFiles[indexPath.row]
+        global.selection = selectedPDF.fileName
+        if selectedPDF.isUpdated,
+           let fileURL = FilesStorageManager().retrieveFileURL(forKey: selectedPDF.fullName) {
+            global.url = fileURL
+        } else {
+            global.url = Bundle.main.url(forResource: pathToList + global.selection, withExtension: "pdf")
+        }
+        // Check if URL valid and PDF document in on
+        guard let docURL = global.url,
+              let pdfDocument = PDFDocument(url: docURL)
+        else {
+            showAlert(alertText: "Can't open document.", alertMessage: "Please, try again later.")
+            return
+        }
+        global.url = docURL
+        global.pdfDocument = pdfDocument
+        goToSeque(with: "FromArmyToPDFSegue", selectedIndexPath: indexPath)
     }
 }

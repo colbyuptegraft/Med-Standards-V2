@@ -16,13 +16,7 @@
 import UIKit
 import PDFKit
 
-class NavyBookshelfViewController: UITableViewController {
-    
-    let sectionTitles = [0 : "Main Documents", 1 : "Other Menus"]
-    let otherMenu = [global.navyWikiTitle]
-    let docList = Utils.createArrayList(path: global.navyPath).doc
-    let titleList = Utils.createArrayList(path: global.navyPath).title
-    let detailList = Utils.createArrayList(path: global.navyPath).detail
+class NavyBookshelfViewController: TableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +44,9 @@ class NavyBookshelfViewController: UITableViewController {
             self.navigationController?.navigationBar.backgroundColor = global.navyColor
             self.tabBarController?.tabBar.backgroundColor = global.navyColor
         }
-
+        
+        setupPDFListData()
+        getPDFListFromFirebase()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -77,7 +73,27 @@ class NavyBookshelfViewController: UITableViewController {
             self.navigationController?.navigationBar.backgroundColor = global.navyColor
             self.tabBarController?.tabBar.backgroundColor = global.navyColor
         }
-
+    }
+    
+    override func setupPDFListData() {
+        pathToList = global.navyPath
+        sectionTitles = [0 : "Main Documents", 1 : "Other Menus"]
+        otherMenu = [global.navyWikiTitle]
+        localPDFFiles = Utils.createArrayList(path: pathToList)
+    }
+    
+    override func getPDFListFromFirebase() {
+        let directoryPath = TabsDirectory.navy.pathString
+        firebaseStorageManager.getFileList(from: directoryPath, completion: { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let success):
+                self.firebasePDFList = success
+            case .failure(let failure):
+                debugPrint(failure)
+            }
+        })
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -100,23 +116,28 @@ class NavyBookshelfViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var count:Int?
-        if section == 0 {
-            count = docList.count
-        } else {
-            count = otherMenu.count
-        }
-        return count!
+        return section == 0 ? localPDFFiles.count : otherMenu.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BookshelfCell
-        switch (indexPath.section)
-        {
+        switch indexPath.section {
         case 0:
-            cell = Utils.setCellText(cell: cell, indexPath: indexPath, titleList: titleList, titleFont: global.cellTitleFont!, titleFontColor: global.cellTitleFontColor, detailList: detailList, detailFont: global.cellDetailFont!, detailFontColor: global.cellDetailFontColor)
+            cell = Utils.setCellText(
+                cell: cell,
+                pdfFileModel: localPDFFiles[indexPath.row],
+                titleFont: global.cellTitleFont!,
+                titleFontColor: global.cellTitleFontColor,
+                detailFont: global.cellDetailFont!,
+                detailFontColor: global.cellDetailFontColor
+            )
         case 1:
-            cell = Utils.setCellTitle(cell: cell, indexPath: indexPath, titleList: otherMenu, titleFont: global.cellTitleFont!, titleFontColor: global.cellTitleFontColor)
+            cell = Utils.setCellTitle(
+                cell: cell,
+                title: otherMenu[indexPath.row],
+                titleFont: global.cellTitleFont!,
+                titleFontColor: global.cellTitleFontColor
+            )
         default:
             cell.textLabel?.text = "Other"
         }
@@ -127,14 +148,28 @@ class NavyBookshelfViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         global.selection = ""
-        switch (indexPath.section) {
+        switch indexPath.section {
         case 0:
-            global.selection = docList[(indexPath as NSIndexPath).row]
-            global.url = Bundle.main.url(forResource: global.navyPath + global.selection, withExtension: "pdf")
-            global.pdfDocument = PDFDocument(url: global.url!)!
-            self.performSegue(withIdentifier: "FromNavyToPDFSegue", sender: Any?.self)
+            let selectedPDF = localPDFFiles[indexPath.row]
+            global.selection = selectedPDF.fileName
+            if selectedPDF.isUpdated,
+               let fileURL = FilesStorageManager().retrieveFileURL(forKey: selectedPDF.fullName) {
+                global.url = fileURL
+            } else {
+                global.url = Bundle.main.url(forResource: pathToList + global.selection, withExtension: "pdf")
+            }
+            // Check if URL valid and PDF document in on
+            guard let docURL = global.url,
+                  let pdfDocument = PDFDocument(url: docURL)
+            else {
+                showAlert(alertText: "Can't open document.", alertMessage: "Please, try again later.")
+                return
+            }
+            global.url = docURL
+            global.pdfDocument = pdfDocument
+            goToSeque(with: "FromNavyToPDFSegue", selectedIndexPath: indexPath)
         case 1:
-            global.selection = otherMenu[(indexPath as NSIndexPath).row]
+            global.selection = otherMenu[indexPath.row]
             global.webUrl = global.navyWikiLink
             self.performSegue(withIdentifier: "FromNavyToWebview", sender: Any?.self)
         default:
