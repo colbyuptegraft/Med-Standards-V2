@@ -3,7 +3,7 @@
 //
 //  The MIT License
 //
-//  Copyright (c) 2015 - 2019 Colby Uptegraft - https://www.colbycoapps.com
+//  Copyright (c) 2015 - 2021 Doc Apps LLC - https://www.doc-apps.com
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 //
@@ -16,55 +16,81 @@
 import UIKit
 import PDFKit
 
-struct Army {
-    
-    static let ar40501Title = "AR 40-501"
-    static let ar40501Detail = "Standards of Medical Fitness (27 Jun 2019)"
-    
-    static let fSChecklistTitle = "FS Checklist"
-    static let fSChecklistDetail = "Aeromedical Policy Letters & Technical Bulletins (May 2015)"
-    
-    static let petableTitle = "PE Requirements Table"
-    static let petableDetail = "Army Physical Exam Requirements Table (12 Nov 2002)"
-    
-}
-
-class ArmyBookshelfViewController: UITableViewController {
-    
-    let DocArray:NSArray = [Army.ar40501Title, Army.fSChecklistTitle, Army.petableTitle]
-    let DocDetailArray:NSArray = [Army.ar40501Detail, Army.fSChecklistDetail, Army.petableDetail]
+class ArmyBookshelfViewController: TableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    func docError() {
-        let title = NSLocalizedString("Error", comment: "")
-        let message = NSLocalizedString("Document not found.  Please contact ColbyCoApps@gmail.com.", comment: "")
-        let cancelButtonTitle = NSLocalizedString("OK", comment: "")
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { action in
-            NSLog("The simple alert's cancel action occured.")
-        }
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        global.selection = ""
-        global.selection = DocArray[(indexPath as NSIndexPath).row] as! String
+        if #available(iOS 13.0, *) {
+            let navBarappearance = UINavigationBarAppearance()
+            navBarappearance.configureWithOpaqueBackground()
+            navBarappearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: global.navBarItemColor]
+            navBarappearance.backgroundColor = global.armyColor
+            
+            self.navigationController?.navigationBar.standardAppearance = navBarappearance
+            self.navigationController?.navigationBar.scrollEdgeAppearance = navBarappearance
+            
+            let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithOpaqueBackground()
+            tabBarAppearance.backgroundColor = global.armyColor
         
-        if global.selection == Army.ar40501Title {
-            global.url = Bundle.main.url(forResource: "AR 40-501 Standards of Medical Fitness (27 Jun 2019)", withExtension: "pdf")
-        } else if global.selection == Army.fSChecklistTitle {
-            global.url = Bundle.main.url(forResource: "Army FS Checklist (May 2015)", withExtension: "pdf")
-        } else if global.selection == Army.petableTitle {
-            global.url = Bundle.main.url(forResource: "Army Physical Exam Table (12 Nov 2002)", withExtension: "pdf")
+            self.tabBarController?.tabBar.standardAppearance = tabBarAppearance
+            if #available(iOS 15.0, *) {
+                self.tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
+            } else {
+                // Fallback on earlier versions
+            }
         } else {
-            docError()
+            self.navigationController?.navigationBar.backgroundColor = global.armyColor
+            self.tabBarController?.tabBar.backgroundColor = global.armyColor
         }
-        global.pdfDocument = PDFDocument(url: global.url!)!
-        self.performSegue(withIdentifier: "FromArmyToPDFSegue", sender: Any?.self)
+        
+        setupPDFListData()
+        getPDFListFromFirebase()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if #available(iOS 13.0, *) {
+            let navBarappearance = UINavigationBarAppearance()
+            navBarappearance.configureWithOpaqueBackground()
+            navBarappearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: global.navBarItemColor]
+            navBarappearance.backgroundColor = global.armyColor
+            
+            self.navigationController?.navigationBar.standardAppearance = navBarappearance
+            self.navigationController?.navigationBar.scrollEdgeAppearance = navBarappearance
+            
+            let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithOpaqueBackground()
+            tabBarAppearance.backgroundColor = global.armyColor
+        
+            self.tabBarController?.tabBar.standardAppearance = tabBarAppearance
+            if #available(iOS 15.0, *) {
+                self.tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
+            } else {
+                // Fallback on earlier versions
+            }
+        } else {
+            self.navigationController?.navigationBar.backgroundColor = global.armyColor
+            self.tabBarController?.tabBar.backgroundColor = global.armyColor
+        }
+    }
+    
+    override func setupPDFListData() {
+        pathToList = global.armyPath
+        localPDFFiles = Utils.createArrayList(path: pathToList)
+    }
+    
+    override func getPDFListFromFirebase() {
+        let directoryPath = TabsDirectory.army.pathString
+        firebaseStorageManager.getFileList(from: directoryPath, completion: { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let success):
+                self.firebasePDFList = success
+            case .failure(let failure):
+                debugPrint(failure)
+            }
+        })
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -72,28 +98,42 @@ class ArmyBookshelfViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DocArray.count
+        return localPDFFiles.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BookshelfCell
-        
-        
-        let titleFont:UIFont? = UIFont(name: "Helvetica", size: 14.0)
-        let detailFont:UIFont? = UIFont(name: "Helvetica", size: 12.0)
-        
-        let detailText:NSMutableAttributedString = NSMutableAttributedString(string: "\n" + (DocDetailArray[(indexPath as NSIndexPath).row] as! String), attributes: (NSDictionary(object: detailFont!, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
-        detailText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.lightGray, range: NSMakeRange(0, detailText.length))
-        
-        let title = NSMutableAttributedString(string: DocArray[(indexPath as NSIndexPath).row] as! String, attributes: (NSDictionary(object: titleFont!, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
-        
-        title.append(detailText)
-        
-        cell.textLabel?.attributedText = title
+        var cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BookshelfCell
+        cell = Utils.setCellText(
+            cell: cell,
+            pdfFileModel: localPDFFiles[indexPath.row],
+            titleFont: global.cellTitleFont!,
+            titleFontColor: global.cellTitleFontColor,
+            detailFont: global.cellDetailFont!,
+            detailFontColor: global.cellDetailFontColor
+        )
         cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         cell.textLabel?.numberOfLines = 0
-        
         return cell
-        
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedPDF = localPDFFiles[indexPath.row]
+        global.selection = selectedPDF.fileName
+        if selectedPDF.isUpdated,
+           let fileURL = FilesStorageManager().retrieveFileURL(forKey: selectedPDF.fullName) {
+            global.url = fileURL
+        } else {
+            global.url = Bundle.main.url(forResource: pathToList + global.selection, withExtension: "pdf")
+        }
+        // Check if URL valid and PDF document in on
+        guard let docURL = global.url,
+              let pdfDocument = PDFDocument(url: docURL)
+        else {
+            showAlert(alertText: "Can't open document.", alertMessage: "Please, try again later.")
+            return
+        }
+        global.url = docURL
+        global.pdfDocument = pdfDocument
+        goToSeque(with: "FromArmyToPDFSegue", selectedIndexPath: indexPath)
     }
 }

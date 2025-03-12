@@ -3,7 +3,7 @@
 //
 //  The MIT License
 //
-//  Copyright (c) 2015 - 2019 Colby Uptegraft - https://www.colbycoapps.com
+//  Copyright (c) 2015 - 2021 Doc Apps LLC - https://www.doc-apps.com
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 //
@@ -14,10 +14,11 @@
 //  This license does not extend to any of the Portable Document Format (PDF) files included with the Software.  These PDF files may not be used, copied, modified, published, distributed, sublicense, and/or sold without the express permission of the United States Department of Defense.
 
 import UIKit
+import WebKit
 
-class WebviewViewController: UIViewController, UIWebViewDelegate {
+class WebviewViewController: UIViewController {
     
-    @IBOutlet var Webview: UIWebView!
+    @IBOutlet var Webview:WKWebView!
     
     var docController: UIDocumentInteractionController?
     let downloadIcon:UIImage = UIImage(named: "download.png")!
@@ -28,40 +29,90 @@ class WebviewViewController: UIViewController, UIWebViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if global.webUrl == global.pracGuideLink {
+            if #available(iOS 13.0, *) {
+                let navBarappearance = UINavigationBarAppearance()
+                navBarappearance.configureWithOpaqueBackground()
+                navBarappearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: global.navBarItemColor]
+                navBarappearance.backgroundColor = global.airForceColor
+                
+                self.navigationController?.navigationBar.standardAppearance = navBarappearance
+                self.navigationController?.navigationBar.scrollEdgeAppearance = navBarappearance
+                
+                let tabBarAppearance = UITabBarAppearance()
+                tabBarAppearance.configureWithOpaqueBackground()
+                tabBarAppearance.backgroundColor = global.airForceColor
+            
+                self.tabBarController?.tabBar.standardAppearance = tabBarAppearance
+                if #available(iOS 15.0, *) {
+                    self.tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
+                } else {
+                    // Fallback on earlier versions
+                }
+            } else {
+                self.navigationController?.navigationBar.backgroundColor = global.airForceColor
+                self.tabBarController?.tabBar.backgroundColor = global.airForceColor
+            }
+        } else {
+            if #available(iOS 13.0, *) {
+                let navBarappearance = UINavigationBarAppearance()
+                navBarappearance.configureWithOpaqueBackground()
+                navBarappearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: global.navBarItemColor]
+                navBarappearance.backgroundColor = global.navyColor
+                
+                self.navigationController?.navigationBar.standardAppearance = navBarappearance
+                self.navigationController?.navigationBar.scrollEdgeAppearance = navBarappearance
+                
+                let tabBarAppearance = UITabBarAppearance()
+                tabBarAppearance.configureWithOpaqueBackground()
+                tabBarAppearance.backgroundColor = global.navyColor
+            
+                self.tabBarController?.tabBar.standardAppearance = tabBarAppearance
+                if #available(iOS 15.0, *) {
+                    self.tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
+                } else {
+                    // Fallback on earlier versions
+                }
+            } else {
+                self.navigationController?.navigationBar.backgroundColor = global.navyColor
+                self.tabBarController?.tabBar.backgroundColor = global.navyColor
+            }
+        }
+        
         let reloadButton = UIBarButtonItem(image: redoIcon, style: .plain, target: self, action: #selector(WebviewViewController.webViewLoad))
         let backButton = UIBarButtonItem(image: backArrow, style: .plain, target: self, action: #selector(WebviewViewController.goBack))
         let forwardButton = UIBarButtonItem(image: forwardArrow, style: .plain, target: self, action: #selector(WebviewViewController.goForward))
-        
         self.navigationItem.setRightBarButtonItems([forwardButton, backButton, reloadButton], animated: false)
         
-        Webview.scalesPageToFit = true
+        if #available(iOS 13.0, *) {
+            Webview.scalesLargeContentImage = true
+        } else {
+            // Fallback on earlier versions
+        }
         Webview.isMultipleTouchEnabled = true
-        
         webViewLoad()
     }
     
-    @objc func webViewLoad() {
-        if global.selection == FSTlkt.pracGuidTitle {
-            self.title = FSTlkt.pracGuidTitle
-            let url = "http://www.asams.org/guidelines.htm"
-            let requestUrl = URL(string: url)
-            let request = URLRequest(url: requestUrl!)
-            Webview?.loadRequest(request)
+    override func viewDidAppear(_ animated: Bool) {
+        if global.webUrl == global.pracGuideLink {
+            self.navigationController?.navigationBar.backgroundColor = global.airForceColor
+            self.tabBarController?.tabBar.backgroundColor = global.airForceColor
         } else {
-            docError()
+            self.navigationController?.navigationBar.backgroundColor = global.navyColor
+            self.tabBarController?.tabBar.backgroundColor = global.navyColor
         }
     }
     
-    func docError() {
-        let title = NSLocalizedString("Error", comment: "")
-        let message = NSLocalizedString("Document not found.  Please contact ColbyCoApps@gmail.com.", comment: "")
-        let cancelButtonTitle = NSLocalizedString("OK", comment: "")
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { action in
-            NSLog("The simple alert's cancel action occured.")
+    @objc func webViewLoad() {
+        if global.webUrl == global.pracGuideLink {
+            self.title = global.pracGuideTitle
+        } else {
+            self.title = global.navyWikiTitle
         }
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
+        let url = global.webUrl
+        let requestUrl = URL(string: url)
+        let request = URLRequest(url: requestUrl!)
+        Webview?.load(request)
     }
     
     @objc func goBack() {

@@ -3,7 +3,7 @@
 //
 //  The MIT License
 //
-//  Copyright (c) 2015 - 2019 Colby Uptegraft - https://www.colbycoapps.com
+//  Copyright (c) 2015 - 2021 Doc Apps LLC - https://www.doc-apps.com
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 //
@@ -18,11 +18,11 @@ import PDFKit
 import MessageUI
 import UIKit.UIGestureRecognizerSubclass
 
-class PDFViewController: UIViewController, UIPopoverPresentationControllerDelegate, PDFViewDelegate, ActionMenuViewControllerDelegate, SearchViewControllerDelegate, ThumbnailGridViewControllerDelegate, OutlineViewControllerDelegate, BookmarkViewControllerDelegate {
+class PDFViewController: UIViewController, UIPopoverPresentationControllerDelegate, PDFViewDelegate, ActionMenuViewControllerDelegate, ThumbnailGridViewControllerDelegate, OutlineViewControllerDelegate, BookmarkViewControllerDelegate {
     
     var pdfDocument: PDFDocument?
     var docController: UIDocumentInteractionController?
-    let downloadIcon:UIImage = UIImage(named: "download.png")!
+    let downloadIcon: UIImage = UIImage(named: "download.png")!
 
     @IBOutlet weak var pdfView: PDFView!
     @IBOutlet weak var pdfThumbnailViewContainer: UIView!
@@ -39,12 +39,13 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
     @IBOutlet weak var outlineViewConainer: UIView!
     @IBOutlet weak var bookmarkViewConainer: UIView!
 
-    var bookmarkButton: UIBarButtonItem!
+//    var bookmarkButton: UIBarButtonItem!
 
     var searchNavigationController: UINavigationController?
 
     let barHideOnTapGestureRecognizer = UITapGestureRecognizer()
     let pdfViewGestureRecognizer = PDFViewGestureRecognizer()
+    private let storeKitStorage: StoreKitStorage = LocalStorage.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +77,11 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
 
         resume()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.barTintColor = navigationController?.navigationBar.barTintColor
+    }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         adjustThumbnailViewHeight()
@@ -109,7 +115,9 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
     }
 
     func actionMenuViewControllerShareDocument(_ actionMenuViewController: ActionMenuViewController) {
-        docController = UIDocumentInteractionController(url: global.url)
+        guard let docURL = global.url else { return }
+        
+        docController = UIDocumentInteractionController(url: docURL)
         let url = URL(string:"itms-books:");
         if UIApplication.shared.canOpenURL(url!) {
             print("Able to share document")
@@ -128,13 +136,6 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
         printInteractionController.present(animated: true, completionHandler: nil)
     }
 
-    func searchViewController(_ searchViewController: SearchViewController, didSelectSearchResult selection: PDFSelection) {
-        selection.color = .yellow
-        pdfView.currentSelection = selection
-        pdfView.go(to: selection)
-        showBars()
-    }
-
     func thumbnailGridViewController(_ thumbnailGridViewController: ThumbnailGridViewController, didSelectPage page: PDFPage) {
         resume()
         pdfView.go(to: page)
@@ -151,14 +152,13 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
     }
 
     private func resume() {
-        
         let backButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Chevron"), style: .plain, target: self, action: #selector(back(_:)))
-        let tableOfContentsButton = UIBarButtonItem(image: #imageLiteral(resourceName: "List"), style: .plain, target: self, action: #selector(showTableOfContents(_:)))
+//        let tableOfContentsButton = UIBarButtonItem(image: #imageLiteral(resourceName: "List"), style: .plain, target: self, action: #selector(showTableOfContents(_:)))
         let actionButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(showActionMenu(_:)))
-        navigationItem.leftBarButtonItems = [backButton, tableOfContentsButton, actionButton]
+        navigationItem.leftBarButtonItems = [backButton, actionButton]
         let searchButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Search"), style: .plain, target: self, action: #selector(showSearchView(_:)))
-        bookmarkButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Bookmark-N"), style: .plain, target: self, action: #selector(addOrRemoveBookmark(_:)))
-        navigationItem.rightBarButtonItems = [bookmarkButton, searchButton]
+//        bookmarkButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Bookmark-N"), style: .plain, target: self, action: #selector(addOrRemoveBookmark(_:)))
+        navigationItem.rightBarButtonItem = searchButton
 
         pdfThumbnailViewContainer.alpha = 1
 
@@ -170,7 +170,7 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
 
         barHideOnTapGestureRecognizer.isEnabled = true
 
-        updateBookmarkStatus()
+//        updateBookmarkStatus()
         updatePageNumberLabel()
     }
     
@@ -212,9 +212,9 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
         navigationController?.popViewController(animated: true)
     }
 
-    @objc func showTableOfContents(_ sender: UIBarButtonItem) {
-        showTableOfContents()
-    }
+//    @objc func showTableOfContents(_ sender: UIBarButtonItem) {
+//        showTableOfContents()
+//    }
 
     @objc func showActionMenu(_ sender: UIBarButtonItem) {
         if let viewController = storyboard?.instantiateViewController(withIdentifier: String(describing: ActionMenuViewController.self)) as? ActionMenuViewController {
@@ -241,22 +241,22 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
         }
     }
 
-    @objc func addOrRemoveBookmark(_ sender: UIBarButtonItem) {
-        if let documentURL = pdfDocument?.documentURL?.absoluteString {
-            var bookmarks = UserDefaults.standard.array(forKey: documentURL) as? [Int] ?? [Int]()
-            if let currentPage = pdfView.currentPage,
-                let pageIndex = pdfDocument?.index(for: currentPage) {
-                if let index = bookmarks.firstIndex(of: pageIndex) {
-                    bookmarks.remove(at: index)
-                    UserDefaults.standard.set(bookmarks, forKey: documentURL)
-                    bookmarkButton.image = #imageLiteral(resourceName: "Bookmark-N")
-                } else {
-                    UserDefaults.standard.set((bookmarks + [pageIndex]).sorted(), forKey: documentURL)
-                    bookmarkButton.image = #imageLiteral(resourceName: "Bookmark-P")
-                }
-            }
-        }
-    }
+//    @objc func addOrRemoveBookmark(_ sender: UIBarButtonItem) {
+//        if let documentURL = pdfDocument?.documentURL?.absoluteString {
+//            var bookmarks = UserDefaults.standard.array(forKey: documentURL) as? [Int] ?? [Int]()
+//            if let currentPage = pdfView.currentPage,
+//                let pageIndex = pdfDocument?.index(for: currentPage) {
+//                if let index = bookmarks.firstIndex(of: pageIndex) {
+//                    bookmarks.remove(at: index)
+//                    UserDefaults.standard.set(bookmarks, forKey: documentURL)
+//                    bookmarkButton.image = #imageLiteral(resourceName: "Bookmark-N")
+//                } else {
+//                    UserDefaults.standard.set((bookmarks + [pageIndex]).sorted(), forKey: documentURL)
+//                    bookmarkButton.image = #imageLiteral(resourceName: "Bookmark-P")
+//                }
+//            }
+//        }
+//    }
 
     @objc func toggleTableOfContentsView(_ sender: UISegmentedControl) {
         pdfView.isHidden = true
@@ -282,7 +282,7 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
         if pdfViewGestureRecognizer.isTracking {
             hideBars()
         }
-        updateBookmarkStatus()
+//        updateBookmarkStatus()
         updatePageNumberLabel()
     }
 
@@ -296,14 +296,14 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
         }
     }
 
-    private func updateBookmarkStatus() {
-        if let documentURL = pdfDocument?.documentURL?.absoluteString,
-            let bookmarks = UserDefaults.standard.array(forKey: documentURL) as? [Int],
-            let currentPage = pdfView.currentPage,
-            let index = pdfDocument?.index(for: currentPage) {
-            bookmarkButton.image = bookmarks.contains(index) ? #imageLiteral(resourceName: "Bookmark-P") : #imageLiteral(resourceName: "Bookmark-N")
-        }
-    }
+//    private func updateBookmarkStatus() {
+//        if let documentURL = pdfDocument?.documentURL?.absoluteString,
+//            let bookmarks = UserDefaults.standard.array(forKey: documentURL) as? [Int],
+//            let currentPage = pdfView.currentPage,
+//            let index = pdfDocument?.index(for: currentPage) {
+//            bookmarkButton.image = bookmarks.contains(index) ? #imageLiteral(resourceName: "Bookmark-P") : #imageLiteral(resourceName: "Bookmark-N")
+//        }
+//    }
 
     private func updatePageNumberLabel() {
         if let currentPage = pdfView.currentPage, let index = pdfDocument?.index(for: currentPage), let pageCount = pdfDocument?.pageCount {
@@ -332,6 +332,40 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
                 self.titleLabelContainer.alpha = 0
                 self.pageNumberLabelContainer.alpha = 0
             }
+        }
+    }
+}
+
+// MARK: - SearchViewControllerDelegate
+
+extension PDFViewController: SearchViewControllerDelegate {
+    func searchViewController(_ searchViewController: SearchViewController, didSelectSearchResult selection: PDFSelection) {
+        pdfView.go(to: selection)
+        
+        // Dismiss current highlights
+        removeAllAnnotations()
+        
+        // Create the highlight annotation
+        let highlight = PDFAnnotation(bounds: selection.bounds(for: pdfView.currentPage!),
+                                      forType: .highlight,
+                                      withProperties: nil)
+        highlight.color = .yellow // Set your desired color
+        highlight.page = pdfView.currentPage
+        
+        // Set the selection you want to highlight
+        highlight.contents = selection.string
+        pdfView.currentPage?.addAnnotation(highlight)
+        
+        showBars()
+    }
+    
+    func searchResultDidClear() {
+        removeAllAnnotations()
+    }
+    
+    private func removeAllAnnotations() {
+        pdfView.currentPage?.annotations.forEach { annotation in
+            pdfView.currentPage?.removeAnnotation(annotation)
         }
     }
 }

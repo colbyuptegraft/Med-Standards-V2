@@ -3,7 +3,7 @@
 //
 //  The MIT License
 //
-//  Copyright (c) 2015 - 2019 Colby Uptegraft - https://www.colbycoapps.com
+//  Copyright (c) 2015 - 2021 Doc Apps LLC - https://www.doc-apps.com
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 //
@@ -16,131 +16,171 @@
 import UIKit
 import PDFKit
 
-struct global {
+class AirForceBookshelfViewController: TableViewController {
     
-    static var pdfDocument = PDFDocument()
-    static var url: URL!
-    static var selection:String = ""
-    static var link:String = ""
-    
-}
-
-struct AF {
-    
-    static let dlcTitle = "AFI 10-203"
-    static let dlcDetail = "Duty Limiting Conditions (7 May 2019)"
-    
-    static let mesTitle = "AFI 48-123"
-    static let mesDetail = "Medical Examinations & Standards (28 Jan 2018)"
-    
-    static let medsTitle = "Approved Med List"
-    static let medsDetail = "Official Air Force Aerospace Medicine Approved Medications (13 May 2019)"
-    
-    static let otcMedsTitle = "OTC Approved Med List"
-    static let otcMedsDetail = "Over-the-Counter Medications Not Requiring Flight Surgeon Approval (14 May 2019)"
-    
-    static let modMedsTitle = "MOD Approved Med List"
-    static let modMedsDetail = "Approved Missile Operator Medications (24 May 2018)"
-    
-    static let msdTitle = "MSD"
-    static let msdDetail = "Medical Standards Directory (11 Jun 2019)"
-    
-    static let wgTitle = "Waiver Guide"
-    static let wgDetail = "Air Force Waiver Guide (25 Jul 2019)"
-    
-    static let fsToolkitTitle = "Flight Surgeon Toolkit"
-    static let fsToolkitDetail = "Useful Flight Medicine Resources"
-    
-    static let physExMtxTitle = "Physical Examination Matrix"
-    static let physExMtxDetail = "Medical Standards & Medical Examination Requirements (Jul 2019)"
-    
-    static let otherTitle = "Other AFIs"
-    static let otherDetail = "Other Flight-Surgeon-Pertinent Air Force Instructions"
-    
-}
-
-class AirForceBookshelfViewController: UITableViewController {
-    
-    let DocArray:NSArray = [AF.dlcTitle, AF.mesTitle, AF.medsTitle, AF.fsToolkitTitle, AF.otcMedsTitle, AF.modMedsTitle, AF.msdTitle, AF.physExMtxTitle, AF.wgTitle,  AF.otherTitle]
-    let DocDetailArray:NSArray = [AF.dlcDetail, AF.mesDetail, AF.medsDetail, AF.fsToolkitDetail, AF.otcMedsDetail, AF.modMedsDetail, AF.msdDetail, AF.physExMtxDetail, AF.wgDetail, AF.otherDetail]
-
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    func docError() {
-        let title = NSLocalizedString("Error", comment: "")
-        let message = NSLocalizedString("Document not found.  Please contact ColbyCoApps@gmail.com.", comment: "")
-        let cancelButtonTitle = NSLocalizedString("OK", comment: "")
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { action in
-            NSLog("The simple alert's cancel action occured.")
+        if #available(iOS 13.0, *) {
+            let navBarappearance = UINavigationBarAppearance()
+            navBarappearance.configureWithOpaqueBackground()
+            navBarappearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: global.navBarItemColor]
+            navBarappearance.backgroundColor = global.airForceColor
+            
+            self.navigationController?.navigationBar.standardAppearance = navBarappearance
+            self.navigationController?.navigationBar.scrollEdgeAppearance = navBarappearance
+            
+            let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithOpaqueBackground()
+            tabBarAppearance.backgroundColor = global.airForceColor
+        
+            self.tabBarController?.tabBar.standardAppearance = tabBarAppearance
+            if #available(iOS 15.0, *) {
+                self.tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
+            } else {
+                // Fallback on earlier versions
+            }
+        } else {
+            self.navigationController?.navigationBar.backgroundColor = global.airForceColor
+            self.tabBarController?.tabBar.backgroundColor = global.airForceColor
         }
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
+        
+        setupPDFListData()
+        getPDFListFromFirebase()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if #available(iOS 13.0, *) {
+            let navBarappearance = UINavigationBarAppearance()
+            navBarappearance.configureWithOpaqueBackground()
+            navBarappearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: global.navBarItemColor]
+            navBarappearance.backgroundColor = global.airForceColor
+            
+            self.navigationController?.navigationBar.standardAppearance = navBarappearance
+            self.navigationController?.navigationBar.scrollEdgeAppearance = navBarappearance
+            
+            let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithOpaqueBackground()
+            tabBarAppearance.backgroundColor = global.airForceColor
+        
+            self.tabBarController?.tabBar.standardAppearance = tabBarAppearance
+            if #available(iOS 15.0, *) {
+                self.tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
+            } else {
+                // Fallback on earlier versions
+            }
+        } else {
+            self.navigationController?.navigationBar.backgroundColor = global.airForceColor
+            self.tabBarController?.tabBar.backgroundColor = global.airForceColor
+        }
+    }
+    
+    override func setupPDFListData() {
+        pathToList = global.airForceMainPath
+        sectionTitles = [0 : "Main Documents", 1 : "Other Menus"]
+        otherMenu = [global.bomcTitle, global.fsToolkitTitle, global.otherAfisTitle]
+        localPDFFiles = Utils.createArrayList(path: pathToList)
+    }
+    
+    override func getPDFListFromFirebase() {
+        let directoryPath = TabsDirectory.airForce.pathString + AirForceSectionType.main.pathString
+        firebaseStorageManager.getFileList(from: directoryPath, completion: { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let success):
+                self.firebasePDFList = success
+            case .failure(let failure):
+                debugPrint(failure)
+            }
+        })
+    }
+    
+    
+    // MARK: - TableViewDataSorce and TableViewDelegate
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return sectionTitles.count
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionTitles[section]
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = global.tableViewSectionColor
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = global.tableViewSectionFontColor
+        header.textLabel?.font = global.tableViewSectionFont
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return section == 0 ? localPDFFiles.count : otherMenu.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BookshelfCell
+        switch indexPath.section {
+        case 0:
+            cell = Utils.setCellText(
+                cell: cell,
+                pdfFileModel: localPDFFiles[indexPath.row],
+                titleFont: global.cellTitleFont!,
+                titleFontColor: global.cellTitleFontColor,
+                detailFont: global.cellDetailFont!,
+                detailFontColor: global.cellDetailFontColor
+            )
+        case 1:
+            cell = Utils.setCellTitle(
+                cell: cell,
+                title: otherMenu[indexPath.row],
+                titleFont: global.cellTitleFont!,
+                titleFontColor: global.cellTitleFontColor
+            )
+        default:
+            cell.textLabel?.text = "Other"
+        }
+        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+        cell.textLabel?.numberOfLines = 0
+        return cell
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         global.selection = ""
-        global.selection = DocArray[(indexPath as NSIndexPath).row] as! String
-        
-        if global.selection != AF.otherTitle && global.selection != AF.fsToolkitTitle {
-            if global.selection == AF.dlcTitle {
-                global.url = Bundle.main.url(forResource: "AFI 10-203 Duty Limiting Conditions (7 May 2019)", withExtension: "pdf")
-            } else if global.selection == AF.mesTitle {
-                global.url = Bundle.main.url(forResource: "AFI 48-123 Medical Examinations & Standards (28 Jan 2018)", withExtension: "pdf")
-            } else if global.selection == AF.medsTitle {
-                global.url = Bundle.main.url(forResource: "AF Approved Med List (13 May 2019)", withExtension: "pdf")
-            } else if global.selection == AF.otcMedsTitle {
-                global.url = Bundle.main.url(forResource: "AF OTC Approved Med List (14 May 2019)", withExtension: "pdf")
-            } else if global.selection == AF.modMedsTitle {
-                global.url = Bundle.main.url(forResource: "AF Missile Operator Approved Med List (24 May 2018)", withExtension: "pdf")
-            } else if global.selection == AF.msdTitle {
-                global.url = Bundle.main.url(forResource: "AF Medical Standards Directory (11 Jun 2019)", withExtension: "pdf")
-            } else if global.selection == AF.physExMtxTitle {
-                global.url = Bundle.main.url(forResource: "AF Physical Examination Matrix (Jul 2019)", withExtension: "pdf")
-            } else if global.selection == AF.wgTitle {
-                global.url = Bundle.main.url(forResource: "AF Waiver Guide (25 Jul 2019)", withExtension: "pdf")
+        switch indexPath.section {
+        case 0:
+            let selectedPDF = localPDFFiles[indexPath.row]
+            global.selection = selectedPDF.fileName
+            if selectedPDF.isUpdated,
+               let fileURL = FilesStorageManager().retrieveFileURL(forKey: selectedPDF.fullName) {
+                global.url = fileURL
             } else {
-                docError()
+                global.url = Bundle.main.url(forResource: pathToList + global.selection, withExtension: "pdf")
             }
-            global.pdfDocument = PDFDocument(url: global.url!)!
+            // Check if URL valid and PDF document in on
+            guard let docURL = global.url,
+                  let pdfDocument = PDFDocument(url: docURL)
+            else {
+                showAlert(alertText: "Can't open document.", alertMessage: "Please, try again later.")
+                return
+            }
+            global.url = docURL
+            global.pdfDocument = pdfDocument
+            goToSeque(with: "FromMainAirForceToPDFSegue", selectedIndexPath: indexPath)
+        case 1:
+            global.selection = otherMenu[(indexPath as NSIndexPath).row]
+            if global.selection == global.bomcTitle {
+                self.performSegue(withIdentifier: "ToBOMCMenuSegue", sender: Any?.self)
+            } else if global.selection == global.fsToolkitTitle {
+                self.performSegue(withIdentifier: "ToFSToolkitMenuSegue", sender: Any?.self)
+            } else {
+                self.performSegue(withIdentifier: "ToOtherAFIMenuSegue", sender: Any?.self)
+            }
+        default:
             self.performSegue(withIdentifier: "FromMainAirForceToPDFSegue", sender: Any?.self)
-        } else if global.selection == AF.otherTitle {
-            self.performSegue(withIdentifier: "ToOtherAFIMenuSegue", sender: Any?.self)
-        } else if global.selection == AF.fsToolkitTitle {
-            self.performSegue(withIdentifier: "ToFSToolkitMenuSegue", sender: Any?.self)
-        } else {
-            docError()
         }
-    }
- 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DocArray.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BookshelfCell
-
-        let titleFont:UIFont? = UIFont(name: "Helvetica", size: 14.0)
-        let detailFont:UIFont? = UIFont(name: "Helvetica", size: 12.0)
-        
-        let detailText:NSMutableAttributedString = NSMutableAttributedString(string: "\n" + (DocDetailArray[(indexPath as NSIndexPath).row] as! String), attributes: (NSDictionary(object: detailFont!, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
-        detailText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.lightGray, range: NSMakeRange(0, detailText.length))
-        
-        let title = NSMutableAttributedString(string: DocArray[(indexPath as NSIndexPath).row] as! String, attributes: (NSDictionary(object: titleFont!, forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any]))
-        
-        title.append(detailText)
-        
-        cell.textLabel?.attributedText = title
-        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
-        cell.textLabel?.numberOfLines = 0
-        
-        return cell
     }
 }

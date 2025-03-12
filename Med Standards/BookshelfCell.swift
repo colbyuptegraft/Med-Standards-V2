@@ -3,7 +3,7 @@
 //
 //  The MIT License
 //
-//  Copyright (c) 2015 - 2019 Colby Uptegraft - https://www.colbycoapps.com
+//  Copyright (c) 2015 - 2021 Doc Apps LLC - https://www.doc-apps.com
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 //
@@ -32,10 +32,24 @@ class BookshelfCell: UITableViewCell {
         }
     }
     var url: NSURL?
+    
+    var fileStatus: String = "" {
+        didSet {
+            statusLabel.text = fileStatus
+        }
+    }
 
     @IBOutlet private weak var thumbnailImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var authorLabel: UILabel!
+    private lazy var statusLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .right
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .preferredFont(forTextStyle: .caption2)
+        label.textColor = .lightGray
+        return label
+    }()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,9 +59,23 @@ class BookshelfCell: UITableViewCell {
 
         titleLabel.text = title
         authorLabel.text = author
+        setConstraints()
     }
 
     override func prepareForReuse() {
         thumbnailImageView.image = nil
+    }
+}
+
+private extension BookshelfCell {
+    func setConstraints() {
+        contentView.addSubview(statusLabel)
+        
+        NSLayoutConstraint.activate([
+//            statusLabel.topAnchor.constraint(equalTo: centerYAnchor, constant: 3),
+            statusLabel.leadingAnchor.constraint(equalTo: centerXAnchor),
+            statusLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            statusLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -3)
+        ])
     }
 }

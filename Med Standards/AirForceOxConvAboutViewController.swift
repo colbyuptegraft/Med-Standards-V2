@@ -3,7 +3,7 @@
 //
 //  The MIT License
 //
-//  Copyright (c) 2015 - 2019 Colby Uptegraft - https://www.colbycoapps.com
+//  Copyright (c) 2015 - 2021 Doc Apps LLC - https://www.doc-apps.com
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 //
@@ -17,7 +17,6 @@ import UIKit
 
 class AirForceOxConvAboutViewController: UIViewController, UIScrollViewDelegate {
     
-    
     @IBOutlet var aboutLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var textView: UITextView!
@@ -25,18 +24,63 @@ class AirForceOxConvAboutViewController: UIViewController, UIScrollViewDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.title = "About"
-        
         self.aboutLabel.text = "This application uses the equation:"
-        
         self.textView.text = "to calculate the inspiratory oxygen needs of patients flown at various cabin altitudes for the purpose of aeromedical evacuations and provides a recommendation for the method of oxygen delivery.  The margin of error is +/- 1%.  \n\nThe calculated results are recommendations only.  The actual amount of oxygen and delivery method should be based on the clinical status of each individual patient."
         
+        if #available(iOS 13.0, *) {
+            let navBarappearance = UINavigationBarAppearance()
+            navBarappearance.configureWithOpaqueBackground()
+            navBarappearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: global.navBarItemColor]
+            navBarappearance.backgroundColor = global.airForceColor
+            
+            self.navigationController?.navigationBar.standardAppearance = navBarappearance
+            self.navigationController?.navigationBar.scrollEdgeAppearance = navBarappearance
+            
+            let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithOpaqueBackground()
+            tabBarAppearance.backgroundColor = global.airForceColor
+        
+            self.tabBarController?.tabBar.standardAppearance = tabBarAppearance
+            if #available(iOS 15.0, *) {
+                self.tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
+            } else {
+                // Fallback on earlier versions
+            }
+        } else {
+            self.navigationController?.navigationBar.backgroundColor = global.airForceColor
+            self.tabBarController?.tabBar.backgroundColor = global.airForceColor
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if #available(iOS 13.0, *) {
+            let navBarappearance = UINavigationBarAppearance()
+            navBarappearance.configureWithOpaqueBackground()
+            navBarappearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: global.navBarItemColor]
+            navBarappearance.backgroundColor = global.airForceColor
+            
+            self.navigationController?.navigationBar.standardAppearance = navBarappearance
+            self.navigationController?.navigationBar.scrollEdgeAppearance = navBarappearance
+            
+            let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithOpaqueBackground()
+            tabBarAppearance.backgroundColor = global.airForceColor
+        
+            self.tabBarController?.tabBar.standardAppearance = tabBarAppearance
+            if #available(iOS 15.0, *) {
+                self.tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
+            } else {
+                // Fallback on earlier versions
+            }
+        } else {
+            self.navigationController?.navigationBar.backgroundColor = global.airForceColor
+            self.tabBarController?.tabBar.backgroundColor = global.airForceColor
+        }
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        
         let screenSize: CGRect = UIScreen.main.bounds
         let screenWidth = screenSize.width
         let screenHeight = screenSize.height
@@ -44,7 +88,6 @@ class AirForceOxConvAboutViewController: UIViewController, UIScrollViewDelegate 
         self.scrollView.isUserInteractionEnabled = true
         self.scrollView.contentSize = CGSize(width: screenWidth, height: scrollHeight)
         self.scrollView.showsVerticalScrollIndicator = true
-        
     }
 }
 

@@ -3,7 +3,7 @@
 //
 //  The MIT License
 //
-//  Copyright (c) 2015 - 2019 Colby Uptegraft - https://www.colbycoapps.com
+//  Copyright (c) 2015 - 2021 Doc Apps LLC - https://www.doc-apps.com
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 //
@@ -36,7 +36,6 @@ fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 
 class AirForceOxConvViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
 
-    
     @IBOutlet var startingElevation: UITextField!
     @IBOutlet var cabinAltitude: UITextField!
     @IBOutlet var initialFiOx: UITextField!
@@ -54,26 +53,29 @@ class AirForceOxConvViewController: UIViewController, UITextFieldDelegate, UIScr
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(scrollerView)
-        
         self.title = "Altitude Oxygen Converter"
         self.initialFiOx.delegate = self
         self.startingElevation.delegate = self
         self.cabinAltitude.delegate = self
         let _: UIScrollView.KeyboardDismissMode
         self.scrollerView.keyboardDismissMode = .interactive
-        
         let infoButton = UIBarButtonItem(image: infoIcon, style: .plain, target: self, action: #selector(AirForceOxConvViewController.segue))
         self.navigationItem.setRightBarButton(infoButton, animated: false)
+        self.navigationController?.navigationBar.barTintColor = global.airForceColor
+        self.tabBarController?.tabBar.barTintColor = global.airForceColor
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.backgroundColor = global.airForceColor
+        self.tabBarController?.tabBar.backgroundColor = global.airForceColor
     }
     
     @objc func segue() {
         performSegue(withIdentifier: "FromOxConvToAboutSegue", sender: nil)
     }
     
-    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        
         let screenSize: CGRect = UIScreen.main.bounds
         let screenWidth = screenSize.width
         let screenHeight = screenSize.height
@@ -82,9 +84,7 @@ class AirForceOxConvViewController: UIViewController, UITextFieldDelegate, UIScr
         self.scrollerView.contentSize = CGSize(width: screenWidth, height: scrollHeight)
     }
  
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         if textField == self.startingElevation {
             self.cabinAltitude.becomeFirstResponder()
             scrollerView.setContentOffset(CGPoint(x: 0, y: cabinAltitude.frame.origin.y - 75), animated: true)
@@ -96,7 +96,6 @@ class AirForceOxConvViewController: UIViewController, UITextFieldDelegate, UIScr
             calculate()
             scrollerView.setContentOffset(CGPoint(x: 0, y: result.frame.origin.y - 75), animated: true)
         }
-        
         return true
     }
     
@@ -110,37 +109,25 @@ class AirForceOxConvViewController: UIViewController, UITextFieldDelegate, UIScr
         }
     }
     
-    
     func calculate() {
         let m = 0.3048
-        
         let startingElevationInt = Int(startingElevation.text!)
         let cabinAltitudeInt = Int(cabinAltitude.text!)
         let initialFiOxInt = Int(initialFiOx.text!)
-        
         if startingElevationInt != nil && cabinAltitudeInt != nil && initialFiOxInt != nil && cabinAltitudeInt >= 0 && initialFiOxInt >= 21 {
-            
             let enteredStartingElevationM = Double(startingElevationInt!) * m
             let enteredCabinAltitudeM = Double(cabinAltitudeInt!) * m
             let enteredInitialFiOxPer = Double(initialFiOxInt!) / 100
-            
-            
             let denom = 8.31447 * 288.15
             let topNum = 9.80665 * 0.0289644 * enteredStartingElevationM
             let botNum = 9.80665 * 0.0289644 * enteredCabinAltitudeM
-            
             let topExp = exp(-1 * (topNum / denom))
             let botExp = exp(-1 * (botNum / denom))
-            
             let finalFiOx = ((enteredInitialFiOxPer * topExp) / botExp)
-            
             let finalResult = Int(finalFiOx * 100)
-            
             if finalResult > 0 && finalResult <= 100  {
-                
                 result.text = "Equivalent FiO2: \(finalResult)%"
                 print(finalFiOx)
-                
                 if finalResult <= 21 {
                     resultMethod.text = "Supplemental O2 Not Required"
                 } else if finalResult > 21 && finalResult <= 24 {
@@ -174,23 +161,16 @@ class AirForceOxConvViewController: UIViewController, UITextFieldDelegate, UIScr
                 } else {
                     resultMethod.text = "Non-Rebreathing Mask at 10-15 L/Min"
                 }
-                
             } else if startingElevationInt == cabinAltitudeInt {
-                
                 elevSameAlert()
-                
             } else if finalResult <= 0 {
-                
                 result.text = ""
                 resultMethod.text = ""
                 finalResultZeroAlert()
-                
             } else {
                 result.text = "Required FiO2 > 100%. Lower Cabin Altitude."
                 resultMethod.text = "Non-Rebreathing Mask at 15 L/Min"
             }
-            
-            
         } else if startingElevationInt == nil || cabinAltitudeInt == nil || initialFiOxInt == nil {
             result.text = ""
             resultMethod.text = ""
@@ -210,7 +190,6 @@ class AirForceOxConvViewController: UIViewController, UITextFieldDelegate, UIScr
             resultMethod.text = ""
             nilValueAlert()
         }
-        
         self.view.endEditing(true)
     }
     
@@ -219,7 +198,6 @@ class AirForceOxConvViewController: UIViewController, UITextFieldDelegate, UIScr
         let title = NSLocalizedString("Duplicate Values", comment: "")
         let message = NSLocalizedString("The Starting Elevation and Cabin Altitude are the same.  Recheck these values.", comment: "")
         let cancelButtonTitle = NSLocalizedString("OK", comment: "")
-        
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { action in
             NSLog("The simple alert's cancel action occured.")
@@ -232,7 +210,6 @@ class AirForceOxConvViewController: UIViewController, UITextFieldDelegate, UIScr
         let title = NSLocalizedString("Error", comment: "")
         let message = NSLocalizedString("FiO2 cannot be < 0%.", comment: "")
         let cancelButtonTitle = NSLocalizedString("OK", comment: "")
-        
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { action in
             NSLog("The simple alert's cancel action occured.")
@@ -245,7 +222,6 @@ class AirForceOxConvViewController: UIViewController, UITextFieldDelegate, UIScr
         let title = NSLocalizedString("Error", comment: "")
         let message = NSLocalizedString("Please enter whole numbers.", comment: "")
         let cancelButtonTitle = NSLocalizedString("OK", comment: "")
-        
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { action in
             NSLog("The simple alert's cancel action occured.")
@@ -258,7 +234,6 @@ class AirForceOxConvViewController: UIViewController, UITextFieldDelegate, UIScr
         let title = NSLocalizedString("Error", comment: "")
         let message = NSLocalizedString("Cabin Altitude must be > 0 feet.", comment: "")
         let cancelButtonTitle = NSLocalizedString("OK", comment: "")
-        
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { action in
             NSLog("The simple alert's cancel action occured.")
@@ -271,7 +246,6 @@ class AirForceOxConvViewController: UIViewController, UITextFieldDelegate, UIScr
         let title = NSLocalizedString("Error", comment: "")
         let message = NSLocalizedString("Initial FiO2 cannot be < 21%.", comment: "")
         let cancelButtonTitle = NSLocalizedString("OK", comment: "")
-        
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { action in
             NSLog("The simple alert's cancel action occured.")
@@ -279,5 +253,4 @@ class AirForceOxConvViewController: UIViewController, UITextFieldDelegate, UIScr
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
     }
-    
 }
