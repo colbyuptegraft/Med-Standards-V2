@@ -3,7 +3,7 @@
 //
 //  The MIT License
 //
-//  Copyright (c) 2015 - 2021 Doc Apps LLC - https://www.doc-apps.com
+//  Copyright (c) 2015 - 2025 Doc Apps LLC - https://www.doc-apps.com
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 //
@@ -22,7 +22,7 @@ class AboutViewContoller: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.TextView.text = "This application presents the medical standards for special duty personnel of the United States Air Force, Army, and Navy as well as other useful tools and information for Aerospace Medicine professionals. \n\nAll AFIs, ARs, and Navy documents were screened and approved for inclusion in this application by Air Force Public Affairs. \n\nUpdates with new document versions will occur once per month.  For questions, concerns, and/or suggestions, please email info@doc-apps.com.\n\nEffective 30 Jun 2025, marking 10 years of independently creating & maintaining this app, I will no longer be able to continue this service. If you have coding experience and are interested in taking ownership of Med Standards, please email the above address."
+        self.TextView.text = "This application presents the medical standards for special duty personnel of the United States Air Force, Army, and Navy as well as other useful tools and information for Aerospace Medicine professionals. \n\nAll AFIs, ARs, and Navy documents were screened and approved for inclusion in this application by Air Force Public Affairs. \n\nUpdates with new document versions will occur once per month.  For questions, concerns, and/or suggestions, please email info@doc-apps.com."
         TextView.isEditable = false
         TextView.dataDetectorTypes = UIDataDetectorTypes.all
     }
