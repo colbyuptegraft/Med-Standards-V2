@@ -3,7 +3,7 @@
 //  Med Standards
 //
 //  Created by Oleksandr on 05.02.2025.
-//  Copyright © 2025 ColbyCoApps. All rights reserved.
+//  Copyright © Doc Apps LLC. All rights reserved.
 //
 
 //import Foundation

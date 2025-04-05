@@ -3,7 +3,7 @@
 //  Med Standards
 //
 //  Created by Oleksandr on 17.02.2025.
-//  Copyright © 2025 Doc Apps LLC. All rights reserved.
+//  Copyright © Doc Apps LLC. All rights reserved.
 //
 
 import UIKit

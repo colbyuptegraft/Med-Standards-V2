@@ -3,7 +3,7 @@
 //  Med Standards
 //
 //  Created by Oleksandr on 11.02.2025.
-//  Copyright © 2025 ColbyCoApps. All rights reserved.
+//  Copyright © Doc Apps LLC. All rights reserved.
 //
 
 import MessageUI
@@ -195,7 +195,7 @@ private extension SettingsVC {
                     let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                     
                     showAlert(with: "Contact support",
-                              message: "You can talk to us via email\ninfo@doc-apps.com",
+                              message: "You can contact to us via email\ninfo@doc-apps.com",
                               actions: [copyAction, okAction]
                     )
                 }

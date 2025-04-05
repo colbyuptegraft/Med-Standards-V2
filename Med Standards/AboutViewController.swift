@@ -22,7 +22,13 @@ class AboutViewContoller: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.TextView.text = "This application presents the medical standards for special duty personnel of the United States Air Force, Army, and Navy as well as other useful tools and information for Aerospace Medicine professionals. \n\nAll AFIs, ARs, and Navy documents were screened and approved for inclusion in this application by Air Force Public Affairs. \n\nUpdates with new document versions will occur once per month.  For questions, concerns, and/or suggestions, please email info@doc-apps.com."
+        self.TextView.text = """
+This application presents the medical standards for special duty personnel of the United States Air Force, Army, and Navy as well as other useful tools and information for Aerospace Medicine professionals. All documents have been cleared for public release. 
+
+\nAfter 10 years of being free, this app will now require a $0.99 subscription fee. These fees will help sustain the application and support its ongoing development & maintenance. Enhancements have also been applied to allow for faster & less laborious updates. However, as with any code upgrade, there will be bugs! If you experience any, please email info@doc-apps.com. Thank you all for your ongoing support and continuous suggestions for content updates & improvements.
+
+\nIf you do not see updated content after receiving a notification that new documents are available, please close & reopen the app.
+"""
         TextView.isEditable = false
         TextView.dataDetectorTypes = UIDataDetectorTypes.all
     }
