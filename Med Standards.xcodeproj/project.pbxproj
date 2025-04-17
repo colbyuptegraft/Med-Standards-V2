@@ -14,7 +14,6 @@
 		1141BE292D760131001B4C18 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 1141BE282D760131001B4C18 /* FirebaseCore */; };
 		1141BE2B2D760131001B4C18 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 1141BE2A2D760131001B4C18 /* FirebaseMessaging */; };
 		1141BE2D2D760131001B4C18 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1141BE2C2D760131001B4C18 /* FirebaseStorage */; };
-		1164FA372D6397AD009E9136 /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = 1164FA362D6397AD009E9136 /* NVActivityIndicatorViewExtended */; };
 		1164FA3A2D6398B7009E9136 /* SettingsItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1164FA392D6398B6009E9136 /* SettingsItems.swift */; };
 		1164FA3C2D6398E0009E9136 /* SettingsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1164FA3B2D6398DF009E9136 /* SettingsItemView.swift */; };
 		1164FA3E2D63991E009E9136 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1164FA3D2D63991D009E9136 /* SettingsViewController.swift */; };
@@ -43,6 +42,7 @@
 		1164FA782D660D35009E9136 /* FilesStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1164FA772D660D33009E9136 /* FilesStorageManager.swift */; };
 		1164FA7A2D674332009E9136 /* StoreKitStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1164FA792D67432D009E9136 /* StoreKitStorage.swift */; };
 		1164FA7C2D6743E6009E9136 /* PDFListStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1164FA7B2D6743E1009E9136 /* PDFListStorage.swift */; };
+		117B2BD02DB11050000397B0 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 117B2BCF2DB11050000397B0 /* NVActivityIndicatorView */; };
 		11C1A9122D79984700F9CFF9 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 11C1A9112D79984700F9CFF9 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		11C1A9142D79984700F9CFF9 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 11C1A9132D79984700F9CFF9 /* FirebaseCore */; };
 		11C1A9162D79984700F9CFF9 /* FirebaseInAppMessaging-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 11C1A9152D79984700F9CFF9 /* FirebaseInAppMessaging-Beta */; };
@@ -155,11 +155,11 @@
 			files = (
 				1141BE2B2D760131001B4C18 /* FirebaseMessaging in Frameworks */,
 				11C1A9122D79984700F9CFF9 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				117B2BD02DB11050000397B0 /* NVActivityIndicatorView in Frameworks */,
 				11C1A9142D79984700F9CFF9 /* FirebaseCore in Frameworks */,
 				112F04B72D6396B4007C9872 /* SwiftyStoreKit in Frameworks */,
 				1141BE2D2D760131001B4C18 /* FirebaseStorage in Frameworks */,
 				1141BE272D760131001B4C18 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
-				1164FA372D6397AD009E9136 /* NVActivityIndicatorViewExtended in Frameworks */,
 				11CBD0E52D75F641007B6D62 /* StoreKit.framework in Frameworks */,
 				11C1A9182D79984700F9CFF9 /* FirebaseMessaging in Frameworks */,
 				1141BE292D760131001B4C18 /* FirebaseCore in Frameworks */,
@@ -759,8 +759,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.2.0;
+				kind = exactVersion;
+				version = 4.8.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -801,10 +801,10 @@
 			package = 113787292D639494004B78D7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
 		};
-		1164FA362D6397AD009E9136 /* NVActivityIndicatorViewExtended */ = {
+		117B2BCF2DB11050000397B0 /* NVActivityIndicatorView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1164FA352D6397AD009E9136 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
-			productName = NVActivityIndicatorViewExtended;
+			productName = NVActivityIndicatorView;
 		};
 		11C1A9112D79984700F9CFF9 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
 			isa = XCSwiftPackageProductDependency;
