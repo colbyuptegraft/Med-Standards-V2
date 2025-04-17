@@ -6,7 +6,7 @@
 //  Copyright © Doc Apps LLC. All rights reserved.
 //
 
-import NVActivityIndicatorViewExtended
+import NVActivityIndicatorView
 import UIKit
 
 // MARK: - Subscriptions extension

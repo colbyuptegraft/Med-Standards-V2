@@ -64,6 +64,7 @@ class BookshelfCell: UITableViewCell {
 
     override func prepareForReuse() {
         thumbnailImageView.image = nil
+        fileStatus = ""
     }
 }
 
