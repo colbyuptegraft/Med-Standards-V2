@@ -96,8 +96,8 @@ public class Utils {
             for file in content {
                 let fileName = String(file.dropLast(4))
                 let title = fileName.components(separatedBy: "#").first ?? ""
-                    let subtitle = fileName.components(separatedBy: "#").last ?? ""
-                    let lastUpdate = file.substringBetweenParentheses()
+                let subtitle = fileName.components(separatedBy: "#").last ?? ""
+                let lastUpdate = file.substringBetweenParentheses()
                     
                 let pdfFileModel = PDFFileModel(title: title,
                                                 subtitle: subtitle,
@@ -125,8 +125,14 @@ public class Utils {
         detailFont: UIFont,
         detailFontColor: UIColor
     ) -> BookshelfCell {
+        var subtitle = pdfFileModel.subtitle
+        // Fix bug with subtitle file name displaying
+        if subtitle.hasSuffix(".pdf") {
+            subtitle.removeLast(4)
+        }
+        
         let detailText: NSMutableAttributedString = NSMutableAttributedString(
-            string: "\n" + pdfFileModel.subtitle,
+            string: "\n" + subtitle,
             attributes: (NSDictionary(object: detailFont,
                                       forKey: NSAttributedString.Key.font as NSCopying) as! [NSAttributedString.Key : Any])
         )

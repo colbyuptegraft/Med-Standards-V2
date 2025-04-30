@@ -36,8 +36,9 @@ final class FirebaseStorageManager {
             
             for item in pdfList.items {
                 // The items under storageReference.
-                let tittle = item.name.components(separatedBy: "#").first ?? ""
-                let subtitle = item.name.components(separatedBy: "#").last ?? ""
+                let fileName = String(item.name.dropLast(4))
+                let tittle = fileName.components(separatedBy: "#").first ?? ""
+                let subtitle = fileName.components(separatedBy: "#").last ?? ""
                 let docModel = FirebasePDFModel(fullName: item.name,
                                                 title: tittle,
                                                 subtitle: subtitle,
