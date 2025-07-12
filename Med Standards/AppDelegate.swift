@@ -17,7 +17,8 @@ import Firebase
 import FirebaseMessaging
 import UIKit
 import UserNotifications
-import SwiftyStoreKit
+// SUBSCRIPTION REMOVAL: Remove this import
+// import SwiftyStoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
         
         // SwiftyStoreKit
-        checkSubscription()
+        // checkSubscription() // SUBSCRIPTION REMOVAL: Remove this call
         
         // Firebase
         FirebaseApp.configure()
@@ -75,6 +76,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         UIApplication.shared.applicationIconBadgeNumber = 0
+        // SUBSCRIPTION REMOVAL: Remove this call
+        // SwiftyStoreKit
+        // checkSubscription()
     }
 }
 

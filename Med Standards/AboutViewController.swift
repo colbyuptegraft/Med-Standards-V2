@@ -22,13 +22,9 @@ class AboutViewContoller: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.TextView.text = """
-This application presents the medical standards for special duty personnel of the United States Air Force, Army, and Navy as well as other useful tools and information for Aerospace Medicine professionals. All documents have been cleared for public release. 
-
-\nAfter 10 years of being free, this app will now require a $0.99 subscription fee. These fees will help sustain the application and support its ongoing development & maintenance. Enhancements have also been applied to allow for faster & less laborious updates. However, as with any code upgrade, there will be bugs! If you experience any, please email info@doc-apps.com. Thank you all for your ongoing support and continuous suggestions for content updates & improvements.
-
-\nIf you do not see updated content after receiving a notification that new documents are available, please close & reopen the app.
-"""
+        // SUBSCRIPTION REMOVAL: Remove or modify this subscription text (line 27)
+        let message = "\nAfter 10 years of being free, this app will now require a $0.99 subscription fee. These fees will help sustain the application and support its ongoing development & maintenance. Enhancements have also been applied to allow for faster & less laborious updates. However, if you have previously downloaded this app, you will still be able to access all content in the app for free indefinitely.\n\nThe intention of this app is to provide a portable reference for medical personnel while working in the field. This app is not intended to be a primary reference for medical treatment. \n\nIf you have any questions, comments, or if you would like to contribute to this app, please contact us at the email address below."
+        TextView.text = message
         TextView.isEditable = false
         TextView.dataDetectorTypes = UIDataDetectorTypes.all
     }

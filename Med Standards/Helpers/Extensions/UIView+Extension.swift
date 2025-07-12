@@ -9,6 +9,7 @@
 import UIKit
 
 /// Create standard buttons for stack view (used on subscription screens: restore, termsOfUse, Privacy)
+// SUBSCRIPTION REMOVAL: Remove or modify this comment (line 10)
 extension UIView {
     public func createButtonsForStackView(title: String, titleColor: UIColor?, fontSize: CGFloat = 12) -> UIButton {
         let button = UIButton()
