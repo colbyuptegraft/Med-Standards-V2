@@ -45,6 +45,7 @@ class PDFViewController: UIViewController, UIPopoverPresentationControllerDelega
 
     let barHideOnTapGestureRecognizer = UITapGestureRecognizer()
     let pdfViewGestureRecognizer = PDFViewGestureRecognizer()
+    // SUBSCRIPTION REMOVAL: Remove this property (line 47)
     private let storeKitStorage: StoreKitStorage = LocalStorage.shared
     
     override func viewDidLoad() {

@@ -16,6 +16,7 @@ extension SettingsVC {
     }
 
     enum SettingsItem: Int, CaseIterable {
+        // SUBSCRIPTION REMOVAL: Remove these cases (lines 18-19)
         case getPremium
         case restorePurchase
         case rateApp
@@ -26,6 +27,7 @@ extension SettingsVC {
 
         var title: String {
             switch self {
+            // SUBSCRIPTION REMOVAL: Remove these cases (lines 28-31)
             case .getPremium:
                 return "Get premium"
             case .restorePurchase:
@@ -45,20 +47,21 @@ extension SettingsVC {
 
         var image: UIImage? {
             switch self {
+            // SUBSCRIPTION REMOVAL: Remove these cases (lines 47-49)
             case .getPremium:
-                return UIImage(systemName: "crown")
+                return UIImage(named: "premium")
             case .restorePurchase:
-                return UIImage(systemName: "arrow.counterclockwise")
+                return UIImage(named: "restore")
             case .rateApp:
-                return UIImage(systemName: "star")
+                return UIImage(named: "rate")
             case .support:
-                return UIImage(systemName: "envelope")
+                return UIImage(named: "support")
             case .shareApp:
-                return UIImage(systemName: "square.and.arrow.up")
+                return UIImage(named: "share")
             case .privacyPolicy:
-                return UIImage(systemName: "text.document")
+                return UIImage(named: "privacy")
             case .about:
-                return UIImage(systemName: "info.circle")
+                return UIImage(named: "about")
             }
         }
 

@@ -27,11 +27,14 @@ class TableViewController: UITableViewController {
         }
     }
     
+    // SUBSCRIPTION REMOVAL: Remove this property
     private let storeKitStorage: StoreKitStorage = LocalStorage.shared
     
     // MARK: - Public methods
     
     func goToSeque(with identifier: String, selectedIndexPath: IndexPath) {
+        // SUBSCRIPTION REMOVAL: Remove subscription check logic (lines 34-45)
+        // Replace with direct navigation: self.performSegue(withIdentifier: identifier, sender: Any?.self)
         // Check active subscription or free opens count for month
         let subRulesManager = SubscriptionRulesManager()
         if storeKitStorage.isBoughtSubscription {

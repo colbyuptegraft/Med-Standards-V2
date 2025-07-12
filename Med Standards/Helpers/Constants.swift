@@ -24,7 +24,7 @@ Your use of the App does not violate any applicable law or regulation.\n\n
 License Grant: Subject to your compliance with this Agreement, Doc Apps, LLC grants you a limited, non-exclusive, non-transferable, revocable license to download and use the App on your compatible devices for your personal, non-commercial use.
 Restrictions: You agree not to:
 Modify, reverse engineer, or create derivative works of the App;
-Interfere with the App’s operation or circumvent any security measures or paid subscriptions;
+Interfere with the App's operation or circumvent any security measures or paid subscriptions;
 Use the App for any unlawful or prohibited activity.\n\n
 4. Intellectual Property
 Ownership: All intellectual property rights in and to the App, including but not limited to text, graphics, user interfaces, trademarks, logos, and software code, are owned by or licensed to Doc Apps, LLC.

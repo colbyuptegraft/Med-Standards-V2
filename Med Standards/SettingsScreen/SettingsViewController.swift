@@ -10,6 +10,7 @@ import MessageUI
 import NVActivityIndicatorView
 import UIKit
 
+// SUBSCRIPTION REMOVAL: Remove SubscriptionScreen protocol conformance
 final class SettingsVC: UIViewController, SubscriptionScreen {
     
     // MARK: - Private properties
@@ -17,6 +18,7 @@ final class SettingsVC: UIViewController, SubscriptionScreen {
     private var modelItems: [Setting]
     private let listStackView: UIStackView = .init()
     private let appVersionLabel: UILabel = .init()
+    // SUBSCRIPTION REMOVAL: Remove this property
     private let storeKitStorage: StoreKitStorage = LocalStorage.shared
     
     // MARK: - Initialisers
@@ -41,6 +43,7 @@ final class SettingsVC: UIViewController, SubscriptionScreen {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
+        // SUBSCRIPTION REMOVAL: Remove this call
         checkIfUserSubscribed()
     }
 }
@@ -131,6 +134,7 @@ private extension SettingsVC {
     
     func handleItemTap(at index: Int) {
         switch SettingsItem(rawValue: index) {
+        // SUBSCRIPTION REMOVAL: Remove these cases (lines 133-136)
         case .getPremium:
             presentSubscriptionScreen()
         case .restorePurchase:
@@ -153,12 +157,14 @@ private extension SettingsVC {
         }
     }
     
+    // SUBSCRIPTION REMOVAL: Remove this method (lines 156-158)
     func presentSubscriptionScreen() {
         let controller = SubscriptionViewController()
         controller.modalPresentationStyle = .fullScreen
         present(controller, animated: true)
     }
     
+    // SUBSCRIPTION REMOVAL: Remove this method (lines 161-170)
     func restorePurchase() {
         restoreAction { success in
             if success {
@@ -203,6 +209,7 @@ private extension SettingsVC {
         }
     }
     
+    // SUBSCRIPTION REMOVAL: Remove this method (lines 206-208)
     func checkIfUserSubscribed() {
         guard storeKitStorage.isBoughtSubscription else { return }
         
