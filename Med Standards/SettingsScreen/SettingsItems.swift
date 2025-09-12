@@ -16,8 +16,8 @@ extension SettingsVC {
     }
 
     enum SettingsItem: Int, CaseIterable {
-        case getPremium
-        case restorePurchase
+//        case getPremium
+//        case restorePurchase
         case rateApp
         case support
         case shareApp
@@ -26,10 +26,10 @@ extension SettingsVC {
 
         var title: String {
             switch self {
-            case .getPremium:
-                return "Get premium"
-            case .restorePurchase:
-                return "Restore purchase"
+//            case .getPremium:
+//                return "Get premium"
+//            case .restorePurchase:
+//                return "Restore purchase"
             case .rateApp:
                 return "Rate app"
             case .support:
@@ -45,10 +45,10 @@ extension SettingsVC {
 
         var image: UIImage? {
             switch self {
-            case .getPremium:
-                return UIImage(systemName: "crown")
-            case .restorePurchase:
-                return UIImage(systemName: "arrow.counterclockwise")
+//            case .getPremium:
+//                return UIImage(systemName: "crown")
+//            case .restorePurchase:
+//                return UIImage(systemName: "arrow.counterclockwise")
             case .rateApp:
                 return UIImage(systemName: "star")
             case .support:

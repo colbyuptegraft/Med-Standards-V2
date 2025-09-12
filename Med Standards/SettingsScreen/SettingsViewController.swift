@@ -17,7 +17,7 @@ final class SettingsVC: UIViewController, SubscriptionScreen {
     private var modelItems: [Setting]
     private let listStackView: UIStackView = .init()
     private let appVersionLabel: UILabel = .init()
-    private let storeKitStorage: StoreKitStorage = LocalStorage.shared
+//    private let storeKitStorage: StoreKitStorage = LocalStorage.shared
     
     // MARK: - Initialisers
     
@@ -41,7 +41,7 @@ final class SettingsVC: UIViewController, SubscriptionScreen {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
-        checkIfUserSubscribed()
+//        checkIfUserSubscribed()
     }
 }
 
@@ -131,10 +131,10 @@ private extension SettingsVC {
     
     func handleItemTap(at index: Int) {
         switch SettingsItem(rawValue: index) {
-        case .getPremium:
-            presentSubscriptionScreen()
-        case .restorePurchase:
-            restorePurchase()
+//        case .getPremium:
+//            presentSubscriptionScreen()
+//        case .restorePurchase:
+//            restorePurchase()
         case .rateApp:
             AppRateManager.requestRate()
         case .support:
@@ -203,11 +203,11 @@ private extension SettingsVC {
         }
     }
     
-    func checkIfUserSubscribed() {
-        guard storeKitStorage.isBoughtSubscription else { return }
-        
-        listStackView.subviews.first?.isHidden = true
-    }
+//    func checkIfUserSubscribed() {
+//        guard storeKitStorage.isBoughtSubscription else { return }
+//        
+//        listStackView.subviews.first?.isHidden = true
+//    }
 }
 
 // MARK: - Sharing controller

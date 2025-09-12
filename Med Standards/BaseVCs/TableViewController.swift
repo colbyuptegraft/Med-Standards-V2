@@ -27,25 +27,25 @@ class TableViewController: UITableViewController {
         }
     }
     
-    private let storeKitStorage: StoreKitStorage = LocalStorage.shared
+//    private let storeKitStorage: StoreKitStorage = LocalStorage.shared
     
     // MARK: - Public methods
     
     func goToSeque(with identifier: String, selectedIndexPath: IndexPath) {
         // Check active subscription or free opens count for month
-        let subRulesManager = SubscriptionRulesManager()
-        if storeKitStorage.isBoughtSubscription {
+//        let subRulesManager = SubscriptionRulesManager()
+//        if storeKitStorage.isBoughtSubscription {
             self.performSegue(withIdentifier: identifier, sender: Any?.self)
             updatePDFList(with: selectedIndexPath)
-        } else if subRulesManager.isMaxFreeOpensCountReached {
-            let subscriptionVC = SubscriptionViewController()
-            subscriptionVC.modalPresentationStyle = .fullScreen
-            present(subscriptionVC, animated: true)
-        } else {
-            subRulesManager.incrementFreeOpensCount()
-            self.performSegue(withIdentifier: identifier, sender: Any?.self)
-            updatePDFList(with: selectedIndexPath)
-        }
+//        } else if subRulesManager.isMaxFreeOpensCountReached {
+//            let subscriptionVC = SubscriptionViewController()
+//            subscriptionVC.modalPresentationStyle = .fullScreen
+//            present(subscriptionVC, animated: true)
+//        } else {
+//            subRulesManager.incrementFreeOpensCount()
+//            self.performSegue(withIdentifier: identifier, sender: Any?.self)
+//            updatePDFList(with: selectedIndexPath)
+//        }
     }
     
     // MARK: Override methods
