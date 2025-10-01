@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
         
         // SwiftyStoreKit
-        checkSubscription()
+//        checkSubscription()
         
         // Firebase
         FirebaseApp.configure()
@@ -127,7 +127,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
     
     // [START refresh_token]
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        debugPrint("Firebase registration token: \(String(describing: fcmToken))")
+//        debugPrint("Firebase registration token: \(String(describing: fcmToken))")
     }
     
     // [END refresh_token]

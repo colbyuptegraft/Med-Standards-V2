@@ -20,7 +20,7 @@ class AirForceFSToolkitBookshelfViewController: TableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if #available(iOS 13.0, *) {
+//        if #available(iOS 13.0, *) {
             let navBarappearance = UINavigationBarAppearance()
             navBarappearance.configureWithOpaqueBackground()
             navBarappearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: global.navBarItemColor]
@@ -39,17 +39,17 @@ class AirForceFSToolkitBookshelfViewController: TableViewController {
             } else {
                 // Fallback on earlier versions
             }
-        } else {
-            self.navigationController?.navigationBar.backgroundColor = global.airForceColor
-            self.tabBarController?.tabBar.backgroundColor = global.airForceColor
-        }
+//        } else {
+//            self.navigationController?.navigationBar.backgroundColor = global.airForceColor
+//            self.tabBarController?.tabBar.backgroundColor = global.airForceColor
+//        }
         
         setupPDFListData()
         getPDFListFromFirebase()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if #available(iOS 13.0, *) {
+//        if #available(iOS 13.0, *) {
             let navBarappearance = UINavigationBarAppearance()
             navBarappearance.configureWithOpaqueBackground()
             navBarappearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: global.navBarItemColor]
@@ -68,15 +68,15 @@ class AirForceFSToolkitBookshelfViewController: TableViewController {
             } else {
                 // Fallback on earlier versions
             }
-        } else {
-            self.navigationController?.navigationBar.backgroundColor = global.airForceColor
-            self.tabBarController?.tabBar.backgroundColor = global.airForceColor
-        }
+//        } else {
+//            self.navigationController?.navigationBar.backgroundColor = global.airForceColor
+//            self.tabBarController?.tabBar.backgroundColor = global.airForceColor
+//        }
     }
     
     override func setupPDFListData() {
         pathToList = global.airForceFsToolkitPath
-        sectionTitles = [0 : "Toolkit Documents", 1 : "Other Menus & Tools"]
+        sectionTitles = [0: "Toolkit Documents", 1: "Other Menus & Tools"]
         otherMenu = [global.oxConvTitle, global.pracGuideTitle, global.rsvTitle]
         localPDFFiles = Utils.createArrayList(path: pathToList)
     }

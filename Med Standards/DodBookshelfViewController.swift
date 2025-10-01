@@ -20,7 +20,7 @@ class DodBookshelfViewController: TableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if #available(iOS 13.0, *) {
+//        if #available(iOS 13.0, *) {
             let navBarappearance = UINavigationBarAppearance()
             navBarappearance.configureWithOpaqueBackground()
             navBarappearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: global.navBarItemColor]
@@ -39,17 +39,17 @@ class DodBookshelfViewController: TableViewController {
             } else {
                 // Fallback on earlier versions
             }
-        } else {
-            self.navigationController?.navigationBar.backgroundColor = global.dodColor
-            self.tabBarController?.tabBar.backgroundColor = global.dodColor
-        }
+//        } else {
+//            self.navigationController?.navigationBar.backgroundColor = global.dodColor
+//            self.tabBarController?.tabBar.backgroundColor = global.dodColor
+//        }
         
         setupPDFListData()
         getPDFListFromFirebase()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if #available(iOS 13.0, *) {
+//        if #available(iOS 13.0, *) {
             let navBarappearance = UINavigationBarAppearance()
             navBarappearance.configureWithOpaqueBackground()
             navBarappearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: global.navBarItemColor]
@@ -68,10 +68,10 @@ class DodBookshelfViewController: TableViewController {
             } else {
                 // Fallback on earlier versions
             }
-        } else {
-            self.navigationController?.navigationBar.backgroundColor = global.dodColor
-            self.tabBarController?.tabBar.backgroundColor = global.dodColor
-        }
+//        } else {
+//            self.navigationController?.navigationBar.backgroundColor = global.dodColor
+//            self.tabBarController?.tabBar.backgroundColor = global.dodColor
+//        }
     }
     
     override func setupPDFListData() {

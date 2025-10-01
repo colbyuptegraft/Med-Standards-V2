@@ -21,7 +21,7 @@ class NavyBookshelfViewController: TableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if #available(iOS 13.0, *) {
+//        if #available(iOS 13.0, *) {
             let navBarappearance = UINavigationBarAppearance()
             navBarappearance.configureWithOpaqueBackground()
             navBarappearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: global.navBarItemColor]
@@ -40,17 +40,17 @@ class NavyBookshelfViewController: TableViewController {
             } else {
                 // Fallback on earlier versions
             }
-        } else {
-            self.navigationController?.navigationBar.backgroundColor = global.navyColor
-            self.tabBarController?.tabBar.backgroundColor = global.navyColor
-        }
+//        } else {
+//            self.navigationController?.navigationBar.backgroundColor = global.navyColor
+//            self.tabBarController?.tabBar.backgroundColor = global.navyColor
+//        }
         
         setupPDFListData()
         getPDFListFromFirebase()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if #available(iOS 13.0, *) {
+//        if #available(iOS 13.0, *) {
             let navBarappearance = UINavigationBarAppearance()
             navBarappearance.configureWithOpaqueBackground()
             navBarappearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: global.navBarItemColor]
@@ -69,15 +69,15 @@ class NavyBookshelfViewController: TableViewController {
             } else {
                 // Fallback on earlier versions
             }
-        } else {
-            self.navigationController?.navigationBar.backgroundColor = global.navyColor
-            self.tabBarController?.tabBar.backgroundColor = global.navyColor
-        }
+//        } else {
+//            self.navigationController?.navigationBar.backgroundColor = global.navyColor
+//            self.tabBarController?.tabBar.backgroundColor = global.navyColor
+//        }
     }
     
     override func setupPDFListData() {
         pathToList = global.navyPath
-        sectionTitles = [0 : "Main Documents", 1 : "Other Menus"]
+        sectionTitles = [0: "Main Documents", 1: "Other Menus"]
         otherMenu = [global.navyWikiTitle]
         localPDFFiles = Utils.createArrayList(path: pathToList)
     }
